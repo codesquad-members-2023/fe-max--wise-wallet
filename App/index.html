@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<!-- 언어 변경 -->
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="./src/css/reset.css" />
+    <link rel="stylesheet" href="./src/css/common.css" />
+    <link rel="stylesheet" href="./src/css/carousel.css" />
+    <link rel="stylesheet" href="./src/css/tabs.css" />
+    <link rel="stylesheet" href="./src/css/toolbar.css" />
+    <link rel="stylesheet" href="./src/css/datepicker.css" />
+    <link rel="stylesheet" href="./src/css/header.css" />
+    <link rel="stylesheet" href="./src/css/main.css" />
+    <title>Wise wallet</title>
+  </head>
+  <body>
+    <div id="app">
+      <header class="header">
+        <div class="inner">
+          <!-- 로고 -->
+          <h1 id="logo">
+            <a
+              class="display display--small"
+              href="#"
+              aria-label="지혜로운 지갑">
+              <span>Wise</span>
+              <span>wallet</span>
+            </a>
+          </h1>
+          <!-- 캐러셀 -->
+          <article
+            id="monthYear"
+            class="carousel"
+            aria-roledescription="캐러셀"
+            aria-label="날짜">
+            <div class="carousel-inner">
+              <div class="controls">
+                <button
+                  type="button"
+                  class="previous"
+                  aria-controls="myCarousel-items"
+                  aria-label="이전달">
+                  <svg
+                    width="10"
+                    height="18"
+                    viewBox="0 0 10 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M9 1L1 9L9 17"
+                      stroke="#FCFCFC"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </button>
+
+                <button
+                  type="button"
+                  class="next"
+                  aria-controls="myCarousel-items"
+                  aria-label="다음달">
+                  <svg
+                    width="10"
+                    height="18"
+                    viewBox="0 0 10 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M1 1L9 9L1 17"
+                      stroke="#FCFCFC"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </button>
+              </div>
+
+              <div id="myCarousel-items" class="carousel-items" aria-live="off">
+                <!-- 라벨바꾸어 줄것 -->
+                <div
+                  class="carousel-item active"
+                  role="group"
+                  tabindex="0"
+                  aria-roledescription="날짜 표시"
+                  aria-label="내용">
+                  <p class="year">2023</p>
+                  <p class="month">2</p>
+                  <p class="monthName">February</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 탭 -->
+          <div class="tabs">
+            <h2 id="tablist-1" class="blind">날짜 캐러셀</h2>
+            <div role="tablist" aria-labelledby="tablist-1" class="manual">
+              <button
+                id="tab-1"
+                type="button"
+                role="tab"
+                aria-label="문서"
+                aria-selected="true"
+                aria-controls="tabpanel-1">
+                <svg
+                  width="44"
+                  height="44"
+                  viewBox="0 0 44 44"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M24 12H16C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V30C14 30.5304 14.2107 31.0391 14.5858 31.4142C14.9609 31.7893 15.4696 32 16 32H28C28.5304 32 29.0391 31.7893 29.4142 31.4142C29.7893 31.0391 30 30.5304 30 30V18L24 12Z"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M24 12V18H30"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M26 23H18"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M26 27H18"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M20 19H19H18"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+              <button
+                id="tab-2"
+                type="button"
+                role="tab"
+                aria-label="캘린더"
+                aria-selected="false"
+                aria-controls="tabpanel-2"
+                tabindex="-1">
+                <svg
+                  width="44"
+                  height="44"
+                  viewBox="0 0 44 44"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M29 14H15C13.8954 14 13 14.8954 13 16V30C13 31.1046 13.8954 32 15 32H29C30.1046 32 31 31.1046 31 30V16C31 14.8954 30.1046 14 29 14Z"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M26 12V16"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M18 12V16"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M13 20H31"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+              <button
+                id="tab-3"
+                type="button"
+                role="tab"
+                aria-label="통계"
+                aria-selected="false"
+                aria-controls="tabpanel-3"
+                tabindex="-1">
+                <svg
+                  width="44"
+                  height="44"
+                  viewBox="0 0 44 44"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M28 30V20"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M22 30V14"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M16 30V24"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main>
+        <h1 class="blind">메인영역</h1>
+        <div class="inner">
+          <div id="tabpanel-1" role="tabpanel" aria-labelledby="tab-1">
+            <div
+              class="format"
+              role="toolbar"
+              aria-label="기록하기"
+              aria-controls="textarea1">
+              <div class="group">
+                <label for="id-textbox-1" aria-hidden="true">일자</label>
+                <div class="field field-date">
+                  <div id="myDatepicker" class="datepicker">
+                    <div class="date">
+                      <div class="group">
+                        <input
+                          class="item"
+                          type="text"
+                          id="id-textbox-1"
+                          aria-describedby="id-description-1"
+                          aria-label="일자 입력"
+                          value="20230222" />
+                        <span class="desc blind" id="id-description-1">
+                          (<span class="sr-only">날짜 형식: </span>
+                          년/월/월이름)
+                        </span>
+                      </div>
+                    </div>
+                    <div
+                      id="id-datepicker-1"
+                      class="datepicker-dialog"
+                      role="dialog"
+                      aria-modal="true"
+                      aria-label="날짜를 선택해주세요">
+                      <div class="header">
+                        <button
+                          type="button"
+                          class="prev-year"
+                          aria-label="작년">
+                          <svg
+                            width="10"
+                            height="18"
+                            viewBox="0 0 10 18"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                              d="M9 1L1 9L9 17"
+                              stroke="#FCFCFC"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round" />
+                          </svg>
+                        </button>
+
+                        <button
+                          type="button"
+                          class="prev-month"
+                          aria-label="저번달">
+                          <svg
+                            width="10"
+                            height="18"
+                            viewBox="0 0 10 18"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                              d="M9 1L1 9L9 17"
+                              stroke="#FCFCFC"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round" />
+                          </svg>
+                        </button>
+
+                        <h2
+                          id="id-grid-label"
+                          class="month-year"
+                          aria-live="polite">
+                          February 2020
+                        </h2>
+
+                        <button
+                          type="button"
+                          class="next-month"
+                          aria-label="다음달">
+                          <svg
+                            width="10"
+                            height="18"
+                            viewBox="0 0 10 18"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                              d="M1 1L9 9L1 17"
+                              stroke="#FCFCFC"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round" />
+                          </svg>
+                        </button>
+
+                        <button
+                          type="button"
+                          class="next-year"
+                          aria-label="내년">
+                          <svg
+                            width="10"
+                            height="18"
+                            viewBox="0 0 10 18"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                              d="M1 1L9 9L1 17"
+                              stroke="#FCFCFC"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round" />
+                          </svg>
+                        </button>
+                      </div>
+
+                      <div class="table-wrap">
+                        <table
+                          class="dates"
+                          role="grid"
+                          aria-labelledby="id-grid-label">
+                          <thead>
+                            <tr>
+                              <th scope="col" abbr="일요일">일</th>
+                              <th scope="col" abbr="월요일">월</th>
+                              <th scope="col" abbr="화요일">화</th>
+                              <th scope="col" abbr="수요일">수</th>
+                              <th scope="col" abbr="목요일">목</th>
+                              <th scope="col" abbr="금요일">금</th>
+                              <th scope="col" abbr="토요일">토</th>
+                            </tr>
+                          </thead>
+
+                          <tbody>
+                            <tr>
+                              <td class="disabled" tabindex="-1"></td>
+                              <td class="disabled" tabindex="-1"></td>
+                              <td class="disabled" tabindex="-1"></td>
+                              <td class="disabled" tabindex="-1"></td>
+                              <td class="disabled" tabindex="-1"></td>
+                              <td class="disabled" tabindex="-1"></td>
+                              <td tabindex="-1" data-date="2020-02-01">1</td>
+                            </tr>
+                            <tr>
+                              <td tabindex="-1" data-date="2020-02-02">2</td>
+                              <td tabindex="-1" data-date="2020-02-03">3</td>
+                              <td tabindex="-1" data-date="2020-02-04">4</td>
+                              <td tabindex="-1" data-date="2020-02-05">5</td>
+                              <td tabindex="-1" data-date="2020-02-06">6</td>
+                              <td tabindex="-1" data-date="2020-02-07">7</td>
+                              <td tabindex="-1" data-date="2020-02-08">8</td>
+                            </tr>
+                            <tr>
+                              <td tabindex="-1" data-date="2020-02-09">9</td>
+                              <td tabindex="-1" data-date="2020-02-10">10</td>
+                              <td tabindex="-1" data-date="2020-02-11">11</td>
+                              <td tabindex="-1" data-date="2020-02-12">12</td>
+                              <td tabindex="-1" data-date="2020-02-13">13</td>
+                              <td
+                                tabindex="0"
+                                data-date="2020-02-14"
+                                role="gridcell"
+                                aria-selected="true">
+                                14
+                              </td>
+                              <td tabindex="-1" data-date="2020-02-15">15</td>
+                            </tr>
+                            <tr>
+                              <td tabindex="-1" data-date="2020-02-16">16</td>
+                              <td tabindex="-1" data-date="2020-02-17">17</td>
+                              <td tabindex="-1" data-date="2020-02-18">18</td>
+                              <td tabindex="-1" data-date="2020-02-19">19</td>
+                              <td tabindex="-1" data-date="2020-02-20">20</td>
+                              <td tabindex="-1" data-date="2020-02-21">21</td>
+                              <td tabindex="-1" data-date="2020-02-22">22</td>
+                            </tr>
+                            <tr>
+                              <td tabindex="-1" data-date="2020-02-23">23</td>
+                              <td tabindex="-1" data-date="2020-02-24">24</td>
+                              <td tabindex="-1" data-date="2020-02-25">25</td>
+                              <td tabindex="-1" data-date="2020-02-26">26</td>
+                              <td tabindex="-1" data-date="2020-02-27">27</td>
+                              <td tabindex="-1" data-date="2020-02-28">28</td>
+                              <td tabindex="-1" data-date="2020-02-29">29</td>
+                            </tr>
+                            <tr>
+                              <td tabindex="-1" data-date="2020-02-30">30</td>
+                              <td tabindex="-1" data-date="2020-02-31">31</td>
+                              <td class="disabled" tabindex="-1"></td>
+                              <td class="disabled" tabindex="-1"></td>
+                              <td class="disabled" tabindex="-1"></td>
+                              <td class="disabled" tabindex="-1"></td>
+                              <td class="disabled" tabindex="-1"></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+
+                      <div class="dialog-ok-cancel-group">
+                        <button class="dialog-button" value="cancel">
+                          취소
+                        </button>
+                        <button class="dialog-button" value="ok">입력</button>
+                      </div>
+                      <div class="dialog-message" aria-live="polite"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="group">
+                <label for="amount" aria-hidden="true">금액</label>
+                <div class="field field-amount">
+                  <figure>
+                    <svg
+                      width="14"
+                      height="2"
+                      viewBox="0 0 14 2"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M1 1H13"
+                        stroke="#524D90"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                    <figcaption class="blind">지출</figcaption>
+                  </figure>
+                  <div class="fieldset">
+                    <div class="cover">
+                      <span class="alt">0</span>
+                    </div>
+                    <input
+                      id="amount"
+                      class="item"
+                      type="number"
+                      tabindex="-1"
+                      min="0"
+                      max="9999999"
+                      step="10"
+                      placeholder="0" />
+                  </div>
+                  <span>원</span>
+                </div>
+              </div>
+
+              <div class="group group-detail">
+                <label for="detail" aria-hidden="true">내용</label>
+                <div class="field">
+                  <input
+                    class="item"
+                    type="text"
+                    name="detail"
+                    id="detail"
+                    tabindex="-1"
+                    placeholder="입력하세요"
+                    aria-label="내용 입력창" />
+                </div>
+              </div>
+
+              <div class="menu-popup group">
+                <label for="payment" aria-hidden="true">결제수단</label>
+                <div class="field">
+                  <button
+                    id="payment"
+                    type="button"
+                    aria-haspopup="true"
+                    aria-controls="menu1"
+                    class="item menu-button"
+                    tabindex="-1"
+                    aria-label="입력하세요">
+                    <span class="placeholder"> 입력하세요 </span>
+                  </button>
+                  <label for="payment">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M4 6L8 10L12 6"
+                        stroke="#A79FCB"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </label>
+                </div>
+                <ul role="menu" id="menu1" aria-label="결제수단">
+                  <li role="menuitemradio" aria-checked="true">
+                    <span>현금</span>
+                    <button tabindex="-1">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M12 4L4 12"
+                          stroke="#E75B3F"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round" />
+                        <path
+                          d="M4 4L12 12"
+                          stroke="#E75B3F"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round" />
+                      </svg>
+                    </button>
+                  </li>
+                  <li role="menuitemradio" aria-checked="false">
+                    <span>신용카드</span>
+                    <button tabindex="-1">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M12 4L4 12"
+                          stroke="#E75B3F"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round" />
+                        <path
+                          d="M4 4L12 12"
+                          stroke="#E75B3F"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round" />
+                      </svg>
+                    </button>
+                  </li>
+                  <li role="menuitemradio" aria-checked="false">
+                    <span>추가하기</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="menu-popup group">
+                <label for="menu2" aria-hidden="true">분류</label>
+                <div class="field">
+                  <button
+                    id="division"
+                    type="button"
+                    aria-haspopup="true"
+                    aria-controls="menu2"
+                    class="item menu-button"
+                    tabindex="-1"
+                    aria-label="입력하세요">
+                    <span class="placeholder"> 입력하세요 </span>
+                  </button>
+                  <label for="division">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M4 6L8 10L12 6"
+                        stroke="#A79FCB"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </label>
+                </div>
+                <ul role="menu" id="menu2" aria-label="분류">
+                  <li role="menuitemradio" aria-checked="true">
+                    <span>생활</span>
+                  </li>
+                  <li role="menuitemradio" aria-checked="false">
+                    <span>식비</span>
+                  </li>
+                  <li role="menuitemradio" aria-checked="false">
+                    <span>교통</span>
+                  </li>
+                  <li role="menuitemradio" aria-checked="false">
+                    <span>쇼핑/뷰티</span>
+                  </li>
+                  <li role="menuitemradio" aria-checked="false">
+                    <span>의료/건강</span>
+                  </li>
+                  <li role="menuitemradio" aria-checked="false">
+                    <span>문화/여가</span>
+                  </li>
+                  <li role="menuitemradio" aria-checked="false">
+                    <span>미분류</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="group group-submit">
+                <button
+                  class="item submit active"
+                  tabindex="-1"
+                  aria-label="등록하기">
+                  <figure>
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M21 6L8.625 18L3 12.5455"
+                        stroke="#FCFCFC"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                    <figcaption class="blind">등록하기</figcaption>
+                  </figure>
+                </button>
+              </div>
+            </div>
+            <!-- 입출금 내역 -->
+            <article id="history">
+              <h2 class="blind">입출금 내역</h2>
+              <div class="history__info">
+                <h3 tabindex="0">전체내역<span>13</span>건</h3>
+                <ul aria-labelledby="income">
+                  <li>
+                    <input
+                      type="checkbox"
+                      class="blind"
+                      name="income"
+                      id="income"
+                      checked />
+                    <label
+                      tabindex="0"
+                      aria-label="수입내역 활성화"
+                      for="income">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <rect
+                          x="2.75"
+                          y="2.75"
+                          width="18.5"
+                          height="18.5"
+                          rx="4.25"
+                          stroke="#524D90"
+                          stroke-width="1.5" />
+                      </svg>
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <rect
+                          x="2"
+                          y="2"
+                          width="20"
+                          height="20"
+                          rx="5"
+                          fill="#524D90" />
+                        <path
+                          d="M17 9L10.125 15.6667L7 12.6364"
+                          stroke="#FCFCFC"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round" />
+                      </svg>
+                    </label>
+                    <dl tabindex="0">
+                      <dt>수입</dt>
+                      <dd>2,000,000</dd>
+                    </dl>
+                  </li>
+                  <li>
+                    <input
+                      class="blind"
+                      type="checkbox"
+                      name="expenditure"
+                      id="expenditure"
+                      checked />
+                    <label
+                      tabindex="0"
+                      aria-label="지출내역 활성화"
+                      for="expenditure">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <rect
+                          x="2.75"
+                          y="2.75"
+                          width="18.5"
+                          height="18.5"
+                          rx="4.25"
+                          stroke="#524D90"
+                          stroke-width="1.5" />
+                      </svg>
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <rect
+                          x="2"
+                          y="2"
+                          width="20"
+                          height="20"
+                          rx="5"
+                          fill="#524D90" />
+                        <path
+                          d="M17 9L10.125 15.6667L7 12.6364"
+                          stroke="#FCFCFC"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round" />
+                      </svg>
+                    </label>
+                    <dl tabindex="0">
+                      <dt>지출</dt>
+                      <dd>798,180</dd>
+                    </dl>
+                  </li>
+                </ul>
+              </div>
+              <ul class="history__detail">
+                <li class="detail-item">
+                  <article class="detail__date">
+                    <div class="date__header">
+                      <h4
+                        tabindex="0"
+                        aria-label="날짜 2월 17일 금요일"
+                        class="header__date-day">
+                        <span class="date">2월 17일</span
+                        ><span class="day">금</span>
+                      </h4>
+                      <dl tabindex="0" class="header__income-expenditure">
+                        <dt>수입</dt>
+                        <dd>2,000,000원</dd>
+                        <dt>지출</dt>
+                        <dd>9,500원</dd>
+                      </dl>
+                    </div>
+                    <div class="date__body">
+                      <ul class="body__list">
+                        <li tabindex="0" class="list__item">
+                          <span
+                            class="category"
+                            data-category="0"
+                            aria-label="생활 카테고리"
+                            >생활</span
+                          >
+                          <span
+                            class="body"
+                            aria-describedby="거래내용 칫솔 6개 세트, 치약 3개 세트"
+                            >칫솔 6개 세트, 치약 3개 세트</span
+                          >
+                          <span
+                            class="payment"
+                            aria-describedby="결제수단 비씨카드"
+                            >비씨카드</span
+                          >
+                          <span
+                            class="price"
+                            aria-describedby="소비 금액 36,460원"
+                            >-36,460원</span
+                          >
+                          <button class="delete">
+                            <svg
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                d="M7.75732 7.75732L16.2426 16.2426"
+                                stroke="#E75B3F"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round" />
+                              <path
+                                d="M7.75732 16.2427L16.2426 7.75739"
+                                stroke="#E75B3F"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            </svg>
+                            삭제하기
+                          </button>
+                        </li>
+                        <li tabindex="0" class="list__item">
+                          <span class="category" data-category="1">식비</span>
+                          <span class="body">잔치국수와 김밥</span>
+                          <span class="payment">현대카드</span>
+                          <span class="price">-36,460원</span>
+                          <button class="delete">
+                            <svg
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                d="M7.75732 7.75732L16.2426 16.2426"
+                                stroke="#E75B3F"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round" />
+                              <path
+                                d="M7.75732 16.2427L16.2426 7.75739"
+                                stroke="#E75B3F"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            </svg>
+                            삭제하기
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
+                  </article>
+                </li>
+                <li class="detail-item">
+                  <article class="detail__date">
+                    <div class="date__header">
+                      <h4
+                        tabindex="0"
+                        aria-label="날짜 2월 17일 금요일"
+                        class="header__date-day">
+                        <span class="date">2월 17일</span
+                        ><span class="day">금</span>
+                      </h4>
+                      <dl tabindex="0" class="header__income-expenditure">
+                        <dt>수입</dt>
+                        <dd>2,000,000원</dd>
+                        <dt>지출</dt>
+                        <dd>9,500원</dd>
+                      </dl>
+                    </div>
+                    <div class="date__body">
+                      <ul class="body__list">
+                        <li tabindex="0" class="list__item">
+                          <span
+                            class="category"
+                            data-category="0"
+                            aria-label="생활 카테고리"
+                            >생활</span
+                          >
+                          <span
+                            class="body"
+                            aria-describedby="거래내용 칫솔 6개 세트, 치약 3개 세트"
+                            >칫솔 6개 세트, 치약 3개 세트</span
+                          >
+                          <span
+                            class="payment"
+                            aria-describedby="결제수단 비씨카드"
+                            >비씨카드</span
+                          >
+                          <span
+                            class="price"
+                            aria-describedby="소비 금액 36,460원"
+                            >-36,460원</span
+                          >
+                          <button class="delete">
+                            <svg
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                d="M7.75732 7.75732L16.2426 16.2426"
+                                stroke="#E75B3F"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round" />
+                              <path
+                                d="M7.75732 16.2427L16.2426 7.75739"
+                                stroke="#E75B3F"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            </svg>
+                            삭제하기
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
+                  </article>
+                </li>
+              </ul>
+            </article>
+          </div>
+          <div
+            id="tabpanel-2"
+            role="tabpanel"
+            aria-labelledby="tab-2"
+            class="is-hidden">
+            <h1 class="blind">달력</h1>
+            <table id="calender">
+              <colgroup>
+                <col span="7" />
+              </colgroup>
+              <thead>
+                <tr>
+                  <th>일</th>
+                  <th>월</th>
+                  <th>화</th>
+                  <th>수</th>
+                  <th>목</th>
+                  <th>금</th>
+                  <th>토</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>2</td>
+                  <td>3</td>
+                  <td>4</td>
+                  <td>5</td>
+                  <td>6</td>
+                  <td>7</td>
+                </tr>
+                <tr>
+                  <td>8</td>
+                  <td>9</td>
+                  <td>10</td>
+                  <td>11</td>
+                  <td>12</td>
+                  <td>13</td>
+                  <td>14</td>
+                </tr>
+                <tr>
+                  <td>15</td>
+                  <td>16</td>
+                  <td>17</td>
+                  <td>18</td>
+                  <td>19</td>
+                  <td>20</td>
+                  <td>21</td>
+                </tr>
+                <tr>
+                  <td>22</td>
+                  <td>23</td>
+                  <td>24</td>
+                  <td>25</td>
+                  <td>26</td>
+                  <td>27</td>
+                  <td>28</td>
+                </tr>
+                <tr>
+                  <td>29</td>
+                  <td>30</td>
+                  <td>31</td>
+                  <td>4</td>
+                  <td>5</td>
+                  <td>6</td>
+                  <td>7</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div
+            id="tabpanel-3"
+            role="tabpanel"
+            aria-labelledby="tab-3"
+            class="is-hidden">
+            <h1 class="blind">통계</h1>
+            <article id="PieChartBoard">
+              <h2 class="blind">파이차트</h2>
+              <figure class="PieChartBoard__chart">
+                <div class="chart"></div>
+                <figcaption class="blind">차트 영역</figcaption>
+              </figure>
+              <article class="PieChartBoard__board">
+                <h3 class="blind">보드 영역</h3>
+                <dl>
+                  <dt>이번 달 지출 금액</dt>
+                  <dd>836,640원</dd>
+                </dl>
+                <ul class="board__info">
+                  <li class="info__item">
+                    <span class="category" data-category="0">생활</span>
+                    <span class="percent">64%</span>
+                    <span class="price">536,460원</span>
+                  </li>
+                  <li class="info__item">
+                    <span class="category" data-category="1">의료/건강</span>
+                    <span class="percent">15%</span>
+                    <span class="price">536,460원</span>
+                  </li>
+                  <li class="info__item">
+                    <span class="category" data-category="2">쇼핑/뷰티</span>
+                    <span class="percent">7%</span>
+                    <span class="price">536,460원</span>
+                  </li>
+                  <li class="info__item">
+                    <span class="category" data-category="3">교통</span>
+                    <span class="percent">6%</span>
+                    <span class="price">536,460원</span>
+                  </li>
+                  <li class="info__item">
+                    <span class="category" data-category="4">식비</span>
+                    <span class="percent">5%</span>
+                    <span class="price">536,460원</span>
+                  </li>
+                  <li class="info__item">
+                    <span class="category" data-category="5">문화/여가</span>
+                    <span class="percent">2%</span>
+                    <span class="price">536,460원</span>
+                  </li>
+                  <li class="info__item">
+                    <span class="category" data-category="6">미분류</span>
+                    <span class="percent">1%</span>
+                    <span class="price">536,460원</span>
+                  </li>
+                </ul>
+              </article>
+            </article>
+            <article id="graph">
+              <h3>생활 카테고리 소비 추이</h3>
+              <figure></figure>
+            </article>
+
+            <ul class="detail">
+              <li class="detail-item">
+                <article class="detail__date">
+                  <div class="date__header">
+                    <h4
+                      tabindex="0"
+                      aria-label="날짜 2월 17일 금요일"
+                      class="header__date-day">
+                      <span class="date">2월 17일</span
+                      ><span class="day">금</span>
+                    </h4>
+                    <dl tabindex="0" class="header__income-expenditure">
+                      <dt>수입</dt>
+                      <dd>2,000,000원</dd>
+                      <dt>지출</dt>
+                      <dd>9,500원</dd>
+                    </dl>
+                  </div>
+                  <div class="date__body">
+                    <ul class="body__list">
+                      <li tabindex="0" class="list__item">
+                        <span
+                          class="category"
+                          data-category="0"
+                          aria-label="생활 카테고리"
+                          >생활</span
+                        >
+                        <span
+                          class="body"
+                          aria-describedby="거래내용 칫솔 6개 세트, 치약 3개 세트"
+                          >칫솔 6개 세트, 치약 3개 세트</span
+                        >
+                        <span
+                          class="payment"
+                          aria-describedby="결제수단 비씨카드"
+                          >비씨카드</span
+                        >
+                        <span
+                          class="price"
+                          aria-describedby="소비 금액 36,460원"
+                          >-36,460원</span
+                        >
+                      </li>
+                      <li tabindex="0" class="list__item">
+                        <span class="category" data-category="1">식비</span>
+                        <span class="body">잔치국수와 김밥</span>
+                        <span class="payment">현대카드</span>
+                        <span class="price">-36,460원</span>
+                      </li>
+                    </ul>
+                  </div>
+                </article>
+              </li>
+              <li class="detail-item">
+                <article class="detail__date">
+                  <div class="date__header">
+                    <h4
+                      tabindex="0"
+                      aria-label="날짜 2월 17일 금요일"
+                      class="header__date-day">
+                      <span class="date">2월 17일</span
+                      ><span class="day">금</span>
+                    </h4>
+                    <dl tabindex="0" class="header__income-expenditure">
+                      <dt>수입</dt>
+                      <dd>2,000,000원</dd>
+                      <dt>지출</dt>
+                      <dd>9,500원</dd>
+                    </dl>
+                  </div>
+                  <div class="date__body">
+                    <ul class="body__list">
+                      <li tabindex="0" class="list__item">
+                        <span
+                          class="category"
+                          data-category="0"
+                          aria-label="생활 카테고리"
+                          >생활</span
+                        >
+                        <span
+                          class="body"
+                          aria-describedby="거래내용 칫솔 6개 세트, 치약 3개 세트"
+                          >칫솔 6개 세트, 치약 3개 세트</span
+                        >
+                        <span
+                          class="payment"
+                          aria-describedby="결제수단 비씨카드"
+                          >비씨카드</span
+                        >
+                        <span
+                          class="price"
+                          aria-describedby="소비 금액 36,460원"
+                          >-36,460원</span
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </article>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </main>
+      <footer></footer>
+    </div>
+    <script src="./src/js/carousel.js"></script>
+    <script src="./src/js/tabs.js"></script>
+    <script src="./src/js/toolbar.js"></script>
+    <script src="./src/js/datepicker.js"></script>
+  </body>
+</html>
