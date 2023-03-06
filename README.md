@@ -30,6 +30,10 @@
 
 ## 📚 학습 정리
 
+- Draft PR 방식 이용시 작업 흐름을 생각해본다.
+
+  ![image](https://user-images.githubusercontent.com/76121068/223161913-985d80d7-85aa-4dfb-8f34-f893126da87e.png)
+
 ## ✨ 요구사항
 
 ### 1주차 주요 개발 feature
@@ -99,5 +103,3 @@
 - commit 단위를 작게 나눈다.
 - commit 로그를 작성하는 좋은 사례를 찾아본다.
 - 매일매일 git push를 통해 원격 저장소에 코드를 올린다.
-
-테스트용
