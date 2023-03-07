@@ -2,21 +2,557 @@
 <!-- 언어 변경 -->
 <html lang="ko">
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./src/css/header.css">
-    <link rel="stylesheet" href="./src/css/reset.css">
-    <link rel="stylesheet" href="./src/css/common.css">
-    <link rel="stylesheet" href="./src/css/carousel.css">
-    <link rel="stylesheet" href="./src/css/dataGrid.css">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/css/reset.css" />
+    <link rel="stylesheet" href="./src/css/common.css" />
+    <link rel="stylesheet" href="./src/css/carousel.css" />
+    <link rel="stylesheet" href="./src/css/tabs.css" />
+    <link rel="stylesheet" href="./src/css/toolbar.css" />
+    <link rel="stylesheet" href="./src/css/dataGrid.css" />
+    <link rel="stylesheet" href="./src/css/datepicker.css" />
+    <link rel="stylesheet" href="./src/css/header.css" />
+    <link rel="stylesheet" href="./src/css/main.css" />
     <title>Document</title>
   </head>
   <body>
-    <div id="app"></div>
+    <div id="app">
+      <header class="header">
+        <div class="inner">
+          <!-- 로고 -->
+          <h1 id="logo">
+            <a
+              class="display display--small"
+              href="#"
+              aria-label="지혜로운 지갑">
+              <span>Wise</span>
+              <span>wallet</span>
+            </a>
+          </h1>
+          <!-- 캐러셀 -->
+          <article
+            id="monthYear"
+            class="carousel"
+            aria-roledescription="캐러셀"
+            aria-label="날짜">
+            <div class="carousel-inner">
+              <div class="controls">
+                <button
+                  type="button"
+                  class="previous"
+                  aria-controls="myCarousel-items"
+                  aria-label="이전달">
+                  <svg
+                    width="10"
+                    height="18"
+                    viewBox="0 0 10 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M9 1L1 9L9 17"
+                      stroke="#FCFCFC"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </button>
+
+                <button
+                  type="button"
+                  class="next"
+                  aria-controls="myCarousel-items"
+                  aria-label="다음달">
+                  <svg
+                    width="10"
+                    height="18"
+                    viewBox="0 0 10 18"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M1 1L9 9L1 17"
+                      stroke="#FCFCFC"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round" />
+                  </svg>
+                </button>
+              </div>
+
+              <div id="myCarousel-items" class="carousel-items" aria-live="off">
+                <!-- 라벨바꾸어 줄것 -->
+                <div
+                  class="carousel-item active"
+                  role="group"
+                  tabindex="0"
+                  aria-roledescription="날짜 표시"
+                  aria-label="내용">
+                  <p class="year">2023</p>
+                  <p class="month">2</p>
+                  <p class="monthName">February</p>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- 탭 -->
+          <div class="tabs">
+            <h2 id="tablist-1">날짜 캐러셀</h2>
+            <div role="tablist" aria-labelledby="tablist-1" class="manual">
+              <button
+                id="tab-1"
+                type="button"
+                role="tab"
+                aria-label="문서"
+                aria-selected="true"
+                aria-controls="tabpanel-1">
+                <svg
+                  width="44"
+                  height="44"
+                  viewBox="0 0 44 44"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M24 12H16C15.4696 12 14.9609 12.2107 14.5858 12.5858C14.2107 12.9609 14 13.4696 14 14V30C14 30.5304 14.2107 31.0391 14.5858 31.4142C14.9609 31.7893 15.4696 32 16 32H28C28.5304 32 29.0391 31.7893 29.4142 31.4142C29.7893 31.0391 30 30.5304 30 30V18L24 12Z"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M24 12V18H30"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M26 23H18"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M26 27H18"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M20 19H19H18"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+              <button
+                id="tab-2"
+                type="button"
+                role="tab"
+                aria-label="캘린더"
+                aria-selected="false"
+                aria-controls="tabpanel-2"
+                tabindex="-1">
+                <svg
+                  width="44"
+                  height="44"
+                  viewBox="0 0 44 44"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M29 14H15C13.8954 14 13 14.8954 13 16V30C13 31.1046 13.8954 32 15 32H29C30.1046 32 31 31.1046 31 30V16C31 14.8954 30.1046 14 29 14Z"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M26 12V16"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M18 12V16"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M13 20H31"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+              <button
+                id="tab-3"
+                type="button"
+                role="tab"
+                aria-label="통계"
+                aria-selected="false"
+                aria-controls="tabpanel-3"
+                tabindex="-1">
+                <svg
+                  width="44"
+                  height="44"
+                  viewBox="0 0 44 44"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg">
+                  <path
+                    d="M28 30V20"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M22 30V14"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                  <path
+                    d="M16 30V24"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <div class="inner">
+          <div id="tabpanel-1" role="tabpanel" aria-labelledby="tab-1">
+            <div
+              class="format"
+              role="toolbar"
+              aria-label="날짜입력"
+              aria-controls="textarea1">
+              <div class="group">
+                <div class="partition"></div>
+                <div id="myDatepicker" class="datepicker">
+                  <div class="date">
+                    <label for="id-textbox-1">일자</label>
+                    <div class="group">
+                      <input
+                        class="item nightmode"
+                        type="text"
+                        id="id-textbox-1"
+                        aria-describedby="id-description-1"
+                        value="20230222" />
+                      <span class="desc blind" id="id-description-1">
+                        (<span class="sr-only">날짜 형식: </span>
+                        년/월/월이름)
+                      </span>
+                    </div>
+                  </div>
+
+                  <div
+                    id="id-datepicker-1"
+                    class="datepicker-dialog"
+                    role="dialog"
+                    aria-modal="true"
+                    aria-label="날짜를 선택해주세요">
+                    <div class="header">
+                      <button type="button" class="prev-year" aria-label="작년">
+                        <svg
+                          width="10"
+                          height="18"
+                          viewBox="0 0 10 18"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M9 1L1 9L9 17"
+                            stroke="#FCFCFC"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        </svg>
+                      </button>
+
+                      <button
+                        type="button"
+                        class="prev-month"
+                        aria-label="저번달">
+                        <svg
+                          width="10"
+                          height="18"
+                          viewBox="0 0 10 18"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M9 1L1 9L9 17"
+                            stroke="#FCFCFC"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        </svg>
+                      </button>
+
+                      <h2
+                        id="id-grid-label"
+                        class="month-year"
+                        aria-live="polite">
+                        February 2020
+                      </h2>
+
+                      <button
+                        type="button"
+                        class="next-month"
+                        aria-label="다음달">
+                        <svg
+                          width="10"
+                          height="18"
+                          viewBox="0 0 10 18"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M1 1L9 9L1 17"
+                            stroke="#FCFCFC"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        </svg>
+                      </button>
+
+                      <button type="button" class="next-year" aria-label="내년">
+                        <svg
+                          width="10"
+                          height="18"
+                          viewBox="0 0 10 18"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg">
+                          <path
+                            d="M1 1L9 9L1 17"
+                            stroke="#FCFCFC"
+                            stroke-width="1.5"
+                            stroke-linecap="round"
+                            stroke-linejoin="round" />
+                        </svg>
+                      </button>
+                    </div>
+
+                    <div class="table-wrap">
+                      <table
+                        class="dates"
+                        role="grid"
+                        aria-labelledby="id-grid-label">
+                        <thead>
+                          <tr>
+                            <th scope="col" abbr="일요일">일</th>
+                            <th scope="col" abbr="월요일">월</th>
+                            <th scope="col" abbr="화요일">화</th>
+                            <th scope="col" abbr="수요일">수</th>
+                            <th scope="col" abbr="목요일">목</th>
+                            <th scope="col" abbr="금요일">금</th>
+                            <th scope="col" abbr="토요일">토</th>
+                          </tr>
+                        </thead>
+
+                        <tbody>
+                          <tr>
+                            <td class="disabled" tabindex="-1"></td>
+                            <td class="disabled" tabindex="-1"></td>
+                            <td class="disabled" tabindex="-1"></td>
+                            <td class="disabled" tabindex="-1"></td>
+                            <td class="disabled" tabindex="-1"></td>
+                            <td class="disabled" tabindex="-1"></td>
+                            <td tabindex="-1" data-date="2020-02-01">1</td>
+                          </tr>
+                          <tr>
+                            <td tabindex="-1" data-date="2020-02-02">2</td>
+                            <td tabindex="-1" data-date="2020-02-03">3</td>
+                            <td tabindex="-1" data-date="2020-02-04">4</td>
+                            <td tabindex="-1" data-date="2020-02-05">5</td>
+                            <td tabindex="-1" data-date="2020-02-06">6</td>
+                            <td tabindex="-1" data-date="2020-02-07">7</td>
+                            <td tabindex="-1" data-date="2020-02-08">8</td>
+                          </tr>
+                          <tr>
+                            <td tabindex="-1" data-date="2020-02-09">9</td>
+                            <td tabindex="-1" data-date="2020-02-10">10</td>
+                            <td tabindex="-1" data-date="2020-02-11">11</td>
+                            <td tabindex="-1" data-date="2020-02-12">12</td>
+                            <td tabindex="-1" data-date="2020-02-13">13</td>
+                            <td
+                              tabindex="0"
+                              data-date="2020-02-14"
+                              role="gridcell"
+                              aria-selected="true">
+                              14
+                            </td>
+                            <td tabindex="-1" data-date="2020-02-15">15</td>
+                          </tr>
+                          <tr>
+                            <td tabindex="-1" data-date="2020-02-16">16</td>
+                            <td tabindex="-1" data-date="2020-02-17">17</td>
+                            <td tabindex="-1" data-date="2020-02-18">18</td>
+                            <td tabindex="-1" data-date="2020-02-19">19</td>
+                            <td tabindex="-1" data-date="2020-02-20">20</td>
+                            <td tabindex="-1" data-date="2020-02-21">21</td>
+                            <td tabindex="-1" data-date="2020-02-22">22</td>
+                          </tr>
+                          <tr>
+                            <td tabindex="-1" data-date="2020-02-23">23</td>
+                            <td tabindex="-1" data-date="2020-02-24">24</td>
+                            <td tabindex="-1" data-date="2020-02-25">25</td>
+                            <td tabindex="-1" data-date="2020-02-26">26</td>
+                            <td tabindex="-1" data-date="2020-02-27">27</td>
+                            <td tabindex="-1" data-date="2020-02-28">28</td>
+                            <td tabindex="-1" data-date="2020-02-29">29</td>
+                          </tr>
+                          <tr>
+                            <td tabindex="-1" data-date="2020-02-30">30</td>
+                            <td tabindex="-1" data-date="2020-02-31">31</td>
+                            <td class="disabled" tabindex="-1"></td>
+                            <td class="disabled" tabindex="-1"></td>
+                            <td class="disabled" tabindex="-1"></td>
+                            <td class="disabled" tabindex="-1"></td>
+                            <td class="disabled" tabindex="-1"></td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+
+                    <div class="dialog-ok-cancel-group">
+                      <button class="dialog-button" value="cancel">
+                        Cancel
+                      </button>
+                      <button class="dialog-button" value="ok">OK</button>
+                    </div>
+                    <div class="dialog-message" aria-live="polite"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="menu-popup group">
+                <button
+                  type="button"
+                  aria-haspopup="true"
+                  aria-controls="menu1"
+                  class="item menu-button"
+                  tabindex="-1"
+                  aria-label="Font: Sans-serif"
+                  style="
+                    text-align: left;
+                    width: 140px;
+                    font-family: sans-serif;
+                  ">
+                  SANS-SERIF
+                  <span></span>
+                </button>
+                <ul role="menu" id="menu1" aria-label="Font Family">
+                  <li
+                    role="menuitemradio"
+                    aria-checked="true"
+                    style="font-family: sans-serif">
+                    Sans-serif
+                  </li>
+                  <li
+                    role="menuitemradio"
+                    aria-checked="false"
+                    style="font-family: serif">
+                    Serif
+                  </li>
+                  <li
+                    role="menuitemradio"
+                    aria-checked="false"
+                    style="font-family: monospace">
+                    Monospace
+                  </li>
+                  <li
+                    role="menuitemradio"
+                    aria-checked="false"
+                    style="font-family: fantasy">
+                    Fantasy
+                  </li>
+                  <li
+                    role="menuitemradio"
+                    aria-checked="false"
+                    style="font-family: cursive">
+                    Cursive
+                  </li>
+                </ul>
+              </div>
+
+              <div class="group">
+                <div
+                  class="item spinbutton"
+                  role="spinbutton"
+                  tabindex="-1"
+                  aria-valuenow="14"
+                  aria-valuetext="14pt"
+                  aria-valuemin="8"
+                  aria-valuemax="40"
+                  aria-label="Font size in points">
+                  <span class="value">14pt</span>
+                  <span class="increase">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="12"
+                      height="12">
+                      <polygon
+                        class="increase"
+                        fill="#333"
+                        points="0,12 11,12 6,2"></polygon>
+                    </svg>
+                  </span>
+                  <span class="decrease">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="12"
+                      height="12">
+                      <polygon
+                        class="decrease"
+                        fill="#333"
+                        points="0,2 11,2 6,12"></polygon>
+                    </svg>
+                  </span>
+                </div>
+              </div>
+
+              <div class="group">
+                <label class="input"
+                  ><input
+                    id="checkbox"
+                    class="item nightmode"
+                    type="checkbox"
+                    tabindex="-1" />
+                  Night Mode</label
+                >
+                <a id="link" class="item link" href="../help.html" tabindex="-1"
+                  >Help</a
+                >
+              </div>
+            </div>
+            <label for="textarea1" class="hidden">Text Sample</label><br />
+            <textarea
+              id="textarea1"
+              rows="20"
+              cols="80"
+              style="font-family: sans-serif">
+Abraham Lincoln's Gettysburg Address
+            
+            Four score and seven years ago our fathers brought forth on this continent a new nation, conceived in Liberty, and dedicated to the proposition that all men are created equal.
+            
+            Now we are engaged in a great civil war, testing whether that nation, or any nation, so conceived and so dedicated, can long endure. We are met on a great battle-field of that war. We have come to dedicate a portion of that field, as a final resting place for those who here gave their lives that that nation might live. It is altogether fitting and proper that we should do this.
+            
+            But, in a larger sense, we can not dedicate, we can not consecrate, we can not hallow, this ground. The brave men, living and dead, who struggled here, have consecrated it, far above our poor power to add or detract. The world will little note, nor long remember what we say here, but it can never forget what they did here. It is for us the living, rather, to be dedicated here to the unfinished work which they who fought here have thus far so nobly advanced. It is rather for us to be here dedicated to the great task remaining before us, that from these honored dead we take increased devotion to that cause for which they gave the last full measure of devotion, that we here highly resolve that these dead shall not have died in vain, that this nation, under God, shall have a new birth of freedom, and that government of the people, by the people, for the people, shall not perish from the earth.
+            </textarea>
+          </div>
+          <div
+            id="tabpanel-2"
+            role="tabpanel"
+            aria-labelledby="tab-2"
+            class="is-hidden">
+            <h1>달력</h1>
+          </div>
+          <div
+            id="tabpanel-3"
+            role="tabpanel"
+            aria-labelledby="tab-3"
+            class="is-hidden">
+            <h1>통계</h1>
+          </div>
+        </div>
+      </main>
+      <footer></footer>
+    </div>
     <script src="./src/js/carousel.js"></script>
-    <script src="./src/js/dataGrid.js"></script>
+    <script src="./src/js/tabs.js"></script>
     <script src="./src/js/toolbar.js"></script>
-    <script src="./index.js"></script>
+    <script src="./src/js/dataGrid.js"></script>
+    <script src="./src/js/datepicker.js"></script>
   </body>
 </html>

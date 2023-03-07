@@ -1,10 +1,10 @@
-.header {
+header {
   background: var(--color-primary);
   height: 194px;
 
 }
 
-.header .inner {
+header .inner {
   display: flex;
   align-items: center;
   justify-content: space-between;

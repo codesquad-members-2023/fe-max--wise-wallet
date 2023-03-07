@@ -1,29 +1,21 @@
 [role="toolbar"] {
-  border: 2px solid transparent;
-  border-radius: 5px;
-  padding: 6px;
-  height: 44px;
-  width: 1050px;
-  background-color: #ececea;
+  width: 100%;
+  border-radius: var(--border-radius-8);
   position: absolute;
   transform: translateY(-50%);
   z-index: 2;
-}
+  display: flex;
+  justify-content: center;
+  background-color: var(--color-white);
 
-[role="toolbar"].focus {
-  border-color: #005a9c;
-  border-width: 3px;
-  padding: 5px;
+  border: 1px solid var(--color-primary);
 }
 
 [role="toolbar"] .group {
-  padding: 0.25em;
+  padding: 16px 24px;
   display: block;
-  float: left;
-}
-
-[role="toolbar"] .group:not(:first-child) {
-  margin-left: 0.75em;
+  flex-grow: 1;
+  width: calc(100% - 3px);
 }
 
 [role="toolbar"] button,
@@ -32,17 +24,13 @@
 [role="toolbar"] .spinbutton,
 [role="toolbar"] a,
 [role="toolbar"] .input {
-  border: 1px solid rgb(255 255 255);
-  outline: none;
+  font-family: var(--font-family-bold);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-bold-regular);
+  line-height: var(--line-height-bold-regular);
+  color: var(--color-primary-alt);
+
   display: inline-block;
-  padding: 6px 12px;
-  border-radius: 5px;
-  text-align: center;
-  background: rgb(255 255 255);
-  color: #222428;
-  font-size: 14px;
-  line-height: 1.5em;
-  margin-right: 0.25em;
 }
 
 [role="toolbar"] button.popup {
@@ -171,6 +159,7 @@
 }
 
 textarea {
+  margin-top: 200px;
   width: 990px;
   padding: 0.25em;
   border: 2px solid black;

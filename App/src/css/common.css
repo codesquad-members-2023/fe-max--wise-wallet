@@ -53,6 +53,9 @@
   --color-category-green: #b9d58c;
   --color-category-yellow: #e6d267;
   --color-category-orange: #e2b765;
+
+  /* border radius */
+  --border-radius-8: 8px;
 }
 
 .display,
@@ -119,8 +122,10 @@
 }
 
 .inner {
-  width: 1080px;
+  width: 1024px;
   margin: auto;
+  position: relative;
+  box-sizing: border-box;
 }
 
 .blind {
@@ -130,4 +135,12 @@
   width: 1px;
   height: 1px;
   margin: -1px;
+}
+
+.partition {
+  height: 100%;
+  border-right: 1px solid var(--color-primary);
+  transform: translateX(0.5px);
+  width: 0;
+  float: right;
 }

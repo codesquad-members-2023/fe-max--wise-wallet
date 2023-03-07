@@ -102,7 +102,6 @@ var CarouselPreviousNext = function (node, options) {
       "focusout",
       this.handleFocusOut.bind(this)
     );
-
   }
 
   // Handle hover events
@@ -122,7 +121,6 @@ CarouselPreviousNext.prototype.enableOrDisableAutoRotation = function (
   disable
 ) {
   this.isAutoRotationDisabled = disable;
-  this.pausePlayButtonNode.hidden = disable;
 };
 
 /* Public function to update controls/caption styling */
@@ -188,9 +186,6 @@ CarouselPreviousNext.prototype.updatePlaying = function (play) {
     this.pausePlayButtonNode.classList.add("pause");
     this.liveRegionNode.setAttribute("aria-live", "off");
   } else {
-    this.pausePlayButtonNode.setAttribute("aria-label", this.playLabel);
-    this.pausePlayButtonNode.classList.remove("pause");
-    this.pausePlayButtonNode.classList.add("play");
     this.liveRegionNode.setAttribute("aria-live", "polite");
   }
 };
@@ -206,9 +201,7 @@ CarouselPreviousNext.prototype.handleImageLinkBlur = function () {
 };
 
 CarouselPreviousNext.prototype.handleMouseOver = function (event) {
-  if (!this.pausePlayButtonNode.contains(event.target)) {
-    this.hasHover = true;
-  }
+  this.hasHover = true;
 };
 
 CarouselPreviousNext.prototype.handleMouseOut = function () {
@@ -238,9 +231,7 @@ CarouselPreviousNext.prototype.handleFocusIn = function () {
 };
 
 CarouselPreviousNext.prototype.handleFocusOut = function () {
-  if (this.isPlayingEnabled) {
-    this.liveRegionNode.setAttribute("aria-live", "off");
-  }
+  this.liveRegionNode.setAttribute("aria-live", "off");
   this.hasFocus = false;
 };
 
