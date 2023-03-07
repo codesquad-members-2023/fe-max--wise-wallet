@@ -5,14 +5,74 @@ border: 1px solid red;
 border: 1px solid rgb(89, 89, 89);
 
  */
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
 @font-face {
   font-family: "Pretendard-Regular";
   src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
     format("woff");
   font-weight: 400;
   font-style: normal;
-} /* font-weight 두꺼운거 가져와야함 */
+} /* font-weight 두꺼운거 가져와야함 
+링크로..
+*/
+
+/* 사용자 지정 CSS 속성 (변수) 적용해보기 */
+:root {
+  /* font-family */
+  --font-family-display: "Outfit";
+  --font-family-body: "Pretendard";
+  --font-family-bold: "Pretendard";
+
+  /* font-size */
+  --font-size-display-small: 24px;
+  --font-size-display-large: 48px;
+
+  --font-size-body-regular: 16px;
+  --font-size-body-medium: 18px;
+  --font-size-body-large: 22px;
+
+  --font-size-bold-regular: 12px;
+  --font-size-bold-medium: 14px;
+  --font-size-bold-large: 16px;
+
+  /* font-weight */
+  --font-weight-display-small: 400;
+  --font-weight-display-large: 700;
+  --font-weight-body: 500;
+  --font-weight-bold: 700;
+
+  /* line-height */
+  --line-height-display-small: 24px;
+  --line-height-display-large: 56px;
+
+  --line-height-body-regular: 24px;
+  --line-height-body-medium: 24px;
+  --line-height-body-large: 32px;
+
+  --line-height-bold-regular: 16px;
+  --line-height-bold-medium: 24px;
+  --line-height-bold-large: 24px;
+
+  /* color */
+  --color-off-white: #f7f6f3;
+  --color-white: #fcfcfc;
+  --color-primary: #524d90;
+  --color-primary-alt: #a79fcb;
+  --color-primary-alt-40: rgba(167, 159, 203, 0.4);
+  --color-secondary-red: #e75b3f;
+  --color-secondary-yellow: #f5b853;
+  --color-secondary-cyan: #4eaaba;
+  --color-category-sky: #6ed5eb;
+  --color-category-cyan: #4cb8b8;
+  --color-category-mint: #94d3cc;
+  --color-category-blue: #4ca1de;
+  --color-category-pink: #d092e2;
+  --color-category-purple: #817dce;
+  --color-category-navy: #4a6cc3;
+  --color-category-green: #b9d58c;
+  --color-category-yellow: #e6d267;
+  --color-category-orange: #e2b765;
+}
 
 html,
 body {
@@ -23,6 +83,8 @@ body {
   line-height: 1.5;
   background: #f7f6f3;
   border: 1px solid red;
+
+  /* 스크롤 움찔하는거 막는거 뭐더라 */
 }
 body * {
   border: 1px solid red;
@@ -40,8 +102,8 @@ a {
   align-items: center;
 }
 
-header {
-  width: 100%;
+.header {
+  width: 100vw;
   height: 194px;
   display: flex;
   justify-content: center;
@@ -52,7 +114,7 @@ header {
   color: #fcfcfc;
 }
 
-nav {
+.header-wrap {
   width: 940px;
   border: 1px solid red;
   display: flex;
@@ -79,6 +141,7 @@ nav {
 }
 #month-year .month-year-icon {
   background-color: transparent;
+  cursor: pointer;
 }
 #month-year-text p {
   text-align: center;
@@ -100,6 +163,15 @@ nav {
 }
 #tab button {
   background-color: transparent;
+  cursor: pointer;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
 }
 
 section {
@@ -155,7 +227,7 @@ section {
 }
 .input-bar-wrap select {
   appearance: none;
-  background: url("./images/chevron-down.svg") no-repeat 97% 50%/15px auto;
+  background: url("../images/chevron-down.svg") no-repeat 97% 50%/15px auto;
 }
 
 .date {
@@ -248,6 +320,88 @@ section {
   justify-content: space-between;
 }
 
+/* 모달 */
+.modal-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-box {
+  width: 400px;
+  height: 228px;
+  background: #fcfcfc;
+  border: 1px solid #524d90;
+  box-shadow: 0px 2px 2px rgba(82, 77, 144, 0.08),
+    0px 4px 4px rgba(82, 77, 144, 0.1);
+  border-radius: 16px;
+
+  padding: 40px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.modal-body {
+  height: 92px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.modal-body > p {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #524d90;
+}
+.modal-body #modal-input {
+  height: 44px;
+  background: #fcfcfc;
+  border: 1px solid #524d90;
+  border-radius: 8px;
+}
+.modal-body #modal-input::placeholder {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #a79fcb;
+}
+.modal-btn {
+  display: flex;
+  justify-content: space-between;
+}
+.modal-btn button {
+  cursor: pointer;
+  background-color: transparent;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+}
+.modal-btn button:nth-child(1) {
+  color: #524d90;
+}
+.modal-btn button:nth-child(2) {
+  color: #f5b853;
+}
+
+.hidden {
+  display: none;
+}
+
 /* .list-info */
 .list-info {
   margin-bottom: 28px;
@@ -322,8 +476,8 @@ section {
   padding: 16px;
   box-sizing: border-box;
 
-  border-top: 1px solid #E5E5E5;
-  border-bottom: 1px solid #E5E5E5;
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
 }
 .list-detail .list-detail-item {
   flex: 1;

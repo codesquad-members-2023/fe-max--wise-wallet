@@ -6,35 +6,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wise-Wallet</title>
-    <link rel="stylesheet" href="./reset.css">
-    <link rel="stylesheet" href="./style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- 폰트 파일로 -->
 </head>
 
 <body>
-    <div id="app">
-        <div id="layout">
-            <header>
-                <nav>
-                    <a href="/" class="logo">Wise Wallet</a>
-                    <div id="month-year">
-                        <button class="month-year-icon"><img src="./images/Vectorleft.svg" alt="왼쪽으로 넘기기"></button>
-                        <div id="month-year-text">
-                            <p>2023</p>
-                            <p>2</p>
-                            <p>February</p>
-                        </div>
-                        <button class="month-year-icon"><img src="./images/Vectorright.svg" alt="오른쪽으로 넘기기"></button>
+    <!-- 주석 메모에 옮기기 -->
+    <div id="layout">
+        <header class="header">
+            <!-- 클래스붙여주기 -->
+            <div class="header-wrap">
+                <a href="/" class="logo">Wise Wallet</a>
+                <div id="month-year">
+                    <button class="month-year-icon"><img src="./images/Vectorleft.svg" alt="왼쪽"></button>
+                    <div id="month-year-text">
+                        <p>2023</p>
+                        <p>2</p>
+                        <p>February</p>
                     </div>
-                    <div id="tab">
-                        <button class="history-icon"><img src="./images/doc-on.svg" alt="내역"></button>
-                        <button class="calender-icon"><img src="./images/calender-off.svg" alt="달력"></button>
-                        <button class="statistics-icon"><img src="./images/chart-off.svg" alt="통계"></button>
-                    </div>
+                    <button class="month-year-icon"><img src="./images/Vectorright.svg" alt="오른쪽"></button>
+                </div>
+                <!-- nav패턴 -->
+                <nav id="tab">
+                    <button class="history-icon tab-button"><img src="./images/doc-on.svg" alt="내역"></button>
+                    <button class="calender-icon tab-button"><img src="./images/calender-off.svg" alt="달력"></button>
+                    <button class="statistics-icon tab-button"><img src="./images/chart-off.svg" alt="통계"></button>
                 </nav>
-            </header>
-            <section id="section">
-                <article id="main-list" class="active">
-                    <!-- select박스 -> div로 변경하기 -->
+            </div>
+        </header>
+        <section id="section">
+            <h1 hidden>제목</h1>
+            <article class="active tab-content">
+                <!-- id="main-list" -->
+                <!-- select박스 -> div로 변경하기 -->
+                <div id="main-list">
                     <div class="input-bar">
                         <div class="input-bar-wrap">
                             <div class="date">
@@ -82,14 +90,27 @@
                                     <option value="미분류">미분류</option>
                                 </select>
                                 <!-- <select name="category-select2"  id="category-select2" title="category-select2">
-                                    <option value="선택" selected hidden>선택하세요</option>
-                                    <option value="월급">월급</option>
-                                    <option value="용돈">용돈</option>
-                                    <option value="기타수입">기타수입</option>
-                                </select> -->
+                                        <option value="선택" selected hidden>선택하세요</option>
+                                        <option value="월급">월급</option>
+                                        <option value="용돈">용돈</option>
+                                        <option value="기타수입">기타수입</option>
+                                    </select> -->
                             </div>
                             <div class="confirm-btn">
                                 <img src="./images/category-button-off.svg" alt="확인해제">
+                            </div>
+                        </div>
+                        <div class="modal-bg hidden">
+                            <div class="modal-box">
+                                <div class="modal-body">
+                                    <p>추가하실 결제수단을 적어주세요</p>
+                                    <label for="modal-input" hidden>모달인풋</label>
+                                    <input type="text" id="modal-input" placeholder="입력하세요">
+                                </div>
+                                <div class="modal-btn">
+                                    <button>취소</button>
+                                    <button>등록</button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -163,17 +184,24 @@
                             </div>
                         </li>
                     </ul>
-                </article>
-                <article id="calender"></article>
-                <article id="statistics"></article>
-            </section>
-        </div>
+                </div>
+
+            </article>
+            <article id="calender" class="tab-content">
+                달력화면
+                <div></div>
+            </article>
+            <article id="statistics" class="tab-content">
+                통계화면
+            </article>
+        </section>
     </div>
 
 
 
 
-    <script src="./app.js"></script>
+
+    <script type="module" src="./js/index.js"></script>
 </body>
 
 </html>
