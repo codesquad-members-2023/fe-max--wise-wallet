@@ -1,0 +1,370 @@
+/* 
+
+임시 레이아웃 보더
+border: 1px solid red;
+border: 1px solid rgb(89, 89, 89);
+
+ */
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+} /* font-weight 두꺼운거 가져와야함 */
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.5;
+  background: #f7f6f3;
+  border: 1px solid red;
+}
+body * {
+  border: 1px solid red;
+}
+
+a {
+  text-decoration: none;
+}
+
+#layout {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+header {
+  width: 100%;
+  height: 194px;
+  display: flex;
+  justify-content: center;
+  background-color: #524d90;
+  box-sizing: border-box;
+  padding-bottom: 18px;
+  border-radius: 0 0 10px 10px;
+  color: #fcfcfc;
+}
+
+nav {
+  width: 940px;
+  border: 1px solid red;
+  display: flex;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.logo {
+  font-family: "Outfit", sans-serif;
+  font-size: 24px;
+  line-height: 24px;
+  color: #fcfcfc;
+}
+
+#month-year {
+  display: flex;
+  width: 232px;
+  height: 96px;
+  justify-content: space-between;
+  align-items: center;
+}
+#month-year .month-year-icon {
+  background-color: transparent;
+}
+#month-year-text p {
+  text-align: center;
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+}
+#month-year-text p:nth-child(2) {
+  font-size: 48px;
+  line-height: 56px;
+  margin: 4px 0;
+}
+#month-year-text p:nth-child(odd) {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+#tab {
+  display: flex;
+}
+#tab button {
+  background-color: transparent;
+}
+
+section {
+  min-width: 940px;
+  display: flex;
+  flex-direction: column;
+
+  margin-top: -35px;
+}
+#main-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.input-bar {
+  box-sizing: border-box;
+  width: 894px;
+  height: 76px;
+  margin-bottom: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 16px 18px 16px 24px;
+  border: 1px solid #524d90;
+  background: #fcfcfc;
+  border: 1px solid #524d90;
+  box-shadow: 0px 2px 2px rgba(82, 77, 144, 0.08),
+    0px 4px 4px rgba(82, 77, 144, 0.1);
+  border-radius: 8px;
+}
+.input-bar-wrap {
+  width: 852px;
+  height: 44px;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.dividing-line {
+  width: 1px;
+  height: inherit;
+  background-color: #524d90;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+.input-bar-wrap label {
+  font-family: "Pretendard-Regular";
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  color: #a79fcb;
+}
+.input-bar-wrap select {
+  appearance: none;
+  background: url("./images/chevron-down.svg") no-repeat 97% 50%/15px auto;
+}
+
+.date {
+  width: 88px;
+  border: 1px solid blue;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.price {
+  width: 134px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.price-wrap {
+  height: 24px;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.price-wrap button {
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+.price-wrap #price-input {
+  width: 78px;
+  height: 24px;
+}
+.price-wrap #price-input::placeholder {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #a79fcb;
+
+  text-align: right;
+}
+.price-wrap p {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: right;
+  color: #524d90;
+}
+
+.memo {
+  width: 164px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.memo #memo-input {
+  margin-left: -4px;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+
+  color: #524d90;
+}
+.memo #memo-input::placeholder {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #a79fcb;
+}
+
+.payment {
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.category {
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* .list-info */
+.list-info {
+  margin-bottom: 28px;
+  width: 848px;
+  height: 32px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.list-info .list-info-left,
+.list-info-right {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 32px;
+  color: #524d90;
+}
+.list-info .list-info-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+
+  font-size: 18px;
+  line-height: 24px;
+}
+.list-info .list-info-right span:nth-of-type(1) {
+  margin-right: 5px;
+}
+
+/* .list-body */
+.list-body {
+  width: 846px;
+  display: flex;
+  flex-direction: column;
+}
+/* .list-body-info */
+.list-body .list-body-info {
+  height: 24px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 21px;
+}
+.list-body .list-body-info .date-day,
+.list-body .list-body-info .income-expenditure {
+  display: flex;
+  gap: 8px;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+}
+.list-body .list-body-info .date-day .date-day-date {
+  color: #524d90;
+}
+.list-body .list-body-info .date-day .date-day-day {
+  color: #a79fcb;
+}
+
+.list-body .list-body-info .income-expenditure {
+  color: #a79fcb;
+}
+
+/* .list-detail */
+.list-detail {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 16px;
+  box-sizing: border-box;
+
+  border-top: 1px solid #E5E5E5;
+  border-bottom: 1px solid #E5E5E5;
+}
+.list-detail .list-detail-item {
+  flex: 1;
+}
+.list-detail .list-detail-category {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  width: 92px;
+  padding: 4px 8px;
+  border-radius: 25px;
+  background: #d092e2;
+
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+
+  text-align: center;
+
+  color: #fcfcfc;
+}
+
+.list-detail > span {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+}
+.list-detail > span:nth-of-type(1) {
+  width: 320px;
+  color: #524d90;
+}
+.list-detail > span:nth-of-type(2) {
+  color: #a79fcb;
+}
+.list-detail > span:nth-of-type(3) {
+  text-align: right;
+  color: #e75b3f;
+}
