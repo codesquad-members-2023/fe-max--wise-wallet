@@ -1,0 +1,77 @@
+body,
+button,
+dd,
+dl,
+dt,
+fieldset,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+legend,
+li,
+ol,
+p,
+select,
+table,
+td,
+textarea,
+th,
+ul {
+    margin: 0;
+    padding: 0;
+}
+.header-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 1440px;
+    height: 194px;
+    background-color: #524d90;
+
+    color: #fcfcfc;
+
+    border-radius: 10px;
+}
+.displaySmall {
+    font-family: "Outfit";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 24px;
+}
+
+.displayLarge {
+    font-family: "Outfit";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 56px;
+}
+
+.boldSmall {
+    font-family: "Pretendard";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.monthYear {
+    display: flex;
+    align-items: center;
+}
+
+.date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icon {
+    display: flex;
+}
