@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wise Wallet</title>
+  </head>
+  <body>
+    <header id="">
+      <div>Wise Wallet</div>
+      <div>
+        <!-- date selection -->
+      </div>
+      <nav>
+        <ul>
+          <li>
+            <a href="#"><img src="" alt="Main View" /></a>
+          </li>
+          <li>
+            <a href="#"><img src="" alt="Calendar View" /></a>
+          </li>
+          <li>
+            <a href="#"><img src="" alt="Stats View" /></a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="new-entry-form-container">
+      <form action="">
+        <ul>
+          <li>
+            <label for="date">
+              <span>일자</span>
+              <input type="date" name="date" id="date" />
+            </label>
+          </li>
+          <li>
+            <label for="amount">
+              <span>금액</span>
+              <input
+                type="number"
+                name="amount"
+                placeholder="0"
+                id="amount"
+                required />
+            </label>
+          </li>
+          <li>
+            <label for="content">
+              <span>내용</span>
+              <input
+                type="text"
+                name="content"
+                placeholder="입력하세요"
+                id="content"
+                required />
+            </label>
+          </li>
+          <li>
+            <label for="payment-method">
+              <span>결제수단</span>
+              <select name="payment-method" id="payment-method" required>
+                <option value="" disabled selected>선택하세요</option>
+                <option value="cash">현금</option>
+                <option value="card">신용카드</option>
+                <option value="">추가하기</option>
+              </select>
+            </label>
+          </li>
+          <li>
+            <label for="category">
+              <span>분류</span>
+              <select name="category" id="category" required>
+                <option value="" disabled selected>선택하세요</option>
+                <option value="living-expenses">생활</option>
+                <option value="food">식비</option>
+                <option value="transportation">교통</option>
+                <option value="shopping">쇼핑/뷰티</option>
+                <option value="health">의료/건강</option>
+                <option value="entertainment">문화/여가</option>
+                <option value="unclassified">미분류</option>
+              </select>
+            </label>
+          </li>
+        </ul>
+        <button type="submit" disabled>
+          <img src="" alt="Submit" />
+        </button>
+      </form>
+    </section>
+
+    <main>
+      <header>
+        <h2>전체 내역 0건</h2>
+        <label for="income">
+          <input type="checkbox" name="income" id="income" checked />
+          <span>수입 0</span>
+        </label>
+        <label for="expense">
+          <input type="checkbox" name="expense" id="expense" checked />
+          <span>지출 0</span>
+        </label>
+      </header>
+
+      <section id="entries-container">
+        <!-- entries -->
+      </section>
+    </main>
+  </body>
+</html>
