@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap");
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 500, 700;
+  font-style: normal;
+}
+
+:root {
+  /* font-family */
+  --ff-display: "Outfit", sans-serif;
+  --ff-body: "Pretendard", sans-serif;
+  --ff-bold: "Pretendard", sans-serif;
+
+  /* font-size */
+  --fs-display-small: 24px;
+  --fs-display-large: 48px;
+
+  --fs-body-regular: 16px;
+  --fs-body-medium: 18px;
+  --fs-body-large: 22px;
+
+  --fs-bold-regular: 12px;
+  --fs-bold-medium: 14px;
+  --fs-bold-large: 16px;
+
+  /* font-weight */
+  --fw-display-small: 400;
+  --fw-display-large: 700;
+  --fw-body: 500;
+  --fw-bold: 700;
+
+  /* line-height */
+  --lh-display-small: 24px;
+  --lh-display-large: 56px;
+
+  --lh-body-regular: 24px;
+  --lh-body-medium: 24px;
+  --lh-body-large: 32px;
+
+  --lh-bold-regular: 16px;
+  --lh-bold-medium: 24px;
+  --lh-bold-large: 24px;
+
+  /* color */
+  --color-off-white: #f7f6f3;
+  --color-white: #fcfcfc;
+  --color-primary: #524d90;
+  --color-primary-alt: #a79fcb;
+  --color-primary-alt-40: #a79fcb66;
+  --color-secondary-red: #e75b3f;
+  --color-secondary-yellow: #f5b853;
+  --color-secondary-cyan: #4eaaba;
+  --color-category-sky: #6ed5eb;
+  --color-category-cyan: #4cb8b8;
+  --color-category-mint: #94d3cc;
+  --color-category-blue: #4ca1de;
+  --color-category-pink: #d092e2;
+  --color-category-purple: #817dce;
+  --color-category-navy: #4a6cc3;
+  --color-category-green: #b9d58c;
+  --color-category-yellow: #e6d267;
+  --color-category-orange: #e2b765;
+}
