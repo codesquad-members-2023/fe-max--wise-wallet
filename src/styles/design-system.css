@@ -62,4 +62,8 @@
   --color-category-green: #b9d58c;
   --color-category-yellow: #e6d267;
   --color-category-orange: #e2b765;
+
+  /* filter */
+  --filter-white: brightness(0) saturate(100%) invert(100%) sepia(0%)
+    saturate(0%) hue-rotate(95deg) brightness(104%) contrast(98%);
 }
