@@ -9,35 +9,55 @@
   </head>
   <body>
     <header id="top-header">
-      <div>Wise Wallet</div>
+      <div class="top-header__inner-wrapper">
+        <h1 class="logo">Wise Wallet</h1>
 
-      <div class="month-year__carousel">
-        <a href="#" class="month-year__carousel__btn previous">
-          <img src="src/assets/icons/chevron-left.svg" alt="Previous Day" />
-        </a>
-        <div class="month-year__container">
-          <div id="year">2023</div>
-          <div id="month-num">3</div>
-          <div id="month-char">March</div>
+        <div class="month-year__carousel">
+          <a href="#" class="month-year__carousel__btn previous">
+            <img src="src/assets/icons/chevron-left.svg" alt="Previous Day" />
+          </a>
+          <div class="month-year__container">
+            <div id="year">2023</div>
+            <div id="month-num">3</div>
+            <div id="month-char">March</div>
+          </div>
+          <a href="#" class="month-year__carousel__btn next">
+            <img src="src/assets/icons/chevron-right.svg" alt="Next Day" />
+          </a>
         </div>
-        <a href="#" class="month-year__carousel__btn next">
-          <img src="src/assets/icons/chevron-right.svg" alt="Next Day" />
-        </a>
-      </div>
 
-      <nav>
-        <ul>
-          <li>
-            <a href="#"><img src="" alt="Main View" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="" alt="Calendar View" /></a>
-          </li>
-          <li>
-            <a href="#"><img src="" alt="Stats View" /></a>
-          </li>
-        </ul>
-      </nav>
+        <nav class="view-nav">
+          <fieldset>
+            <label class="view-nav__tab" for="main-view">
+              <input
+                type="radio"
+                name="view"
+                id="main-view"
+                value="main-view"
+                checked />
+              <img src="src/assets/icons/doc.svg" alt="Main View" />
+            </label>
+
+            <label class="view-nav__tab" for="calendar-view">
+              <input
+                type="radio"
+                name="view"
+                id="calendar-view"
+                value="calendar-view" />
+              <img src="src/assets/icons/calendar.svg" alt="Calendar View" />
+            </label>
+
+            <label class="view-nav__tab" for="chart-view">
+              <input
+                type="radio"
+                name="view"
+                id="chart-view"
+                value="chart-view" />
+              <img src="src/assets/icons/chart.svg" alt="Chart View" />
+            </label>
+          </fieldset>
+        </nav>
+      </div>
     </header>
 
     <section id="new-entry-form-container">
