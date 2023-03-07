@@ -162,17 +162,8 @@
   background: var(--color-white);
 }
 
-
 [role="inputbar"] button[aria-haspopup] span {
   float: right;
-}
-
-[role="inputbar"] button[aria-haspopup] span::after {
-  content: url("../images/pulldown-icon.svg");
-}
-
-[role="inputbar"] button[aria-haspopup]:focus span::after {
-  content: url("../images/pulldown-icon-focus.svg");
 }
 
 textarea {
@@ -205,8 +196,6 @@ textarea {
   padding: 0 24px;
   box-sizing: border-box;
 }
-
-
 
 [role="inputbar"] .menu-popup [role="menu"] li {
   margin: 0;
@@ -251,9 +240,7 @@ textarea {
   border: 0;
 }
 
-
 [role="inputbar"] .menu-popup [role="menu"] [role="menuitemradio"]:focus,
 [role="inputbar"] .menu-popup [role="menu"] [role="menuitemradio"]:hover {
   background: var(--color-primary-alt-40);
 }
-

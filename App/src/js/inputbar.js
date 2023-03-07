@@ -1,6 +1,6 @@
 "use strict";
 
-function FormatInputbar(domNode) {
+function Inputbar(domNode) {
   this.domNode = domNode;
   this.firstItem = null;
   this.lastItem = null;
@@ -20,7 +20,7 @@ function FormatInputbar(domNode) {
   this.nightModeCheck = null;
 }
 
-FormatInputbar.prototype.init = function () {
+Inputbar.prototype.init = function () {
   var i, items, inputbarItem, menuButton;
 
   this.textarea = document.getElementById(
@@ -42,11 +42,11 @@ FormatInputbar.prototype.init = function () {
   items = this.domNode.querySelectorAll(".item");
 
   for (i = 0; i < items.length; i++) {
-    inputbarItem = new FormatInputbarItem(items[i], this);
+    inputbarItem = new InputbarItem(items[i], this);
     inputbarItem.init();
 
     if (items[i].hasAttribute("aria-haspopup")) {
-      menuButton = new FontMenuButton(items[i], this, inputbarItem);
+      menuButton = new MenuButton(items[i], this, inputbarItem);
       menuButton.init();
     }
 
@@ -65,17 +65,17 @@ FormatInputbar.prototype.init = function () {
   }
 };
 
-FormatInputbar.prototype.handleContainerClick = function () {
+Inputbar.prototype.handleContainerClick = function () {
   if (event.target !== this.domNode) return;
   this.setFocusCurrentItem();
 };
 
-FormatInputbar.prototype.setFocusCurrentItem = function () {
+Inputbar.prototype.setFocusCurrentItem = function () {
   var item = this.domNode.querySelector('[tabindex="0"]');
   item.focus();
 };
 
-FormatInputbar.prototype.selectTextContent = function () {
+Inputbar.prototype.selectTextContent = function () {
   this.start = this.textarea.selectionStart;
   this.end = this.textarea.selectionEnd;
   this.selected = this.textarea.value.substring(this.start, this.end);
@@ -86,7 +86,7 @@ FormatInputbar.prototype.selectTextContent = function () {
     this.selected
   );
 };
-FormatInputbar.prototype.updateDisable = function (
+Inputbar.prototype.updateDisable = function (
   copyButton,
   cutButton,
   pasteButton
@@ -97,7 +97,6 @@ FormatInputbar.prototype.updateDisable = function (
     copyButton.setAttribute("aria-disabled", false);
     cutButton.setAttribute("aria-disabled", false);
   } else {
-    copyButton.setAttribute("aria-disabled", true);
     cutButton.setAttribute("aria-disabled", true);
   }
   if (this.ourClipboard.length > 0) {
@@ -105,7 +104,7 @@ FormatInputbar.prototype.updateDisable = function (
   }
 };
 
-FormatInputbar.prototype.selectText = function (start, end, textarea) {
+Inputbar.prototype.selectText = function (start, end, textarea) {
   if (typeof textarea.selectionStart !== "undefined") {
     textarea.focus();
     textarea.selectionStart = start;
@@ -113,7 +112,7 @@ FormatInputbar.prototype.selectText = function (start, end, textarea) {
     return true;
   }
 };
-FormatInputbar.prototype.copyTextContent = function () {
+Inputbar.prototype.copyTextContent = function () {
   if (this.copyButton.getAttribute("aria-disabled") === "true") {
     return;
   }
@@ -127,7 +126,7 @@ FormatInputbar.prototype.copyTextContent = function () {
   );
 };
 
-FormatInputbar.prototype.cutTextContent = function (inputbarItem) {
+Inputbar.prototype.cutTextContent = function (inputbarItem) {
   if (this.cutButton.getAttribute("aria-disabled") === "true") {
     return;
   }
@@ -143,7 +142,7 @@ FormatInputbar.prototype.cutTextContent = function (inputbarItem) {
   );
 };
 
-FormatInputbar.prototype.pasteTextContent = function () {
+Inputbar.prototype.pasteTextContent = function () {
   if (this.pasteButton.getAttribute("aria-disabled") === "true") {
     return;
   }
@@ -161,7 +160,7 @@ FormatInputbar.prototype.pasteTextContent = function () {
   );
 };
 
-FormatInputbar.prototype.toggleBold = function (inputbarItem) {
+Inputbar.prototype.toggleBold = function (inputbarItem) {
   if (inputbarItem.isPressed()) {
     this.textarea.style.fontWeight = "normal";
     inputbarItem.resetPressed();
@@ -171,7 +170,7 @@ FormatInputbar.prototype.toggleBold = function (inputbarItem) {
   }
 };
 
-FormatInputbar.prototype.toggleUnderline = function (inputbarItem) {
+Inputbar.prototype.toggleUnderline = function (inputbarItem) {
   if (inputbarItem.isPressed()) {
     this.textarea.style.textDecoration = "none";
     inputbarItem.resetPressed();
@@ -181,7 +180,7 @@ FormatInputbar.prototype.toggleUnderline = function (inputbarItem) {
   }
 };
 
-FormatInputbar.prototype.toggleItalic = function (inputbarItem) {
+Inputbar.prototype.toggleItalic = function (inputbarItem) {
   if (inputbarItem.isPressed()) {
     this.textarea.style.fontStyle = "normal";
     inputbarItem.resetPressed();
@@ -191,11 +190,11 @@ FormatInputbar.prototype.toggleItalic = function (inputbarItem) {
   }
 };
 
-FormatInputbar.prototype.changeFontSize = function (value) {
+Inputbar.prototype.changeFontSize = function (value) {
   this.textarea.style.fontSize = value + "pt";
 };
 
-FormatInputbar.prototype.toggleNightMode = function () {
+Inputbar.prototype.toggleNightMode = function () {
   if (this.nightModeCheck.checked) {
     this.textarea.style.color = "#eee";
     this.textarea.style.background = "black";
@@ -205,11 +204,11 @@ FormatInputbar.prototype.toggleNightMode = function () {
   }
 };
 
-FormatInputbar.prototype.redirectLink = function (inputbarItem) {
+Inputbar.prototype.redirectLink = function (inputbarItem) {
   window.open(inputbarItem.domNode.href, "_blank");
 };
 
-FormatInputbar.prototype.setAlignment = function (inputbarItem) {
+Inputbar.prototype.setAlignment = function (inputbarItem) {
   for (var i = 0; i < this.alignItems.length; i++) {
     this.alignItems[i].resetChecked();
   }
@@ -232,19 +231,19 @@ FormatInputbar.prototype.setAlignment = function (inputbarItem) {
   }
 };
 
-FormatInputbar.prototype.setFocusToFirstAlignItem = function () {
+Inputbar.prototype.setFocusToFirstAlignItem = function () {
   this.setFocusItem(this.alignItems[0]);
 };
 
-FormatInputbar.prototype.setFocusToLastAlignItem = function () {
+Inputbar.prototype.setFocusToLastAlignItem = function () {
   this.setFocusItem(this.alignItems[2]);
 };
 
-FormatInputbar.prototype.setFontFamily = function (font) {
+Inputbar.prototype.setFontFamily = function (font) {
   this.textarea.style.fontFamily = font;
 };
 
-FormatInputbar.prototype.activateItem = function (inputbarItem) {
+Inputbar.prototype.activateItem = function (inputbarItem) {
   switch (inputbarItem.buttonAction) {
     case "bold":
       this.toggleBold(inputbarItem);
@@ -287,7 +286,7 @@ FormatInputbar.prototype.activateItem = function (inputbarItem) {
  * @param item
  *  The item to focus on
  */
-FormatInputbar.prototype.setFocusItem = function (item) {
+Inputbar.prototype.setFocusItem = function (item) {
   for (var i = 0; i < this.inputbarItems.length; i++) {
     this.inputbarItems[i].domNode.setAttribute("tabindex", "-1");
   }
@@ -296,7 +295,7 @@ FormatInputbar.prototype.setFocusItem = function (item) {
   item.domNode.focus();
 };
 
-FormatInputbar.prototype.setFocusToNext = function (currentItem) {
+Inputbar.prototype.setFocusToNext = function (currentItem) {
   var index, newItem;
 
   if (currentItem === this.lastItem) {
@@ -308,7 +307,7 @@ FormatInputbar.prototype.setFocusToNext = function (currentItem) {
   this.setFocusItem(newItem);
 };
 
-FormatInputbar.prototype.setFocusToPrevious = function (currentItem) {
+Inputbar.prototype.setFocusToPrevious = function (currentItem) {
   var index, newItem;
 
   if (currentItem === this.firstItem) {
@@ -320,15 +319,15 @@ FormatInputbar.prototype.setFocusToPrevious = function (currentItem) {
   this.setFocusItem(newItem);
 };
 
-FormatInputbar.prototype.setFocusToFirst = function () {
+Inputbar.prototype.setFocusToFirst = function () {
   this.setFocusItem(this.firstItem);
 };
 
-FormatInputbar.prototype.setFocusToLast = function () {
+Inputbar.prototype.setFocusToLast = function () {
   this.setFocusItem(this.lastItem);
 };
 
-FormatInputbar.prototype.hidePopupLabels = function () {
+Inputbar.prototype.hidePopupLabels = function () {
   var tps = this.domNode.querySelectorAll("button .popup-label");
   tps.forEach(function (tp) {
     tp.classList.remove("show");
@@ -350,7 +349,7 @@ window.addEventListener("load", function () {
   var inputbars = document.querySelectorAll('[role="inputbar"].format');
 
   for (var i = 0; i < inputbars.length; i++) {
-    var inputbar = new FormatInputbar(inputbars[i]);
+    var inputbar = new Inputbar(inputbars[i]);
 
     inputbar.init();
   }
@@ -364,7 +363,7 @@ window.addEventListener("load", function () {
 
 ("use strict");
 
-function FormatInputbarItem(domNode, inputbar) {
+function InputbarItem(domNode, inputbar) {
   this.domNode = domNode;
   this.inputbar = inputbar;
   this.buttonAction = "";
@@ -389,7 +388,7 @@ function FormatInputbarItem(domNode, inputbar) {
   });
 }
 
-FormatInputbarItem.prototype.init = function () {
+InputbarItem.prototype.init = function () {
   this.domNode.addEventListener("keydown", this.handleKeyDown.bind(this));
   this.domNode.addEventListener("click", this.handleClick.bind(this));
   this.domNode.addEventListener("focus", this.handleFocus.bind(this));
@@ -460,44 +459,44 @@ FormatInputbarItem.prototype.init = function () {
   }
 };
 
-FormatInputbarItem.prototype.isPressed = function () {
+InputbarItem.prototype.isPressed = function () {
   return this.domNode.getAttribute("aria-pressed") === "true";
 };
 
-FormatInputbarItem.prototype.setPressed = function () {
+InputbarItem.prototype.setPressed = function () {
   this.domNode.setAttribute("aria-pressed", "true");
 };
 
-FormatInputbarItem.prototype.resetPressed = function () {
+InputbarItem.prototype.resetPressed = function () {
   this.domNode.setAttribute("aria-pressed", "false");
 };
 
-FormatInputbarItem.prototype.setChecked = function () {
+InputbarItem.prototype.setChecked = function () {
   this.domNode.setAttribute("aria-checked", "true");
   this.domNode.checked = true;
 };
 
-FormatInputbarItem.prototype.resetChecked = function () {
+InputbarItem.prototype.resetChecked = function () {
   this.domNode.setAttribute("aria-checked", "false");
   this.domNode.checked = false;
 };
 
-FormatInputbarItem.prototype.disable = function () {
+InputbarItem.prototype.disable = function () {
   this.domNode.setAttribute("aria-disabled", "true");
 };
 
-FormatInputbarItem.prototype.enable = function () {
+InputbarItem.prototype.enable = function () {
   this.domNode.removeAttribute("aria-disabled");
 };
 
-FormatInputbarItem.prototype.showPopupLabel = function () {
+InputbarItem.prototype.showPopupLabel = function () {
   if (this.popupLabelNode) {
     this.inputbar.hidePopupLabels();
     this.popupLabelNode.classList.add("show");
   }
 };
 
-FormatInputbarItem.prototype.hidePopupLabel = function () {
+InputbarItem.prototype.hidePopupLabel = function () {
   if (this.popupLabelNode && !this.hasHover) {
     this.popupLabelNode.classList.remove("show");
   }
@@ -505,7 +504,7 @@ FormatInputbarItem.prototype.hidePopupLabel = function () {
 
 // Events
 
-FormatInputbarItem.prototype.handleHideAllPopupLabels = function (event) {
+InputbarItem.prototype.handleHideAllPopupLabels = function (event) {
   switch (event.keyCode) {
     case this.keyCode.ESC:
       this.inputbar.hidePopupLabels();
@@ -516,7 +515,7 @@ FormatInputbarItem.prototype.handleHideAllPopupLabels = function (event) {
   }
 };
 
-FormatInputbarItem.prototype.handleBlur = function () {
+InputbarItem.prototype.handleBlur = function () {
   this.inputbar.domNode.classList.remove("focus");
 
   if (this.domNode.classList.contains("nightmode")) {
@@ -525,7 +524,7 @@ FormatInputbarItem.prototype.handleBlur = function () {
   this.hidePopupLabel();
 };
 
-FormatInputbarItem.prototype.handleFocus = function () {
+InputbarItem.prototype.handleFocus = function () {
   this.inputbar.domNode.classList.add("focus");
 
   if (this.domNode.classList.contains("nightmode")) {
@@ -534,17 +533,17 @@ FormatInputbarItem.prototype.handleFocus = function () {
   this.showPopupLabel();
 };
 
-FormatInputbarItem.prototype.handleMouseLeave = function () {
+InputbarItem.prototype.handleMouseLeave = function () {
   this.hasHover = false;
   setTimeout(this.hidePopupLabel.bind(this), this.popupLabelDelay);
 };
 
-FormatInputbarItem.prototype.handleMouseOver = function () {
+InputbarItem.prototype.handleMouseOver = function () {
   this.showPopupLabel();
   this.hasHover = true;
 };
 
-FormatInputbarItem.prototype.handleKeyDown = function (event) {
+InputbarItem.prototype.handleKeyDown = function (event) {
   var flag = false;
 
   switch (event.keyCode) {
@@ -613,7 +612,7 @@ FormatInputbarItem.prototype.handleKeyDown = function (event) {
   }
 };
 
-FormatInputbarItem.prototype.handleClick = function () {
+InputbarItem.prototype.handleClick = function () {
   if (this.buttonAction == "link") {
     return;
   }
@@ -625,14 +624,14 @@ FormatInputbarItem.prototype.handleClick = function () {
  *   This content is licensed according to the W3C Software License at
  *   https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
  *
- *   File:   FontMenuButton.js
+ *   File:   MenuButton.js
  */
 
-/* global FontMenu */
+/* global Menu */
 
 ("use strict");
 
-function FontMenuButton(node, inputbar, inputbarItem) {
+function MenuButton(node, inputbar, inputbarItem) {
   this.domNode = node;
   this.fontMenu = false;
   this.inputbar = inputbar;
@@ -651,14 +650,14 @@ function FontMenuButton(node, inputbar, inputbarItem) {
   });
 }
 
-FontMenuButton.prototype.init = function () {
+MenuButton.prototype.init = function () {
   var id = this.domNode.getAttribute("aria-controls");
 
   if (id) {
     var node = document.getElementById(id);
 
     if (node) {
-      this.fontMenu = new FontMenu(node, this);
+      this.fontMenu = new Menu(node, this);
       this.fontMenu.init();
     }
   }
@@ -667,7 +666,7 @@ FontMenuButton.prototype.init = function () {
   this.domNode.addEventListener("click", this.handleClick.bind(this));
 };
 
-FontMenuButton.prototype.handleKeyDown = function (event) {
+MenuButton.prototype.handleKeyDown = function (event) {
   var flag = false;
 
   switch (event.keyCode) {
@@ -690,7 +689,7 @@ FontMenuButton.prototype.handleKeyDown = function (event) {
   }
 };
 
-FontMenuButton.prototype.handleClick = function () {
+MenuButton.prototype.handleClick = function () {
   if (this.fontMenu.isOpen()) {
     this.fontMenu.close();
   } else {
@@ -698,7 +697,7 @@ FontMenuButton.prototype.handleClick = function () {
   }
 };
 
-FontMenuButton.prototype.setFontFamily = function (font) {
+MenuButton.prototype.setFontFamily = function (font) {
   this.value = font;
   this.domNode.innerHTML = font.toUpperCase() + "<span></span>";
   this.domNode.style.fontFamily = font;
@@ -709,15 +708,15 @@ FontMenuButton.prototype.setFontFamily = function (font) {
  *   This content is licensed according to the W3C Software License at
  *   https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
  *
- *   File:   FontMenu.js
+ *   File:   Menu.js
  */
 
-/* global FontMenuItem */
+/* global MenuItem */
 
 ("use strict");
 
-var FontMenu = function (domNode, controllerObj) {
-  var msgPrefix = "FontMenu constructor argument domNode ";
+var Menu = function (domNode, controllerObj) {
+  var msgPrefix = "Menu constructor argument domNode ";
 
   // Check whether domNode is a DOM element
   if (!(domNode instanceof Element)) {
@@ -757,14 +756,14 @@ var FontMenu = function (domNode, controllerObj) {
 };
 
 /*
- *   @method FontMenu.prototype.init
+ *   @method Menu.prototype.init
  *
  *   @desc
  *       Add domNode event listeners for mouseover and mouseout. Traverse
  *       domNode children to configure each menuitem and populate menuitems
  *       array. Initialize firstItem and lastItem properties.
  */
-FontMenu.prototype.init = function () {
+Menu.prototype.init = function () {
   var menuitemElements, menuitemElement, menuItem, textContent, numItems;
 
   // Configure the domNode itself
@@ -779,7 +778,7 @@ FontMenu.prototype.init = function () {
 
   for (var i = 0; i < menuitemElements.length; i++) {
     menuitemElement = menuitemElements[i];
-    menuItem = new FontMenuItem(menuitemElement, this);
+    menuItem = new MenuItem(menuitemElement, this);
     menuItem.init();
     this.menuitems.push(menuItem);
     textContent = menuitemElement.textContent.trim();
@@ -796,18 +795,18 @@ FontMenu.prototype.init = function () {
 
 /* EVENT HANDLERS */
 
-FontMenu.prototype.handleMouseover = function () {
+Menu.prototype.handleMouseover = function () {
   this.hasHover = true;
 };
 
-FontMenu.prototype.handleMouseout = function () {
+Menu.prototype.handleMouseout = function () {
   this.hasHover = false;
   setTimeout(this.close.bind(this, false), 300);
 };
 
 /* FOCUS MANAGEMENT METHODS */
 
-FontMenu.prototype.setFocusToController = function (command) {
+Menu.prototype.setFocusToController = function (command) {
   if (typeof command !== "string") {
     command = "";
   }
@@ -823,7 +822,7 @@ FontMenu.prototype.setFocusToController = function (command) {
   }
 };
 
-FontMenu.prototype.setFontFamily = function (menuitem, font) {
+Menu.prototype.setFontFamily = function (menuitem, font) {
   for (var i = 0; i < this.menuitems.length; i++) {
     var mi = this.menuitems[i];
     mi.domNode.setAttribute("aria-checked", mi === menuitem);
@@ -831,15 +830,15 @@ FontMenu.prototype.setFontFamily = function (menuitem, font) {
   this.controller.setFontFamily(font);
 };
 
-FontMenu.prototype.setFocusToFirstItem = function () {
+Menu.prototype.setFocusToFirstItem = function () {
   this.firstItem.domNode.focus();
 };
 
-FontMenu.prototype.setFocusToLastItem = function () {
+Menu.prototype.setFocusToLastItem = function () {
   this.lastItem.domNode.focus();
 };
 
-FontMenu.prototype.setFocusToPreviousItem = function (currentItem) {
+Menu.prototype.setFocusToPreviousItem = function (currentItem) {
   var index;
 
   if (currentItem === this.firstItem) {
@@ -850,7 +849,7 @@ FontMenu.prototype.setFocusToPreviousItem = function (currentItem) {
   }
 };
 
-FontMenu.prototype.setFocusToNextItem = function (currentItem) {
+Menu.prototype.setFocusToNextItem = function (currentItem) {
   var index;
 
   if (currentItem === this.lastItem) {
@@ -861,7 +860,7 @@ FontMenu.prototype.setFocusToNextItem = function (currentItem) {
   }
 };
 
-FontMenu.prototype.setFocusToCheckedItem = function () {
+Menu.prototype.setFocusToCheckedItem = function () {
   for (var index = 0; index < this.menuitems.length; index++) {
     if (this.menuitems[index].domNode.getAttribute("aria-checked") === "true") {
       this.menuitems[index].domNode.focus();
@@ -869,7 +868,7 @@ FontMenu.prototype.setFocusToCheckedItem = function () {
   }
 };
 
-FontMenu.prototype.setFocusByFirstCharacter = function (currentItem, char) {
+Menu.prototype.setFocusByFirstCharacter = function (currentItem, char) {
   var start, index;
 
   char = char.toLowerCase();
@@ -894,7 +893,7 @@ FontMenu.prototype.setFocusByFirstCharacter = function (currentItem, char) {
   }
 };
 
-FontMenu.prototype.getIndexFirstChars = function (startIndex, char) {
+Menu.prototype.getIndexFirstChars = function (startIndex, char) {
   for (var i = startIndex; i < this.firstChars.length; i++) {
     if (char === this.firstChars[i]) {
       return i;
@@ -905,13 +904,13 @@ FontMenu.prototype.getIndexFirstChars = function (startIndex, char) {
 
 /* Focus methods */
 
-FontMenu.prototype.setFocus = function () {
+Menu.prototype.setFocus = function () {
   this.hasFocus = true;
   this.domNode.classList.add("focus");
   this.controller.inputbar.domNode.classList.add("focus");
 };
 
-FontMenu.prototype.removeFocus = function () {
+Menu.prototype.removeFocus = function () {
   this.hasFocus = false;
   this.domNode.classList.remove("focus");
   this.controller.inputbar.domNode.classList.remove("focus");
@@ -920,11 +919,11 @@ FontMenu.prototype.removeFocus = function () {
 
 /* MENU DISPLAY METHODS */
 
-FontMenu.prototype.isOpen = function () {
+Menu.prototype.isOpen = function () {
   return this.controller.domNode.getAttribute("aria-expanded") === "true";
 };
 
-FontMenu.prototype.open = function () {
+Menu.prototype.open = function () {
   // Set CSS properties
   this.domNode.style.display = "block";
   this.domNode.style.position = "absolute";
@@ -936,7 +935,7 @@ FontMenu.prototype.open = function () {
   this.controller.domNode.setAttribute("aria-expanded", "true");
 };
 
-FontMenu.prototype.close = function (force) {
+Menu.prototype.close = function (force) {
   if (typeof force !== "boolean") {
     force = false;
   }
@@ -953,7 +952,7 @@ FontMenu.prototype.close = function (force) {
  *   This content is licensed according to the W3C Software License at
  *   https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
  *
- *   File:   FontMenuItem.js
+ *   File:   MenuItem.js
  */
 
 ("use strict");
@@ -973,7 +972,7 @@ FontMenu.prototype.close = function (force) {
  *       The object that is a wrapper for the PopupMenu DOM element that
  *       contains the menu item DOM element. See PopupMenuAction.js
  */
-var FontMenuItem = function (domNode, fontMenu) {
+var MenuItem = function (domNode, fontMenu) {
   this.domNode = domNode;
   this.fontMenu = fontMenu;
   this.font = "";
@@ -995,7 +994,7 @@ var FontMenuItem = function (domNode, fontMenu) {
   });
 };
 
-FontMenuItem.prototype.init = function () {
+MenuItem.prototype.init = function () {
   this.domNode.setAttribute("tabindex", "-1");
 
   if (!this.domNode.getAttribute("role")) {
@@ -1014,7 +1013,7 @@ FontMenuItem.prototype.init = function () {
 
 /* EVENT HANDLERS */
 
-FontMenuItem.prototype.handleKeydown = function (event) {
+MenuItem.prototype.handleKeydown = function (event) {
   var flag = false,
     char = event.key;
 
@@ -1096,166 +1095,26 @@ FontMenuItem.prototype.handleKeydown = function (event) {
   }
 };
 
-FontMenuItem.prototype.handleClick = function () {
+MenuItem.prototype.handleClick = function () {
   this.fontMenu.setFontFamily(this, this.font);
   this.fontMenu.setFocusToController();
   this.fontMenu.close(true);
 };
 
-FontMenuItem.prototype.handleFocus = function () {
+MenuItem.prototype.handleFocus = function () {
   this.fontMenu.setFocus();
 };
 
-FontMenuItem.prototype.handleBlur = function () {
+MenuItem.prototype.handleBlur = function () {
   this.fontMenu.removeFocus();
 };
 
-FontMenuItem.prototype.handleMouseover = function () {
+MenuItem.prototype.handleMouseover = function () {
   this.fontMenu.hasHover = true;
   this.fontMenu.open();
 };
 
-FontMenuItem.prototype.handleMouseout = function () {
+MenuItem.prototype.handleMouseout = function () {
   this.fontMenu.hasHover = false;
   setTimeout(this.fontMenu.close.bind(this.fontMenu, false), 300);
-};
-/*
- *   This content is licensed according to the W3C Software License at
- *   https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
- *
- *   File:   SpinButton.js
- */
-
-("use strict");
-
-// Create SpinButton that contains value, valuemin, valuemax, and valuenow
-var SpinButton = function (domNode, inputbar) {
-  this.domNode = domNode;
-  this.inputbar = inputbar;
-
-  this.valueDomNode = domNode.querySelector(".value");
-  this.increaseDomNode = domNode.querySelector(".increase");
-  this.decreaseDomNode = domNode.querySelector(".decrease");
-
-  this.valueMin = 8;
-  this.valueMax = 40;
-  this.valueNow = 12;
-  this.valueText = this.valueNow + " Point";
-
-  this.keyCode = Object.freeze({
-    UP: 38,
-    DOWN: 40,
-    PAGEUP: 33,
-    PAGEDOWN: 34,
-    END: 35,
-    HOME: 36,
-  });
-};
-
-// Initialize slider
-SpinButton.prototype.init = function () {
-  if (this.domNode.getAttribute("aria-valuemin")) {
-    this.valueMin = parseInt(this.domNode.getAttribute("aria-valuemin"));
-  }
-
-  if (this.domNode.getAttribute("aria-valuemax")) {
-    this.valueMax = parseInt(this.domNode.getAttribute("aria-valuemax"));
-  }
-
-  if (this.domNode.getAttribute("aria-valuenow")) {
-    this.valueNow = parseInt(this.domNode.getAttribute("aria-valuenow"));
-  }
-
-  this.setValue(this.valueNow);
-
-  this.domNode.addEventListener("keydown", this.handleKeyDown.bind(this));
-
-  this.increaseDomNode.addEventListener(
-    "click",
-    this.handleIncreaseClick.bind(this)
-  );
-  this.decreaseDomNode.addEventListener(
-    "click",
-    this.handleDecreaseClick.bind(this)
-  );
-};
-
-SpinButton.prototype.setValue = function (value) {
-  if (value > this.valueMax) {
-    value = this.valueMax;
-  }
-
-  if (value < this.valueMin) {
-    value = this.valueMin;
-  }
-
-  this.valueNow = value;
-  this.valueText = value + " Point";
-
-  this.domNode.setAttribute("aria-valuenow", this.valueNow);
-  this.domNode.setAttribute("aria-valuetext", this.valueText);
-
-  if (this.valueDomNode) {
-    this.valueDomNode.innerHTML = this.valueText;
-  }
-
-  this.inputbar.changeFontSize(value);
-};
-
-SpinButton.prototype.handleKeyDown = function (event) {
-  var flag = false;
-
-  switch (event.keyCode) {
-    case this.keyCode.DOWN:
-      this.setValue(this.valueNow - 1);
-      flag = true;
-      break;
-
-    case this.keyCode.UP:
-      this.setValue(this.valueNow + 1);
-      flag = true;
-      break;
-
-    case this.keyCode.PAGEDOWN:
-      this.setValue(this.valueNow - 5);
-      flag = true;
-      break;
-
-    case this.keyCode.PAGEUP:
-      this.setValue(this.valueNow + 5);
-      flag = true;
-      break;
-
-    case this.keyCode.HOME:
-      this.setValue(this.valueMin);
-      flag = true;
-      break;
-
-    case this.keyCode.END:
-      this.setValue(this.valueMax);
-      flag = true;
-      break;
-
-    default:
-      break;
-  }
-
-  if (flag) {
-    event.preventDefault();
-    event.stopPropagation();
-  }
-};
-
-SpinButton.prototype.handleIncreaseClick = function (event) {
-  this.setValue(this.valueNow + 1);
-
-  event.preventDefault();
-  event.stopPropagation();
-};
-
-SpinButton.prototype.handleDecreaseClick = function (event) {
-  this.setValue(this.valueNow - 1);
-
-  event.preventDefault();
-  event.stopPropagation();
 };
