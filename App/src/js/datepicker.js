@@ -77,8 +77,9 @@ DatePickerDialog.prototype.init = function () {
   this.textboxNode.addEventListener("click", this.handleButtonClick.bind(this));
   this.textboxNode.addEventListener(
     "keydown",
-    function (e) {
-      this.handleButtonClick.bind(this);
+    function (event) {
+      console.log(event);
+      if (event.key === "Enter") this.handleButtonClick.bind(this)();
     }.bind(this)
   );
 

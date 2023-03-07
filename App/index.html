@@ -9,11 +9,11 @@
     <link rel="stylesheet" href="./src/css/common.css" />
     <link rel="stylesheet" href="./src/css/carousel.css" />
     <link rel="stylesheet" href="./src/css/tabs.css" />
-    <link rel="stylesheet" href="./src/css/toolbar.css" />
-    <link rel="stylesheet" href="./src/css/dataGrid.css" />
+    <link rel="stylesheet" href="./src/css/inputbar.css" />
     <link rel="stylesheet" href="./src/css/datepicker.css" />
     <link rel="stylesheet" href="./src/css/header.css" />
     <link rel="stylesheet" href="./src/css/main.css" />
+    <!-- <link rel="stylesheet" href="./src/css/dataGrid.css" /> -->
     <title>Document</title>
   </head>
   <body>
@@ -97,7 +97,7 @@
 
           <!-- 탭 -->
           <div class="tabs">
-            <h2 id="tablist-1">날짜 캐러셀</h2>
+            <h2 id="tablist-1" class="blind">날짜 캐러셀</h2>
             <div role="tablist" aria-labelledby="tablist-1" class="manual">
               <button
                 id="tab-1"
@@ -216,20 +216,20 @@
           <div id="tabpanel-1" role="tabpanel" aria-labelledby="tab-1">
             <div
               class="format"
-              role="toolbar"
+              role="inputbar"
               aria-label="날짜입력"
               aria-controls="textarea1">
-              <div class="group">
-                <div class="partition"></div>
+              <div class="group date-field">
                 <div id="myDatepicker" class="datepicker">
                   <div class="date">
-                    <label for="id-textbox-1">일자</label>
+                    <label for="id-textbox-1" aria-hidden="true">일자</label>
                     <div class="group">
                       <input
                         class="item nightmode"
                         type="text"
                         id="id-textbox-1"
                         aria-describedby="id-description-1"
+                        aria-label="일자 입력"
                         value="20230222" />
                       <span class="desc blind" id="id-description-1">
                         (<span class="sr-only">날짜 형식: </span>
@@ -416,104 +416,190 @@
                 </div>
               </div>
 
+              <div class="group">
+                <label for="amount" aria-hidden="true">금액</label><br />
+                <div class="field">
+                  <figure>
+                    <svg
+                      width="14"
+                      height="2"
+                      viewBox="0 0 14 2"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M1 1H13"
+                        stroke="#524D90"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                    <figcaption class="blind">지출</figcaption>
+                  </figure>
+                  <input
+                    id="amount"
+                    class="item"
+                    type="number"
+                    tabindex="-1"
+                    min="0"
+                    step="100"
+                    placeholder="0" />
+                  <span>원</span>
+                </div>
+                <div class="partition"></div>
+              </div>
+
+              <div class="group">
+                <label for="detail" aria-hidden="true">내용</label>
+                <div class="field">
+                  <input
+                    class="item"
+                    type="text"
+                    name="detail"
+                    id="detail"
+                    tabindex="-1"
+                    placeholder="입력하세요"
+                    aria-label="내용 입력창" />
+                </div>
+                <div class="partition"></div>
+              </div>
+
               <div class="menu-popup group">
-                <button
-                  type="button"
-                  aria-haspopup="true"
-                  aria-controls="menu1"
-                  class="item menu-button"
-                  tabindex="-1"
-                  aria-label="Font: Sans-serif"
-                  style="
-                    text-align: left;
-                    width: 140px;
-                    font-family: sans-serif;
-                  ">
-                  SANS-SERIF
-                  <span></span>
-                </button>
-                <ul role="menu" id="menu1" aria-label="Font Family">
-                  <li
-                    role="menuitemradio"
-                    aria-checked="true"
-                    style="font-family: sans-serif">
-                    Sans-serif
+                <label for="payment" aria-hidden="true">결제수단</label>
+                <div class="field">
+                  <button
+                    id="payment"
+                    type="button"
+                    aria-haspopup="true"
+                    aria-controls="menu1"
+                    class="item menu-button"
+                    tabindex="-1"
+                    aria-label="입력하세요">
+                    <span class="placeholder"> 입력하세요 </span>
+                  </button>
+                </div>
+                <ul role="menu" id="menu1" aria-label="결제수단">
+                  <li role="menuitemradio" aria-checked="true">
+                    <span>현금</span>
+                    <button tabindex="-1">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M12 4L4 12"
+                          stroke="#E75B3F"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round" />
+                        <path
+                          d="M4 4L12 12"
+                          stroke="#E75B3F"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round" />
+                      </svg>
+                    </button>
                   </li>
-                  <li
-                    role="menuitemradio"
-                    aria-checked="false"
-                    style="font-family: serif">
-                    Serif
+                  <li role="menuitemradio" aria-checked="false">
+                    <span>신용카드</span>
+                    <button tabindex="-1">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M12 4L4 12"
+                          stroke="#E75B3F"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round" />
+                        <path
+                          d="M4 4L12 12"
+                          stroke="#E75B3F"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round" />
+                      </svg>
+                    </button>
                   </li>
-                  <li
-                    role="menuitemradio"
-                    aria-checked="false"
-                    style="font-family: monospace">
-                    Monospace
-                  </li>
-                  <li
-                    role="menuitemradio"
-                    aria-checked="false"
-                    style="font-family: fantasy">
-                    Fantasy
-                  </li>
-                  <li
-                    role="menuitemradio"
-                    aria-checked="false"
-                    style="font-family: cursive">
-                    Cursive
+                  <li role="menuitemradio" aria-checked="false">
+                    <span>추가하기</span>
                   </li>
                 </ul>
+                <div class="partition"></div>
               </div>
-
-              <div class="group">
-                <div
-                  class="item spinbutton"
-                  role="spinbutton"
-                  tabindex="-1"
-                  aria-valuenow="14"
-                  aria-valuetext="14pt"
-                  aria-valuemin="8"
-                  aria-valuemax="40"
-                  aria-label="Font size in points">
-                  <span class="value">14pt</span>
-                  <span class="increase">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="12"
-                      height="12">
-                      <polygon
-                        class="increase"
-                        fill="#333"
-                        points="0,12 11,12 6,2"></polygon>
-                    </svg>
-                  </span>
-                  <span class="decrease">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="12"
-                      height="12">
-                      <polygon
-                        class="decrease"
-                        fill="#333"
-                        points="0,2 11,2 6,12"></polygon>
-                    </svg>
-                  </span>
+              <div class="menu-popup group">
+                <label for="menu2" aria-hidden="true">분류</label>
+                <div class="field">
+                  <button
+                    id="division"
+                    type="button"
+                    aria-haspopup="true"
+                    aria-controls="menu2"
+                    class="item menu-button"
+                    tabindex="-1"
+                    aria-label="입력하세요">
+                    <span class="placeholder"> 입력하세요 </span>
+                  </button>
                 </div>
-              </div>
-
-              <div class="group">
-                <label class="input"
-                  ><input
-                    id="checkbox"
-                    class="item nightmode"
-                    type="checkbox"
-                    tabindex="-1" />
-                  Night Mode</label
-                >
-                <a id="link" class="item link" href="../help.html" tabindex="-1"
-                  >Help</a
-                >
+                <ul role="menu" id="menu2" aria-label="분류">
+                  <li role="menuitemradio" aria-checked="true">
+                    <span>밥</span>
+                    <button tabindex="-1">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M12 4L4 12"
+                          stroke="#E75B3F"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round" />
+                        <path
+                          d="M4 4L12 12"
+                          stroke="#E75B3F"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round" />
+                      </svg>
+                    </button>
+                  </li>
+                  <li role="menuitemradio" aria-checked="false">
+                    <span>커피</span>
+                    <button tabindex="-1">
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M12 4L4 12"
+                          stroke="#E75B3F"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round" />
+                        <path
+                          d="M4 4L12 12"
+                          stroke="#E75B3F"
+                          stroke-width="2"
+                          stroke-linecap="round"
+                          stroke-linejoin="round" />
+                      </svg>
+                    </button>
+                  </li>
+                  <li role="menuitemradio" aria-checked="false">
+                    <span> 추가하기 </span>
+                  </li>
+                </ul>
+                <div class="partition"></div>
               </div>
             </div>
             <label for="textarea1" class="hidden">Text Sample</label><br />
@@ -551,8 +637,8 @@ Abraham Lincoln's Gettysburg Address
     </div>
     <script src="./src/js/carousel.js"></script>
     <script src="./src/js/tabs.js"></script>
-    <script src="./src/js/toolbar.js"></script>
-    <script src="./src/js/dataGrid.js"></script>
+    <script src="./src/js/inputbar.js"></script>
     <script src="./src/js/datepicker.js"></script>
+    <!-- <script src="./src/js/dataGrid.js"></script> -->
   </body>
 </html>

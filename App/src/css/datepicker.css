@@ -22,10 +22,10 @@
 }
 
 .datepicker input {
+  width: 100%;
   padding: 0;
   margin: 0;
-  height: 1.5em;
-  background-color: white;
+  background-color: var(--color-white);
   color: var(--color-primary);
   border: 0;
   font-family: var(--font-family-bold);
