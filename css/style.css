@@ -178,7 +178,6 @@ section {
   min-width: 940px;
   display: flex;
   flex-direction: column;
-
   margin-top: -35px;
 }
 #main-list {
@@ -199,7 +198,6 @@ section {
   padding: 16px 18px 16px 24px;
   border: 1px solid #524d90;
   background: #fcfcfc;
-  border: 1px solid #524d90;
   box-shadow: 0px 2px 2px rgba(82, 77, 144, 0.08),
     0px 4px 4px rgba(82, 77, 144, 0.1);
   border-radius: 8px;
@@ -521,4 +519,71 @@ section {
 .list-detail > span:nth-of-type(3) {
   text-align: right;
   color: #e75b3f;
+}
+
+/* 파일을 나눠야하나..? */
+#week-calender {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.calender-head-box {
+  box-sizing: border-box;
+  width: 894px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* 이런 공통되는 부분을 어떻게 처리할까 */
+  background: #fcfcfc;
+  border: 1px solid #524d90;
+  box-shadow: 0px 2px 2px rgba(82, 77, 144, 0.08),
+    0px 4px 4px rgba(82, 77, 144, 0.1);
+  border-radius: 8px;
+
+  margin-bottom: 16px;
+}
+
+.calender-head-box .calender-head-day {
+  flex: 1;
+  text-align: center;
+
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #524d90;
+}
+
+.calender-body {
+  width: 894px;
+  height: 580px;
+  background: rgba(167, 159, 203, 0.4);
+  border: 1px solid #524d90;
+  box-shadow: 0px 2px 2px rgba(82, 77, 144, 0.08),
+    0px 4px 4px rgba(82, 77, 144, 0.1);
+  border-radius: 8px;
+
+  margin-bottom: 24px;
+}
+
+.monthly-total {
+  width: 894px;
+  display: flex;
+  justify-content: space-between;
+
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+}
+.monthly-total-left {
+  color: #a79fcb;
+}
+.monthly-total-right {
+  color: #524d90;
 }
