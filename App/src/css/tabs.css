@@ -1,0 +1,42 @@
+[role="tablist"] {
+  width: 132px;
+  display: flex;
+}
+
+[role="tab"],
+[role="tab"]:focus,
+[role="tab"]:hover {
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  overflow: visible;
+  font-weight: bold;
+  background-color: transparent;
+  border: 0;
+}
+
+[role="tab"][aria-selected="true"] svg {
+  stroke: var(--color-primary-alt);
+}
+
+[role="tab"][aria-selected="false"] svg {
+  stroke: var(--color-primary-alt-40);
+}
+
+[role="tab"]:hover svg,
+[role="tab"]:focus svg,
+[role="tab"]:active svg {
+  stroke: var(--color-primary-alt);
+}
+
+[role="tabpanel"] {
+  overflow: hidden;
+}
+
+[role="tabpanel"].is-hidden {
+  display: none;
+}
+
+[role="tabpanel"] p {
+  margin: 0;
+}
