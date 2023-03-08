@@ -1,0 +1,91 @@
+/* reset css */
+@import "reset.css";
+/* font */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css");
+
+body {
+  background-color: #f7f6f3;
+  font-family: Pretendard, 'Outfit', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+header.main-header {
+  height: 194px;
+  position: relative;
+  background-color: #524D90;
+}
+
+.main-header-container {
+  width: 846px;
+  position: absolute;
+  top: 40px;
+  bottom: 58px;
+  left: 50%;
+  margin-left: -423px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  font-family: 'Outfit', sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 24px;
+}
+
+.logo-area a {
+  display: block;
+  width: 132px;
+  color: #FCFCFC;
+  font-weight: 400;
+  /* position: absolute; */
+}
+
+.month-year {
+  display: flex;
+  justify-content: space-between;
+  width: 232px;
+  height: 96px;
+}
+
+.month-year a {
+  display: block;
+  align-self: center;
+}
+
+.current-month {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: #FCFCFC;
+  font-weight: 700;
+}
+
+.current-month span:nth-of-type(1) {
+  font-size: 12px;
+}
+
+.current-month span:nth-of-type(2) {
+  font-family: 'Outfit', sans-serif;
+  font-size: 48px;
+}
+
+.current-month span:nth-of-type(3) {
+  font-size: 12px;
+}
+
+nav {
+  width: 132px;
+}
+
+.icons {
+  display: flex;
+  justify-content: space-around;
+}

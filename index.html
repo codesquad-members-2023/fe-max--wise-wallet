@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="./css/style.css" />
+		<title>Wise Wallet</title>
+	</head>
+	<body>
+		<header class="main-header">
+			<div class="main-header-container">
+				<h1 class="logo-area">
+					<a href="/">Wise Wallet</a>
+				</h1>
+				<div class="month-year">
+					<a href="/previous-month">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+							<path
+								stroke="#FCFCFC"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="1.5"
+								d="m15 6-6 6 6 6"
+							/>
+						</svg>
+					</a>
+					<div class="current-month">
+						<span>2023</span>
+						<span>2</span>
+						<span>Feburary</span>
+					</div>
+					<a href="/next-month">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+							<path
+								stroke="#FCFCFC"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="1.5"
+								d="m9 6 6 6-6 6"
+							/>
+						</svg>
+					</a>
+				</div>
+				<nav class="tab">
+					<ul class="icons">
+						<li>
+							<a href="/list">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+									<path
+										stroke="#FCFCFC"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="1.5"
+										d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6Z"
+									/>
+									<path
+										stroke="#FCFCFC"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="1.5"
+										d="M14 2v6h6M16 13H8M16 17H8M10 9H8"
+									/>
+								</svg>
+							</a>
+						</li>
+						<li>
+							<a href="/calander"
+								><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+									<path
+										stroke="#A79FCB"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="1.5"
+										d="M19 4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2ZM16 2v4M8 2v4M3 10h18"
+									/>
+								</svg>
+							</a>
+						</li>
+						<li>
+							<a href="/statistic">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+									<path
+										stroke="#A79FCB"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="1.5"
+										d="M18 20V10M12 20V4M6 20v-6"
+									/>
+								</svg>
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<section class="input-bar">
+			<form action="/somewhere">
+				<div class="input-date">
+					<label for="inputDate">일자</label>
+					<input id="inputDate" type="date" placeholder="20230217" />
+				</div>
+				<div>
+					<label for="inputPrice">금액</label>
+					<button type="button">-</button>
+					<input id="inputPrice" type="number" />
+				</div>
+				<div>
+					<label for="inputContent">내용</label>
+					<input id="inputContent" type="text" />
+				</div>
+				<div>
+					<label for="selectPayment">결제수단</label>
+					<select name="" id="selectPayment">
+						<option value="현금">현금</option>
+						<option value="체크카드">체크카드</option>
+						<option value="추가하기">추가하기</option>
+					</select>
+				</div>
+				<div>
+					<label for="selectCategory">분류</label>
+					<select name="" id="selectCategory">
+						<option value="생활">생활</option>
+						<option value="식비">식비</option>
+						<option value="교통">교통</option>
+						<option value="문화/여가">문화/여가</option>
+						<option value="미분류">미분류</option>
+					</select>
+				</div>
+				<button type="submit">체크아이콘</button>
+			</form>
+		</section>
+
+		<main class="monthly-list">
+			<header class="info">
+				<div>전체내역 <span>13</span>건</div>
+				<div>
+					<input type="checkbox" />
+					<label for="">수입 <span>500,000</span></label>
+					<input type="checkbox" />
+					<label for="">지출 <span>87,000</span></label>
+				</div>
+			</header>
+			<section>
+				<ul class="monthly-details">
+					<li>
+						<div class="daily-info">
+							<div><strong>2월 15일</strong> 수</div>
+							<div>지출 <span>17,000</span></div>
+						</div>
+						<ul class="daily-details">
+							<li>
+								<div class="category">문화/여가</div>
+								<div class="content">넷플릭스 결제</div>
+								<div class="payment">체크카드</div>
+								<div class="price">-17,000원</div>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="daily-info">
+							<div><strong>2월 15일</strong> 수</div>
+							<div>지출 <span>1,450</span></div>
+						</div>
+						<ul class="daily-details">
+							<li>
+								<div class="category">교통</div>
+								<div class="content">지하철 요금</div>
+								<div class="payment">체크카드</div>
+								<div class="price">-1,450원</div>
+							</li>
+						</ul>
+					</li>
+					<li>
+						<div class="daily-info">
+							<div><strong>2월 15일</strong> 수</div>
+							<div>수입 <span>500,000</span></div>
+						</div>
+						<ul class="daily-details">
+							<li>
+								<div class="category">용돈</div>
+								<div class="content">2월달 용돈</div>
+								<div class="payment">계좌</div>
+								<div class="price">+500,000원</div>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			</section>
+		</main>
+	</body>
+</html>
