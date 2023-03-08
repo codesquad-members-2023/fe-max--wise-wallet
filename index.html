@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/styles/index.css" />
+    <title>Wise Wallet</title>
+  </head>
+  <body>
+    <header id="top-header">
+      <div class="top-header__inner-wrapper">
+        <div class="logo">
+          <img src="src/assets/icons/logo.svg" alt="Wise Wallet Logo" />
+        </div>
+
+        <div class="month-year__carousel">
+          <a href="#" class="month-year__carousel__btn previous">
+            <img src="src/assets/icons/chevron-left.svg" alt="Previous Day" />
+          </a>
+          <div class="month-year__container">
+            <div id="year">2023</div>
+            <div id="month-num">3</div>
+            <div id="month-char">March</div>
+          </div>
+          <a href="#" class="month-year__carousel__btn next">
+            <img src="src/assets/icons/chevron-right.svg" alt="Next Day" />
+          </a>
+        </div>
+
+        <nav class="view-nav">
+          <fieldset>
+            <label class="view-nav__tab" for="main-view">
+              <input
+                type="radio"
+                name="view"
+                id="main-view"
+                value="main-view"
+                checked />
+              <img src="src/assets/icons/doc.svg" alt="Main View" />
+            </label>
+
+            <label class="view-nav__tab" for="calendar-view">
+              <input
+                type="radio"
+                name="view"
+                id="calendar-view"
+                value="calendar-view" />
+              <img src="src/assets/icons/calendar.svg" alt="Calendar View" />
+            </label>
+
+            <label class="view-nav__tab" for="chart-view">
+              <input
+                type="radio"
+                name="view"
+                id="chart-view"
+                value="chart-view" />
+              <img src="src/assets/icons/chart.svg" alt="Chart View" />
+            </label>
+          </fieldset>
+        </nav>
+      </div>
+    </header>
+
+    <section id="new-entry-form-container">
+      <form action="">
+        <ul>
+          <li>
+            <label for="date">
+              <span>일자</span>
+              <input type="date" name="date" id="date" />
+            </label>
+          </li>
+          <li>
+            <label for="amount">
+              <span>금액</span>
+              <input
+                type="number"
+                name="amount"
+                placeholder="0"
+                id="amount"
+                required />
+            </label>
+          </li>
+          <li>
+            <label for="content">
+              <span>내용</span>
+              <input
+                type="text"
+                name="content"
+                placeholder="입력하세요"
+                id="content"
+                required />
+            </label>
+          </li>
+          <li>
+            <label for="payment-method">
+              <span>결제수단</span>
+              <select name="payment-method" id="payment-method" required>
+                <option value="" disabled selected>선택하세요</option>
+                <option value="cash">현금</option>
+                <option value="card">신용카드</option>
+                <option value="">추가하기</option>
+              </select>
+            </label>
+          </li>
+          <li>
+            <label for="category">
+              <span>분류</span>
+              <select name="category" id="category" required>
+                <option value="" disabled selected>선택하세요</option>
+                <option value="living-expenses">생활</option>
+                <option value="food">식비</option>
+                <option value="transportation">교통</option>
+                <option value="shopping">쇼핑/뷰티</option>
+                <option value="health">의료/건강</option>
+                <option value="entertainment">문화/여가</option>
+                <option value="unclassified">미분류</option>
+              </select>
+            </label>
+          </li>
+        </ul>
+        <button type="submit" disabled>
+          <img src="" alt="Submit" />
+        </button>
+      </form>
+    </section>
+
+    <main>
+      <header>
+        <h2>전체 내역 0건</h2>
+        <label for="income">
+          <input type="checkbox" name="income" id="income" checked />
+          <span>수입 0</span>
+        </label>
+        <label for="expense">
+          <input type="checkbox" name="expense" id="expense" checked />
+          <span>지출 0</span>
+        </label>
+      </header>
+
+      <section id="entries-container">
+        <!-- entries -->
+      </section>
+    </main>
+  </body>
+</html>
