@@ -174,7 +174,8 @@ a {
   display: block;
 }
 
-section {
+
+#main {
   min-width: 940px;
   display: flex;
   flex-direction: column;
@@ -528,6 +529,7 @@ section {
 }
 
 /* 파일을 나눠야하나..? */
+/* 달력부분 */
 #week-calender {
   display: flex;
   flex-direction: column;
@@ -592,4 +594,11 @@ section {
 }
 .monthly-total-right {
   color: #524d90;
+}
+
+
+/* 커밋사항 section > main으로 변경 */
+/*  */
+#statistics{
+
 }
