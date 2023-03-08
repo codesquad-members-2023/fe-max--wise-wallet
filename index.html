@@ -142,6 +142,43 @@
           </button>
         </form>
       </section>
+
+      <!-- 전체 내역 -->
+      <section aria-labelledby="total-history">
+        <h1 id="total-history" aria-label="전체 내역">전체 내역</h1>
+        <p>전체 내역 <span>14</span>건</p>
+
+        <div>
+          <div>
+            <input type="checkbox" name="total-income" id="total-income" />
+            <label for="total-income">수입 <span>2,010,580</span></label>
+          </div>
+          <div>
+            <input type="checkbox" name="total-expense" id="total-expense" />
+            <label for="total-expense">지출 <span>834,640</span></label>
+          </div>
+        </div>
+
+        <!-- 내역 리스트 -->
+        <div>
+          <ul>
+            <li>
+              <div>2월 17일</div>
+              <div>금</div>
+              <div>수입 : <span>50,000원</span></div>
+              <div>지출 : <span>-20,000원</span></div>
+              <ul>
+                <li>
+                  <div>태그</div>
+                  <div>내용</div>
+                  <div>결제수단</div>
+                  <div>금액</div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </section>
     </main>
   </body>
 </html>
