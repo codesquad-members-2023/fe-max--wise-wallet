@@ -1,7 +1,7 @@
 header {
   background: var(--color-primary);
   height: 194px;
-
+  min-width: 1024px;
 }
 
 header .inner {

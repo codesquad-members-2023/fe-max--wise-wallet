@@ -13,8 +13,8 @@
     <link rel="stylesheet" href="./src/css/datepicker.css" />
     <link rel="stylesheet" href="./src/css/header.css" />
     <link rel="stylesheet" href="./src/css/main.css" />
-    <!-- <link rel="stylesheet" href="./src/css/dataGrid.css" /> -->
-    <title>Document</title>
+    <link rel="stylesheet" href="./src/css/datagrid.css" />
+    <title>Wise wallet</title>
   </head>
   <body>
     <div id="app">
@@ -219,199 +219,206 @@
               role="inputbar"
               aria-label="날짜입력"
               aria-controls="textarea1">
-              <div class="group date-field">
-                <div id="myDatepicker" class="datepicker">
-                  <div class="date">
-                    <label for="id-textbox-1" aria-hidden="true">일자</label>
-                    <div class="group">
-                      <input
-                        class="item nightmode"
-                        type="text"
-                        id="id-textbox-1"
-                        aria-describedby="id-description-1"
-                        aria-label="일자 입력"
-                        value="20230222" />
-                      <span class="desc blind" id="id-description-1">
-                        (<span class="sr-only">날짜 형식: </span>
-                        년/월/월이름)
-                      </span>
+              <div class="group">
+                <label for="id-textbox-1" aria-hidden="true">일자</label>
+                <div class="field field-date">
+                  <div id="myDatepicker" class="datepicker">
+                    <div class="date">
+                      <div class="group">
+                        <input
+                          class="item"
+                          type="text"
+                          id="id-textbox-1"
+                          aria-describedby="id-description-1"
+                          aria-label="일자 입력"
+                          value="20230222" />
+                        <span class="desc blind" id="id-description-1">
+                          (<span class="sr-only">날짜 형식: </span>
+                          년/월/월이름)
+                        </span>
+                      </div>
                     </div>
-                  </div>
+                    <div
+                      id="id-datepicker-1"
+                      class="datepicker-dialog"
+                      role="dialog"
+                      aria-modal="true"
+                      aria-label="날짜를 선택해주세요">
+                      <div class="header">
+                        <button
+                          type="button"
+                          class="prev-year"
+                          aria-label="작년">
+                          <svg
+                            width="10"
+                            height="18"
+                            viewBox="0 0 10 18"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                              d="M9 1L1 9L9 17"
+                              stroke="#FCFCFC"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round" />
+                          </svg>
+                        </button>
 
-                  <div
-                    id="id-datepicker-1"
-                    class="datepicker-dialog"
-                    role="dialog"
-                    aria-modal="true"
-                    aria-label="날짜를 선택해주세요">
-                    <div class="header">
-                      <button type="button" class="prev-year" aria-label="작년">
-                        <svg
-                          width="10"
-                          height="18"
-                          viewBox="0 0 10 18"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg">
-                          <path
-                            d="M9 1L1 9L9 17"
-                            stroke="#FCFCFC"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round" />
-                        </svg>
-                      </button>
+                        <button
+                          type="button"
+                          class="prev-month"
+                          aria-label="저번달">
+                          <svg
+                            width="10"
+                            height="18"
+                            viewBox="0 0 10 18"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                              d="M9 1L1 9L9 17"
+                              stroke="#FCFCFC"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round" />
+                          </svg>
+                        </button>
 
-                      <button
-                        type="button"
-                        class="prev-month"
-                        aria-label="저번달">
-                        <svg
-                          width="10"
-                          height="18"
-                          viewBox="0 0 10 18"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg">
-                          <path
-                            d="M9 1L1 9L9 17"
-                            stroke="#FCFCFC"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round" />
-                        </svg>
-                      </button>
+                        <h2
+                          id="id-grid-label"
+                          class="month-year"
+                          aria-live="polite">
+                          February 2020
+                        </h2>
 
-                      <h2
-                        id="id-grid-label"
-                        class="month-year"
-                        aria-live="polite">
-                        February 2020
-                      </h2>
+                        <button
+                          type="button"
+                          class="next-month"
+                          aria-label="다음달">
+                          <svg
+                            width="10"
+                            height="18"
+                            viewBox="0 0 10 18"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                              d="M1 1L9 9L1 17"
+                              stroke="#FCFCFC"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round" />
+                          </svg>
+                        </button>
 
-                      <button
-                        type="button"
-                        class="next-month"
-                        aria-label="다음달">
-                        <svg
-                          width="10"
-                          height="18"
-                          viewBox="0 0 10 18"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg">
-                          <path
-                            d="M1 1L9 9L1 17"
-                            stroke="#FCFCFC"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round" />
-                        </svg>
-                      </button>
+                        <button
+                          type="button"
+                          class="next-year"
+                          aria-label="내년">
+                          <svg
+                            width="10"
+                            height="18"
+                            viewBox="0 0 10 18"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                              d="M1 1L9 9L1 17"
+                              stroke="#FCFCFC"
+                              stroke-width="1.5"
+                              stroke-linecap="round"
+                              stroke-linejoin="round" />
+                          </svg>
+                        </button>
+                      </div>
 
-                      <button type="button" class="next-year" aria-label="내년">
-                        <svg
-                          width="10"
-                          height="18"
-                          viewBox="0 0 10 18"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg">
-                          <path
-                            d="M1 1L9 9L1 17"
-                            stroke="#FCFCFC"
-                            stroke-width="1.5"
-                            stroke-linecap="round"
-                            stroke-linejoin="round" />
-                        </svg>
-                      </button>
+                      <div class="table-wrap">
+                        <table
+                          class="dates"
+                          role="grid"
+                          aria-labelledby="id-grid-label">
+                          <thead>
+                            <tr>
+                              <th scope="col" abbr="일요일">일</th>
+                              <th scope="col" abbr="월요일">월</th>
+                              <th scope="col" abbr="화요일">화</th>
+                              <th scope="col" abbr="수요일">수</th>
+                              <th scope="col" abbr="목요일">목</th>
+                              <th scope="col" abbr="금요일">금</th>
+                              <th scope="col" abbr="토요일">토</th>
+                            </tr>
+                          </thead>
+
+                          <tbody>
+                            <tr>
+                              <td class="disabled" tabindex="-1"></td>
+                              <td class="disabled" tabindex="-1"></td>
+                              <td class="disabled" tabindex="-1"></td>
+                              <td class="disabled" tabindex="-1"></td>
+                              <td class="disabled" tabindex="-1"></td>
+                              <td class="disabled" tabindex="-1"></td>
+                              <td tabindex="-1" data-date="2020-02-01">1</td>
+                            </tr>
+                            <tr>
+                              <td tabindex="-1" data-date="2020-02-02">2</td>
+                              <td tabindex="-1" data-date="2020-02-03">3</td>
+                              <td tabindex="-1" data-date="2020-02-04">4</td>
+                              <td tabindex="-1" data-date="2020-02-05">5</td>
+                              <td tabindex="-1" data-date="2020-02-06">6</td>
+                              <td tabindex="-1" data-date="2020-02-07">7</td>
+                              <td tabindex="-1" data-date="2020-02-08">8</td>
+                            </tr>
+                            <tr>
+                              <td tabindex="-1" data-date="2020-02-09">9</td>
+                              <td tabindex="-1" data-date="2020-02-10">10</td>
+                              <td tabindex="-1" data-date="2020-02-11">11</td>
+                              <td tabindex="-1" data-date="2020-02-12">12</td>
+                              <td tabindex="-1" data-date="2020-02-13">13</td>
+                              <td
+                                tabindex="0"
+                                data-date="2020-02-14"
+                                role="gridcell"
+                                aria-selected="true">
+                                14
+                              </td>
+                              <td tabindex="-1" data-date="2020-02-15">15</td>
+                            </tr>
+                            <tr>
+                              <td tabindex="-1" data-date="2020-02-16">16</td>
+                              <td tabindex="-1" data-date="2020-02-17">17</td>
+                              <td tabindex="-1" data-date="2020-02-18">18</td>
+                              <td tabindex="-1" data-date="2020-02-19">19</td>
+                              <td tabindex="-1" data-date="2020-02-20">20</td>
+                              <td tabindex="-1" data-date="2020-02-21">21</td>
+                              <td tabindex="-1" data-date="2020-02-22">22</td>
+                            </tr>
+                            <tr>
+                              <td tabindex="-1" data-date="2020-02-23">23</td>
+                              <td tabindex="-1" data-date="2020-02-24">24</td>
+                              <td tabindex="-1" data-date="2020-02-25">25</td>
+                              <td tabindex="-1" data-date="2020-02-26">26</td>
+                              <td tabindex="-1" data-date="2020-02-27">27</td>
+                              <td tabindex="-1" data-date="2020-02-28">28</td>
+                              <td tabindex="-1" data-date="2020-02-29">29</td>
+                            </tr>
+                            <tr>
+                              <td tabindex="-1" data-date="2020-02-30">30</td>
+                              <td tabindex="-1" data-date="2020-02-31">31</td>
+                              <td class="disabled" tabindex="-1"></td>
+                              <td class="disabled" tabindex="-1"></td>
+                              <td class="disabled" tabindex="-1"></td>
+                              <td class="disabled" tabindex="-1"></td>
+                              <td class="disabled" tabindex="-1"></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+
+                      <div class="dialog-ok-cancel-group">
+                        <button class="dialog-button" value="cancel">
+                          Cancel
+                        </button>
+                        <button class="dialog-button" value="ok">OK</button>
+                      </div>
+                      <div class="dialog-message" aria-live="polite"></div>
                     </div>
-
-                    <div class="table-wrap">
-                      <table
-                        class="dates"
-                        role="grid"
-                        aria-labelledby="id-grid-label">
-                        <thead>
-                          <tr>
-                            <th scope="col" abbr="일요일">일</th>
-                            <th scope="col" abbr="월요일">월</th>
-                            <th scope="col" abbr="화요일">화</th>
-                            <th scope="col" abbr="수요일">수</th>
-                            <th scope="col" abbr="목요일">목</th>
-                            <th scope="col" abbr="금요일">금</th>
-                            <th scope="col" abbr="토요일">토</th>
-                          </tr>
-                        </thead>
-
-                        <tbody>
-                          <tr>
-                            <td class="disabled" tabindex="-1"></td>
-                            <td class="disabled" tabindex="-1"></td>
-                            <td class="disabled" tabindex="-1"></td>
-                            <td class="disabled" tabindex="-1"></td>
-                            <td class="disabled" tabindex="-1"></td>
-                            <td class="disabled" tabindex="-1"></td>
-                            <td tabindex="-1" data-date="2020-02-01">1</td>
-                          </tr>
-                          <tr>
-                            <td tabindex="-1" data-date="2020-02-02">2</td>
-                            <td tabindex="-1" data-date="2020-02-03">3</td>
-                            <td tabindex="-1" data-date="2020-02-04">4</td>
-                            <td tabindex="-1" data-date="2020-02-05">5</td>
-                            <td tabindex="-1" data-date="2020-02-06">6</td>
-                            <td tabindex="-1" data-date="2020-02-07">7</td>
-                            <td tabindex="-1" data-date="2020-02-08">8</td>
-                          </tr>
-                          <tr>
-                            <td tabindex="-1" data-date="2020-02-09">9</td>
-                            <td tabindex="-1" data-date="2020-02-10">10</td>
-                            <td tabindex="-1" data-date="2020-02-11">11</td>
-                            <td tabindex="-1" data-date="2020-02-12">12</td>
-                            <td tabindex="-1" data-date="2020-02-13">13</td>
-                            <td
-                              tabindex="0"
-                              data-date="2020-02-14"
-                              role="gridcell"
-                              aria-selected="true">
-                              14
-                            </td>
-                            <td tabindex="-1" data-date="2020-02-15">15</td>
-                          </tr>
-                          <tr>
-                            <td tabindex="-1" data-date="2020-02-16">16</td>
-                            <td tabindex="-1" data-date="2020-02-17">17</td>
-                            <td tabindex="-1" data-date="2020-02-18">18</td>
-                            <td tabindex="-1" data-date="2020-02-19">19</td>
-                            <td tabindex="-1" data-date="2020-02-20">20</td>
-                            <td tabindex="-1" data-date="2020-02-21">21</td>
-                            <td tabindex="-1" data-date="2020-02-22">22</td>
-                          </tr>
-                          <tr>
-                            <td tabindex="-1" data-date="2020-02-23">23</td>
-                            <td tabindex="-1" data-date="2020-02-24">24</td>
-                            <td tabindex="-1" data-date="2020-02-25">25</td>
-                            <td tabindex="-1" data-date="2020-02-26">26</td>
-                            <td tabindex="-1" data-date="2020-02-27">27</td>
-                            <td tabindex="-1" data-date="2020-02-28">28</td>
-                            <td tabindex="-1" data-date="2020-02-29">29</td>
-                          </tr>
-                          <tr>
-                            <td tabindex="-1" data-date="2020-02-30">30</td>
-                            <td tabindex="-1" data-date="2020-02-31">31</td>
-                            <td class="disabled" tabindex="-1"></td>
-                            <td class="disabled" tabindex="-1"></td>
-                            <td class="disabled" tabindex="-1"></td>
-                            <td class="disabled" tabindex="-1"></td>
-                            <td class="disabled" tabindex="-1"></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </div>
-
-                    <div class="dialog-ok-cancel-group">
-                      <button class="dialog-button" value="cancel">
-                        Cancel
-                      </button>
-                      <button class="dialog-button" value="ok">OK</button>
-                    </div>
-                    <div class="dialog-message" aria-live="polite"></div>
                   </div>
                 </div>
               </div>
@@ -445,10 +452,9 @@
                     placeholder="0" />
                   <span>원</span>
                 </div>
-                <div class="partition"></div>
               </div>
 
-              <div class="group">
+              <div class="group group-detail">
                 <label for="detail" aria-hidden="true">내용</label>
                 <div class="field">
                   <input
@@ -460,7 +466,6 @@
                     placeholder="입력하세요"
                     aria-label="내용 입력창" />
                 </div>
-                <div class="partition"></div>
               </div>
 
               <div class="menu-popup group">
@@ -530,7 +535,6 @@
                     <span>추가하기</span>
                   </li>
                 </ul>
-                <div class="partition"></div>
               </div>
               <div class="menu-popup group">
                 <label for="menu2" aria-hidden="true">분류</label>
@@ -548,73 +552,54 @@
                 </div>
                 <ul role="menu" id="menu2" aria-label="분류">
                   <li role="menuitemradio" aria-checked="true">
-                    <span>밥</span>
-                    <button tabindex="-1">
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                          d="M12 4L4 12"
-                          stroke="#E75B3F"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round" />
-                        <path
-                          d="M4 4L12 12"
-                          stroke="#E75B3F"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round" />
-                      </svg>
-                    </button>
+                    <span>생활</span>
                   </li>
                   <li role="menuitemradio" aria-checked="false">
-                    <span>커피</span>
-                    <button tabindex="-1">
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                          d="M12 4L4 12"
-                          stroke="#E75B3F"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round" />
-                        <path
-                          d="M4 4L12 12"
-                          stroke="#E75B3F"
-                          stroke-width="2"
-                          stroke-linecap="round"
-                          stroke-linejoin="round" />
-                      </svg>
-                    </button>
+                    <span>식비</span>
                   </li>
                   <li role="menuitemradio" aria-checked="false">
-                    <span> 추가하기 </span>
+                    <span>교통</span>
+                  </li>
+                  <li role="menuitemradio" aria-checked="false">
+                    <span>쇼핑/뷰티</span>
+                  </li>
+                  <li role="menuitemradio" aria-checked="false">
+                    <span>의료/건강</span>
+                  </li>
+                  <li role="menuitemradio" aria-checked="false">
+                    <span>문화/여가</span>
+                  </li>
+                  <li role="menuitemradio" aria-checked="false">
+                    <span>미분류</span>
                   </li>
                 </ul>
-                <div class="partition"></div>
+              </div>
+              <div class="group group-submit">
+                <button
+                  class="item submit active"
+                  tabindex="-1"
+                  aria-label="등록하기">
+                  <figure>
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M21 6L8.625 18L3 12.5455"
+                        stroke="#FCFCFC"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                    <figcaption class="blind">등록하기</figcaption>
+                  </figure>
+                </button>
               </div>
             </div>
             <label for="textarea1" class="hidden">Text Sample</label><br />
-            <textarea
-              id="textarea1"
-              rows="20"
-              cols="80">
-Abraham Lincoln's Gettysburg Address
-            
-            Four score and seven years ago our fathers brought forth on this continent a new nation, conceived in Liberty, and dedicated to the proposition that all men are created equal.
-            
-            Now we are engaged in a great civil war, testing whether that nation, or any nation, so conceived and so dedicated, can long endure. We are met on a great battle-field of that war. We have come to dedicate a portion of that field, as a final resting place for those who here gave their lives that that nation might live. It is altogether fitting and proper that we should do this.
-            
-            But, in a larger sense, we can not dedicate, we can not consecrate, we can not hallow, this ground. The brave men, living and dead, who struggled here, have consecrated it, far above our poor power to add or detract. The world will little note, nor long remember what we say here, but it can never forget what they did here. It is for us the living, rather, to be dedicated here to the unfinished work which they who fought here have thus far so nobly advanced. It is rather for us to be here dedicated to the great task remaining before us, that from these honored dead we take increased devotion to that cause for which they gave the last full measure of devotion, that we here highly resolve that these dead shall not have died in vain, that this nation, under God, shall have a new birth of freedom, and that government of the people, by the people, for the people, shall not perish from the earth.
-            </textarea>
+            <textarea id="textarea1" rows="10" cols="80"></textarea>
           </div>
           <div
             id="tabpanel-2"
@@ -638,6 +623,6 @@ Abraham Lincoln's Gettysburg Address
     <script src="./src/js/tabs.js"></script>
     <script src="./src/js/inputbar.js"></script>
     <script src="./src/js/datepicker.js"></script>
-    <!-- <script src="./src/js/dataGrid.js"></script> -->
+    <script src="./src/js/datagrid.js"></script>
   </body>
 </html>

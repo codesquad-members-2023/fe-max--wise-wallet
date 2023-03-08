@@ -1,5 +1,7 @@
 [role="inputbar"] {
   width: 100%;
+  padding: 16px 0px;
+  box-sizing: border-box;
   border-radius: var(--border-radius-8);
   position: absolute;
   transform: translateY(-50%);
@@ -12,14 +14,19 @@
 }
 
 [role="inputbar"] > .group {
-  padding: 16px 24px;
   display: block;
   flex-grow: 1;
-  width: 134px;
+  border-left: 1px solid var(--color-primary);
+  padding: 0 24px;
 }
 
-[role="inputbar"] > .group.date-field {
-  width: 88px;
+[role="inputbar"] > .group.group-detail {
+  flex-grow: 2;
+}
+
+[role="inputbar"] > .group:first-child,
+[role="inputbar"] > .group:last-child {
+  border: 0;
 }
 
 [role="inputbar"] button,
@@ -34,9 +41,12 @@
   color: var(--color-primary-alt);
   margin-bottom: 4px;
   display: inline-block;
+  width: 100%;
+  max-width: 80px;
 }
 
 [role="inputbar"] #amount {
+  width: 78px;
   border: 0;
   text-align: right;
 }
@@ -53,6 +63,10 @@
   color: var(--color-primary);
 }
 
+[role="inputbar"] .field.field-date {
+  width: 88px;
+}
+
 [role="inputbar"] .field .placeholder {
   color: var(--color-primary-alt-40);
 }
@@ -61,9 +75,9 @@
   font-size: 0;
 }
 
-[role="inputbar"] .field input,
-[role="inputbar"] .field button {
-  width: 78px;
+[role="inputbar"] .field > input,
+[role="inputbar"] .field > button {
+  width: 100%;
   font-family: var(--font-family-bold);
   font-weight: var(--font-weight-bold);
   font-size: var(--font-size-bold-large);
@@ -74,14 +88,17 @@
   border: 0;
 }
 
-[role="inputbar"] .field button {
+[role="inputbar"] .field > button {
   padding: 0;
-  width: 100%;
   display: flex;
   justify-content: start;
 }
 
 [role="inputbar"] .field input::placeholder {
+  font-family: var(--font-family-bold);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-bold-large);
+  line-height: var(--line-height-bold-large);
   color: var(--color-primary-alt-40);
 }
 
@@ -148,20 +165,6 @@
   border: 0;
 }
 
-[role="inputbar"] button:focus,
-[role="inputbar"] [role="radio"]:focus,
-[role="inputbar"] .focus,
-[role="inputbar"] a:focus {
-  background: var(--color-white);
-}
-
-[role="inputbar"] button:hover,
-[role="inputbar"] [role="radio"]:hover,
-[role="inputbar"] label.input:hover,
-[role="inputbar"] a:hover {
-  background: var(--color-white);
-}
-
 [role="inputbar"] button[aria-haspopup] span {
   float: right;
 }
@@ -176,8 +179,14 @@ textarea {
   font-family: sans-serif;
   border-radius: 5px;
 }
+
 [role="inputbar"] .menu-popup {
   position: relative;
+}
+
+[role="inputbar"] .menu-popup .field button {
+  min-width: 80px;
+  margin: 0;
 }
 
 [role="inputbar"] .menu-popup [role="menu"] {
@@ -243,4 +252,22 @@ textarea {
 [role="inputbar"] .menu-popup [role="menu"] [role="menuitemradio"]:focus,
 [role="inputbar"] .menu-popup [role="menu"] [role="menuitemradio"]:hover {
   background: var(--color-primary-alt-40);
+}
+
+
+[role="inputbar"] > .group-submit {
+  display: flex;
+  align-items: center;
+}
+
+[role="inputbar"] > .group .submit {
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--color-primary-alt-40);
+}
+
+[role="inputbar"] > .group .submit.active {
+  background-color: var(--color-secondary-yellow);
 }
