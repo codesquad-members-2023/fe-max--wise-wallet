@@ -596,9 +596,17 @@ a {
   color: #524d90;
 }
 
-
-/* 커밋사항 section > main으로 변경 */
-/*  */
+/* 오늘 목표, 통계보드 & 통계 보드 영역 아무데나 누르면 밑에 나오도록 */
+/* 통계보드 디테일에 mainlist에서 떼어온 것 넣고 이름 바꾸기 */
+/* 통계 */
 #statistics{
-
+  display: flex;
+  flex-direction: column;
+}
+.chart-board{
+  display: flex;
+  width: 894px;
+}
+.chart-board-layout{
+  
 }
