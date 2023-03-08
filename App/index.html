@@ -14,6 +14,7 @@
       media="screen"
       href="src/css/main.css"
     />
+    <!-- font -->
   </head>
   <body>
     <div id="wrap">
@@ -25,99 +26,120 @@
           </div>
 
           <div id="monthYear">
-            <a href="#"><img src="./src/icon/chevron-left.svg" /></a>
+            <button id="left-Arrow" class="arrowBtn reset-btn bg-color-primary">
+              <img alt="우측 화살표" src="./src/icon/chevron-left.svg" />
+            </button>
             <div id="date">
-              <div id="year" class="bold-small">2023</div>
-              <div id="month" class="display-large">2</div>
-              <div id="month-en" class="bold-small">February</div>
+              <div id="year" class="bold-small"></div>
+              <div id="month" class="display-large"></div>
+              <div id="month_en" class="bold-small"></div>
             </div>
-            <a href="#"><img alt="" src="./src/icon/chevron-right.svg" /></a>
+            <button
+              id="right-Arrow"
+              class="arrowBtn reset-btn bg-color-primary"
+            >
+              <img alt="우측 화살표" src="./src/icon/chevron-right.svg" />
+            </button>
           </div>
 
           <div id="tab">
             <!-- 아이콘 색 변경 필요 -->
-            <button><img src="./src/icon/doc.svg" /></button>
-            <button><img src="./src/icon/calendar.svg" /></button>
-            <button><img src="./src/icon/chart.svg" /></button>
+            <button>
+              <img alt="내역 아이콘" src="./src/icon/doc.svg" />
+            </button>
+            <button>
+              <img alt="달력 아이콘" src="./src/icon/calendar.svg" />
+            </button>
+            <button>
+              <img alt="차트 아이콘" src="./src/icon/chart.svg" />
+            </button>
           </div>
         </div>
       </header>
 
-      <!-- input bar -->
-      <div id="input_bar">
-        <div id="input_bar_wrapper">
-          <div>
-            <div class="input_title bold-small">일자</div>
-            <div id="input_date" class="content body-regular">
-              <!-- input date 커스텀 필요 -->
-              <input
-                id="input-date"
-                type="date"
-                class="content body-regular"
-                value="2023-03-08"
-              />
+      <!-- main -->
+      <main id="main">
+        <!-- input bar -->
+        <div id="input_bar" class="box-shadow">
+          <div id="input_bar_wrapper">
+            <div>
+              <div class="input_title bold-small">일자</div>
+              <div id="input_date" class="content body-regular">
+                <!-- input date 커스텀 필요 -->
+                <input
+                  type="date"
+                  id="input-date"
+                  name="date"
+                  class="content body-regular"
+                  value="2023-03-08"
+                />
+              </div>
             </div>
-          </div>
 
-          <div>
-            <div class="input_title bold-small">금액</div>
-            <div class="content">
-              <button id="input_toggle" class="none-background-btn">
-                <img src="./src/icon/minus.svg" />
-              </button>
-              <input id="input-money" class="body-regular" placeholder="0" /> 원
+            <div>
+              <div class="input_title bold-small">금액</div>
+              <div class="content">
+                <button id="input_toggle" class="reset-btn bg-color-white">
+                  <img alt="마이너스 아이콘" src="./src/icon/minus.svg" />
+                </button>
+
+                <input
+                  type="number"
+                  id="input-price"
+                  class="body-regular"
+                  placeholder="0"
+                />
+                원
+              </div>
             </div>
-          </div>
 
-          <div>
-            <div class="input_title bold-small">내용</div>
-            <div class="content">
-              <input
-                id="input-content"
-                class="body-regular"
-                placeholder="입력하세요"
-              />
+            <div>
+              <div class="input_title bold-small">내용</div>
+              <div class="content">
+                <input
+                  type="text"
+                  id="input-content"
+                  class="body-regular"
+                  placeholder="입력하세요"
+                />
+              </div>
             </div>
-          </div>
 
-          <div>
-            <div class="input_title bold-small">결제수단</div>
-            <div class="content">
-              <!-- select 커스텀 필요 -->
-              <select class="body-regular">
-                <option selected="" hidden="">선택하세요</option>
-                <option>현금</option>
-                <option>신용카드</option>
-                <option>추가하기</option>
-              </select>
+            <div>
+              <div class="input_title bold-small">결제수단</div>
+              <div class="content">
+                <!-- select 커스텀 필요 -->
+                <select class="body-regular">
+                  <option selected="" hidden="">선택하세요</option>
+                  <option>현금</option>
+                  <option>신용카드</option>
+                  <option>추가하기</option>
+                </select>
+              </div>
             </div>
-          </div>
 
-          <div>
-            <div class="input_title bold-small">분류</div>
-            <div class="content">
-              <!-- select 커스텀 필요 -->
-              <select class="body-regular">
-                <option selected="" hidden="">선택하세요</option>
-                <option>생활</option>
-                <option>식비</option>
-                <option>교통</option>
-                <option>쇼핑/뷰티</option>
-                <option>의료/건강</option>
-                <option>문화/여가</option>
-                <option>미분류</option>
-              </select>
-              <!-- select와의 거리 조절 필요 -->
-              <button id="input_checkbox" class="none-background-btn">
-                <img src="./src/icon/checkbox.svg" />
-              </button>
+            <div>
+              <div class="input_title bold-small">분류</div>
+              <div class="content">
+                <!-- select 커스텀 필요 -->
+                <select class="body-regular">
+                  <option selected="" hidden="">선택하세요</option>
+                  <option>생활</option>
+                  <option>식비</option>
+                  <option>교통</option>
+                  <option>쇼핑/뷰티</option>
+                  <option>의료/건강</option>
+                  <option>문화/여가</option>
+                  <option>미분류</option>
+                </select>
+                <!-- select와의 거리 조절 필요 -->
+                <button id="input_checkbox" class="reset-btn bg-color-white">
+                  <img alt="체크박스 아이콘" src="./src/icon/checkbox.svg" />
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-
-      <!-- main -->
-      <main id="main">
         <div id="main_wrapper">
           <!-- main header -->
           <header id="main_header">
@@ -127,7 +149,7 @@
 
             <div id="main_income_expenditure" class="body-medium">
               <div>
-                <button class="none-background-btn">
+                <button class="reset-btn bg-color-white">
                   <img src="./src/icon/checkbox.svg" />
                 </button>
                 수입
@@ -135,7 +157,7 @@
               </div>
 
               <div>
-                <button class="none-background-btn">
+                <button class="reset-btn bg-color-white">
                   <img src="./src/icon/checkbox.svg" />
                 </button>
                 지출
@@ -174,7 +196,7 @@
                   </div>
                 </td>
                 <td>
-                  <div class="histoty_body body-medium pimary">
+                  <div class="histoty_body body-medium primary">
                     스트리밍 서비스 정기 결제
                   </div>
                 </td>
@@ -200,7 +222,7 @@
                   </div>
                 </td>
                 <td>
-                  <div class="histoty_body body-medium pimary">
+                  <div class="histoty_body body-medium primary">
                     후불 교통비 결제
                   </div>
                 </td>
@@ -220,5 +242,6 @@
         </div>
       </main>
     </div>
+    <script src="./src/js/main.js"></script>
   </body>
 </html>
