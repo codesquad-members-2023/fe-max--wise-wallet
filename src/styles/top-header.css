@@ -22,11 +22,7 @@
 
 /* logo */
 .logo {
-  width: 125px;
-  font-weight: var(--fw-display-small);
-  font-size: var(--fs-display-small);
-  font-style: normal;
-  line-height: var(--lh-display-small);
+  height: 24px;
 }
 
 /* view tabs */
