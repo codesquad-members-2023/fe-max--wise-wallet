@@ -28,17 +28,52 @@ body {
   align-items: center;
   justify-content: space-between;
 }
+.main-header__logo {
+  order: 1;
+}
+.main-header__nav {
+  order: 3;
+}
+
+.main-header__nav-list {
+  display: flex;
+}
+.main-header__nav-item,
+.main-header__nav-item a {
+  display: block;
+  width: 44px;
+  height: 44px;
+  /* background-color: #fff; */
+}
+.main-header__nav-item svg {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.main-header__nav-item--active svg path {
+  stroke: var(--color-white);
+}
+
 .main-header__date {
+  order: 2;
   width: 232px;
   display: flex;
   justify-content: space-between;
   color: var(--color-white);
+}
+.main-header__date__button--prev {
+  order: 1;
+}
+.main-header__date__button--next {
+  order: 3;
 }
 .main-header__date-container {
   width: 120px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  order: 2;
 }
 .main-header__date-container .year,
 .main-header__date-container .month-text {
@@ -48,24 +83,4 @@ body {
 .main-header__date-container .month {
   font-size: var(--font-size-display-large);
   font-weight: var(--font-weight-display-large);
-}
-
-.nav-list {
-  display: flex;
-}
-.nav__item,
-.nav__item a {
-  display: block;
-  width: 44px;
-  height: 44px;
-  /* background-color: #fff; */
-}
-.nav__item svg {
-  position: relative;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.nav__item--active svg path {
-  stroke: var(--color-white);
 }
