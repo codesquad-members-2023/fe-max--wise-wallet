@@ -382,11 +382,11 @@ section {
   line-height: 24px;
   color: #a79fcb;
 }
-.modal-btn {
+.modal-btn-layout {
   display: flex;
   justify-content: space-between;
 }
-.modal-btn button {
+.modal-btn-layout .modal-btn {
   cursor: pointer;
   background-color: transparent;
   font-family: "Pretendard";
@@ -395,10 +395,10 @@ section {
   font-size: 16px;
   line-height: 24px;
 }
-.modal-btn button:nth-child(1) {
+.modal-btn-layout .cancel-btn {
   color: #524d90;
 }
-.modal-btn button:nth-child(2) {
+.modal-btn-layout .confirm-btn{
   color: #f5b853;
 }
 
