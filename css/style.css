@@ -269,7 +269,7 @@ section {
 
   text-align: right;
 }
-.price-wrap p {
+.price-wrap .won {
   font-family: "Pretendard";
   font-style: normal;
   font-weight: 500;

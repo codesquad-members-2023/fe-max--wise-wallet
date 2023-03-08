@@ -41,29 +41,29 @@
                 <!-- select박스 div로 변경하기 -->
                 <div id="main-list">
                     <div class="input-bar">
-                        <div class="input-bar-wrap">
-                            <div class="date">
+                        <form class="input-bar-wrap">
+                            <fieldset class="date">
                                 <label for="date-input">일자</label>
                                 <input type="date" id="date-input">
-                            </div>
+                            </fieldset>
                             <div class="dividing-line"></div>
-                            <div class="price">
+                            <fieldset class="price">
                                 <label for="price-input">금액</label>
                                 <div class="price-wrap">
                                     <button class="price-btn active"><img src="./images/name=minus.svg" alt="지출"
                                             data-type="지출"></button>
                                     <!-- <button  class="price-btn"><img src="./images/name=plus.svg" alt="수입" data-type="수입"></button> -->
                                     <input type="text" id="price-input" placeholder="0">
-                                    <p>원</p>
+                                    <span class="won">원</span>
                                 </div>
-                            </div>
+                            </fieldset>
                             <div class="dividing-line"></div>
-                            <div class="memo">
+                            <fieldset class="memo">
                                 <label for="memo-input">내용</label>
                                 <input type="text" id="memo-input" placeholder="입력하세요">
-                            </div>
+                            </fieldset>
                             <div class="dividing-line"></div>
-                            <div class="payment">
+                            <fieldset class="payment">
                                 <label for="payment-select">결제수단</label>
                                 <select name="payment-select" id="payment-select">
                                     <option value="선택" selected hidden>선택하세요</option>
@@ -71,9 +71,9 @@
                                     <option value="신용카드">신용카드</option>
                                     <option value="추가하기">추가하기</option>
                                 </select>
-                            </div>
+                            </fieldset>
                             <div class="dividing-line"></div>
-                            <div class="category">
+                            <fieldset class="category">
                                 <label for="category-select1">분류</label>
                                 <select name="category-select1" id="category-select1" title="category-select1"
                                     class="active">
@@ -92,12 +92,12 @@
                                         <option value="용돈">용돈</option>
                                         <option value="기타수입">기타수입</option>
                                     </select> -->
-                            </div>
-                            <div>
+                            </fieldset>
+                            <fieldset>
                                 <!-- 체크박스로 변경 -->
                                 <button class="confirm-btn"><img src="./images/category-button-off.svg" alt="확인해제"></button>
-                            </div>
-                        </div>
+                            </fieldset>
+                        </form>
                         <div class="modal-bg hidden">
                             <div class="modal-box">
                                 <div class="modal-body">
