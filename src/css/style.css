@@ -1,22 +1,24 @@
 /* reset css */
 @import "reset.css";
-/* font */
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
-@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css");
+@import "root.css";
 
 body {
-  background-color: #f7f6f3;
-  font-family: Pretendard, 'Outfit', sans-serif;
+  background-color: var(--color-off-white);
+  color: var(--color-primary);
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-body-medium);
+  font-weight: var(--font-weight-body);
+  line-height: var(--line-height-body-medium);
 }
 
 a {
   text-decoration: none;
 }
-
+/* 헤더 */
 header.main-header {
   height: 194px;
   position: relative;
-  background-color: #524D90;
+  background-color: var(--color-primary);
 }
 
 .main-header-container {
@@ -30,30 +32,27 @@ header.main-header {
   justify-content: space-between;
   align-items: center;
 }
-
+/* 로고 */
 h1 {
-  font-family: 'Outfit', sans-serif;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 24px;
+  font-family: var(--font-family-display);
+  font-weight: var(--font-weight-display-small);
+  font-size: var(--font-size-display-small);
+  line-height: var(--line-height-display-small);
 }
 
 .logo-area a {
   display: block;
   width: 132px;
-  color: #FCFCFC;
-  font-weight: 400;
-  /* position: absolute; */
+  color: var(--color-white);
 }
-
+/* 연월 표시창 */
 .month-year {
   display: flex;
   justify-content: space-between;
   width: 232px;
   height: 96px;
 }
-
+/* 이동 화살표 아이콘 */
 .month-year a {
   display: block;
   align-self: center;
@@ -64,23 +63,16 @@ h1 {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  color: #FCFCFC;
-  font-weight: 700;
-}
-
-.current-month span:nth-of-type(1) {
-  font-size: 12px;
+  color: var(--color-white);
+  font-size: var(--font-size-bold-small);
+  font-weight: var(--font-weight-display-large);
 }
 
 .current-month span:nth-of-type(2) {
-  font-family: 'Outfit', sans-serif;
-  font-size: 48px;
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-display-large);
 }
-
-.current-month span:nth-of-type(3) {
-  font-size: 12px;
-}
-
+/* 아이콘 탭 */
 nav {
   width: 132px;
 }
