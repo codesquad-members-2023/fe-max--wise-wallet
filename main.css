@@ -1,0 +1,104 @@
+body {
+  margin: 0;
+}
+
+.header_container {
+  position: absolute;
+  width: 1440px;
+  height: 194px;
+  left: 0px;
+  top: 0px;
+  border: 5px solid #ff0000;
+}
+
+.input_bar {
+  position: absolute;
+  width: 894px;
+  height: 76px;
+  left: 273px;
+  top: 162px;
+  border: 5px solid #000000;
+  z-index: 1;
+  background-color: #ffffff;
+}
+
+.main_container {
+  position: absolute;
+  top: 194px;
+  width: 1440px;
+  height: 1726px;
+  border: 5px solid #0000ff;
+}
+
+.main_header {
+  position: absolute;
+  width: 848px;
+  height: 32px;
+  left: 296px;
+  top: 92px;
+  border: 5px solid #ff0000;
+}
+
+.main_section {
+  position: absolute;
+  width: 846px;
+  height: auto;
+  overflow: hidden;
+  left: 297px;
+  top: 152px;
+  border: 5px solid #ff0000;
+}
+
+.main_section_container {
+  width: 846px;
+  height: auto;
+  overflow: hidden;
+  border: 5px solid #0000ff;
+}
+
+.transaction_history_header {
+  display: flex;
+  justify-content: space-between;
+}
+
+#transaction_date {
+  text-align: left;
+  padding-left: 15px;
+  width: 120px;
+}
+
+#total_price {
+  width: 200px;
+  text-align: right;
+  padding-right: 15px;
+}
+
+.main_details {
+  margin-left: 20px;
+  width: 846px;
+  height: 64px;
+  display: flex;
+  justify-content: space-between;
+}
+
+#main_category {
+  width: 92px;
+  height: 32px;
+}
+
+#main_details_text {
+  width: 320px;
+  height: 24px;
+}
+
+#main_means {
+  width: 120px;
+  height: 24px;
+}
+
+#main_price {
+  width: 234px;
+  height: 22px;
+  text-align: right;
+  padding-right: 40px;
+}
