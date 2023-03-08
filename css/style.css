@@ -95,7 +95,7 @@ a {
 }
 
 #layout {
-  height: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -173,7 +173,6 @@ a {
 .tab-content.active {
   display: block;
 }
-
 
 #main {
   min-width: 940px;
@@ -319,11 +318,10 @@ a {
   justify-content: space-between;
 }
 
-.confirm-btn{
+.confirm-btn {
   background-color: transparent;
   cursor: pointer;
 }
-
 
 /* 모달 */
 .modal-bg {
@@ -399,7 +397,7 @@ a {
 .modal-btn-layout .cancel-btn {
   color: #524d90;
 }
-.modal-btn-layout .confirm-btn{
+.modal-btn-layout .confirm-btn {
   color: #f5b853;
 }
 
@@ -476,6 +474,7 @@ a {
 /* .list-detail */
 .list-detail {
   display: flex;
+  height: 64px;
   gap: 16px;
   align-items: center;
   padding: 16px;
@@ -599,28 +598,81 @@ a {
 /* 오늘 목표, 통계보드 & 통계 보드 영역 아무데나 누르면 밑에 나오도록 */
 /* 통계보드 디테일에 mainlist에서 떼어온 것 넣고 이름 바꾸기 */
 /* 통계 */
-#statistics{
+#statistics {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
-.chart-board{
+.chart-board {
   width: 894px;
+  height: 593px;
+  box-sizing: border-box;
+  padding-left: 40px;
   display: flex;
   justify-content: center;
-  
+  align-items: center;
+  background: #fcfcfc;
+  border: 1px solid #524d90;
+  box-shadow: 0px 2px 2px rgba(82, 77, 144, 0.08),
+    0px 4px 4px rgba(82, 77, 144, 0.1);
+  border-radius: 10px;
 }
-.chart-board-layout{
+.chart-board-layout {
   box-sizing: border-box;
   width: 717px;
   display: flex;
   justify-content: center;
   gap: 91px;
 }
+.pie-chart-layout {
+  width: 254px;
+  display: flex;
+  align-items: center;
+}
+.pie-chart {
+  width: 254px;
+  height: 254px;
+}
 
-.chart-detail-category{
+.chart-detail{
+  height: 513px;
+}
+
+.chart-detail-title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 26px;
+}
+.chart-detail-title-text {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 32px;
+  color: #524d90;
+}
+.chart-detail-title-count {
+  text-align: right;
+}
+
+
+.chart-detail-category {
   width: 372px;
 }
-.chart-detail-list{
+.chart-detail-list {
   width: 372px;
-  
+}
+.chart-detail-percent {
+  width: 40px;
+}
+.chart-detail-item {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: #524d90;
+}
+.chart-detail-item-count{
+  text-align: right;
 }
