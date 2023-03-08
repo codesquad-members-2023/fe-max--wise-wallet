@@ -54,6 +54,8 @@
   --color-category-yellow: #e6d267;
   --color-category-orange: #e2b765;
 }
+
+/* header */
 #header {
   min-width: 1440px;
   height: 194px;
@@ -70,32 +72,33 @@
   justify-content: center;
   align-items: center;
 }
+
 #logo {
   width: 100%;
 }
+
 #logo a {
   color: var(--color-off-white);
   text-decoration: none;
 }
+
 #logo a:visited {
   color: var(--color-off-white);
 }
+
 #monthYear #date {
   width: 164px;
   height: 96px;
   text-align: center;
 }
+
 #monthYear {
   min-width: 232px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-a:-webkit-any-link {
-  color: -webkit-link;
-  cursor: pointer;
-  text-decoration: underline;
-}
+
 #tab {
   width: 100%;
   text-align: right;
@@ -108,8 +111,8 @@ a:-webkit-any-link {
   border-color: initial;
   border-image: initial;
 }
-/* inpu */
 
+/* input */
 #input_bar {
   display: flex;
   justify-content: center;
@@ -117,6 +120,7 @@ a:-webkit-any-link {
   position: relative;
   top: -32px;
 }
+
 #input_bar_wrapper {
   width: 894px;
   display: flex;
@@ -126,47 +130,58 @@ a:-webkit-any-link {
   border-radius: 8px;
   border: 1px solid var(--color-primary);
 }
+
 #input_bar_wrapper > div {
   padding-right: 24px;
   margin: 16px 0px 16px 24px;
   border-right: 1px solid black;
 }
+
 #input_bar_wrapper > div:last-child {
   margin: 16px 0px 16px 24px;
   border-right: none;
 }
+
 #input_bar_wrapper .input_title,
 #input_bar_wrapper input::placeholder {
   color: var(--color-primary-alt-40);
 }
+
 #input_bar_wrapper .content {
   display: flex;
   align-items: center;
   margin-top: 5px;
   color: var(--color-primary);
 }
+
 #input_bar_wrapper #input-date {
   width: 88px;
 }
+
 #input_bar_wrapper #input-money {
   width: 78px;
   text-align: right;
   margin: 0px 10px;
+  border: 0;
 }
+
 #input_bar_wrapper #input_checkbox {
   width: 40px;
   height: 40px;
   margin-left: 28px;
 }
+
 #input_bar_wrapper #input_checkbox img {
   width: 100%;
   height: 100%;
 }
+
 #innput_bar_wrapper #input_checkbox {
   height: 40px;
   width: 40px;
   margin-left: 28px;
 }
+
 #input_bar_wrapper #input-content {
   width: 164px;
   border: 0;
@@ -178,50 +193,84 @@ a:-webkit-any-link {
   justify-content: center;
   align-items: center;
 }
+
 #main #main_wrapper {
   min-width: 848px;
   text-align: center;
 }
+
 #main_header {
   display: flex;
   justify-content: center;
   align-items: center;
   color: var(--color-primary);
 }
+
 #main #main_total_history {
   width: 60%;
   text-align: left;
 }
+
 #main #main_income_expenditure {
+  width: 40%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  width: 40%;
   text-align: right;
 }
+
 #main #main_income_expenditure div {
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 #main #main_income_expenditure button {
   margin: 0px 10px 0px 14px;
 }
+
 #main #main_history_list {
   width: 100%;
+  border-collapse: collapse;
 }
-#main .info_tr > td,
-#main .list_tr > td {
-  padding: 20px 0px;
+
+#main .info_tr,
+#main .list_tr {
   border-bottom: 1px solid var(--color-primary-alt-40);
 }
+
+#main .info_tr td,
+#main .list_tr td {
+  padding: 20px 0px 20px 16px;
+}
+
+#main .list_tr td:nth-child(1) {
+  width: 92px;
+}
+
+#main .list_tr td:nth-child(2) {
+  width: 320px;
+}
+
+#main .list_tr td:nth-child(3) {
+  width: 120px;
+}
+
+#main .list_tr td:nth-child(4) {
+  text-align: right;
+}
+
+#main .list_tr td:last-child {
+  padding-right: 16px;
+}
+
 #main .histoory_info {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+
 #main .history_category {
-  width: 92px;
   height: 32px;
   display: flex;
   justify-content: center;
