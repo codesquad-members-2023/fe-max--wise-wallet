@@ -604,9 +604,23 @@ a {
   flex-direction: column;
 }
 .chart-board{
-  display: flex;
   width: 894px;
+  display: flex;
+  justify-content: center;
+  
 }
 .chart-board-layout{
+  box-sizing: border-box;
+  width: 717px;
+  display: flex;
+  justify-content: center;
+  gap: 91px;
+}
+
+.chart-detail-category{
+  width: 372px;
+}
+.chart-detail-list{
+  width: 372px;
   
 }
