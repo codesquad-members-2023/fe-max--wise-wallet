@@ -69,12 +69,8 @@
 #header-wrapper {
   min-width: 846px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-}
-
-#logo {
-  width: 100%;
 }
 
 #logo a {
@@ -95,14 +91,10 @@
 #monthYear {
   min-width: 232px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
-#tab {
-  width: 100%;
-  text-align: right;
-}
 #tab button {
   background-color: var(--color-primary);
   cursor: pointer;
@@ -114,20 +106,20 @@
 
 /* input */
 #input_bar {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 894px;
+  margin: auto;
+  border-radius: 8px;
   position: relative;
   top: -32px;
 }
 
 #input_bar_wrapper {
-  width: 894px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-white);
   border-radius: 8px;
+
+  background-color: var(--color-white);
   border: 1px solid var(--color-primary);
 }
 
@@ -158,11 +150,19 @@
   width: 88px;
 }
 
-#input_bar_wrapper #input-money {
+#input_bar_wrapper #input-price {
   width: 78px;
   text-align: right;
   margin: 0px 10px;
   border: 0;
+  background-color: var(--color-white);
+}
+
+/* 증감버튼 숨김 */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
 #input_bar_wrapper #input_checkbox {
@@ -185,18 +185,14 @@
 #input_bar_wrapper #input-content {
   width: 164px;
   border: 0;
+  background-color: var(--color-white);
 }
 
 /* main */
-#main {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 #main #main_wrapper {
-  min-width: 848px;
+  width: 848px;
   text-align: center;
+  margin: auto;
 }
 
 #main_header {
