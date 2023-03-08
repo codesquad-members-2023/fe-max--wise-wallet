@@ -1,0 +1,180 @@
+/* color */
+.off-white {
+  color: #f7f6f3;
+}
+.white {
+  color: #fcfcfc;
+}
+.primary {
+  color: #524d90;
+}
+.primary-alt {
+  color: #a79fcb;
+}
+.primary-alt-40 {
+  color: rgba(167, 159, 203, 0.4);
+}
+.secondary-red {
+  color: #e75b3f;
+}
+.secondary-yellow {
+  color: #f5b853;
+}
+.secondary-cyan {
+  color: #4eaaba;
+}
+.category-sky {
+  color: #6ed5eb;
+}
+.category-cyan {
+  color: #4cb8b8;
+}
+.category-mint {
+  color: #94d3cc;
+}
+.category-blue {
+  color: #4ca1de;
+}
+.category-pink {
+  color: #d092e2;
+}
+.category-purple {
+  color: #817dce;
+}
+.category-navy {
+  color: #4a6cc3;
+}
+.category-green {
+  color: #b9d58c;
+}
+.category-yellow {
+  color: #e6d267;
+}
+.category-orange {
+  color: #e2b765;
+}
+
+/* bg-color */
+.bg-color-off-white {
+  background-color: #f7f6f3;
+}
+.bg-color-white {
+  background-color: #fcfcfc;
+}
+.bg-color-primary {
+  background-color: #524d90;
+}
+.bg-color-primary-alt {
+  background-color: #a79fcb;
+}
+.bg-color-primary-alt-40 {
+  background-color: rgba(167, 159, 203, 0bg-color-4);
+}
+.bg-color-secondary-red {
+  background-color: #e75b3f;
+}
+.bg-color-secondary-yellow {
+  background-color: #f5b853;
+}
+.bg-color-secondary-cyan {
+  background-color: #4eaaba;
+}
+.bg-color-category-sky {
+  background-color: #6ed5eb;
+}
+.bg-color-category-cyan {
+  background-color: #4cb8b8;
+}
+.bg-color-category-mint {
+  background-color: #94d3cc;
+}
+.bg-color-category-blue {
+  background-color: #4ca1de;
+}
+.bg-color-category-pink {
+  background-color: #d092e2;
+}
+.bg-color-category-purple {
+  background-color: #817dce;
+}
+.bg-color-category-navy {
+  background-color: #4a6cc3;
+}
+.bg-color-category-green {
+  background-color: #b9d58c;
+}
+.bg-color-category-yellow {
+  background-color: #e6d267;
+}
+.bg-color-category-orange {
+  background-color: #e2b765;
+}
+
+/* font */
+.display-small {
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 24px;
+}
+.display-large {
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 56px;
+}
+
+.body-regular {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+}
+.body-medium {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+}
+.body-large {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 32px;
+}
+
+.bold-small {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+}
+.bold-medium {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.bold-large {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.none-background-btn {
+  background-color: var(--color-white);
+  cursor: pointer;
+  display: flex;
+  border: 0;
+  padding: 0px;
+}
