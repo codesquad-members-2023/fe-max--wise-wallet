@@ -1,0 +1,194 @@
+body,
+button,
+dd,
+dl,
+dt,
+fieldset,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+legend,
+li,
+ol,
+p,
+select,
+table,
+td,
+textarea,
+th,
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+.mainColor {
+    color: #4a6cc3;
+}
+
+.subColor {
+    color: #9fb0d9;
+}
+
+.displaySmall {
+    font-family: "Outfit";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 24px;
+}
+
+.displayLarge {
+    font-family: "Outfit";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 56px;
+}
+
+.boldSmall {
+    font-family: "Pretendard";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.bodyRegular {
+    font-family: "Pretendard";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.header-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    /* border-radius: 10px; */
+}
+
+.header {
+    justify-content: space-between;
+    height: 194px;
+    background-color: #4a6cc3;
+
+    color: #fcfcfc;
+}
+
+.header .inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.logo {
+    display: flex;
+    width: 132px;
+    height: 24px;
+}
+
+.monthYear {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 232px;
+    height: 96px;
+}
+
+.date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tab {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 132px;
+    height: 44px;
+}
+
+.icon {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 44px;
+    height: 44px;
+}
+
+main {
+    position: relative;
+}
+
+.inputBar {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    margin: auto;
+    top: -32px;
+    width: 894px;
+    height: 76px;
+    background: #fcfcfc;
+
+    border: 1px solid #4a6cc3;
+
+    box-shadow: 0px 2px 2px rgba(82, 77, 144, 0.08), 0px 4px 4px rgba(82, 77, 144, 0.1);
+    border-radius: 8px;
+}
+
+.inputBar fieldset {
+    display: flex;
+    align-items: flex-end;
+    margin: auto;
+    height: 44px;
+    flex-grow: 1;
+    border: none;
+
+    color: #9fb0d9;
+}
+
+.inputBar input {
+    background-color: #fcfcfc;
+    border: none;
+}
+
+.inputBar input::placeholder {
+    color: #9fb0d9;
+    font-family: "Pretendard";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+.inputBar .choice {
+    display: flex;
+}
+
+.inputBar .date {
+    width: 15.3%;
+}
+
+.inputBar .category {
+    width: 20.4%;
+}
+
+.inputBar .memo {
+    width: 23.8%;
+}
+.inputBar .payment {
+    width: 16.6%;
+}
+.inputBar .price {
+    width: 23.7%;
+}
