@@ -1,0 +1,626 @@
+/* 
+
+임시 레이아웃 보더
+border: 1px solid red;
+border: 1px solid rgb(89, 89, 89);
+
+ */
+
+@font-face {
+  font-family: "Pretendard-Regular";
+  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
+    format("woff");
+  font-weight: 400;
+  font-style: normal;
+} /* font-weight 두꺼운거 가져와야함 
+링크로..
+*/
+
+/* 사용자 지정 CSS 속성 (변수) 적용해보기 */
+:root {
+  /* font-family */
+  --font-family-display: "Outfit";
+  --font-family-body: "Pretendard";
+  --font-family-bold: "Pretendard";
+
+  /* font-size */
+  --font-size-display-small: 24px;
+  --font-size-display-large: 48px;
+
+  --font-size-body-regular: 16px;
+  --font-size-body-medium: 18px;
+  --font-size-body-large: 22px;
+
+  --font-size-bold-regular: 12px;
+  --font-size-bold-medium: 14px;
+  --font-size-bold-large: 16px;
+
+  /* font-weight */
+  --font-weight-display-small: 400;
+  --font-weight-display-large: 700;
+  --font-weight-body: 500;
+  --font-weight-bold: 700;
+
+  /* line-height */
+  --line-height-display-small: 24px;
+  --line-height-display-large: 56px;
+
+  --line-height-body-regular: 24px;
+  --line-height-body-medium: 24px;
+  --line-height-body-large: 32px;
+
+  --line-height-bold-regular: 16px;
+  --line-height-bold-medium: 24px;
+  --line-height-bold-large: 24px;
+
+  /* color */
+  --color-off-white: #f7f6f3;
+  --color-white: #fcfcfc;
+  --color-primary: #524d90;
+  --color-primary-alt: #a79fcb;
+  --color-primary-alt-40: rgba(167, 159, 203, 0.4);
+  --color-secondary-red: #e75b3f;
+  --color-secondary-yellow: #f5b853;
+  --color-secondary-cyan: #4eaaba;
+  --color-category-sky: #6ed5eb;
+  --color-category-cyan: #4cb8b8;
+  --color-category-mint: #94d3cc;
+  --color-category-blue: #4ca1de;
+  --color-category-pink: #d092e2;
+  --color-category-purple: #817dce;
+  --color-category-navy: #4a6cc3;
+  --color-category-green: #b9d58c;
+  --color-category-yellow: #e6d267;
+  --color-category-orange: #e2b765;
+}
+
+html,
+body {
+  margin: 0;
+  height: 100%;
+  font-size: 1rem;
+  font-weight: normal;
+  line-height: 1.5;
+  background: #f7f6f3;
+  border: 1px solid red;
+
+  /* 스크롤 움찔하는거 막는거 뭐더라 */
+}
+body * {
+  border: 1px solid red;
+}
+
+a {
+  text-decoration: none;
+}
+
+#layout {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.header {
+  width: 100vw;
+  height: 194px;
+  display: flex;
+  justify-content: center;
+  background-color: #524d90;
+  box-sizing: border-box;
+  padding-bottom: 18px;
+  border-radius: 0 0 10px 10px;
+  color: #fcfcfc;
+}
+
+.header-wrap {
+  width: 940px;
+  border: 1px solid red;
+  display: flex;
+  box-sizing: border-box;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.logo {
+  font-family: "Outfit", sans-serif;
+  font-size: 24px;
+  line-height: 24px;
+  color: #fcfcfc;
+}
+
+#month-year {
+  display: flex;
+  width: 232px;
+  height: 96px;
+  justify-content: space-between;
+  align-items: center;
+}
+#month-year .month-year-icon {
+  background-color: transparent;
+  cursor: pointer;
+}
+#month-year-text p {
+  text-align: center;
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+}
+#month-year-text p:nth-child(2) {
+  font-size: 48px;
+  line-height: 56px;
+  margin: 4px 0;
+}
+#month-year-text p:nth-child(odd) {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+#tab {
+  display: flex;
+}
+#tab button {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+
+#main {
+  min-width: 940px;
+  display: flex;
+  flex-direction: column;
+  margin-top: -35px;
+}
+#main-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.input-bar {
+  box-sizing: border-box;
+  width: 894px;
+  height: 76px;
+  margin-bottom: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 16px 18px 16px 24px;
+  border: 1px solid #524d90;
+  background: #fcfcfc;
+  box-shadow: 0px 2px 2px rgba(82, 77, 144, 0.08),
+    0px 4px 4px rgba(82, 77, 144, 0.1);
+  border-radius: 8px;
+}
+.input-bar-wrap {
+  width: 852px;
+  height: 44px;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.dividing-line {
+  width: 1px;
+  height: inherit;
+  background-color: #524d90;
+  margin-left: 24px;
+  margin-right: 24px;
+}
+.input-bar-wrap label {
+  font-family: "Pretendard-Regular";
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+  color: #a79fcb;
+}
+.input-bar-wrap select {
+  appearance: none;
+  background: url("../images/chevron-down.svg") no-repeat 97% 50%/15px auto;
+}
+
+.date {
+  width: 88px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.price {
+  width: 134px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.price-wrap {
+  height: 24px;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.price-wrap .price-btn {
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  background-color: transparent;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+.price-wrap #price-input {
+  width: 78px;
+  height: 24px;
+}
+.price-wrap #price-input::placeholder {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #a79fcb;
+
+  text-align: right;
+}
+.price-wrap .won {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: right;
+  color: #524d90;
+}
+
+.memo {
+  width: 164px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.memo #memo-input {
+  margin-left: -4px;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+
+  color: #524d90;
+}
+.memo #memo-input::placeholder {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #a79fcb;
+}
+
+.payment {
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.category {
+  width: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.confirm-btn{
+  background-color: transparent;
+  cursor: pointer;
+}
+
+
+/* 모달 */
+.modal-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-box {
+  width: 400px;
+  height: 228px;
+  background: #fcfcfc;
+  border: 1px solid #524d90;
+  box-shadow: 0px 2px 2px rgba(82, 77, 144, 0.08),
+    0px 4px 4px rgba(82, 77, 144, 0.1);
+  border-radius: 16px;
+
+  padding: 40px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.modal-body {
+  height: 92px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.modal-body > p {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #524d90;
+}
+.modal-body #modal-input {
+  height: 44px;
+  background: #fcfcfc;
+  border: 1px solid #524d90;
+  border-radius: 8px;
+}
+.modal-body #modal-input::placeholder {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #a79fcb;
+}
+.modal-btn-layout {
+  display: flex;
+  justify-content: space-between;
+}
+.modal-btn-layout .modal-btn {
+  cursor: pointer;
+  background-color: transparent;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 24px;
+}
+.modal-btn-layout .cancel-btn {
+  color: #524d90;
+}
+.modal-btn-layout .confirm-btn{
+  color: #f5b853;
+}
+
+.hidden {
+  display: none;
+}
+
+/* .list-info */
+.list-info {
+  margin-bottom: 28px;
+  width: 848px;
+  height: 32px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.list-info .list-info-left,
+.list-info-right {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 32px;
+  color: #524d90;
+}
+.list-info .list-info-right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+
+  font-size: 18px;
+  line-height: 24px;
+}
+.list-info .list-info-right span:nth-of-type(1) {
+  margin-right: 5px;
+}
+
+/* .list-body */
+.list-body {
+  width: 846px;
+  display: flex;
+  flex-direction: column;
+}
+/* .list-body-info */
+.list-body .list-body-info {
+  height: 24px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 21px;
+}
+.list-body .list-body-info .date-day,
+.list-body .list-body-info .income-expenditure {
+  display: flex;
+  gap: 8px;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+}
+.list-body .list-body-info .date-day .date-day-date {
+  color: #524d90;
+}
+.list-body .list-body-info .date-day .date-day-day {
+  color: #a79fcb;
+}
+
+.list-body .list-body-info .income-expenditure {
+  color: #a79fcb;
+}
+
+/* .list-detail */
+.list-detail {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 16px;
+  box-sizing: border-box;
+
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+}
+.list-detail .list-detail-item {
+  flex: 1;
+}
+.list-detail .list-detail-category {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  width: 92px;
+  padding: 4px 8px;
+  border-radius: 25px;
+  background: #d092e2;
+
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+
+  text-align: center;
+
+  color: #fcfcfc;
+}
+
+.list-detail > span {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+}
+.list-detail > span:nth-of-type(1) {
+  width: 320px;
+  color: #524d90;
+}
+.list-detail > span:nth-of-type(2) {
+  color: #a79fcb;
+}
+.list-detail > span:nth-of-type(3) {
+  text-align: right;
+  color: #e75b3f;
+}
+
+/* 파일을 나눠야하나..? */
+/* 달력부분 */
+#week-calender {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.calender-head-box {
+  box-sizing: border-box;
+  width: 894px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  /* 이런 공통되는 부분을 어떻게 처리할까 */
+  background: #fcfcfc;
+  border: 1px solid #524d90;
+  box-shadow: 0px 2px 2px rgba(82, 77, 144, 0.08),
+    0px 4px 4px rgba(82, 77, 144, 0.1);
+  border-radius: 8px;
+
+  margin-bottom: 16px;
+}
+
+.calender-head-box .calender-head-day {
+  flex: 1;
+  text-align: center;
+
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #524d90;
+}
+
+.calender-body {
+  width: 894px;
+  height: 580px;
+  background: rgba(167, 159, 203, 0.4);
+  border: 1px solid #524d90;
+  box-shadow: 0px 2px 2px rgba(82, 77, 144, 0.08),
+    0px 4px 4px rgba(82, 77, 144, 0.1);
+  border-radius: 8px;
+
+  margin-bottom: 24px;
+}
+
+.monthly-total {
+  width: 894px;
+  display: flex;
+  justify-content: space-between;
+
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+}
+.monthly-total-left {
+  color: #a79fcb;
+}
+.monthly-total-right {
+  color: #524d90;
+}
+
+/* 오늘 목표, 통계보드 & 통계 보드 영역 아무데나 누르면 밑에 나오도록 */
+/* 통계보드 디테일에 mainlist에서 떼어온 것 넣고 이름 바꾸기 */
+/* 통계 */
+#statistics{
+  display: flex;
+  flex-direction: column;
+}
+.chart-board{
+  width: 894px;
+  display: flex;
+  justify-content: center;
+  
+}
+.chart-board-layout{
+  box-sizing: border-box;
+  width: 717px;
+  display: flex;
+  justify-content: center;
+  gap: 91px;
+}
+
+.chart-detail-category{
+  width: 372px;
+}
+.chart-detail-list{
+  width: 372px;
+  
+}
