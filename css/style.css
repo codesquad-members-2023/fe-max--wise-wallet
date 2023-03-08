@@ -95,7 +95,7 @@ a {
 }
 
 #layout {
-  height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -230,7 +230,6 @@ section {
 
 .date {
   width: 88px;
-  border: 1px solid blue;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -247,7 +246,8 @@ section {
   justify-content: space-between;
   box-sizing: border-box;
 }
-.price-wrap button {
+.price-wrap .price-btn {
+  cursor: pointer;
   width: 24px;
   height: 24px;
   background-color: transparent;
@@ -317,6 +317,12 @@ section {
   flex-direction: column;
   justify-content: space-between;
 }
+
+.confirm-btn{
+  background-color: transparent;
+  cursor: pointer;
+}
+
 
 /* 모달 */
 .modal-bg {

@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="입지출관리를 도와주는 가계부 웹페이지">
     <title>Wise-Wallet</title>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
@@ -14,22 +15,19 @@
 </head>
 
 <body>
-    <!-- 주석 메모에 옮기기 -->
     <div id="layout">
         <header class="header">
-            <!-- 클래스붙여주기 -->
             <div class="header-wrap">
                 <a href="/" class="logo">Wise Wallet</a>
                 <div id="month-year">
-                    <button class="month-year-icon"><img src="./images/Vectorleft.svg" alt="왼쪽"></button>
+                    <button class="month-year-icon"><img src="./images/Vectorleft.svg" alt="이전달"></button>
                     <div id="month-year-text">
                         <p>2023</p>
                         <p>2</p>
                         <p>February</p>
                     </div>
-                    <button class="month-year-icon"><img src="./images/Vectorright.svg" alt="오른쪽"></button>
+                    <button class="month-year-icon"><img src="./images/Vectorright.svg" alt="다음달"></button>
                 </div>
-                <!-- nav패턴 -->
                 <nav id="tab">
                     <button class="history-icon tab-button"><img src="./images/doc-on.svg" alt="내역"></button>
                     <button class="calender-icon tab-button"><img src="./images/calender-off.svg" alt="달력"></button>
@@ -40,8 +38,7 @@
         <section id="section">
             <h1 hidden>제목</h1>
             <article class="active tab-content">
-                <!-- id="main-list" -->
-                <!-- select박스 -> div로 변경하기 -->
+                <!-- select박스 div로 변경하기 -->
                 <div id="main-list">
                     <div class="input-bar">
                         <div class="input-bar-wrap">
@@ -53,9 +50,9 @@
                             <div class="price">
                                 <label for="price-input">금액</label>
                                 <div class="price-wrap">
-                                    <button class="active"><img src="./images/name=minus.svg" alt="지출"
+                                    <button class="price-btn active"><img src="./images/name=minus.svg" alt="지출"
                                             data-type="지출"></button>
-                                    <!-- <button><img src="./images/name=plus.svg" alt="수입" data-type="수입"></button> -->
+                                    <!-- <button  class="price-btn"><img src="./images/name=plus.svg" alt="수입" data-type="수입"></button> -->
                                     <input type="text" id="price-input" placeholder="0">
                                     <p>원</p>
                                 </div>
@@ -96,8 +93,9 @@
                                         <option value="기타수입">기타수입</option>
                                     </select> -->
                             </div>
-                            <div class="confirm-btn">
-                                <img src="./images/category-button-off.svg" alt="확인해제">
+                            <div>
+                                <!-- 체크박스로 변경 -->
+                                <button class="confirm-btn"><img src="./images/category-button-off.svg" alt="확인해제"></button>
                             </div>
                         </div>
                         <div class="modal-bg hidden">
@@ -120,9 +118,10 @@
                             <span class="info-total-count">13건</span>
                         </div>
                         <div class="list-info-right">
-                            <img src="./images/info-select-on.svg" alt="수입체크됨">
+                            <!-- 체크박스로 변경하기 -->
+                            <button><img src="./images/info-select-on.svg" alt="수입체크됨"></button>
                             <span class="info-total-income">수입 2,010,870</span>
-                            <img src="./images/info-select-on.svg" alt="지출체크됨">
+                            <button><img src="./images/info-select-on.svg" alt="지출체크됨"></button>
                             <span class="info-total-expenditure">지출 798,870</span>
                         </div>
                     </div>
