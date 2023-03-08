@@ -8,69 +8,91 @@
 		<title>Wise Wallet</title>
 	</head>
 	<body>
-		<header>
-			<h1 class="logo-area">
-				<a href="/">Wise Wallet</a>
-			</h1>
-			<div class="month-year">
-				<button><a href="/previous-month">이전달</a></button>
-				<div class="current-month">
-					<span>2023</span>
-					<span>2</span>
-					<span>Feburary</span>
+		<header class="main-header">
+			<div class="main-header-container">
+				<h1 class="logo-area">
+					<a href="/">Wise Wallet</a>
+				</h1>
+				<div class="month-year">
+					<a href="/previous-month">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+							<path
+								stroke="#FCFCFC"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="1.5"
+								d="m15 6-6 6 6 6"
+							/>
+						</svg>
+					</a>
+					<div class="current-month">
+						<span>2023</span>
+						<span>2</span>
+						<span>Feburary</span>
+					</div>
+					<a href="/next-month">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+							<path
+								stroke="#FCFCFC"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="1.5"
+								d="m9 6 6 6-6 6"
+							/>
+						</svg>
+					</a>
 				</div>
-				<button><a href="/next-month">다음달</a></button>
+				<nav class="tab">
+					<ul class="icons">
+						<li>
+							<a href="/list">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+									<path
+										stroke="#FCFCFC"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="1.5"
+										d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6Z"
+									/>
+									<path
+										stroke="#FCFCFC"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="1.5"
+										d="M14 2v6h6M16 13H8M16 17H8M10 9H8"
+									/>
+								</svg>
+							</a>
+						</li>
+						<li>
+							<a href="/calander"
+								><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+									<path
+										stroke="#A79FCB"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="1.5"
+										d="M19 4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2ZM16 2v4M8 2v4M3 10h18"
+									/>
+								</svg>
+							</a>
+						</li>
+						<li>
+							<a href="/statistic">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+									<path
+										stroke="#A79FCB"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										stroke-width="1.5"
+										d="M18 20V10M12 20V4M6 20v-6"
+									/>
+								</svg>
+							</a>
+						</li>
+					</ul>
+				</nav>
 			</div>
-			<nav class="tab">
-				<ul class="icons">
-					<li>
-						<a href="/list">
-							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
-								<path
-									stroke="#524D90"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="1.5"
-									d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6Z"
-								/>
-								<path
-									stroke="#524D90"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="1.5"
-									d="M14 2v6h6M16 13H8M16 17H8M10 9H8"
-								/>
-							</svg>
-						</a>
-					</li>
-					<li>
-						<a href="/calander"
-							><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
-								<path
-									stroke="#524D90"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="1.5"
-									d="M19 4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2ZM16 2v4M8 2v4M3 10h18"
-								/>
-							</svg>
-						</a>
-					</li>
-					<li>
-						<a href="/statistic">
-							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
-								<path
-									stroke="#524D90"
-									stroke-linecap="round"
-									stroke-linejoin="round"
-									stroke-width="1.5"
-									d="M18 20V10M12 20V4M6 20v-6"
-								/>
-							</svg>
-						</a>
-					</li>
-				</ul>
-			</nav>
 		</header>
 
 		<section class="input-bar">
