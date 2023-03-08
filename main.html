@@ -9,14 +9,15 @@
         <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
         <link rel="stylesheet" href="main.css" />
+        <link rel="stylesheet" href="common.css" />
         <title>FE MAX Wise Wallet</title>
     </head>
 
     <body>
-        <header class="header-box">
-            <div class="header">
+        <header class="header">
+            <div class="inner">
                 <div class="logo">
-                    <div class="displaySmall">Wise Wallet</div>
+                    <h1 class="displaySmall">Wise Wallet</h1>
                 </div>
                 <div class="monthYear">
                     <div><img src="./img/name=chevron-left.svg" alt="왼쪽" /></div>
@@ -34,6 +35,42 @@
                 </div>
             </div>
         </header>
-        <div class="inputBar"></div>
+        <main>
+            <div class="inner">
+                <form class="inputBar">
+                    <fieldset class="date">
+                        <legend class="boldSmall">일자</legend>
+                        <input type="number" name="date" id="date" placeholder="20230308" />
+                    </fieldset>
+                    <fieldset class="category">
+                        <legend class="boldSmall">금액</legend>
+                        <input type="number" name="number" id="price" placeholder="0" value="원" />
+                    </fieldset>
+                    <fieldset class="memo">
+                        <legend class="boldSmall">내용</legend>
+                        <input type="text" name="text" id="text" placeholder="입력하세요" />
+                    </fieldset>
+                    <fieldset class="payment">
+                        <legend class="boldSmall">결제수단</legend>
+                        <div class="choice">
+                            <div class="bodyRegular">선택하세요</div>
+                            <select name="" id="">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </fieldset>
+                    <fieldset class="price">
+                        <legend class="boldSmall">분류</legend>
+                        <div class="choice">
+                            <div class="bodyRegular">선택하세요</div>
+                            <select name="" id="">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </main>
+        <footer></footer>
     </body>
 </html>
