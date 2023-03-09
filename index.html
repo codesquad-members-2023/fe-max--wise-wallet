@@ -99,7 +99,7 @@
 			<form action="/somewhere">
 				<div class="input-date">
 					<label for="inputDate">일자</label>
-					<input id="inputDate" type="date" placeholder="20230217" />
+					<input id="inputDate" type="number" value="20230217" />
 				</div>
 				<div class="input-price">
 					<label for="inputPrice">금액</label>
@@ -109,13 +109,13 @@
 								<path stroke="#524D90" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 12h12" />
 							</svg>
 						</button>
-						<input id="inputPrice" type="number" placeholder="0"/>
+						<input id="inputPrice" type="number" placeholder="0" />
 						<span>원</span>
 					</div>
 				</div>
 				<div class="input-memo">
 					<label for="inputMemo">내용</label>
-					<input id="inputMemo" type="text" placeholder="입력하세요"/>
+					<input id="inputMemo" type="text" placeholder="입력하세요" />
 				</div>
 				<div class="select-payment">
 					<label for="selectPayment">결제수단</label>
@@ -137,18 +137,20 @@
 						<option value="미분류">미분류</option>
 					</select>
 				</div>
-				<button type="submit">
-					<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none">
-						<rect width="40" height="40" fill="#A79FCB" fill-opacity=".4" rx="8" />
-						<path
-							stroke="#FCFCFC"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							stroke-width="1.5"
-							d="M29 14 16.625 26 11 20.546"
-						/>
-					</svg>
-				</button>
+				<div class="submit-btn">
+					<button type="submit">
+						<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none">
+							<rect width="40" height="40" fill="#A79FCB" fill-opacity=".4" rx="8" />
+							<path
+								stroke="#FCFCFC"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="1.5"
+								d="M29 14 16.625 26 11 20.546"
+							/>
+						</svg>
+					</button>
+				</div>
 			</form>
 		</section>
 
