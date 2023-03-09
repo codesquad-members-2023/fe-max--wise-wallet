@@ -47,6 +47,8 @@
   --color-off-white: #f7f6f3;
   --color-white: #fcfcfc;
   --color-primary: #524d90;
+  --color-primary-8: #524d9014;
+  --color-primary-10: #524d901a;
   --color-primary-alt: #a79fcb;
   --color-primary-alt-40: #a79fcb66;
   --color-secondary-red: #e75b3f;
@@ -68,6 +70,16 @@
     saturate(0%) hue-rotate(95deg) brightness(104%) contrast(98%);
   --filter-primary-alt: brightness(0) saturate(100%) invert(70%) sepia(25%)
     saturate(373%) hue-rotate(211deg) brightness(90%) contrast(86%);
+  --filter-secondary-red: brightness(0) saturate(100%) invert(50%) sepia(33%)
+    saturate(3959%) hue-rotate(335deg) brightness(93%) contrast(94%);
+
+  /* shadow */
+  --shadow: 0px 2px 2px var(--color-primary-8),
+    0px 4px 4px var(--color-primary-10);
+
+  /* component */
+  --radius-primary: 8px;
+  --radius-secondary: 50%;
 
   /* layout */
   --layout-inner-width: 894px;

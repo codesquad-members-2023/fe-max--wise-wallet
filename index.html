@@ -62,66 +62,126 @@
       </div>
     </header>
 
-    <section id="new-entry-form-container">
-      <form action="">
-        <ul>
-          <li>
-            <label for="date">
-              <span>일자</span>
-              <input type="date" name="date" id="date" />
-            </label>
-          </li>
-          <li>
-            <label for="amount">
-              <span>금액</span>
-              <input
-                type="number"
-                name="amount"
-                placeholder="0"
-                id="amount"
-                required />
-            </label>
-          </li>
-          <li>
-            <label for="content">
-              <span>내용</span>
-              <input
-                type="text"
-                name="content"
-                placeholder="입력하세요"
-                id="content"
-                required />
-            </label>
-          </li>
-          <li>
-            <label for="payment-method">
-              <span>결제수단</span>
-              <select name="payment-method" id="payment-method" required>
-                <option value="" disabled selected>선택하세요</option>
-                <option value="cash">현금</option>
-                <option value="card">신용카드</option>
-                <option value="">추가하기</option>
-              </select>
-            </label>
-          </li>
-          <li>
-            <label for="category">
-              <span>분류</span>
-              <select name="category" id="category" required>
-                <option value="" disabled selected>선택하세요</option>
-                <option value="living-expenses">생활</option>
-                <option value="food">식비</option>
-                <option value="transportation">교통</option>
-                <option value="shopping">쇼핑/뷰티</option>
-                <option value="health">의료/건강</option>
-                <option value="entertainment">문화/여가</option>
-                <option value="unclassified">미분류</option>
-              </select>
-            </label>
-          </li>
-        </ul>
+    <section id="input-bar__container">
+      <form action="#">
+        <label class="input-bar__item" id="input-bar__date" for="date">
+          <div class="input-bar__item-name">일자</div>
+          <input
+            type="date"
+            class="input-bar__item-input"
+            id="date"
+            name="date"
+            value="2023-03-08" />
+        </label>
+
+        <label class="input-bar__item" id="input-bar__amount" for="amount">
+          <div class="input-bar__item-name">금액</div>
+          <div class="input-bar__item-input__container">
+            <img src="src/assets/icons/minus.svg" alt="Minus Sign" />
+            <input
+              type="number"
+              placeholder="0"
+              class="input-bar__item-input"
+              id="amount"
+              name="amount"
+              required />
+            <span>원</span>
+          </div>
+        </label>
+
+        <label class="input-bar__item" id="input-bar__content" for="content">
+          <div class="input-bar__item-name">내용</div>
+          <input
+            type="text"
+            placeholder="입력하세요"
+            class="input-bar__item-input"
+            id="content"
+            name="content"
+            required />
+        </label>
+
+        <label
+          class="input-bar__item"
+          id="input-bar__payment-method"
+          for="payment-method">
+          <div class="input-bar__item-name">결제수단</div>
+
+          <div
+            class="input-bar__item-input__container dropdown"
+            id="payment-method-dropdown">
+            <span
+              class="input-bar__item-input"
+              id="payment-method"
+              name="payment-method">
+              선택하세요
+            </span>
+
+            <img
+              src="src/assets/icons/chevron-down.svg"
+              alt="Payment Method Dropdown" />
+          </div>
+
+          <ul class="options-container">
+            <li class="option" data-value="현금">
+              <span>현금</span>
+              <img
+                src="src/assets/icons/close.svg"
+                alt="Remove Payment Method" />
+            </li>
+            <li class="option" data-value="신용카드">
+              <span>신용카드</span>
+              <img
+                src="src/assets/icons/close.svg"
+                alt="Remove Payment Method" />
+            </li>
+            <li class="option" data-value="추가하기">
+              <span>추가하기</span>
+            </li>
+          </ul>
+        </label>
+
+        <label class="input-bar__item" id="input-bar__category" for="category">
+          <div class="input-bar__item-name">분류</div>
+
+          <div
+            class="input-bar__item-input__container dropdown"
+            id="category-dropdown">
+            <span class="input-bar__item-input" id="category" name="category">
+              선택하세요
+            </span>
+
+            <img
+              src="src/assets/icons/chevron-down.svg"
+              alt="Category Dropdown" />
+          </div>
+
+          <ul class="options-container">
+            <li class="option" data-value="생활">
+              <span>생활</span>
+            </li>
+            <li class="option" data-value="식비">
+              <span>식비</span>
+            </li>
+            <li class="option" data-value="교통">
+              <span>교통</span>
+            </li>
+            <li class="option" data-value="쇼핑/뷰티">
+              <span>쇼핑/뷰티</span>
+            </li>
+            <li class="option" data-value="의료/건강">
+              <span>의료/건강</span>
+            </li>
+            <li class="option" data-value="문화/여가">
+              <span>문화/여가</span>
+            </li>
+            <li class="option" data-value="미분류">
+              <span>미분류</span>
+            </li>
+          </ul>
+        </label>
+
         <button type="submit" disabled>
-          <img src="" alt="Submit" />
+          <img src="src/assets/icons/check.svg" alt="Submit" />
         </button>
       </form>
     </section>
@@ -143,5 +203,7 @@
         <!-- entries -->
       </section>
     </main>
+
+    <script src="src/js/index.js" type="module"></script>
   </body>
 </html>

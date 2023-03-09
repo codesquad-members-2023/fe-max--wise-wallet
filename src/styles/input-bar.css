@@ -1,0 +1,198 @@
+#input-bar__container {
+  width: 100%;
+  height: 92px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+#input-bar__container > form {
+  width: var(--layout-inner-width);
+  height: 76px;
+  padding: 16px 24px;
+  display: flex;
+  position: absolute;
+  top: -32px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-primary);
+  box-shadow: var(--shadow);
+}
+
+.input-bar__item {
+  height: 44px;
+  padding-inline: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  border-right: 1px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+.input-bar__item:first-of-type {
+  padding-left: 0;
+}
+
+.input-bar__item:last-of-type {
+  border-right: none;
+}
+
+.input-bar__item-name {
+  height: 16px;
+  color: var(--color-primary-alt);
+  font-size: var(--fs-bold-regular);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-bold-regular);
+}
+
+.input-bar__item-input {
+  height: 24px;
+  color: var(--color-primary);
+  font-family: var(--ff-body);
+  font-size: var(--fs-body-regular);
+  font-weight: var(--fw-body);
+  line-height: var(--lh-body-regular);
+  background-color: transparent;
+  border: none;
+}
+
+.input-bar__item-input::placeholder {
+  color: var(--color-primary-alt);
+}
+
+.input-bar__item-input__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* date input */
+#input-bar__date {
+  width: 120px;
+}
+
+.input-bar__item-input#date {
+  position: relative;
+}
+
+.input-bar__item-input#date::-webkit-inner-spin-button {
+  display: none;
+}
+
+.input-bar__item-input#date::-webkit-calendar-picker-indicator {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* amount input */
+#input-bar__amount {
+  width: 175px;
+}
+
+.input-bar__item-input#amount {
+  width: 78px;
+  text-align: right;
+}
+
+.input-bar__item-input#amount::-webkit-inner-spin-button,
+.input-bar__item-input#amount::-webkit-outer-spin-button {
+  display: none;
+}
+
+.input-bar__item-input#amount::after {
+  content: "원";
+  width: 20px;
+  height: 20px;
+  color: black;
+}
+
+/* content input */
+#input-bar__content {
+  width: 212px;
+}
+
+/* payment method input */
+#input-bar__payment-method {
+  width: 148px;
+}
+
+/* category input */
+#input-bar__category {
+  width: 148px;
+}
+
+/* select dropdown */
+.input-bar__item .options-container {
+  width: 148px;
+  padding: 16px 24px;
+  display: none;
+  position: absolute;
+  top: 65px;
+  left: 0;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-primary);
+  box-shadow: var(--shadow);
+  list-style: none;
+}
+
+.input-bar__item .options-container.is-active {
+  display: block;
+}
+
+.input-bar__item .options-container .option {
+  width: 100px;
+  padding: 16px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-primary);
+  cursor: pointer;
+}
+
+.input-bar__item .options-container .option:first-of-type {
+  padding-top: 0;
+}
+
+.input-bar__item .options-container .option:last-of-type {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.input-bar__item .options-container .option img {
+  filter: var(--filter-secondary-red);
+}
+
+.input-bar__item-input#payment-method,
+.input-bar__item-input#category {
+  color: var(--color-primary-alt);
+}
+
+#input-bar__payment-method .input-bar__item-input__container,
+#input-bar__category .input-bar__item-input__container {
+  cursor: pointer;
+}
+
+/* button */
+#input-bar__container > form > button {
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-primary-alt-40);
+  border: none;
+  border-radius: var(--radius-primary);
+}
+
+#input-bar__container > form > button:not(button:disabled) {
+  background-color: var(--color-secondary-yellow);
+  cursor: pointer;
+}
+
+#input-bar__container > form > button > img {
+  width: 24px;
+  height: 24px;
+  filter: var(--filter-white);
+}
