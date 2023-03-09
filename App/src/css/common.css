@@ -173,6 +173,7 @@
 
 /* other */
 .reset-btn {
+  background: none;
   cursor: pointer;
   display: flex;
   border: 0;

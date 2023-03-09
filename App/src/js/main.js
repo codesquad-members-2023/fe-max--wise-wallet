@@ -1,3 +1,4 @@
+// get Date
 const get_date_element = () => {
   const year = document.getElementById("year");
   const month = document.getElementById("month");
@@ -19,20 +20,30 @@ const setDate = (date_element, date) => {
   month_en.innerHTML = month_en_Text;
 };
 
-// set Date Now
-setDate(get_date_element(), new Date());
+const init = () => {
+  const left_arrow = document.getElementById("left-Arrow");
+  const right_arrow = document.getElementById("right-Arrow");
+  const input_bar_date = left_arrow.addEventListener("click", () => {
+    const [year, month, month_en] = get_date_element();
+    const newDate = new Date(year.innerHTML, month.innerHTML - 2);
+    setDate([year, month, month_en], newDate);
+  });
 
-const left_arrow = document.getElementById("left-Arrow");
-const right_arrow = document.getElementById("right-Arrow");
+  right_arrow.addEventListener("click", () => {
+    const [year, month, month_en] = get_date_element();
+    const newDate = new Date(year.innerHTML, month.innerHTML);
+    setDate([year, month, month_en], newDate);
+  });
 
-left_arrow.addEventListener("click", () => {
-  const [year, month, month_en] = get_date_element();
-  const newDate = new Date(year.innerHTML, month.innerHTML - 2);
-  setDate([year, month, month_en], newDate);
-});
+  // set Date Now
+  setDate(get_date_element(), new Date());
+  const date = new Date();
+  const year_Text = date.getFullYear();
+  const month_Text = String(date.getMonth() + 1);
+  const day_Text = String(date.getDate());
 
-right_arrow.addEventListener("click", () => {
-  const [year, month, month_en] = get_date_element();
-  const newDate = new Date(year.innerHTML, month.innerHTML);
-  setDate([year, month, month_en], newDate);
-});
+  document.getElementById("input_date").value = parseInt(
+    `${year_Text}${month_Text.padStart(2, "0")}${day_Text.padStart(2, "0")}`
+  );
+};
+init();
