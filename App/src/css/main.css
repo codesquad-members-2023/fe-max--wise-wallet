@@ -1,3 +1,214 @@
-.main {
+main {
   position: relative;
+}
+
+#history {
+  width: 100%;
+  padding: 92px 24px 0;
+  box-sizing: border-box;
+}
+
+#history .history__info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--color-primary);
+}
+
+
+#history .history__info ul {
+  display: flex;
+  gap: 14px;
+}
+
+#history .history__info ul li {
+  display: flex;
+  align-items: center;
+}
+
+
+#history .history__info h3 {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-body-large);
+  font-weight: var(--font-weight-body);
+  line-height: var(--line-height-body-large);
+}
+
+
+#history .history__info ul li dl {
+  display: flex;
+  gap: 14px;
+}
+
+#history .history__info ul li dl dt,
+#history .history__info ul li dl dd {
+  font-family: var(--font-family-body);
+  font-size: var(--font-size-body-medium);
+  font-weight: var(--font-weight-body);
+  line-height: var(--line-height-body-medium);
+}
+
+#history .history__info ul li input + label svg:first-child {
+  display: inline-block;
+}
+#history .history__info ul li input + label svg:last-child {
+  display: none;
+}
+
+#history .history__info ul li input:checked + label svg:first-child {
+  display: none;
+}
+#history .history__info ul li input:checked + label svg:last-child {
+  display: inline-block;
+}
+
+
+#history .history__info ul li label {
+  margin-right: 10px;
+}
+
+#history .history__detail {
+  margin-top: 24px;
+}
+
+#history .history__detail .detail-item:nth-child(n+2) {
+  margin-top: 33px;
+}
+
+#history .date__header {
+  display: flex;
+  justify-content: space-between;
+}
+
+#history .header__date-day .date,
+#history .header__date-day .day {
+  font-family: var(--font-family-bold);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-bold-medium);
+  line-height: var(--line-height-bold-medium);
+  color: var(--color-primary);
+}
+
+#history .header__date-day .date {
+  margin-right: 8px;
+}
+
+#history .header__income-expenditure {
+  display: flex;
+  gap: 8px;
+}
+
+#history .header__income-expenditure dt,
+#history .header__income-expenditure dd {
+  font-family: var(--font-family-bold);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-bold-medium);
+  line-height: var(--line-height-bold-medium);
+  color: var(--color-primary-alt);
+}
+
+#history .date__body {
+  margin-top: 21px;
+}
+
+#history .list__item {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  border-bottom: 1px solid var(--color-primary);
+}
+
+
+
+
+#history .list__item:first-child {
+  border-top: 1px solid var(--color-primary);
+}
+
+#history .list__item span {
+  display: inline-block;
+  font-family: var(--font-family-body);
+  font-weight: var(--font-weight-body);
+  font-size: var(--font-size-body-medium);
+  line-height: var(--line-height-body-medium);
+  color: var(--color-primary);
+}
+
+#history .list__item .category {
+  width: 92px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-white);
+  border-radius: 25px;
+  font-family: var(--font-family-bold);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-bold-medium);
+  line-height: var(--line-height-bold-medium);
+}
+
+#history .list__item .body {
+  width: 320px;
+}
+
+#history .list__item .category[data-category="0"] {
+  background-color: var(--color-category-navy);
+}
+
+#history .list__item .category[data-category="1"] {
+  background-color: var(--color-category-blue);
+}
+
+
+#history .list__item .payment {
+  width: 120px;
+}
+
+
+#history .list__item .price {
+  flex-grow: 1;
+  text-align: right;
+  color: var(--color-secondary-red);
+}
+
+
+#history .list__item .delete {
+  display: none;
+  flex-direction: row;
+  align-items: center;
+  width: 89px;
+  padding: 0;
+  height: 32px;
+  color: transparent;
+  border-radius: var(--border-radius-8);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-secondary-red);
+  font-family: var(--font-family-bold);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-bold-medium);
+  line-height: var(--line-height-bold-medium);
+}
+
+
+#history .list__item:hover .delete {
+  display: flex;
+  color: var(--color-secondary-red);
+  animation: 500ms delete;
+}
+
+@keyframes delete {
+  0% {
+    color: transparent;
+    width: 0;
+  }
+  60% {
+    color: transparent;
+    width: 89px;
+  }
+  100% {
+    color: var(--color-secondary-red);
+  }
 }

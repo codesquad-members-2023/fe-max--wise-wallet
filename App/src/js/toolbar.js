@@ -1,13 +1,12 @@
 "use strict";
 
-function Inputbar(domNode) {
+function Toolbar(domNode) {
   this.domNode = domNode;
   this.firstItem = null;
   this.lastItem = null;
 
-  this.inputbarItems = [];
+  this.toolbarItems = [];
   this.alignItems = [];
-  this.textarea = null;
 
   this.copyButton = null;
   this.cutButton = null;
@@ -20,19 +19,10 @@ function Inputbar(domNode) {
   this.nightModeCheck = null;
 }
 
-Inputbar.prototype.init = function () {
-  var i, items, inputbarItem, menuButton;
+Toolbar.prototype.init = function () {
+  var i, items, toolbarItem, menuButton;
 
-  this.textarea = document.getElementById(
-    this.domNode.getAttribute("aria-controls")
-  );
-  this.textarea.style.width =
-    this.domNode.getBoundingClientRect().width - 12 + "px";
-  this.textarea.addEventListener("mouseup", this.selectTextContent.bind(this));
-  this.textarea.addEventListener("keyup", this.selectTextContent.bind(this));
   this.domNode.addEventListener("click", this.handleContainerClick.bind(this));
-
-  this.selected = this.textarea.selectText;
 
   this.copyButton = this.domNode.querySelector(".copy");
   this.cutButton = this.domNode.querySelector(".cut");
@@ -42,19 +32,19 @@ Inputbar.prototype.init = function () {
   items = this.domNode.querySelectorAll(".item");
 
   for (i = 0; i < items.length; i++) {
-    inputbarItem = new InputbarItem(items[i], this);
-    inputbarItem.init();
+    toolbarItem = new ToolbarItem(items[i], this);
+    toolbarItem.init();
 
     if (items[i].hasAttribute("aria-haspopup")) {
-      menuButton = new MenuButton(items[i], this, inputbarItem);
+      menuButton = new MenuButton(items[i], this, toolbarItem);
       menuButton.init();
     }
 
     if (i === 0) {
-      this.firstItem = inputbarItem;
+      this.firstItem = toolbarItem;
     }
-    this.lastItem = inputbarItem;
-    this.inputbarItems.push(inputbarItem);
+    this.lastItem = toolbarItem;
+    this.toolbarItems.push(toolbarItem);
   }
 
   var spinButtons = this.domNode.querySelectorAll("[role=spinbutton]");
@@ -65,307 +55,96 @@ Inputbar.prototype.init = function () {
   }
 };
 
-Inputbar.prototype.handleContainerClick = function () {
+Toolbar.prototype.handleAmount = function () {};
+
+Toolbar.prototype.handleContainerClick = function () {
   if (event.target !== this.domNode) return;
   this.setFocusCurrentItem();
 };
 
-Inputbar.prototype.setFocusCurrentItem = function () {
+Toolbar.prototype.setFocusCurrentItem = function () {
   var item = this.domNode.querySelector('[tabindex="0"]');
   item.focus();
 };
 
-Inputbar.prototype.selectTextContent = function () {
-  this.start = this.textarea.selectionStart;
-  this.end = this.textarea.selectionEnd;
-  this.selected = this.textarea.value.substring(this.start, this.end);
-  this.updateDisable(
-    this.copyButton,
-    this.cutButton,
-    this.pasteButton,
-    this.selected
-  );
-};
-Inputbar.prototype.updateDisable = function (
-  copyButton,
-  cutButton,
-  pasteButton
-) {
-  var start = this.textarea.selectionStart;
-  var end = this.textarea.selectionEnd;
-  if (start !== end) {
-    copyButton.setAttribute("aria-disabled", false);
-    cutButton.setAttribute("aria-disabled", false);
-  } else {
-    cutButton.setAttribute("aria-disabled", true);
-  }
-  if (this.ourClipboard.length > 0) {
-    pasteButton.setAttribute("aria-disabled", false);
-  }
-};
-
-Inputbar.prototype.selectText = function (start, end, textarea) {
-  if (typeof textarea.selectionStart !== "undefined") {
-    textarea.focus();
-    textarea.selectionStart = start;
-    textarea.selectionEnd = end;
-    return true;
-  }
-};
-Inputbar.prototype.copyTextContent = function () {
-  if (this.copyButton.getAttribute("aria-disabled") === "true") {
-    return;
-  }
-  this.selectText(this.start, this.end, this.textarea);
-  this.ourClipboard = this.selected;
-  this.updateDisable(
-    this.copyButton,
-    this.cutButton,
-    this.pasteButton,
-    this.selected
-  );
-};
-
-Inputbar.prototype.cutTextContent = function (inputbarItem) {
-  if (this.cutButton.getAttribute("aria-disabled") === "true") {
-    return;
-  }
-  this.copyTextContent(inputbarItem);
-  var str = this.textarea.value;
-  this.textarea.value = str.replace(str.substring(this.start, this.end), "");
-  this.selected = "";
-  this.updateDisable(
-    this.copyButton,
-    this.cutButton,
-    this.pasteButton,
-    this.selected
-  );
-};
-
-Inputbar.prototype.pasteTextContent = function () {
-  if (this.pasteButton.getAttribute("aria-disabled") === "true") {
-    return;
-  }
-  var str = this.textarea.value;
-  this.textarea.value =
-    str.slice(0, this.textarea.selectionStart) +
-    this.ourClipboard +
-    str.slice(this.textarea.selectionEnd);
-  this.textarea.focus();
-  this.updateDisable(
-    this.copyButton,
-    this.cutButton,
-    this.pasteButton,
-    this.selected
-  );
-};
-
-Inputbar.prototype.toggleBold = function (inputbarItem) {
-  if (inputbarItem.isPressed()) {
-    this.textarea.style.fontWeight = "normal";
-    inputbarItem.resetPressed();
-  } else {
-    this.textarea.style.fontWeight = "bold";
-    inputbarItem.setPressed();
-  }
-};
-
-Inputbar.prototype.toggleUnderline = function (inputbarItem) {
-  if (inputbarItem.isPressed()) {
-    this.textarea.style.textDecoration = "none";
-    inputbarItem.resetPressed();
-  } else {
-    this.textarea.style.textDecoration = "underline";
-    inputbarItem.setPressed();
-  }
-};
-
-Inputbar.prototype.toggleItalic = function (inputbarItem) {
-  if (inputbarItem.isPressed()) {
-    this.textarea.style.fontStyle = "normal";
-    inputbarItem.resetPressed();
-  } else {
-    this.textarea.style.fontStyle = "italic";
-    inputbarItem.setPressed();
-  }
-};
-
-Inputbar.prototype.changeFontSize = function (value) {
-  this.textarea.style.fontSize = value + "pt";
-};
-
-Inputbar.prototype.toggleNightMode = function () {
-  if (this.nightModeCheck.checked) {
-    this.textarea.style.color = "#eee";
-    this.textarea.style.background = "black";
-  } else {
-    this.textarea.style.color = "black";
-    this.textarea.style.background = "white";
-  }
-};
-
-Inputbar.prototype.redirectLink = function (inputbarItem) {
-  window.open(inputbarItem.domNode.href, "_blank");
-};
-
-Inputbar.prototype.setAlignment = function (inputbarItem) {
-  for (var i = 0; i < this.alignItems.length; i++) {
-    this.alignItems[i].resetChecked();
-  }
-  switch (inputbarItem.value) {
-    case "left":
-      this.textarea.style.textAlign = "left";
-      inputbarItem.setChecked();
-      break;
-    case "center":
-      this.textarea.style.textAlign = "center";
-      inputbarItem.setChecked();
-      break;
-    case "right":
-      this.textarea.style.textAlign = "right";
-      inputbarItem.setChecked();
-      break;
-
-    default:
-      break;
-  }
-};
-
-Inputbar.prototype.setFocusToFirstAlignItem = function () {
+Toolbar.prototype.setFocusToFirstAlignItem = function () {
   this.setFocusItem(this.alignItems[0]);
 };
 
-Inputbar.prototype.setFocusToLastAlignItem = function () {
+Toolbar.prototype.setFocusToLastAlignItem = function () {
   this.setFocusItem(this.alignItems[2]);
 };
 
-Inputbar.prototype.setFontFamily = function (font) {
-  this.textarea.style.fontFamily = font;
-};
-
-Inputbar.prototype.activateItem = function (inputbarItem) {
-  switch (inputbarItem.buttonAction) {
-    case "bold":
-      this.toggleBold(inputbarItem);
-      break;
-    case "underline":
-      this.toggleUnderline(inputbarItem);
-      break;
-    case "italic":
-      this.toggleItalic(inputbarItem);
-      break;
-    case "align":
-      this.setAlignment(inputbarItem);
-      break;
-    case "copy":
-      this.copyTextContent(inputbarItem);
-      break;
-    case "cut":
-      this.cutTextContent(inputbarItem);
-      break;
-    case "paste":
-      this.pasteTextContent(inputbarItem);
-      break;
-    case "font-family":
-      this.setFontFamily(inputbarItem.value);
-      break;
-    case "nightmode":
-      this.toggleNightMode(inputbarItem);
-      break;
-    case "link":
-      this.redirectLink(inputbarItem);
-      break;
-    default:
-      break;
-  }
-};
-
-/**
- * @description
- *  Focus on the specified item
- * @param item
- *  The item to focus on
- */
-Inputbar.prototype.setFocusItem = function (item) {
-  for (var i = 0; i < this.inputbarItems.length; i++) {
-    this.inputbarItems[i].domNode.setAttribute("tabindex", "-1");
+Toolbar.prototype.setFocusItem = function (item) {
+  for (var i = 0; i < this.toolbarItems.length; i++) {
+    this.toolbarItems[i].domNode.setAttribute("tabindex", "-1");
   }
 
   item.domNode.setAttribute("tabindex", "0");
   item.domNode.focus();
 };
 
-Inputbar.prototype.setFocusToNext = function (currentItem) {
+Toolbar.prototype.setFocusToNext = function (currentItem) {
   var index, newItem;
 
   if (currentItem === this.lastItem) {
     newItem = this.firstItem;
   } else {
-    index = this.inputbarItems.indexOf(currentItem);
-    newItem = this.inputbarItems[index + 1];
+    index = this.toolbarItems.indexOf(currentItem);
+    newItem = this.toolbarItems[index + 1];
   }
   this.setFocusItem(newItem);
 };
 
-Inputbar.prototype.setFocusToPrevious = function (currentItem) {
+Toolbar.prototype.setFocusToPrevious = function (currentItem) {
   var index, newItem;
 
   if (currentItem === this.firstItem) {
     newItem = this.lastItem;
   } else {
-    index = this.inputbarItems.indexOf(currentItem);
-    newItem = this.inputbarItems[index - 1];
+    index = this.toolbarItems.indexOf(currentItem);
+    newItem = this.toolbarItems[index - 1];
   }
   this.setFocusItem(newItem);
 };
 
-Inputbar.prototype.setFocusToFirst = function () {
+Toolbar.prototype.setFocusToFirst = function () {
   this.setFocusItem(this.firstItem);
 };
 
-Inputbar.prototype.setFocusToLast = function () {
+Toolbar.prototype.setFocusToLast = function () {
   this.setFocusItem(this.lastItem);
 };
 
-Inputbar.prototype.hidePopupLabels = function () {
+Toolbar.prototype.hidePopupLabels = function () {
   var tps = this.domNode.querySelectorAll("button .popup-label");
   tps.forEach(function (tp) {
     tp.classList.remove("show");
   });
 };
 
-// Initialize inputbars
-
-/*
- *   This content is licensed according to the W3C Software License at
- *   https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
- *
- * ARIA Inputbar Examples
- * @function onload
- * @desc Initialize the inputbar example once the page has loaded
- */
 
 window.addEventListener("load", function () {
-  var inputbars = document.querySelectorAll('[role="inputbar"].format');
+  var toolbars = document.querySelectorAll('[role="toolbar"].format');
 
-  for (var i = 0; i < inputbars.length; i++) {
-    var inputbar = new Inputbar(inputbars[i]);
+  for (var i = 0; i < toolbars.length; i++) {
+    var toolbar = new Toolbar(toolbars[i]);
 
-    inputbar.init();
+    toolbar.init();
   }
 });
 /*
  *   This content is licensed according to the W3C Software License at
  *   https://www.w3.org/Consortium/Legal/2015/copyright-software-and-document
  *
- *   File:   FontInputbarItem.js
+ *   File:   FontToolbarItem.js
  */
 
 ("use strict");
 
-function InputbarItem(domNode, inputbar) {
+function ToolbarItem(domNode, toolbar) {
   this.domNode = domNode;
-  this.inputbar = inputbar;
+  this.toolbar = toolbar;
   this.buttonAction = "";
   this.value = "";
   this.popupLabelNode = null;
@@ -388,7 +167,7 @@ function InputbarItem(domNode, inputbar) {
   });
 }
 
-InputbarItem.prototype.init = function () {
+ToolbarItem.prototype.init = function () {
   this.domNode.addEventListener("keydown", this.handleKeyDown.bind(this));
   this.domNode.addEventListener("click", this.handleClick.bind(this));
   this.domNode.addEventListener("focus", this.handleFocus.bind(this));
@@ -416,19 +195,19 @@ InputbarItem.prototype.init = function () {
   if (this.domNode.classList.contains("align-left")) {
     this.buttonAction = "align";
     this.value = "left";
-    this.inputbar.alignItems.push(this);
+    this.toolbar.alignItems.push(this);
   }
 
   if (this.domNode.classList.contains("align-center")) {
     this.buttonAction = "align";
     this.value = "center";
-    this.inputbar.alignItems.push(this);
+    this.toolbar.alignItems.push(this);
   }
 
   if (this.domNode.classList.contains("align-right")) {
     this.buttonAction = "align";
     this.value = "right";
-    this.inputbar.alignItems.push(this);
+    this.toolbar.alignItems.push(this);
   }
   if (this.domNode.classList.contains("nightmode")) {
     this.buttonAction = "nightmode";
@@ -448,55 +227,46 @@ InputbarItem.prototype.init = function () {
   if (this.domNode.classList.contains("spinbutton")) {
     this.buttonAction = "changeFontSize";
   }
-  // Initialize any popup label
-
-  this.popupLabelNode = this.domNode.querySelector(".popup-label");
-  if (this.popupLabelNode) {
-    var width = 8 * this.popupLabelNode.textContent.length;
-    this.popupLabelNode.style.width = width + "px";
-    this.popupLabelNode.style.left =
-      -1 * ((width - this.domNode.offsetWidth) / 2) - 5 + "px";
-  }
 };
 
-InputbarItem.prototype.isPressed = function () {
+ToolbarItem.prototype.isPressed = function () {
   return this.domNode.getAttribute("aria-pressed") === "true";
 };
 
-InputbarItem.prototype.setPressed = function () {
+ToolbarItem.prototype.setPressed = function () {
   this.domNode.setAttribute("aria-pressed", "true");
 };
 
-InputbarItem.prototype.resetPressed = function () {
+ToolbarItem.prototype.resetPressed = function () {
   this.domNode.setAttribute("aria-pressed", "false");
 };
 
-InputbarItem.prototype.setChecked = function () {
+ToolbarItem.prototype.setChecked = function () {
   this.domNode.setAttribute("aria-checked", "true");
   this.domNode.checked = true;
 };
 
-InputbarItem.prototype.resetChecked = function () {
+ToolbarItem.prototype.resetChecked = function () {
   this.domNode.setAttribute("aria-checked", "false");
   this.domNode.checked = false;
 };
 
-InputbarItem.prototype.disable = function () {
+ToolbarItem.prototype.disable = function () {
   this.domNode.setAttribute("aria-disabled", "true");
 };
 
-InputbarItem.prototype.enable = function () {
+ToolbarItem.prototype.enable = function () {
   this.domNode.removeAttribute("aria-disabled");
 };
 
-InputbarItem.prototype.showPopupLabel = function () {
+ToolbarItem.prototype.showPopupLabel = function () {
   if (this.popupLabelNode) {
-    this.inputbar.hidePopupLabels();
+    this.toolbar.hidePopupLabels();
     this.popupLabelNode.classList.add("show");
   }
 };
 
-InputbarItem.prototype.hidePopupLabel = function () {
+ToolbarItem.prototype.hidePopupLabel = function () {
   if (this.popupLabelNode && !this.hasHover) {
     this.popupLabelNode.classList.remove("show");
   }
@@ -504,10 +274,10 @@ InputbarItem.prototype.hidePopupLabel = function () {
 
 // Events
 
-InputbarItem.prototype.handleHideAllPopupLabels = function (event) {
+ToolbarItem.prototype.handleHideAllPopupLabels = function (event) {
   switch (event.keyCode) {
     case this.keyCode.ESC:
-      this.inputbar.hidePopupLabels();
+      this.toolbar.hidePopupLabels();
       break;
 
     default:
@@ -515,8 +285,8 @@ InputbarItem.prototype.handleHideAllPopupLabels = function (event) {
   }
 };
 
-InputbarItem.prototype.handleBlur = function () {
-  this.inputbar.domNode.classList.remove("focus");
+ToolbarItem.prototype.handleBlur = function () {
+  this.toolbar.domNode.classList.remove("focus");
 
   if (this.domNode.classList.contains("nightmode")) {
     this.domNode.parentNode.classList.remove("focus");
@@ -524,8 +294,8 @@ InputbarItem.prototype.handleBlur = function () {
   this.hidePopupLabel();
 };
 
-InputbarItem.prototype.handleFocus = function () {
-  this.inputbar.domNode.classList.add("focus");
+ToolbarItem.prototype.handleFocus = function () {
+  this.toolbar.domNode.classList.add("focus");
 
   if (this.domNode.classList.contains("nightmode")) {
     this.domNode.parentNode.classList.add("focus");
@@ -533,61 +303,51 @@ InputbarItem.prototype.handleFocus = function () {
   this.showPopupLabel();
 };
 
-InputbarItem.prototype.handleMouseLeave = function () {
+ToolbarItem.prototype.handleMouseLeave = function () {
   this.hasHover = false;
   setTimeout(this.hidePopupLabel.bind(this), this.popupLabelDelay);
 };
 
-InputbarItem.prototype.handleMouseOver = function () {
+ToolbarItem.prototype.handleMouseOver = function () {
   this.showPopupLabel();
   this.hasHover = true;
 };
 
-InputbarItem.prototype.handleKeyDown = function (event) {
+ToolbarItem.prototype.handleKeyDown = function (event) {
   var flag = false;
 
   switch (event.keyCode) {
     case this.keyCode.ENTER:
     case this.keyCode.SPACE:
-      if (
-        this.buttonAction !== "" &&
-        this.buttonAction !== "bold" &&
-        this.buttonAction !== "italic" &&
-        this.buttonAction !== "underline"
-      ) {
-        this.inputbar.activateItem(this);
-        if (this.buttonAction !== "nightmode") {
-          flag = true;
-        }
-      }
+      this.toolbar.setFocusToNext(this);
       break;
 
     case this.keyCode.RIGHT:
-      this.inputbar.setFocusToNext(this);
+      this.toolbar.setFocusToNext(this);
       flag = true;
       break;
 
     case this.keyCode.LEFT:
-      this.inputbar.setFocusToPrevious(this);
+      this.toolbar.setFocusToPrevious(this);
       flag = true;
       break;
 
     case this.keyCode.HOME:
-      this.inputbar.setFocusToFirst(this);
+      this.toolbar.setFocusToFirst(this);
       flag = true;
       break;
 
     case this.keyCode.END:
-      this.inputbar.setFocusToLast(this);
+      this.toolbar.setFocusToLast(this);
       flag = true;
       break;
 
     case this.keyCode.UP:
       if (this.buttonAction === "align") {
         if (this.domNode.classList.contains("align-left")) {
-          this.inputbar.setFocusToLastAlignItem();
+          this.toolbar.setFocusToLastAlignItem();
         } else {
-          this.inputbar.setFocusToPrevious(this);
+          this.toolbar.setFocusToPrevious(this);
         }
         flag = true;
       }
@@ -595,9 +355,9 @@ InputbarItem.prototype.handleKeyDown = function (event) {
     case this.keyCode.DOWN:
       if (this.buttonAction === "align") {
         if (this.domNode.classList.contains("align-right")) {
-          this.inputbar.setFocusToFirstAlignItem();
+          this.toolbar.setFocusToFirstAlignItem();
         } else {
-          this.inputbar.setFocusToNext(this);
+          this.toolbar.setFocusToNext(this);
         }
         flag = true;
       }
@@ -612,13 +372,12 @@ InputbarItem.prototype.handleKeyDown = function (event) {
   }
 };
 
-InputbarItem.prototype.handleClick = function () {
+ToolbarItem.prototype.handleClick = function () {
   if (this.buttonAction == "link") {
     return;
   }
 
-  this.inputbar.setFocusItem(this);
-  this.inputbar.activateItem(this);
+  this.toolbar.setFocusItem(this);
 };
 /*
  *   This content is licensed according to the W3C Software License at
@@ -631,13 +390,12 @@ InputbarItem.prototype.handleClick = function () {
 
 ("use strict");
 
-function MenuButton(node, inputbar, inputbarItem) {
+function MenuButton(node, toolbar, toolbarItem) {
   this.domNode = node;
-  this.fontMenu = false;
-  this.inputbar = inputbar;
-  this.inputbarItem = inputbarItem;
+  this.menu = false;
+  this.toolbar = toolbar;
+  this.toolbarItem = toolbarItem;
 
-  this.buttonAction = "font-family";
   this.value = "";
 
   this.keyCode = Object.freeze({
@@ -657,8 +415,8 @@ MenuButton.prototype.init = function () {
     var node = document.getElementById(id);
 
     if (node) {
-      this.fontMenu = new Menu(node, this);
-      this.fontMenu.init();
+      this.menu = new Menu(node, this);
+      this.menu.init();
     }
   }
 
@@ -674,8 +432,8 @@ MenuButton.prototype.handleKeyDown = function (event) {
     case this.keyCode.ENTER:
     case this.keyCode.DOWN:
     case this.keyCode.UP:
-      this.fontMenu.open();
-      this.fontMenu.setFocusToCheckedItem();
+      this.menu.open();
+      this.menu.setFocusToCheckedItem();
       flag = true;
       break;
 
@@ -690,19 +448,17 @@ MenuButton.prototype.handleKeyDown = function (event) {
 };
 
 MenuButton.prototype.handleClick = function () {
-  if (this.fontMenu.isOpen()) {
-    this.fontMenu.close();
+  if (this.menu.isOpen()) {
+    this.menu.close();
   } else {
-    this.fontMenu.open();
+    this.menu.open();
   }
 };
 
-MenuButton.prototype.setFontFamily = function (font) {
-  this.value = font;
-  this.domNode.innerHTML = font.toUpperCase() + "<span></span>";
-  this.domNode.style.fontFamily = font;
-  this.domNode.setAttribute("aria-label", "Font: " + font);
-  this.inputbar.activateItem(this);
+MenuButton.prototype.setContext = function (context) {
+  this.value = context;
+  this.domNode.innerHTML = context;
+  this.domNode.setAttribute("aria-label", context);
 };
 /*
  *   This content is licensed according to the W3C Software License at
@@ -764,7 +520,7 @@ var Menu = function (domNode, controllerObj) {
  *       array. Initialize firstItem and lastItem properties.
  */
 Menu.prototype.init = function () {
-  var menuitemElements, menuitemElement, menuItem, textContent, numItems;
+  var menuitemElements, menuitemElement, menuItem, numItems;
 
   // Configure the domNode itself
   this.domNode.setAttribute("tabindex", "-1");
@@ -781,8 +537,6 @@ Menu.prototype.init = function () {
     menuItem = new MenuItem(menuitemElement, this);
     menuItem.init();
     this.menuitems.push(menuItem);
-    textContent = menuitemElement.textContent.trim();
-    this.firstChars.push(textContent.substring(0, 1).toLowerCase());
   }
 
   // Use populated menuitems array to initialize firstItem and lastItem.
@@ -812,22 +566,22 @@ Menu.prototype.setFocusToController = function (command) {
   }
 
   if (command === "previous") {
-    this.controller.inputbar.setFocusToPrevious(this.controller.inputbarItem);
+    this.controller.toolbar.setFocusToPrevious(this.controller.toolbarItem);
   } else {
     if (command === "next") {
-      this.controller.inputbar.setFocusToNext(this.controller.inputbarItem);
+      this.controller.toolbar.setFocusToNext(this.controller.toolbarItem);
     } else {
       this.controller.domNode.focus();
     }
   }
 };
 
-Menu.prototype.setFontFamily = function (menuitem, font) {
+Menu.prototype.setContext = function (menuitem, font) {
   for (var i = 0; i < this.menuitems.length; i++) {
     var mi = this.menuitems[i];
     mi.domNode.setAttribute("aria-checked", mi === menuitem);
   }
-  this.controller.setFontFamily(font);
+  this.controller.setContext(font);
 };
 
 Menu.prototype.setFocusToFirstItem = function () {
@@ -907,13 +661,13 @@ Menu.prototype.getIndexFirstChars = function (startIndex, char) {
 Menu.prototype.setFocus = function () {
   this.hasFocus = true;
   this.domNode.classList.add("focus");
-  this.controller.inputbar.domNode.classList.add("focus");
+  this.controller.toolbar.domNode.classList.add("focus");
 };
 
 Menu.prototype.removeFocus = function () {
   this.hasFocus = false;
   this.domNode.classList.remove("focus");
-  this.controller.inputbar.domNode.classList.remove("focus");
+  this.controller.toolbar.domNode.classList.remove("focus");
   setTimeout(this.close.bind(this, false), 300);
 };
 
@@ -972,10 +726,10 @@ Menu.prototype.close = function (force) {
  *       The object that is a wrapper for the PopupMenu DOM element that
  *       contains the menu item DOM element. See PopupMenuAction.js
  */
-var MenuItem = function (domNode, fontMenu) {
+var MenuItem = function (domNode, menu) {
   this.domNode = domNode;
-  this.fontMenu = fontMenu;
-  this.font = "";
+  this.menu = menu;
+  this.context = "";
 
   this.keyCode = Object.freeze({
     TAB: 9,
@@ -1001,7 +755,7 @@ MenuItem.prototype.init = function () {
     this.domNode.setAttribute("role", "menuitemradio");
   }
 
-  this.font = this.domNode.textContent.trim().toLowerCase();
+  this.context = this.domNode.textContent.trim().toLowerCase();
 
   this.domNode.addEventListener("keydown", this.handleKeydown.bind(this));
   this.domNode.addEventListener("click", this.handleClick.bind(this));
@@ -1027,7 +781,7 @@ MenuItem.prototype.handleKeydown = function (event) {
 
   if (event.shiftKey) {
     if (isPrintableCharacter(char)) {
-      this.fontMenu.setFocusByFirstCharacter(this, char);
+      this.menu.setFocusByFirstCharacter(this, char);
     }
   } else {
     switch (event.keyCode) {
@@ -1041,18 +795,18 @@ MenuItem.prototype.handleKeydown = function (event) {
         break;
 
       case this.keyCode.ESC:
-        this.fontMenu.setFocusToController();
-        this.fontMenu.close(true);
+        this.menu.setFocusToController();
+        this.menu.close(true);
         flag = true;
         break;
 
       case this.keyCode.UP:
-        this.fontMenu.setFocusToPreviousItem(this);
+        this.menu.setFocusToPreviousItem(this);
         flag = true;
         break;
 
       case this.keyCode.DOWN:
-        this.fontMenu.setFocusToNextItem(this);
+        this.menu.setFocusToNextItem(this);
         flag = true;
         break;
 
@@ -1066,24 +820,24 @@ MenuItem.prototype.handleKeydown = function (event) {
 
       case this.keyCode.HOME:
       case this.keyCode.PAGEUP:
-        this.fontMenu.setFocusToFirstItem();
+        this.menu.setFocusToFirstItem();
         flag = true;
         break;
 
       case this.keyCode.END:
       case this.keyCode.PAGEDOWN:
-        this.fontMenu.setFocusToLastItem();
+        this.menu.setFocusToLastItem();
         flag = true;
         break;
 
       case this.keyCode.TAB:
-        this.fontMenu.setFocusToController();
-        this.fontMenu.close(true);
+        this.menu.setFocusToController();
+        this.menu.close(true);
         break;
 
       default:
         if (isPrintableCharacter(char)) {
-          this.fontMenu.setFocusByFirstCharacter(this, char);
+          this.menu.setFocusByFirstCharacter(this, char);
         }
         break;
     }
@@ -1096,25 +850,25 @@ MenuItem.prototype.handleKeydown = function (event) {
 };
 
 MenuItem.prototype.handleClick = function () {
-  this.fontMenu.setFontFamily(this, this.font);
-  this.fontMenu.setFocusToController();
-  this.fontMenu.close(true);
+  this.menu.setContext(this, this.context);
+  this.menu.setFocusToController();
+  this.menu.close(true);
 };
 
 MenuItem.prototype.handleFocus = function () {
-  this.fontMenu.setFocus();
+  this.menu.setFocus();
 };
 
 MenuItem.prototype.handleBlur = function () {
-  this.fontMenu.removeFocus();
+  this.menu.removeFocus();
 };
 
 MenuItem.prototype.handleMouseover = function () {
-  this.fontMenu.hasHover = true;
-  this.fontMenu.open();
+  this.menu.hasHover = true;
+  this.menu.open();
 };
 
 MenuItem.prototype.handleMouseout = function () {
-  this.fontMenu.hasHover = false;
-  setTimeout(this.fontMenu.close.bind(this.fontMenu, false), 300);
+  this.menu.hasHover = false;
+  setTimeout(this.menu.close.bind(this.menu, false), 300);
 };

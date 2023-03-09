@@ -78,7 +78,6 @@ DatePickerDialog.prototype.init = function () {
   this.textboxNode.addEventListener(
     "keydown",
     function (event) {
-      console.log(event);
       if (event.key === "Enter") this.handleButtonClick.bind(this)();
     }.bind(this)
   );
@@ -388,7 +387,7 @@ DatePickerDialog.prototype.setTextboxDate = function (domNode) {
     "" +
     d.getFullYear() +
     (d.getMonth() + 1 >= 10 ? d.getMonth() + 1 : "0" + (d.getMonth() + 1)) +
-    d.getDate();
+    (d.getDate() >= 10 ? d.getDate() : "0" + d.getDate());
   this.setDateForButtonLabel();
 };
 
@@ -805,7 +804,6 @@ DatePickerDialog.prototype.handleButtonClick = function (event) {
     this.setFocusDay();
   }
 
-  event.stopPropagation();
   event.preventDefault();
 };
 

@@ -9,11 +9,10 @@
     <link rel="stylesheet" href="./src/css/common.css" />
     <link rel="stylesheet" href="./src/css/carousel.css" />
     <link rel="stylesheet" href="./src/css/tabs.css" />
-    <link rel="stylesheet" href="./src/css/inputbar.css" />
+    <link rel="stylesheet" href="./src/css/toolbar.css" />
     <link rel="stylesheet" href="./src/css/datepicker.css" />
     <link rel="stylesheet" href="./src/css/header.css" />
     <link rel="stylesheet" href="./src/css/main.css" />
-    <link rel="stylesheet" href="./src/css/datagrid.css" />
     <title>Wise wallet</title>
   </head>
   <body>
@@ -210,14 +209,14 @@
           </div>
         </div>
       </header>
-
       <main>
+        <h1 class="blind">메인영역</h1>
         <div class="inner">
           <div id="tabpanel-1" role="tabpanel" aria-labelledby="tab-1">
             <div
               class="format"
-              role="inputbar"
-              aria-label="날짜입력"
+              role="toolbar"
+              aria-label="기록하기"
               aria-controls="textarea1">
               <div class="group">
                 <label for="id-textbox-1" aria-hidden="true">일자</label>
@@ -413,9 +412,9 @@
 
                       <div class="dialog-ok-cancel-group">
                         <button class="dialog-button" value="cancel">
-                          Cancel
+                          취소
                         </button>
-                        <button class="dialog-button" value="ok">OK</button>
+                        <button class="dialog-button" value="ok">입력</button>
                       </div>
                       <div class="dialog-message" aria-live="polite"></div>
                     </div>
@@ -425,7 +424,7 @@
 
               <div class="group">
                 <label for="amount" aria-hidden="true">금액</label><br />
-                <div class="field">
+                <div class="field field-amount">
                   <figure>
                     <svg
                       width="14"
@@ -450,6 +449,7 @@
                     min="0"
                     step="100"
                     placeholder="0" />
+                  <span class="cover"> 2,000,000 </span>
                   <span>원</span>
                 </div>
               </div>
@@ -481,6 +481,21 @@
                     aria-label="입력하세요">
                     <span class="placeholder"> 입력하세요 </span>
                   </button>
+                  <label for="payment">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M4 6L8 10L12 6"
+                        stroke="#A79FCB"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </label>
                 </div>
                 <ul role="menu" id="menu1" aria-label="결제수단">
                   <li role="menuitemradio" aria-checked="true">
@@ -549,6 +564,21 @@
                     aria-label="입력하세요">
                     <span class="placeholder"> 입력하세요 </span>
                   </button>
+                  <label for="division">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        d="M4 6L8 10L12 6"
+                        stroke="#A79FCB"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                  </label>
                 </div>
                 <ul role="menu" id="menu2" aria-label="분류">
                   <li role="menuitemradio" aria-checked="true">
@@ -598,8 +628,279 @@
                 </button>
               </div>
             </div>
-            <label for="textarea1" class="hidden">Text Sample</label><br />
-            <textarea id="textarea1" rows="10" cols="80"></textarea>
+            <!-- 입출금 내역 -->
+            <article id="history">
+              <h2 class="blind">입출금 내역</h2>
+              <div class="history__info">
+                <h3 tabindex="0">전체내역<span>13</span>건</h3>
+                <ul aria-labelledby="income">
+                  <li>
+                    <input
+                      type="checkbox"
+                      class="blind"
+                      name="income"
+                      id="income"
+                      checked />
+                    <label aria-label="수입내역 활성화" for="income">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <rect
+                          x="2.75"
+                          y="2.75"
+                          width="18.5"
+                          height="18.5"
+                          rx="4.25"
+                          stroke="#524D90"
+                          stroke-width="1.5" />
+                      </svg>
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <rect
+                          x="2"
+                          y="2"
+                          width="20"
+                          height="20"
+                          rx="5"
+                          fill="#524D90" />
+                        <path
+                          d="M17 9L10.125 15.6667L7 12.6364"
+                          stroke="#FCFCFC"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round" />
+                      </svg>
+                    </label>
+                    <dl tabindex="0">
+                      <dt>수입</dt>
+                      <dd>2,000,000</dd>
+                    </dl>
+                  </li>
+                  <li>
+                    <input
+                      class="blind"
+                      type="checkbox"
+                      name="expenditure"
+                      id="expenditure"
+                      checked />
+                    <label aria-label="지출내역 활성화" for="expenditure">
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <rect
+                          x="2.75"
+                          y="2.75"
+                          width="18.5"
+                          height="18.5"
+                          rx="4.25"
+                          stroke="#524D90"
+                          stroke-width="1.5" />
+                      </svg>
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <rect
+                          x="2"
+                          y="2"
+                          width="20"
+                          height="20"
+                          rx="5"
+                          fill="#524D90" />
+                        <path
+                          d="M17 9L10.125 15.6667L7 12.6364"
+                          stroke="#FCFCFC"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round" />
+                      </svg>
+                    </label>
+                    <dl tabindex="0">
+                      <dt>지출</dt>
+                      <dd>798,180</dd>
+                    </dl>
+                  </li>
+                </ul>
+              </div>
+              <ul class="history__detail">
+                <li class="detail-item">
+                  <article class="detail__date">
+                    <div class="date__header">
+                      <h4
+                        tabindex="0"
+                        aria-label="날짜 2월 17일 금요일"
+                        class="header__date-day">
+                        <span class="date">2월 17일</span
+                        ><span class="day">금</span>
+                      </h4>
+                      <dl tabindex="0" class="header__income-expenditure">
+                        <dt>수입</dt>
+                        <dd>2,000,000원</dd>
+                        <dt>지출</dt>
+                        <dd>9,500원</dd>
+                      </dl>
+                    </div>
+                    <div class="date__body">
+                      <ul class="body__list">
+                        <li tabindex="0" class="list__item">
+                          <span
+                            class="category"
+                            data-category="0"
+                            aria-label="생활 카테고리"
+                            >생활</span
+                          >
+                          <span
+                            class="body"
+                            aria-describedby="거래내용 칫솔 6개 세트, 치약 3개 세트"
+                            >칫솔 6개 세트, 치약 3개 세트</span
+                          >
+                          <span
+                            class="payment"
+                            aria-describedby="결제수단 비씨카드"
+                            >비씨카드</span
+                          >
+                          <span
+                            class="price"
+                            aria-describedby="소비 금액 36,460원"
+                            >-36,460원</span
+                          >
+                          <button class="delete">
+                            <svg
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                d="M7.75732 7.75732L16.2426 16.2426"
+                                stroke="#E75B3F"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round" />
+                              <path
+                                d="M7.75732 16.2427L16.2426 7.75739"
+                                stroke="#E75B3F"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            </svg>
+                            삭제하기
+                          </button>
+                        </li>
+                        <li tabindex="0" class="list__item">
+                          <span class="category" data-category="1">식비</span>
+                          <span class="body">잔치국수와 김밥</span>
+                          <span class="payment">현대카드</span>
+                          <span class="price">-36,460원</span>
+                          <button class="delete">
+                            <svg
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                d="M7.75732 7.75732L16.2426 16.2426"
+                                stroke="#E75B3F"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round" />
+                              <path
+                                d="M7.75732 16.2427L16.2426 7.75739"
+                                stroke="#E75B3F"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            </svg>
+                            삭제하기
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
+                  </article>
+                </li>
+                <li class="detail-item">
+                  <article class="detail__date">
+                    <div class="date__header">
+                      <h4
+                        tabindex="0"
+                        aria-label="날짜 2월 17일 금요일"
+                        class="header__date-day">
+                        <span class="date">2월 17일</span
+                        ><span class="day">금</span>
+                      </h4>
+                      <dl tabindex="0" class="header__income-expenditure">
+                        <dt>수입</dt>
+                        <dd>2,000,000원</dd>
+                        <dt>지출</dt>
+                        <dd>9,500원</dd>
+                      </dl>
+                    </div>
+                    <div class="date__body">
+                      <ul class="body__list">
+                        <li tabindex="0" class="list__item">
+                          <span
+                            class="category"
+                            data-category="0"
+                            aria-label="생활 카테고리"
+                            >생활</span
+                          >
+                          <span
+                            class="body"
+                            aria-describedby="거래내용 칫솔 6개 세트, 치약 3개 세트"
+                            >칫솔 6개 세트, 치약 3개 세트</span
+                          >
+                          <span
+                            class="payment"
+                            aria-describedby="결제수단 비씨카드"
+                            >비씨카드</span
+                          >
+                          <span
+                            class="price"
+                            aria-describedby="소비 금액 36,460원"
+                            >-36,460원</span
+                          >
+                          <button class="delete">
+                            <svg
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg">
+                              <path
+                                d="M7.75732 7.75732L16.2426 16.2426"
+                                stroke="#E75B3F"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round" />
+                              <path
+                                d="M7.75732 16.2427L16.2426 7.75739"
+                                stroke="#E75B3F"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            </svg>
+                            삭제하기
+                          </button>
+                        </li>
+                      </ul>
+                    </div>
+                  </article>
+                </li>
+              </ul>
+            </article>
           </div>
           <div
             id="tabpanel-2"
@@ -621,8 +922,7 @@
     </div>
     <script src="./src/js/carousel.js"></script>
     <script src="./src/js/tabs.js"></script>
-    <script src="./src/js/inputbar.js"></script>
+    <script src="./src/js/toolbar.js"></script>
     <script src="./src/js/datepicker.js"></script>
-    <script src="./src/js/datagrid.js"></script>
   </body>
 </html>
