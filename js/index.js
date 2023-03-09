@@ -31,14 +31,26 @@ chartBoard.addEventListener("click", function () {
 });
 
 /* 셀렉트박스 */
-const btn = document.querySelector(".btn-select");
-const list = document.querySelector(".list-member");
-btn.addEventListener("click", () => {
-  btn.classList.add("on");
+const categorySelectHead = document.querySelector(".category-select-head");
+const categoryListMember = document.querySelector(".category-list-member");
+categorySelectHead.addEventListener("click", () => {
+  categorySelectHead.classList.add("on");
 });
-list.addEventListener("click", (event) => {
+categoryListMember.addEventListener("click", (event) => {
   if (event.target.nodeName === "BUTTON") {
-    btn.innerText = event.target.innerText;
-    btn.classList.remove("on");
+    categorySelectHead.innerText = event.target.innerText;
+    categorySelectHead.classList.remove("on");
+  }
+});
+
+const paymentSelectHead = document.querySelector(".payment-select-head");
+const paymentListMember = document.querySelector(".payment-list-member");
+paymentSelectHead.addEventListener("click", () => {
+  paymentSelectHead.classList.add("on");
+});
+paymentListMember.addEventListener("click", (event) => {
+  if (event.target.nodeName === "BUTTON") {
+    paymentSelectHead.innerText = event.target.innerText;
+    paymentSelectHead.classList.remove("on");
   }
 });

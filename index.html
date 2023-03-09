@@ -99,24 +99,34 @@
                                 <input type="text" id="memo-input" placeholder="입력하세요">
                             </fieldset>
                             <div class="dividing-line"></div>
-                            <fieldset class="payment">
+                            <fieldset class="payment payment-select">
                                 <label for="payment-select">결제수단</label>
-                                <select name="payment-select" id="payment-select">
+                                <button type="button" class="btn-select payment-select-head">
+                                    <span>선택하세요</span>
+                                    <img src="./images/chevron-down.svg" alt="카테고리펼치기">
+                                </button>
+                                <ul class="list-member payment-list-member">
+                                    <li><button type="button" class="select-items"><span>현금</span> <img src="./images/delete-x.svg" alt="삭제"></button></li>
+                                    <li><button type="button" class="select-items"><span>신용카드</span><img src="./images/delete-x.svg" alt="삭제"></button></li>
+                                    <li><button type="button" class="select-items"><span>추가하기</span></button></li>
+                                </ul>
+
+                                <!-- <select name="payment-select" id="payment-select">
                                     <option value="선택" selected hidden>선택하세요</option>
                                     <option value="현금">현금</option>
                                     <option value="신용카드">신용카드</option>
                                     <option value="추가하기">추가하기</option>
-                                </select>
+                                </select> -->
                             </fieldset>
                             <div class="dividing-line"></div>
-                            <fieldset class="category cont-select">
+                            <fieldset class="category category-select">
                                 <label class="category-select1-label" for="category-select1">분류</label>
 
-                                <button type="button" class="btn-select">
+                                <button type="button" class="btn-select category-select-head">
                                     <span>선택하세요</span>
                                     <img src="./images/chevron-down.svg" alt="카테고리펼치기">
                                 </button>
-                                <ul class="list-member">
+                                <ul class="list-member category-list-member">
                                     <li><button type="button" class="select-items">생활</button></li>
                                     <li><button type="button" class="select-items">식비</button></li>
                                     <li><button type="button" class="select-items">교통</button></li>

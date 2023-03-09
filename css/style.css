@@ -216,8 +216,11 @@ input {
   margin-left: 24px;
   margin-right: 24px;
 }
-.dividing-line:last-of-type {
+.dividing-line:nth-last-of-type(-n+2) {
   margin-right: 0;
+}
+.dividing-line:nth-last-of-type(1) {
+  margin-left: 0;
 }
 .input-bar-wrap label {
   font-family: "Pretendard-Regular";
@@ -349,12 +352,12 @@ input {
   padding-left: 20px;
 }
 
-/* 여기부터 */
-.cont-select {
-  /* position: relative; */
+/* 셀렉트 박스 커스텀 */
+.category-select, .payment-select {
   box-sizing: border-box;
   width: 148px;
 }
+/* 디바이딩라인 뒤에서 두개 마진 지우기 */
 
 .btn-select {
   display: flex;
@@ -364,6 +367,7 @@ input {
   padding: 4px 20px 14px 20px;
   background-color: transparent;
   border: 1px solid yellowgreen;
+
   box-sizing: border-box;
   cursor: pointer;
   text-align: left;
@@ -380,8 +384,7 @@ input {
 .list-member {
   width: 100%;
   box-sizing: border-box;
-  /* top: 100px;
-  left: 0; */
+
   display: none;
   background: #fcfcfc;
   border: 1px solid #524d90;
@@ -392,13 +395,15 @@ input {
   z-index: 100;
 }
 
-.btn-select.on + .list-member{
+.btn-select.on + .list-member {
   display: block;
 }
 
-/* .category .on + .list-member {
-  display: block;
-} */
+.payment-list-member .select-items{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
 .list-member li {
   padding: 0 24px;
@@ -411,16 +416,15 @@ input {
   align-items: stretch;
 }
 
-.list-member li:first-child{
+.list-member li:first-child {
   border-radius: 8px 8px 0px 0px;
 }
-.list-member li:last-child{
+.list-member li:last-child {
   border-radius: 0px 0px 8px 8px;
 }
-.list-member li:last-child .select-items{
+.list-member li:last-child .select-items {
   border-bottom: none;
 }
-
 
 .list-member .select-items {
   padding: 0;
@@ -517,6 +521,15 @@ input {
   background: #fcfcfc;
   border: 1px solid #524d90;
   border-radius: 8px;
+  box-sizing: border-box;
+  padding: 5px;
+
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #524d90;
 }
 .modal-body #modal-input::placeholder {
   font-family: "Pretendard";
@@ -924,7 +937,7 @@ x 플러스 마이너스 이것도 체크박스로..?
 해야하는거
 0310
 호버 옵션(기획서 다시 읽기),
-탭메뉴 클릭시 색 변경
+탭메뉴 클릭시 아이콘 색 변경
 확대하면 영어로 써진 달이 감춰짐->홛대되면서 메인이 밀려올라와 짜부된것처럼 보임?
 날짜 오늘날짜가 보이도록(선택한날짜로 20230309 가 되도록)
 숫자만 입력되도록, 숫자 세자리마다 콤마
