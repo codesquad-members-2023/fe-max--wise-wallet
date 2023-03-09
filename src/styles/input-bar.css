@@ -177,6 +177,19 @@
   cursor: pointer;
 }
 
+.option-delete-btn {
+  width: 16px;
+  height: 16px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.option-delete-btn > img {
+  width: 100%;
+  height: 100%;
+}
+
 /* button */
 #input-bar__container > form > button {
   width: 40px;
@@ -184,6 +197,7 @@
   background-color: var(--color-primary-alt-40);
   border: none;
   border-radius: var(--radius-primary);
+  cursor: not-allowed;
 }
 
 #input-bar__container > form > button:not(button:disabled) {
