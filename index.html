@@ -22,17 +22,17 @@
             <div class="header-wrap">
                 <h1><a href="/" class="logo">Wise Wallet</a></h1>
                 <div id="month-year">
-                    <button class="month-year-icon"><img src="./images/Vectorleft.svg" alt="이전달"></button>
+                    <button type="button" class="month-year-icon"><img src="./images/Vectorleft.svg" alt="이전달"></button>
                     <div id="month-year-text">
                         <p>2023</p>
                         <p>2</p>
                         <p>February</p>
                     </div>
-                    <button class="month-year-icon"><img src="./images/Vectorright.svg" alt="다음달">
+                    <button type="button" class="month-year-icon"><img src="./images/Vectorright.svg" alt="다음달">
                     </button>
                 </div>
                 <nav id="tab">
-                    <button class="history-icon tab-button" title="내역버튼">
+                    <button type="button" class="history-icon tab-button" title="내역버튼">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z"
@@ -47,7 +47,7 @@
                                 stroke-linejoin="round" />
                         </svg>
                     </button>
-                    <button class="calender-icon tab-button" title="캘린더버튼">
+                    <button type="button" class="calender-icon tab-button" title="캘린더버튼">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M19 4H5C3.89543 4 3 4.89543 3 6V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V6C21 4.89543 20.1046 4 19 4Z"
@@ -60,7 +60,7 @@
                                 stroke-linejoin="round" />
                         </svg>
                     </button>
-                    <button class="statistics-icon tab-button" title="통계버튼"><svg width="24" height="24"
+                    <button type="button" class="statistics-icon tab-button" title="통계버튼"><svg width="24" height="24"
                             viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M18 20V10" stroke="#A79FCB" stroke-width="1.5" stroke-linecap="round"
                                 stroke-linejoin="round" />
@@ -109,36 +109,27 @@
                                 </select>
                             </fieldset>
                             <div class="dividing-line"></div>
-                            <fieldset class="category">
-                                <label for="category-select1">분류</label>
-                                <button class="btn-select">선택하세요</button>
-                                <ul class="list-member">
-                                    <li><button type="button">생활</button></li>
-                                    <li><button type="button">식비</button></li>
-                                    <li><button type="button">교통</button></li>
-                                    <li><button type="button">의료/건강</button></li>
-                                    <li><button type="button">문화/여가</button></li>
-                                    <li><button type="button">미분류</button></li>
-                                </ul>
+                            <fieldset class="category cont-select">
+                                <label class="category-select1-label" for="category-select1">분류</label>
 
-                                    <!--  -->
-                                <select name="category-select1" id="category-select1" title="category-select1"
-                                    class="active">
-                                    <option value="선택" selected hidden>선택하세요</option>
-                                    <option value="생활">생활</option>
-                                    <option value="식비">식비</option>
-                                    <option value="교통">교통</option>
-                                    <option value="쇼핑/뷰티">쇼핑/뷰티</option>
-                                    <option value="의료/건강">의료/건강</option>
-                                    <option value="문화/여가">문화/여가</option>
-                                    <option value="미분류">미분류</option>
-                                </select>
-                                <!-- <select name="category-select2"  id="category-select2" title="category-select2">
-                                        <option value="선택" selected hidden>선택하세요</option>
-                                        <option value="월급">월급</option>
-                                        <option value="용돈">용돈</option>
-                                        <option value="기타수입">기타수입</option>
-                                    </select> -->
+                                <button type="button" class="btn-select">
+                                    <span>선택하세요</span>
+                                    <img src="./images/chevron-down.svg" alt="카테고리펼치기">
+                                </button>
+                                <ul class="list-member">
+                                    <li><button type="button" class="select-items">생활</button></li>
+                                    <li><button type="button" class="select-items">식비</button></li>
+                                    <li><button type="button" class="select-items">교통</button></li>
+                                    <li><button type="button" class="select-items">의료/건강</button></li>
+                                    <li><button type="button" class="select-items">문화/여가</button></li>
+                                    <li><button type="button" class="select-items">미분류</button></li>
+                                </ul>
+                                <!-- <ul class="list-member">
+                                    <li><button type="button" class="select-items">월급</button></li>
+                                    <li><button type="button" class="select-items">용돈</button></li>
+                                    <li><button type="button" class="select-items">추가하기</button></li>
+                                </ul> -->
+
                             </fieldset>
                             <fieldset class="edit-btn-layout">
                                 <input type="checkbox" name="edit-btn" id="edit-btn" title="수정확인">
@@ -155,7 +146,7 @@
                                 </div>
                                 <div class="modal-btn-layout">
                                     <label for="확인버튼" hidden>확인</label>
-                                    <button class="modal-btn cancel-btn">취소</button>
+                                    <button type="button" class="modal-btn cancel-btn">취소</button>
                                     <input class="modal-btn confirm-btn" type="button" value="확인">
                                 </div>
                             </form>
@@ -231,8 +222,9 @@
                                             <span class="list-detail-body ">스트리밍 정기 서비스 결제</span>
                                             <span class="list-detail-payment list-detail-item">현대카드</span>
                                             <span class="list-detail-price list-detail-item">-10,900원</span>
-                                            <button title="삭제하기" class="delete-btn"><img src="./images/delete-x.svg"
-                                                    alt="삭제"> <span class="delete-text">삭제하기</span></button>
+                                            <button type="button" title="삭제하기" class="delete-btn"><img
+                                                    src="./images/delete-x.svg" alt="삭제"> <span
+                                                    class="delete-text">삭제하기</span></button>
                                         </div>
                                     </li>
                                 </ul>

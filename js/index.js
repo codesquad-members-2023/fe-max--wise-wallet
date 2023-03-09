@@ -24,10 +24,21 @@ const chartBoard = document.querySelector(".chart-board");
 const chartHidden = document.querySelectorAll(".hidden_area");
 
 // chartBoard와 chartHidden영역이 아닌곳을 클릭하면 다시 닫기?
-chartBoard.addEventListener("click", function(){
-  chartHidden.forEach(element => {
-    element.classList.remove("hidden")
+chartBoard.addEventListener("click", function () {
+  chartHidden.forEach((element) => {
+    element.classList.remove("hidden");
   });
-})
+});
 
-
+/* 셀렉트박스 */
+const btn = document.querySelector(".btn-select");
+const list = document.querySelector(".list-member");
+btn.addEventListener("click", () => {
+  btn.classList.add("on");
+});
+list.addEventListener("click", (event) => {
+  if (event.target.nodeName === "BUTTON") {
+    btn.innerText = event.target.innerText;
+    btn.classList.remove("on");
+  }
+});
