@@ -28,12 +28,48 @@
                         <p>2</p>
                         <p>February</p>
                     </div>
-                    <button class="month-year-icon"><img src="./images/Vectorright.svg" alt="다음달"></button>
+                    <button class="month-year-icon"><img src="./images/Vectorright.svg" alt="다음달">
+                    </button>
                 </div>
                 <nav id="tab">
-                    <button class="history-icon tab-button"><img src="./images/doc-on.svg" alt="내역"></button>
-                    <button class="calender-icon tab-button"><img src="./images/calender-off.svg" alt="달력"></button>
-                    <button class="statistics-icon tab-button"><img src="./images/chart-off.svg" alt="통계"></button>
+                    <button class="history-icon tab-button" title="내역버튼">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z"
+                                stroke="#A79FCB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M14 2V8H20" stroke="#A79FCB" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M16 13H8" stroke="#A79FCB" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M16 17H8" stroke="#A79FCB" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M10 9H9H8" stroke="#A79FCB" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <button class="calender-icon tab-button" title="캘린더버튼">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M19 4H5C3.89543 4 3 4.89543 3 6V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V6C21 4.89543 20.1046 4 19 4Z"
+                                stroke="#A79FCB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M16 2V6" stroke="#A79FCB" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M8 2V6" stroke="#A79FCB" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M3 10H21" stroke="#A79FCB" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
+                    <button class="statistics-icon tab-button" title="통계버튼"><svg width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18 20V10" stroke="#A79FCB" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M12 20V4" stroke="#A79FCB" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                            <path d="M6 20V14" stroke="#A79FCB" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                    </button>
                 </nav>
             </div>
         </header>
@@ -96,8 +132,13 @@
                             </fieldset>
                             <fieldset>
                                 <!-- 체크박스로 변경 -->
-                                <button class="confirm-btn"><img src="./images/category-button-off.svg"
-                                        alt="확인해제"></button>
+                                <button class="confirm-btn" title="확인해제"><svg width="40" height="40" viewBox="0 0 40 40"
+                                        fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="40" height="40" rx="8" fill="#A79FCB" fill-opacity="0.4" />
+                                        <path d="M29 14L16.625 26L11 20.5455" stroke="#FCFCFC" stroke-width="1.5"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                </button>
                             </fieldset>
                         </form>
                         <div class="modal-bg hidden">
