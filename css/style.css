@@ -6,15 +6,7 @@ border: 1px solid rgb(89, 89, 89);
 
  */
 
-@font-face {
-  font-family: "Pretendard-Regular";
-  src: url("https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff")
-    format("woff");
-  font-weight: 400;
-  font-style: normal;
-} /* font-weight 두꺼운거 가져와야함 
-링크로..
-*/
+
 
 /* 사용자 지정 CSS 속성 (변수) 적용해보기 */
 :root {
@@ -116,6 +108,7 @@ a {
 
 .header-wrap {
   width: 940px;
+  min-width: 940px;
   border: 1px solid red;
   display: flex;
   box-sizing: border-box;
@@ -731,8 +724,8 @@ a {
 
 해야하는거
 
-폰트파일 가져오기, 
-통계차트의 꺾은선 차트 부분제외 나머지 부분 채우기, 
+x 폰트파일 가져오기, 
+x 통계차트의 꺾은선 차트 부분제외 나머지 부분 채우기, 
 클릭시 바뀌는 이미지,->아예 svg태그로?
 셀렉트박스 커스텀,
 체크박스 커스텀
