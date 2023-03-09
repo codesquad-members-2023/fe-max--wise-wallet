@@ -103,21 +103,24 @@
 				</div>
 				<div class="input-price">
 					<label for="inputPrice">금액</label>
-					<button type="button">
-						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
-							<path stroke="#524D90" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 12h12" />
-						</svg>
-					</button>
-					<input id="inputPrice" type="number" />
-					<span>원</span>
+					<div class="input-price-window">
+						<button type="button">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+								<path stroke="#524D90" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 12h12" />
+							</svg>
+						</button>
+						<input id="inputPrice" type="number" placeholder="0"/>
+						<span>원</span>
+					</div>
 				</div>
 				<div class="input-memo">
 					<label for="inputMemo">내용</label>
-					<input id="inputMemo" type="text" />
+					<input id="inputMemo" type="text" placeholder="입력하세요"/>
 				</div>
 				<div class="select-payment">
 					<label for="selectPayment">결제수단</label>
-					<select name="" id="selectPayment">
+					<select name="payment" id="selectPayment">
+						<option value="" selected disabled hidden>선택하세요</option>
 						<option value="현금">현금</option>
 						<option value="체크카드">체크카드</option>
 						<option value="추가하기">추가하기</option>
@@ -125,7 +128,8 @@
 				</div>
 				<div class="select-category">
 					<label for="selectCategory">분류</label>
-					<select name="" id="selectCategory">
+					<select name="category" id="selectCategory">
+						<option value="" selected disabled hidden>선택하세요</option>
 						<option value="생활">생활</option>
 						<option value="식비">식비</option>
 						<option value="교통">교통</option>

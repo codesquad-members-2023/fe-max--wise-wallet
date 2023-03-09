@@ -135,8 +135,13 @@ nav {
   width: 183px;
 }
 
+.input-price-window {
+  height: 24px;
+  display: flex
+}
+
 .input-price input {
-  /* width: 134px; */
+  width: 78px;
 }
 
 .input-memo {
