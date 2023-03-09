@@ -4,11 +4,12 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="stylesheet" href="./src/css/reset.css">
-		<link rel="stylesheet" href="./src/css/root.css">
+		<link rel="stylesheet" href="./src/css/reset.css" />
+		<link rel="stylesheet" href="./src/css/root.css" />
 		<link rel="stylesheet" href="./src/css/style.css" />
-		<link rel="stylesheet" href="./src/css/header.css">
-		<link rel="stylesheet" href="./src/css/inputbar.css">
+		<link rel="stylesheet" href="./src/css/header.css" />
+		<link rel="stylesheet" href="./src/css/inputbar.css" />
+		<link rel="stylesheet" href="./src/css/main.css" />
 		<title>Wise Wallet</title>
 	</head>
 	<body>
@@ -159,56 +160,84 @@
 		</section>
 
 		<main class="monthly-list">
-			<header class="info">
+			<header class="info-filter">
 				<div>전체내역 <span>13</span>건</div>
 				<div>
-					<input type="checkbox" />
+					<button>
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+							<rect width="20" height="20" x="2" y="2" fill="#524D90" rx="5" />
+							<path
+								stroke="#FCFCFC"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="1.5"
+								d="m17 9-6.875 6.667L7 12.637"
+							/>
+						</svg>
+					</button>
 					<label for="">수입 <span>500,000</span></label>
-					<input type="checkbox" />
-					<label for="">지출 <span>87,000</span></label>
+					<button>
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+							<rect width="20" height="20" x="2" y="2" fill="#524D90" rx="5" />
+							<path
+								stroke="#FCFCFC"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="1.5"
+								d="m17 9-6.875 6.667L7 12.637"
+							/>
+						</svg>
+					</button>
+					<label for="">지출 <span>97,000</span></label>
 				</div>
 			</header>
-			<section>
-				<ul class="monthly-details">
-					<li>
+			<section class="main-list">
+				<ul class="monthly-details-container">
+					<li class="monthly-details-element">
 						<div class="daily-info">
 							<div><strong>2월 15일</strong> 수</div>
-							<div>지출 <span>17,000</span></div>
+							<div>지출 <span>27,000</span></div>
 						</div>
-						<ul class="daily-details">
-							<li>
-								<div class="category">문화/여가</div>
-								<div class="content">넷플릭스 결제</div>
-								<div class="payment">체크카드</div>
-								<div class="price">-17,000원</div>
+						<ul class="daily-details-container">
+							<li class="daily-details">
+								<div class="daily-details-category">문화/여가</div>
+								<div class="daily-details-content">넷플릭스 결제</div>
+								<div class="daily-details-payment">체크카드</div>
+								<div class="daily-details-price">-17,000원</div>
+							</li>
+							<li class="daily-details">
+								<div class="daily-details-category">식비</div>
+								<div class="daily-details-content">맥도날드</div>
+								<div class="daily-details-payment">체크카드</div>
+								<div class="daily-details-price">-10,000원</div>
 							</li>
 						</ul>
 					</li>
-					<li>
+					<li class="monthly-details-element">
 						<div class="daily-info">
 							<div><strong>2월 15일</strong> 수</div>
 							<div>지출 <span>1,450</span></div>
 						</div>
-						<ul class="daily-details">
-							<li>
-								<div class="category">교통</div>
-								<div class="content">지하철 요금</div>
-								<div class="payment">체크카드</div>
-								<div class="price">-1,450원</div>
+						<ul class="daily-details-container">
+							<li class="daily-details"> 
+								<div class="daily-details-category">교통</div>
+								<div class="daily-details-content">지하철 요금</div>
+								<div class="daily-details-payment">체크카드</div>
+								<div class="daily-details-price">-1,450원</div>
 							</li>
 						</ul>
 					</li>
-					<li>
+					<li class="monthly-details-element">
 						<div class="daily-info">
 							<div><strong>2월 15일</strong> 수</div>
 							<div>수입 <span>500,000</span></div>
 						</div>
-						<ul class="daily-details">
-							<li>
-								<div class="category">용돈</div>
-								<div class="content">2월달 용돈</div>
-								<div class="payment">계좌</div>
-								<div class="price">+500,000원</div>
+						<ul class="daily-details-container">
+							<li class="daily-details">
+								<div class="daily-details-category">용돈</div>
+								<div class="daily-details-content">2월달 용돈</div>
+								<div class="daily-details-payment">계좌</div>
+								<div class="daily-details-price">+500,000원</div>
 							</li>
 						</ul>
 					</li>
