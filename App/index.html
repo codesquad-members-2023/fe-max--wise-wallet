@@ -74,19 +74,13 @@
                   name="input_date"
                   class="body-regular"
                 />
-                <!-- <input
-                  type="date"
-                  id="input_date"
-                  name="input_date"
-                  value="2023-03-08"
-                /> -->
               </div>
             </fieldset>
             <fieldset class="bold-small">
               <legend>금액</legend>
-              <button id="input_toggle" class="reset-btn">
-                <img alt="마이너스 아이콘" src="./src/icon/minus.svg" />
-              </button>
+
+              <input type="checkbox" name="price_toggle" id="price_toggle" />
+              <label id="price_checkbox" for="price_toggle"> </label>
               <div>
                 <input
                   type="number"
@@ -126,12 +120,12 @@
             <fieldset class="bold-small">
               <div>
                 <legend>분류</legend>
-                <div class="select">
+                <div id="select_div" class="select">
                   <div class="selected">
                     <div class="selected-value body-regular">선택하세요</div>
                     <div class="arrow"></div>
                   </div>
-                  <ul>
+                  <ul id="drop_menu">
                     <li class="option body-regular">
                       <span class="option">생활</span>
                     </li>
@@ -200,17 +194,25 @@
 
             <div id="main_income_expenditure" class="body-medium">
               <div>
-                <button class="reset-btn">
-                  <img src="./src/icon/checkbox.svg" />
-                </button>
+                <input type="checkbox" name="" id="income_toggle" />
+
+                <label
+                  id="income_checkbox"
+                  class="history_checkbox"
+                  for="income_toggle"
+                ></label>
                 수입
                 <span id="income_price">&nbsp;2,010,580</span>
               </div>
 
               <div>
-                <button class="reset-btn">
-                  <img src="./src/icon/checkbox.svg" />
-                </button>
+                <input type="checkbox" name="" id="expenditure_toggle" />
+
+                <label
+                  id="expenditure_checkbox"
+                  class="history_checkbox"
+                  for="expenditure_toggle"
+                ></label>
                 지출
                 <span id="expenditure_price">&nbsp;798,180</span>
               </div>
@@ -223,8 +225,8 @@
               <tr class="info_tr">
                 <td colspan="4">
                   <div class="histoory_info">
-                    <div class="histoory_info_date">
-                      <span class="histoory_info_monthDay bold-medium pimary"
+                    <div class="histoory_info_date primary">
+                      <span class="histoory_info_monthDay bold-medium"
                         >2월 15일</span
                       >
                       <span

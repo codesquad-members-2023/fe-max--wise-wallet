@@ -85,6 +85,31 @@
   margin: 0px 10px 0px 14px;
 }
 
+#main #main_income_expenditure input[type="checkbox"] {
+  display: none;
+}
+
+#main #main_income_expenditure #expenditure_checkbox,
+#main #main_income_expenditure #income_checkbox {
+  height: 0;
+  background-image: url(/App/src/icon/uncheckbox.svg);
+  display: flex;
+  align-items: center;
+  padding: 11px;
+  margin: 0px 10px 0px 14px;
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 24px 24px;
+}
+
+#main
+  #main_income_expenditure
+  #expenditure_toggle:checked
+  + #expenditure_checkbox,
+#main #main_income_expenditure #income_toggle:checked + #income_checkbox {
+  background-image: url(/App/src/icon/checkbox.svg);
+}
+
 #main #main_history_list {
   width: 100%;
   border-collapse: collapse;
@@ -209,4 +234,24 @@
 
 #input_bar_form .active_Btn svg rect {
   fill: var(--color-secondary-yellow);
+}
+
+#input_bar_form #price_toggle {
+  display: none;
+}
+
+#input_bar_form #price_checkbox {
+  cursor: pointer;
+  height: 0;
+  background-image: url(/App/src/icon/minus.svg);
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 24px 24px;
+}
+
+#input_bar_form #price_toggle:checked + #price_checkbox {
+  background-image: url(/App/src/icon/plus.svg);
 }
