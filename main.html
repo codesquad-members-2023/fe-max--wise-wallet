@@ -10,66 +10,111 @@
         <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
         <link rel="stylesheet" href="main.css" />
         <link rel="stylesheet" href="common.css" />
+        <link rel="stylesheet" href="reset.css" />
         <title>FE MAX Wise Wallet</title>
     </head>
 
     <body>
         <header class="header">
-            <div class="inner">
+            <div class="headerBox">
                 <div class="logo">
-                    <h1 class="displaySmall">Wise Wallet</h1>
+                    <div class="displaySmall">Wise Wallet</div>
                 </div>
                 <div class="monthYear">
                     <div><img src="./img/name=chevron-left.svg" alt="왼쪽" /></div>
                     <div class="date">
-                        <div class="boldSmall">2023</div>
-                        <div class="displayLarge">2</div>
-                        <div class="boldSmall">Feburary</div>
+                        <div>2023</div>
+                        <div id="month">2</div>
+                        <div>Feburary</div>
                     </div>
                     <div><img src="./img/name=chevron-right.svg" alt="오른쪽" /></div>
                 </div>
                 <div class="tab">
-                    <div class="icon"><img src="./img/doc.svg" alt="" /></div>
-                    <div class="icon"><img src="./img/calendar.svg" alt="" /></div>
-                    <div class="icon"><img src="./img/chart.svg" alt="" /></div>
+                    <div><img src="./img/doc.svg" alt="" /></div>
+                    <div><img src="./img/calendar.svg" alt="" /></div>
+                    <div><img src="./img/chart.svg" alt="" /></div>
                 </div>
             </div>
         </header>
         <main>
-            <div class="inner">
-                <form class="inputBar">
-                    <fieldset class="date">
-                        <legend class="boldSmall">일자</legend>
-                        <input type="number" name="date" id="date" placeholder="20230308" />
-                    </fieldset>
-                    <fieldset class="category">
-                        <legend class="boldSmall">금액</legend>
-                        <input type="number" name="number" id="price" placeholder="0" value="원" />
-                    </fieldset>
-                    <fieldset class="memo">
-                        <legend class="boldSmall">내용</legend>
-                        <input type="text" name="text" id="text" placeholder="입력하세요" />
-                    </fieldset>
-                    <fieldset class="payment">
-                        <legend class="boldSmall">결제수단</legend>
-                        <div class="choice">
-                            <div class="bodyRegular">선택하세요</div>
-                            <select name="" id="">
-                                <option value=""></option>
-                            </select>
+            <form class="inputBar">
+                <div class="date">
+                    <div class="dateText">
+                        <div class="labelText">일자</div>
+                        <input id="dateInput" type="text" name="date" />
+                    </div>
+                </div>
+                <div class="category">
+                    <div class="categoryText">
+                        <div class="labelText">금액</div>
+                        <div class="categoryInput">
+                            <img id="categoryMinus" src="./img/minus.svg" alt="마이너스" />
+                            <input id="categoryPrice" placeholder="0" type="text" />
+                            <div>원</div>
                         </div>
-                    </fieldset>
-                    <fieldset class="price">
-                        <legend class="boldSmall">분류</legend>
-                        <div class="choice">
-                            <div class="bodyRegular">선택하세요</div>
-                            <select name="" id="">
-                                <option value=""></option>
-                            </select>
+                    </div>
+                </div>
+                <div class="memo">
+                    <div class="memoText">
+                        <div class="labelText">내용</div>
+                    </div>
+                </div>
+                <div class="payment">
+                    <div class="paymentText">
+                        <div class="labelText">결제수단</div>
+                        <div class="payDrop">
+                            <div>선택하세요</div>
+                            <select name="payment"></select>
                         </div>
-                    </fieldset>
-                </form>
-            </div>
+                    </div>
+                </div>
+                <div class="price">
+                    <div class="priceText">
+                        <div class="labelText">분류</div>
+                        <div class="priceChoice">
+                            <div>선택하세요</div>
+                            <select name="price"></select>
+                        </div>
+                    </div>
+                    <input id="priceCheck" type="checkbox" name="check" />
+                </div>
+            </form>
+            <!-- <section>
+                <div>
+                    <div>전체 내역</div>
+                    <div>13건</div>
+                </div>
+                <div>
+                    <div>
+                        <input type="checkbox" name="check" />
+                        <div>수입</div>
+                    </div>
+                    <div>
+                        <input type="checkbox" name="check" />
+                        <div>지출</div>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <div>
+                    <div class="info">
+                        <div class="dateDay">
+                            <div class="date">3월 15일</div>
+                            <div class="day">수</div>
+                        </div>
+                        <div class="income">
+                            <div>지출<div>
+                            <div>원</div>
+                        </div>
+                    </div>
+                    <div class="detail">
+                        <span class="category">문화/여가</span>
+                        <div>내용에다 입력한 입력내용 그래용</div>
+                        <div>결제수단 입력내용</div>
+                        <div>계산된 가격</div>
+                    </div>
+                </div>
+            </section> -->
         </main>
         <footer></footer>
     </body>

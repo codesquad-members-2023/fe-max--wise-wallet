@@ -1,169 +1,152 @@
-body,
-button,
-dd,
-dl,
-dt,
-fieldset,
-form,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-input,
-legend,
-li,
-ol,
-p,
-select,
-table,
-td,
-textarea,
-th,
-ul {
-    margin: 0;
-    padding: 0;
-}
-
-.mainColor {
-    color: #4a6cc3;
-}
-
-.subColor {
-    color: #9fb0d9;
-}
-
-.displaySmall {
-    font-family: "Outfit";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 24px;
-}
-
-.displayLarge {
-    font-family: "Outfit";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 48px;
-    line-height: 56px;
-}
-
-.boldSmall {
-    font-family: "Pretendard";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 12px;
-    line-height: 16px;
-}
-
-.bodyRegular {
-    font-family: "Pretendard";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 24px;
-}
-
-.header-box {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-
-    /* border-radius: 10px; */
-}
-
 .header {
-    justify-content: space-between;
+    display: flex;
+    /* align-items: center; */
+    width: 100%;
     height: 194px;
-    background-color: #4a6cc3;
+    padding-top: 40px;
 
+    background-color: var(--color-primary);
     color: #fcfcfc;
 }
 
-.header .inner {
+.header .headerBox {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 100%;
-}
-
-.logo {
-    display: flex;
-    width: 132px;
-    height: 24px;
-}
-
-.monthYear {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 232px;
+    width: 894px;
     height: 96px;
+    margin: 0 auto;
 }
 
-.date {
+.header .logo {
+    font-family: var(--font-family-display);
+    font-style: normal;
+    font-weight: var(--font-weight-display-small);
+    font-size: var(--font-size-display-small);
+    line-height: var(--line-height-display-small);
+}
+
+.header .monthYear {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 232px;
+    height: 96;
+}
+
+.header .monthYear .date {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
+    height: 96px;
+
+    font-family: var(--font-family-bold);
+    font-style: normal;
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-bold-regular);
+    line-height: var(--line-height-bold-regular);
 }
 
-.tab {
+#month {
+    font-family: var(--font-family-display);
+    font-style: normal;
+    font-weight: var(--font-weight-display-large);
+    font-size: var(--font-size-display-large);
+    line-height: var(--line-height-display-large);
+}
+.header .tab {
     display: flex;
-    align-items: center;
     justify-content: space-around;
+    align-items: center;
     width: 132px;
     height: 44px;
 }
 
-.icon {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
-    width: 44px;
-    height: 44px;
-}
-
-main {
-    position: relative;
+body {
+    background-color: #f7f6f3;
 }
 
 .inputBar {
-    display: flex;
-    align-items: center;
-    position: absolute;
-    margin: auto;
+    position: relative;
     top: -32px;
+
+    display: flex;
     width: 894px;
     height: 76px;
-    background: #fcfcfc;
+    margin: auto;
 
-    border: 1px solid #4a6cc3;
+    background: var(--color-off-white);
+    color: var(--color-primary-alt);
+
+    border: 1px solid #524d90;
 
     box-shadow: 0px 2px 2px rgba(82, 77, 144, 0.08), 0px 4px 4px rgba(82, 77, 144, 0.1);
     border-radius: 8px;
+
+    font-family: var(--font-family-bold);
 }
 
-.inputBar fieldset {
+.inputBar .labelText {
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-bold-regular);
+    line-height: var(--line-height-bold-regular);
+}
+
+.inputBar .date {
     display: flex;
-    align-items: flex-end;
-    margin: auto;
+    align-items: center;
+
+    width: 137px;
+    height: 76px;
+}
+
+.inputBar .dateText {
+    margin: 0 auto;
+    width: 88px;
     height: 44px;
-    flex-grow: 1;
-    border: none;
-
-    color: #9fb0d9;
 }
 
-.inputBar input {
-    background-color: #fcfcfc;
-    border: none;
+#dateInput {
+    width: 88px;
+    height: 24px;
 }
 
-.inputBar input::placeholder {
-    color: #9fb0d9;
+.inputBar .category {
+    display: flex;
+    align-items: center;
+    width: 183px;
+    height: 76px;
+}
+
+.inputBar .categoryText {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 134px;
+    height: 44px;
+}
+
+.inputBar .categoryInput {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+#categoryMinus {
+    width: 24px;
+    height: 24px;
+    padding-right: 6px;
+    padding-left: 6px;
+}
+
+#categoryPrice {
+    text-align: right;
+    width: 78px;
+    height: 24px;
+    color: var(--color-primary);
     font-family: "Pretendard";
     font-style: normal;
     font-weight: 500;
@@ -171,24 +154,80 @@ main {
     line-height: 24px;
 }
 
-.inputBar .choice {
-    display: flex;
-}
-
-.inputBar .date {
-    width: 15.3%;
-}
-
-.inputBar .category {
-    width: 20.4%;
+input ::placeholder {
+    color: var(--color-primary-alt);
+    font-family: "Pretendard";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
 }
 
 .inputBar .memo {
-    width: 23.8%;
+    display: flex;
+    align-items: center;
+    width: 213px;
+    height: 76px;
 }
+
+.inputBar .memoText {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 164px;
+    height: 44px;
+}
+
+#memoInput {
+    width: 164px;
+    height: 24px;
+}
+
 .inputBar .payment {
-    width: 16.6%;
+    display: flex;
+    align-items: center;
+    width: 149px;
+    height: 76px;
 }
+
+.inputBar .paymentText {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 100px;
+    height: 44px;
+}
+
+.inputBar .payDrop {
+    display: flex;
+}
+
 .inputBar .price {
-    width: 23.7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0 auto;
+    width: 212px;
+    height: 76px;
+}
+
+.inputBar .priceText {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 100px;
+    height: 44px;
+}
+
+.inputBar .priceChoice {
+    display: flex;
+    justify-content: space-between;
+}
+
+#priceCheck {
+    width: 40px;
+    height: 40px;
 }
