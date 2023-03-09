@@ -87,9 +87,8 @@
                             <fieldset class="price">
                                 <label for="price-input">금액</label>
                                 <div class="price-wrap">
-                                    <button class="price-btn active"><img src="./images/name=minus.svg" alt="지출"
-                                            data-type="지출"></button>
-                                    <!-- <button  class="price-btn"><img src="./images/name=plus.svg" alt="수입" data-type="수입"></button> -->
+                                    <input type="checkbox" name="plus-minus-btn" id="plus-minus-btn" title="수익지출변경버튼">
+                                    <label for="plus-minus-btn"></label>
                                     <input type="text" id="price-input" placeholder="0">
                                     <span class="won">원</span>
                                 </div>
@@ -112,6 +111,17 @@
                             <div class="dividing-line"></div>
                             <fieldset class="category">
                                 <label for="category-select1">분류</label>
+                                <button class="btn-select">선택하세요</button>
+                                <ul class="list-member">
+                                    <li><button type="button">생활</button></li>
+                                    <li><button type="button">식비</button></li>
+                                    <li><button type="button">교통</button></li>
+                                    <li><button type="button">의료/건강</button></li>
+                                    <li><button type="button">문화/여가</button></li>
+                                    <li><button type="button">미분류</button></li>
+                                </ul>
+
+                                    <!--  -->
                                 <select name="category-select1" id="category-select1" title="category-select1"
                                     class="active">
                                     <option value="선택" selected hidden>선택하세요</option>

@@ -249,15 +249,26 @@ input {
   justify-content: space-between;
   box-sizing: border-box;
 }
-.price-wrap .price-btn {
-  cursor: pointer;
-  width: 24px;
-  height: 24px;
-  background-color: transparent;
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+
+#plus-minus-btn[type="checkbox"] {
+  display: none;
 }
+#plus-minus-btn[type="checkbox"] + label {
+  cursor: pointer;
+  padding-left: 24px;
+  padding-bottom:24px;
+  background-repeat: no-repeat;
+  background-image: url("../images/name=minus.svg");
+}
+#plus-minus-btn[type="checkbox"]:checked + label {
+  background-image: url("../images/name=plus.svg");
+}
+#plus-minus-btn[type="checkbox"]:disabled + label {
+  background-image: url("../images/name=minus.svg");
+}
+
+
+
 .price-wrap #price-input {
   text-align: right;
   width: 78px;
