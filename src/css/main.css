@@ -35,13 +35,21 @@
 
 .daily-details {
   padding: 16px 0px;
-  border: 1px solid var(--color-primary-alt);
+  box-sizing: border-box;
+  border-top: 1px solid var(--color-primary-alt);
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  font-size: var(--font-size-body-medium);
+  font-weight: var(--font-weight-body);
+}
+
+.daily-details-container li:last-child {
+  border-bottom: 1px solid var(--color-primary-alt);
 }
 
 .daily-details-category {
   box-sizing: border-box;
+  padding-top: 4px;
   height: 32px;
   text-align: center;
   background-color: var(--color-category-mint);
@@ -50,4 +58,27 @@
   font-weight: var(--font-weight-bold);
   flex-basis: 92px;
   border-radius: 25px;
+}
+
+.daily-details-content {
+  flex-basis: 320px;
+  color: var(--color-primary);
+}
+
+.daily-details-payment {
+  flex-basis: 120px;
+  color: var(--color-primary-alt);
+}
+
+.daily-details-price {
+  flex-basis: 234px;
+  text-align: right;
+}
+
+.expenditure .daily-details-price {
+  color: var(--color-secondary-red);
+}
+
+.income .daily-details-price {
+  color: var(--color-secondary-cyan);
 }
