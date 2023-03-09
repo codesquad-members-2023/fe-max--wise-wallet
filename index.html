@@ -138,7 +138,10 @@
                   alt="Remove Payment Method" />
               </button>
             </li>
-            <li class="option" data-value="추가하기">
+            <li
+              class="option"
+              id="add-payment-method-option"
+              data-value="추가하기">
               <span>추가하기</span>
             </li>
           </ul>
@@ -189,6 +192,23 @@
         </button>
       </form>
     </section>
+
+    <div class="new-payment-method-modal">
+      <form action="">
+        <div class="modal-content">
+          <h3 class="modal-title">추가하실 결제수단을 적어주세요.</h3>
+          <input
+            type="text"
+            placeholder="입력하세요"
+            name="new-payment-method"
+            required />
+        </div>
+        <div class="modal-btns">
+          <button type="button" class="cancel-btn">취소</button>
+          <button type="submit" class="add-btn">등록</button>
+        </div>
+      </form>
+    </div>
 
     <main>
       <header>
