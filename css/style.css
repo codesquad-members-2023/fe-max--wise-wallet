@@ -6,8 +6,6 @@ border: 1px solid rgb(89, 89, 89);
 
  */
 
-
-
 /* 사용자 지정 CSS 속성 (변수) 적용해보기 */
 :root {
   /* font-family */
@@ -95,7 +93,7 @@ a {
 }
 
 .header {
-  width: 100vw;
+  width: 100%;
   height: 194px;
   display: flex;
   justify-content: center;
@@ -311,6 +309,29 @@ a {
   justify-content: space-between;
 }
 
+.edit-btn-layout{
+  display: flex;
+  align-items: flex-start;
+  margin-left: 10px;
+}
+#edit-btn[type="checkbox"] {
+  display: none;
+}
+#edit-btn[type="checkbox"] + label {
+  cursor: pointer;
+  padding-left: 40px;
+  padding-bottom: 40px;
+  background-repeat: no-repeat;
+  background-image: url("../images/category-edit-button-off.svg");
+}
+#edit-btn[type="checkbox"]:checked + label {
+  background-image: url("../images/category-edit-button-on.svg");
+}
+#edit-btn[type="checkbox"]:disabled + label {
+  background-image: url("../images/category-edit-button-off.svg");
+}
+
+/* 구버전 수정확인버튼 */
 .confirm-btn {
   background-color: transparent;
   cursor: pointer;
@@ -726,9 +747,12 @@ a {
 
 x 폰트파일 가져오기, 
 x 통계차트의 꺾은선 차트 부분제외 나머지 부분 채우기, 
-클릭시 바뀌는 이미지,->아예 svg태그로?
+x 클릭시 바뀌는 이미지,->아예 svg태그로?
 셀렉트박스 커스텀,
-체크박스 커스텀
+체크박스 커스텀,
+호버 옵션,
 확대하면 영어로 써진 달이 감춰짐->홛대되면서 메인이 밀려올라와 짜부된것처럼 보임?
-
+축소시 메인리스트 카테고리영역이 삐져나옴(min 혹은 max위드 관련인듯..?)
+메인리스트 카테고리 영역도 탭으로 선택이 돼야함
+메인리스트 카테고리 영역에 호버시 삭제하기 버튼
  */
