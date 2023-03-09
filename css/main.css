@@ -1,5 +1,6 @@
 body {
   font-family: var(--font-family-body);
+  background-color: var(--color-off-white);
 }
 
 .sr-only {
@@ -13,6 +14,8 @@ body {
   clip-path: polygon(0 0, 0 0, 0 0);
   border: 0;
 }
+
+/* header */
 
 .main-header {
   width: 100%;
@@ -51,7 +54,7 @@ body {
   left: 50%;
   transform: translate(-50%, -50%);
 }
-.main-header__nav-item--active svg path {
+#main-header__nav-item--active svg path {
   stroke: var(--color-white);
 }
 
@@ -83,4 +86,103 @@ body {
 .main-header__date-container .month {
   font-size: var(--font-size-display-large);
   font-weight: var(--font-weight-display-large);
+}
+
+/* main */
+.main {
+  position: relative;
+  bottom: 44px;
+}
+
+/* 새 내역 입력 (공통) */
+.main__new-history form {
+  width: 894px;
+  height: 76px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--color-primary);
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-sqaure);
+  box-shadow: var(--box-shadow);
+}
+.main__new-history__amount,
+.main__new-history__category,
+.main__new-history__date,
+.main__new-history__payment-method,
+.main__new-history__description {
+  padding: 16px 25px 16px 24px;
+  color: var(--color-primary-alt);
+}
+.main__new-history__form label {
+  font-size: var(--font-size-bold-small);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-bold-small);
+}
+.main__new-history__form input,
+.main__new-history__form select {
+  font-size: var(--font-size-body-regular);
+  padding-top: 4px;
+}
+/* 새 내역 입력 (일자) */
+.main__new-history__date input {
+  width: 88px;
+  color: var(--color-primary);
+}
+/* 새 내역 입력 (금액) */
+.main__new-history__amount {
+  width: 184px;
+}
+.main__new-history__amount > div {
+  display: flex;
+  height: 24px;
+}
+.main__new-history__amount input {
+  width: 78px;
+  height: 24px;
+  margin-right: 8px;
+  padding: 0;
+}
+.main__new-history__amount input::-webkit-input-placeholder {
+  text-align: right;
+}
+.main__new-history__amount input:-moz-placeholder {
+  text-align: right;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+.main__new-history__amount button {
+  width: 24px;
+  height: 24px;
+}
+.main__new-history__amount span {
+  height: 24px;
+  line-height: var(--line-height-body-regular);
+  color: var(--color-primary);
+}
+/* 새 내역 입력 (내용) */
+.main__new-history__description {
+  width: 213px;
+}
+.main__new-history__description input {
+  width: 164px;
+}
+
+/* 새 내역 입력 (버튼) */
+.main__new-history__form__button {
+  margin-right: 24px;
+  width: 40px;
+  height: 40px;
+}
+
+#main-new-history-form-button-active {
+  background: var(--color-secondary-yellow);
+  border-radius: var(--border-radius-sqaure);
 }
