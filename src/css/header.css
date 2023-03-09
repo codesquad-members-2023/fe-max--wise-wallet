@@ -1,0 +1,67 @@
+/* 헤더 */
+header.main-header {
+  height: 194px;
+  position: relative;
+  background-color: var(--color-primary);
+}
+
+header .main-header-container {
+  width: 846px;
+  position: absolute;
+  top: 40px;
+  bottom: 58px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* 로고 */
+h1 {
+  font-family: var(--font-family-display);
+  font-weight: var(--font-weight-display-small);
+  font-size: var(--font-size-display-small);
+  line-height: var(--line-height-display-small);
+}
+
+h1.logo-area a {
+  display: block;
+  width: 132px;
+  color: var(--color-white);
+}
+/* 연월 표시창 */
+header .month-year {
+  display: flex;
+  justify-content: space-between;
+  width: 232px;
+  height: 96px;
+}
+/* 월 이동 화살표 */
+header .month-year a {
+  display: block;
+  align-self: center;
+}
+/* 연월 표시 부분 */
+header .current-month {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--color-white);
+  font-size: var(--font-size-bold-small);
+  font-weight: var(--font-weight-display-large);
+}
+
+header .current-month span:nth-of-type(2) {
+  font-family: var(--font-family-display);
+  font-size: var(--font-size-display-large);
+}
+/* 아이콘 탭 */
+header nav {
+  width: 132px;
+}
+
+nav .icons {
+  display: flex;
+  justify-content: space-around;
+}

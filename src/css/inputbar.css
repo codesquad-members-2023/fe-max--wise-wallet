@@ -1,0 +1,107 @@
+/* 인풋바영역 */
+.input-bar form {
+  background-color: var(--color-white);
+  width: 894px;
+  height: 76px;
+  position: absolute;
+  top: 162px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 1px solid var(--color-primary);
+  border-radius: 8px;
+  box-shadow: 0px 2px 2px rgba(82, 77, 144, 0.08), 0px 4px 4px rgba(82, 77, 144, 0.1);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+/* 라벨 폰트 컬러와 크기 */
+.input-bar form label {
+  color: var(--color-primary-alt);
+  font-size: var(--font-size-bold-small);
+}
+/* 인풋바 내 폼 요소들 */
+.input-bar form > div {
+  height: 44px;
+  padding: 16px 24px;
+  border-left: 1px solid var(--color-primary);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.input-bar form > div:first-child {
+  border-left: none;
+}
+
+.input-bar form > div:last-child {
+  border-left: none;
+}
+/* input창 스타일 */
+.input-bar form input {
+  color: var(--color-primary);
+  font-size: var(--font-size-body-regular);
+  font-weight: var(--font-weight-body);
+}
+/* select창 스타일 */
+.input-bar form select {
+  width: 100px;
+  height: 24px;
+  flex-shrink: 0;
+  padding: 0;
+  color: var(--color-primary-alt);
+  font-size: var(--font-size-body-regular);
+  font-weight: var(--font-weight-body);
+}
+/* 날짜 입력창 */
+.input-date {
+  width: 137px;
+}
+
+.input-date input {
+  width: 88px;
+  height: 24px;
+  flex-shrink: 0;
+}
+/* 금액 입력창 */
+.input-price {
+  width: 183px;
+}
+
+.input-price-window {
+  width: 134px;
+  height: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-price-window input {
+  width: 78px;
+  text-align: right;
+}
+
+.input-price-window span {
+  width: 16px;
+}
+/* 내용 입력창 */
+.input-memo {
+  width: 213px;
+}
+
+.input-memo input {
+  width: 164px;
+  height: 24px;
+  flex-shrink: 0;
+}
+/* 결제수단 선택창 */
+.select-payment {
+  width: 149px;
+}
+/* 분류 선택창 */
+.select-category {
+  width: 124px;
+}
+/* 입력 버튼 */
+.submit-btn {
+  width: 40px;
+}
