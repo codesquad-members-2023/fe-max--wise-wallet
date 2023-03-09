@@ -101,16 +101,21 @@
 					<label for="inputDate">일자</label>
 					<input id="inputDate" type="date" placeholder="20230217" />
 				</div>
-				<div>
+				<div class="input-price">
 					<label for="inputPrice">금액</label>
-					<button type="button">-</button>
+					<button type="button">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+							<path stroke="#524D90" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 12h12" />
+						</svg>
+					</button>
 					<input id="inputPrice" type="number" />
+					<span>원</span>
 				</div>
-				<div>
-					<label for="inputContent">내용</label>
-					<input id="inputContent" type="text" />
+				<div class="input-memo">
+					<label for="inputMemo">내용</label>
+					<input id="inputMemo" type="text" />
 				</div>
-				<div>
+				<div class="select-payment">
 					<label for="selectPayment">결제수단</label>
 					<select name="" id="selectPayment">
 						<option value="현금">현금</option>
@@ -118,7 +123,7 @@
 						<option value="추가하기">추가하기</option>
 					</select>
 				</div>
-				<div>
+				<div class="select-category">
 					<label for="selectCategory">분류</label>
 					<select name="" id="selectCategory">
 						<option value="생활">생활</option>
@@ -128,7 +133,18 @@
 						<option value="미분류">미분류</option>
 					</select>
 				</div>
-				<button type="submit">체크아이콘</button>
+				<button type="submit">
+					<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none">
+						<rect width="40" height="40" fill="#A79FCB" fill-opacity=".4" rx="8" />
+						<path
+							stroke="#FCFCFC"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="1.5"
+							d="M29 14 16.625 26 11 20.546"
+						/>
+					</svg>
+				</button>
 			</form>
 		</section>
 
