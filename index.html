@@ -157,11 +157,14 @@
                             <span class="info-total-count">13건</span>
                         </div>
                         <form class="list-info-right">
-                            <!-- 체크박스로 변경하기 -->
-                            <button><img src="./images/info-select-on.svg" alt="수입체크됨"></button>
-                            <span class="info-total-income">수입 2,010,870</span>
-                            <button><img src="./images/info-select-on.svg" alt="지출체크됨"></button>
-                            <span class="info-total-expenditure">지출 798,870</span>
+                            <fieldset class="list-info-checkbox-layout">
+                                <input type="checkbox" name="income-btn" id="income-btn" class="list-info-checkbox"
+                                    title="수입체크박스" checked>
+                                <label for="income-btn">수입 2,010,870</label>
+                                <input type="checkbox" name="expenditure-btn" id="expenditure-btn"
+                                    class="list-info-checkbox" title="지출체크박스" checked>
+                                <label for="expenditure-btn">지출 798,870</label>
+                            </fieldset>
                         </form>
                     </div>
                     <ul>

@@ -331,11 +331,6 @@ a {
   background-image: url("../images/category-edit-button-off.svg");
 }
 
-/* 구버전 수정확인버튼 */
-.confirm-btn {
-  background-color: transparent;
-  cursor: pointer;
-}
 
 /* 모달 */
 .modal-bg {
@@ -438,18 +433,29 @@ a {
   line-height: 32px;
   color: #524d90;
 }
-.list-info .list-info-right {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 5px;
 
-  font-size: 18px;
-  line-height: 24px;
+.list-info-checkbox-layout{
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
-.list-info .list-info-right span:nth-of-type(1) {
-  margin-right: 5px;
+.list-info-checkbox[type="checkbox"] {
+  display: none;
 }
+.list-info-checkbox[type="checkbox"] + label {
+  cursor: pointer;
+  padding-left: 30px;
+  background-repeat: no-repeat;
+  background-position : left center ;
+  background-image: url("../images/info-select-off.svg");
+}
+.list-info-checkbox[type="checkbox"]:checked + label {
+  background-image: url("../images/info-select-on.svg");
+}
+.list-info-checkbox[type="checkbox"]:disabled + label {
+  background-image: url("../images/info-select-off.svg");
+}
+
 
 /* .list-body */
 .list-body {
@@ -749,7 +755,7 @@ x 폰트파일 가져오기,
 x 통계차트의 꺾은선 차트 부분제외 나머지 부분 채우기, 
 x 클릭시 바뀌는 이미지,->아예 svg태그로?
 셀렉트박스 커스텀,
-체크박스 커스텀,
+x 체크박스 커스텀,
 호버 옵션,
 확대하면 영어로 써진 달이 감춰짐->홛대되면서 메인이 밀려올라와 짜부된것처럼 보임?
 축소시 메인리스트 카테고리영역이 삐져나옴(min 혹은 max위드 관련인듯..?)
