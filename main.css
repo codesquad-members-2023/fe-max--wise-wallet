@@ -16,6 +16,7 @@
   height: 96px;
   left: 297px;
   top: 40px;
+  border: 5px solid #ff0000;
 }
 
 .header_monthYear_info {
@@ -35,6 +36,9 @@
 
 .input_bar {
   position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 894px;
   height: 76px;
   left: 273px;
@@ -42,6 +46,14 @@
   border: 5px solid #000000;
   z-index: 1;
   background-color: #ffffff;
+}
+
+.separator {
+  border-left: 1px solid #000000;
+}
+
+.price_container {
+  float: left;
 }
 
 .main_container {
