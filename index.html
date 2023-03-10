@@ -5,12 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>account book</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
+    />
     <link rel="stylesheet" href="main.css" />
   </head>
   <body>
     <!-- 클래스명에 container 사용해보자 -->
-    <header class="header_container"></header>
+    <header class="header_container">
+      <header class="header_container_contents">
+        <div id="header_title_logo">Wise Wallet</div>
+        <div class="header_monthYear_info">
+          <nav id="previous_month"><</nav>
+          <div id="header_monthYear_text">
+            <p id="monthYear_text_year">2023</p>
+            <p id="monthYear_text_month_number">3</p>
+            <p id="monthYear_text_month_char">March</p>
+          </div>
+          <nav id="following_month">></nav>
+        </div>
+        <div class="header_tab">
+          <nav class="nav_history">h</nav>
+          <nav id="nav_statistics">s</nav>
+          <nav id="nav_calendar">c</nav>
+        </div>
+      </header>
+    </header>
     <section class="input_bar"></section>
     <section class="main_container">
       <header class="main_header"></header>
