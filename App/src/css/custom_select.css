@@ -15,6 +15,7 @@ ul {
 }
 
 .select .selected {
+  cursor: pointer;
   display: flex;
   justify-content: space-between;
 }
@@ -25,8 +26,7 @@ ul {
 
 .select .selected .arrow {
   width: 24px;
-  /* background: url("https://uxwing.com/wp-content/themes/uxwing/download/02-arrow-direction/arrow-bottom.png")
-    no-repeat 70% 50%; */
+  background: "0xf107";
   background-size: 50% 50%;
 }
 
@@ -67,7 +67,20 @@ ul {
   margin: 0 24px;
 }
 
-.select ul li span::after {
+.select ul li .remove_option_btn {
+  position: absolute;
+  right: 24px;
+}
+
+.select ul li .remove_option_btn::after {
+  display: inline-block;
+  content: "\00d7";
+  font-size: 15pt;
+  color: var(--color-secondary-red);
+  margin: 0 5px;
+}
+
+.select ul li span.option::after {
   content: "";
   display: block;
   position: relative;

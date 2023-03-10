@@ -48,6 +48,105 @@
   border-image: initial;
 }
 
+/* input bar */
+#input_bar {
+  width: 894px;
+  height: 76px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  border: 1px solid var(--color-primary);
+  border-radius: 8px;
+  position: relative;
+  top: -32px;
+  background-color: var(--color-white);
+}
+
+#input_bar_form {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+#input_bar legend {
+  color: var(--color-primary-alt);
+  margin-bottom: 4px;
+}
+
+#input_bar_form fieldset {
+  border: none;
+  display: flex;
+  padding: 0 24px;
+  border-right: 1px solid var(--color-primary);
+}
+
+#input_bar_form fieldset:last-child {
+  border: none;
+}
+
+#input_bar_form #input_date {
+  width: 98px;
+  border: none;
+  color: var(--color-primary);
+}
+
+#input_bar_form input[type="number"]::-webkit-outer-spin-button,
+#input_bar_form input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+#input_bar_form #input_checkbox,
+#input_bar_form #input_checkbox img {
+  width: 40px;
+  height: 40px;
+}
+
+#input_bar_form #input-content {
+  width: 173px;
+  border: none;
+  background: none;
+  color: var(--color-primary);
+}
+
+#input_bar_form #input-price {
+  width: 78px;
+  text-align: right;
+  margin: 0 10px;
+  border: none;
+  background: none;
+
+  color: var(--color-primary);
+}
+
+#input_bar_form .active_Btn svg rect {
+  fill: var(--color-secondary-yellow);
+}
+
+#input_bar_form #price_toggle {
+  display: none;
+}
+
+#input_bar_form #price_checkbox {
+  cursor: pointer;
+  height: 0;
+  background-image: url(/App/src/icon/minus.svg);
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 24px 24px;
+}
+
+#input_bar_form #price_toggle:checked + #price_checkbox {
+  background-image: url(/App/src/icon/plus.svg);
+}
+
+#input_bar_form .selected_text {
+  display: none;
+}
+
 /* main */
 #main #main_wrapper {
   width: 848px;
@@ -160,98 +259,82 @@
   border-radius: 25px;
 }
 
-/* new input bar */
-#input_bar {
-  width: 894px;
-  height: 76px;
+#main .history_price {
   display: flex;
-  justify-content: center;
+  justify-content: right;
   align-items: center;
-  margin: auto;
+}
+
+#main .cancel {
+  display: none;
+  margin: 0 0 0 10px;
+  padding: 4px 8px;
+  border: 1px solid var(--color-secondary-red);
+  border-radius: 8px;
+}
+
+#main .cancel::before {
+  display: inline-block;
+  content: "\00d7";
+  font-size: 15pt;
+  margin: 0 5px;
+}
+
+#main .list_tr {
+  cursor: pointer;
+}
+
+#main .list_tr:hover {
+  background-color: #ffffff;
+}
+
+#main .list_tr:hover .cancel {
+  display: initial;
+}
+
+#main .price_text {
+  height: 35px;
+  display: flex;
+  align-items: center;
+}
+
+/* modal */
+.payment_modal {
+  width: 400px;
+  height: 188px;
+  padding: 40px;
   border: 1px solid var(--color-primary);
   border-radius: 8px;
-  position: relative;
-  top: -32px;
   background-color: var(--color-white);
 }
 
-#input_bar_form {
+.payment_modal form {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.payment_modal menu {
+  display: flex;
+  justify-content: space-between;
+  height: 24px;
+}
+
+.payment_modal .modal_tite {
+  color: var(--color-primary);
+}
+
+.payment_modal .modal_input {
   width: 100%;
-  display: flex;
-  /* justify-content: space-around; */
-  align-items: center;
-}
-
-#input_bar legend {
-  color: var(--color-primary-alt);
-  margin-bottom: 4px;
-}
-
-#input_bar_form fieldset {
-  border: none;
-  display: flex;
-  padding: 0 24px;
-  border-right: 1px solid var(--color-primary);
-}
-
-#input_bar_form fieldset:last-child {
-  border: none;
-}
-
-#input_bar_form #input_date {
-  width: 98px;
-  border: none;
+  height: 44px;
+  border-radius: 8px;
+  border: 1px solid var(--color-primary);
+  padding: 10px 20px;
   color: var(--color-primary);
+  background-color: var(--color-white);
 }
 
-#input_bar_form input[type="number"]::-webkit-outer-spin-button,
-#input_bar_form input[type="number"]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-}
-
-#input_bar_form #input_checkbox,
-#input_bar_form #input_checkbox img {
-  width: 40px;
-  height: 40px;
-}
-
-#input_bar_form #input-content {
-  width: 173px;
-  border: none;
-  background: none;
-  color: var(--color-primary);
-}
-
-#input_bar_form #input-price {
-  width: 78px;
-  text-align: right;
-  margin: 0 10px;
-  border: none;
-  background: none;
-
-  color: var(--color-primary);
-}
-
-#input_bar_form .active_Btn svg rect {
-  fill: var(--color-secondary-yellow);
-}
-
-#input_bar_form #price_toggle {
-  display: none;
-}
-
-#input_bar_form #price_checkbox {
-  cursor: pointer;
-  height: 0;
-  background-image: url(/App/src/icon/minus.svg);
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  background-repeat: no-repeat;
-  background-position: right center;
-  background-size: 24px 24px;
-}
-
-#input_bar_form #price_toggle:checked + #price_checkbox {
-  background-image: url(/App/src/icon/plus.svg);
+#remove_option_modal input {
+  background-color: var(--color-primary-alt-40);
 }

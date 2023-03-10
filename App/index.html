@@ -80,7 +80,8 @@
               <legend>금액</legend>
 
               <input type="checkbox" name="price_toggle" id="price_toggle" />
-              <label id="price_checkbox" for="price_toggle"> </label>
+              <label id="price_checkbox" for="price_toggle" autocomplete="off">
+              </label>
               <div>
                 <input
                   type="number"
@@ -99,20 +100,39 @@
                 name="input-content"
                 class="body-regular"
                 placeholder="입력하세요"
+                autocomplete="off"
               />
             </fieldset>
             <fieldset class="bold-small">
               <legend>결제수단</legend>
-              <div class="select">
+              <div id="payment_select" class="select">
                 <div class="selected">
                   <div class="selected-value body-regular">선택하세요</div>
+                  <input
+                    id="ayment_value"
+                    class="selected_text"
+                    type="text"
+                    value=""
+                  />
                   <div class="arrow"></div>
                 </div>
                 <ul>
-                  <li class="add-option">
-                    <button class="reset-btn body-regular" type="button">
-                      추가하기
-                    </button>
+                  <li class="option body-regular">
+                    <span class="option">현금</span>
+                    <button
+                      class="remove_option_btn reset-btn"
+                      type="button"
+                    ></button>
+                  </li>
+                  <li class="option body-regular">
+                    <span class="option">신용카드</span>
+                    <button
+                      class="remove_option_btn reset-btn"
+                      type="button"
+                    ></button>
+                  </li>
+                  <li class="add-option body-regular">
+                    <span class="">추가하기</span>
                   </li>
                 </ul>
               </div>
@@ -120,9 +140,15 @@
             <fieldset class="bold-small">
               <div>
                 <legend>분류</legend>
-                <div id="select_div" class="select">
+                <div id="category_select" class="select">
                   <div class="selected">
                     <div class="selected-value body-regular">선택하세요</div>
+                    <input
+                      id="category_value"
+                      class="selected_text"
+                      type="text"
+                      value=""
+                    />
                     <div class="arrow"></div>
                   </div>
                   <ul id="drop_menu">
@@ -142,7 +168,7 @@
                       <span class="option">의료/건강</span>
                     </li>
                     <li class="option body-regular">
-                      <span class="">문화/여가</span>
+                      <span class="option">문화/여가</span>
                     </li>
                     <li class="option body-regular">
                       <span class="option">미분류</span>
@@ -179,8 +205,6 @@
                     stroke-linejoin="round"
                   />
                 </svg>
-
-                <!-- <img alt="체크박스 아이콘" src="./src/icon/checkbox.svg" /> -->
               </button>
             </fieldset>
           </form>
@@ -260,7 +284,8 @@
                 </td>
                 <td>
                   <div class="history_price body-medium secondary-red">
-                    -10,900원
+                    <div class="price_text">-10,900원</div>
+                    <div class="cancel">삭제하기</div>
                   </div>
                 </td>
               </tr>
@@ -286,13 +311,59 @@
                 </td>
                 <td>
                   <div class="history_price body-medium secondary-red">
-                    -45,340원
+                    <div class="price_text">-45,340원</div>
+                    <div class="cancel">삭제하기</div>
                   </div>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
+        <dialog id="add_option_modal" class="payment_modal">
+          <form method="dialog">
+            <h2 class="modal_tite body-regular">
+              추가하실 결제수단을 적어주세요.
+            </h2>
+
+            <input type="text" class="modal_input body-regular" value="" />
+            <menu>
+              <button
+                class="cancel_btn reset-btn bold-large primary"
+                value="cancel"
+              >
+                취소
+              </button>
+              <button
+                id="payment_confirm_btn"
+                class="reset-btn bold-large secondary-yellow"
+                value="default"
+              >
+                등록
+              </button>
+            </menu>
+          </form>
+        </dialog>
+
+        <dialog id="remove_option_modal" class="payment_modal">
+          <form method="dialog">
+            <h2 class="modal_tite body-regular">
+              해당 결제수단을 삭제하시겠습니까?
+            </h2>
+            <input type="text" class="modal_input body-regular" disabled />
+            <menu>
+              <button class="reset-btn bold-large primary" value="cancel">
+                취소
+              </button>
+              <button
+                id="confirm_btn"
+                class="reset-btn bold-large secondary-red"
+                value="default"
+              >
+                삭제
+              </button>
+            </menu>
+          </form>
+        </dialog>
       </main>
     </div>
     <script src="./src/js/main.js"></script>

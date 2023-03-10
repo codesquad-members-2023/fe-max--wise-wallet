@@ -172,6 +172,9 @@
 }
 
 /* other */
+body {
+  background-color: var(--color-off-white);
+}
 .reset-btn {
   background: none;
   cursor: pointer;
