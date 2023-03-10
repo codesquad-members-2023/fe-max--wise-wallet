@@ -12,7 +12,12 @@
     <link rel="stylesheet" href="main.css" />
   </head>
   <body>
-    <header class="header_container">
+    <header class="header_container"></header>
+    
+    <section class="main_container"></section>
+
+    <section class="content_container">
+
       <div class="header_container_contents">
         <div id="header_title_logo">Wise Wallet</div>
         <div class="header_monthYear_info">
@@ -28,46 +33,75 @@
           <nav class="nav_history">history</nav>
           <nav id="nav_calendar">calendar</nav>
           <nav id="nav_statistics">statistics</nav>
+        </div>  
+      </div>
+
+      <section class="input_bar">
+        <div id="input_bar_date">
+          <p id="date_info">일자</p>
+          <p id="date_year_month_day">20230217</p>
         </div>
-      </div>
-    </header>
-    <section class="input_bar">
-      <div id="input_bar_date">
-        <p id="date_info">일자</p>
-        <p id="date_year_month_day">20230217</p>
-      </div>
-      <div class= "separator" id="input_bar_price">
-        <p id="price_info">금액</p>
-        <button class="price_container" id="change_btn">-</button>
-        <input type="text" class="price_container" id="price_input">
-        <p class="price_container" id="krw">원</p>
-      </div>
-      <div class= "separator" id="input_bar_memo">
-        <p id="memo_info">내용</p>
-        <input type="text" id="memo_input">
-      </div>
-      <div class= "separator" id="input_bar_payment">
-        <p id="payment_info">결제수단</p>
-        <select name="payment" id="payment_select">
-          <option value="">선택하세요</option>
-        </select>
-      </div>
-      <div class= "separator" id="input_bar_category">
-        <p id="category_info">분류</p>
-        <select name="category" id="category_select">
-          <option value="">선택하세요</option>
-        </select>
-      </div>
-      <button id="input_bar_check_button"></button>
-    </section>
-    <section class="main_container">
-      <header class="main_header"></header>
+        <div class= "separator" id="input_bar_price">
+          <p id="price_info">금액</p>
+          <button class="price_container" id="change_btn">-</button>
+          <input type="text" class="price_container" id="price_input">
+          <p class="price_container" id="krw">원</p>
+        </div>
+        <div class= "separator" id="input_bar_memo">
+          <p id="memo_info">내용</p>
+          <input type="text" id="memo_input">
+        </div>
+        <div class= "separator" id="input_bar_payment">
+          <p id="payment_info">결제수단</p>
+          <select name="payment" id="payment_select">
+            <option value="">선택하세요</option>
+          </select>
+        </div>
+        <div class= "separator" id="input_bar_category">
+          <p id="category_info">분류</p>
+          <select name="category" id="category_select">
+            <option value="">선택하세요</option>
+          </select>
+        </div>
+        <button id="input_bar_check_button">v</button>
+      </section>
+
+      <header class="main_header">
+        <p id="total_history">전체 내역 1건</p>
+        <div class="total_history_check_total_price">
+          <div class="income_history">
+            <input type="checkbox" id="income_checkBox">
+            <p id="income_text">수입 0</p>
+          </div>
+          <div class="expenses_history">
+            <input type="checkbox" id="expeses_checkBox">
+            <p id="expenses_text">지출 0</p>
+          </div>
+        </div>
+      </header>
       <section class="main_section">
         <section class="main_section_container">
           <div class="transaction_history_container">
             <div class="transaction_history_header">
-              <div id="transaction_date">00월00일 요일</div>
-              <div id="total_price">수입or지출 금액</div>
+              <div id="transaction_date">2월 15일</div>
+              <div id="transaction_day">수</div>
+              <div id="total_price">수입or지출 0원</div>
+            </div>
+            <list class="main_details">
+              <div id="main_category">카테고리</div>
+              <div id="main_details_text">세부내역</div>
+              <div id="main_means">수단</div>
+              <div id="main_price">가격</div>
+            </list>
+          </div>
+
+          <div class="transaction_history_container">
+            <div class="transaction_history_header">
+              <div>
+                <div id="transaction_date">2월 15일</div>
+                <div id="transaction_day">수</div>
+              </div>
+              <div id="total_price">수입or지출 0원</div>
             </div>
             <list class="main_details">
               <div id="main_category">카테고리</div>
@@ -78,6 +112,7 @@
           </div>
         </section>
       </section>
+
     </section>
   </body>
 </html>

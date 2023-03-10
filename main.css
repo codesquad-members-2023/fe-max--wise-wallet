@@ -1,22 +1,42 @@
 .header_container {
   position: absolute;
-  width: 1440px;
+  width: 100%;
   height: 194px;
-  left: 0px;
-  top: 0px;
-  border: 5px solid #ff0000;
+  background: #524D90;
+}
+
+.main_container {
+  position: absolute;
+  top: 194px;
+  width: 100%;
+  height: 1726px;
+  background: #E5E5E5;}
+
+.content_container {
+  width: 1000px;
+  height: auto;
+  overflow: hidden;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .header_container_contents {
-  position: absolute;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 846px;
   height: 96px;
-  left: 297px;
-  top: 40px;
-  border: 5px solid #ff0000;
+  margin: 40px 0 26px 0;
+  z-index: 1;
+  color : #FCFCFC;
+}
+
+#header_title_logo {
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 24px;
 }
 
 .header_monthYear_info {
@@ -35,68 +55,78 @@
 }
 
 .input_bar {
-  position: absolute;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 894px;
   height: 76px;
-  left: 273px;
-  top: 162px;
-  border: 5px solid #000000;
   z-index: 1;
-  background-color: #ffffff;
+  padding: 0 24px 0 18px;
+  color: #524D90;
+  border: 1px solid #524D90;
+  background-color: #FCFCFC;
+  box-shadow: 0px 2px 2px rgba(82, 77, 144, 0.08), 0px 4px 4px rgba(82, 77, 144, 0.1);
+  border-radius: 8px;
 }
 
 .separator {
-  border-left: 1px solid #000000;
+  padding: 0 24px;
+  border-left: 1px solid #524D90;
 }
 
 .price_container {
   float: left;
 }
 
-.main_container {
-  position: absolute;
-  top: 194px;
-  width: 1440px;
-  height: 1726px;
-  border: 5px solid #0000ff;
-}
-
 .main_header {
-  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 848px;
   height: 32px;
-  left: 296px;
-  top: 92px;
-  border: 5px solid #ff0000;
+  margin: 48px 0 28px 0;
+  z-index: 1;
+  color: #524D90;
+}
+
+.total_history_check_total_price {
+  display: flex;
+  justify-content: space-between;
+}
+
+.income_history {
+  display: flex;
+  justify-content: space-between;
+}
+
+.expenses_history {
+  display: flex;
+  justify-content: space-between;
 }
 
 .main_section {
-  position: absolute;
   width: 846px;
   height: auto;
   overflow: hidden;
   left: 297px;
   top: 152px;
-  border: 5px solid #ff0000;
+  z-index: 1;
 }
 
 .main_section_container {
   width: 846px;
   height: auto;
   overflow: hidden;
-  border: 5px solid #0000ff;
+  
 }
 
 .transaction_history_header {
   display: flex;
   justify-content: space-between;
+  color: #524D90;
 }
 
 #transaction_date {
-  text-align: left;
   padding-left: 15px;
   width: 120px;
 }
