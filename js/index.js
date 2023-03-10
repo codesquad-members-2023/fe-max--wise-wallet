@@ -3,9 +3,10 @@ const $All = (selector) => document.querySelectorAll(selector);
 
 const tabButtons = document.querySelectorAll(".tab-button");
 const tabContents = document.querySelectorAll(".tab-content");
+const buttonPaths = document.querySelectorAll(".tab-button path");
 
 tabButtons.forEach((tab, index) => {
-  tab.addEventListener("click", function () {
+  tab.addEventListener("click", function (event) {
     tabContents.forEach((inner) => {
       inner.classList.remove("active");
     });
@@ -16,6 +17,17 @@ tabButtons.forEach((tab, index) => {
 
     tabButtons[index].classList.add("active");
     tabContents[index].classList.add("active");
+
+    buttonPaths.forEach((path) => {
+      path.setAttribute("stroke", "#A79FCB");
+    });
+
+    if (event.currentTarget === tabButtons[index]) {
+      const paths = event.currentTarget.querySelectorAll("path");
+      paths.forEach((path) => {
+        path.setAttribute("stroke", "#FCFCFC");
+      });
+    }
   });
 });
 
@@ -54,3 +66,4 @@ paymentListMember.addEventListener("click", (event) => {
     paymentSelectHead.classList.remove("on");
   }
 });
+

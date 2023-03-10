@@ -348,7 +348,7 @@ input {
   flex-direction: column;
   justify-content: space-between;
 }
-.category-select1-label {
+.payment label, .category-select1-label {
   padding-left: 20px;
 }
 
@@ -364,7 +364,7 @@ input {
   align-items: center;
   gap: 5px;
   width: 100%;
-  padding: 4px 20px 14px 20px;
+  padding: 1px 20px 14px 20px;
   background-color: transparent;
   border: 1px solid yellowgreen;
 
@@ -937,7 +937,8 @@ x 플러스 마이너스 이것도 체크박스로..?
 해야하는거
 0310
 호버 옵션(기획서 다시 읽기),
-탭메뉴 클릭시 아이콘 색 변경
+탭메뉴 클릭시 아이콘 색 변경,
+월 이동 가능하게,
 확대하면 영어로 써진 달이 감춰짐->홛대되면서 메인이 밀려올라와 짜부된것처럼 보임?
 날짜 오늘날짜가 보이도록(선택한날짜로 20230309 가 되도록)
 숫자만 입력되도록, 숫자 세자리마다 콤마
