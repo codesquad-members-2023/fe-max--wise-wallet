@@ -171,11 +171,10 @@ input {
   /* 기본세팅: 안보이도록 */
 }
 .tab-content.active {
-  display: block; 
+  display: block;
   /* 보이도록 */
   /* 제일 처음 보이는 탭 html에 추가해줌 */
 }
-
 
 #main {
   min-width: 940px;
@@ -221,7 +220,7 @@ input {
   margin-left: 24px;
   margin-right: 24px;
 }
-.dividing-line:nth-last-of-type(-n+2) {
+.dividing-line:nth-last-of-type(-n + 2) {
   margin-right: 0;
 }
 .dividing-line:nth-last-of-type(1) {
@@ -248,7 +247,18 @@ input {
 }
 .date #date-input {
   width: 88px;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+
+  color: #524d90;
 }
+.date #date-input:invalid{
+  border: 1px solid blue;
+}
+
 .price {
   width: 134px;
   display: flex;
@@ -260,6 +270,9 @@ input {
   display: flex;
   justify-content: space-between;
   box-sizing: border-box;
+}
+#price-input{
+  padding: 0;
 }
 
 #plus-minus-btn[type="checkbox"] {
@@ -353,12 +366,14 @@ input {
   flex-direction: column;
   justify-content: space-between;
 }
-.payment label, .category-select1-label {
+.payment label,
+.category-select1-label {
   padding-left: 20px;
 }
 
 /* 셀렉트 박스 커스텀 */
-.category-select, .payment-select {
+.category-select,
+.payment-select {
   box-sizing: border-box;
   width: 148px;
 }
@@ -404,7 +419,7 @@ input {
   display: block;
 }
 
-.payment-list-member .select-items{
+.payment-list-member .select-items {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -450,11 +465,10 @@ input {
 }
 
 .list-member li:hover,
-.list-member li:focus{
+.list-member li:focus {
   background: #f7f6f3;
 }
 /* 여기까지 */
-
 
 .edit-btn-layout {
   display: flex;
@@ -943,7 +957,7 @@ x 플러스 마이너스 이것도 체크박스로
 해야하는거
 0310
 x 탭메뉴 클릭시 아이콘 색 변경,
-날짜 오늘날짜가 보이도록(선택한날짜로 20230309 가 되도록)
+x 날짜 오늘날짜가 보이도록(선택한날짜로 20230309 가 되도록)
 플러스 마이너스에 따라 셀렉트 박스 구성 바꾸기,
 월 이동 가능하게,
 숫자만 입력되도록, 숫자 세자리마다 콤마

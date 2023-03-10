@@ -80,7 +80,7 @@
                         <form class="input-bar-wrap">
                             <fieldset class="date">
                                 <label for="date-input" >일자</label>
-                                <input type="text" id="date-input" required>
+                                <input type="text" id="date-input" pattern="[0-9]{8}" title="'yyyymmdd'와 같은 8자리 숫자" required>
                             </fieldset>
                             <div class="dividing-line"></div>
                             <fieldset class="price">
@@ -88,7 +88,7 @@
                                 <div class="price-wrap">
                                     <input type="checkbox" name="plus-minus-btn" id="plus-minus-btn" title="수익지출변경버튼" required>
                                     <label for="plus-minus-btn"></label>
-                                    <input type="text" id="price-input" placeholder="0" required>
+                                    <input type="text" id="price-input" placeholder="0" pattern="[0-9]{15}" title="숫자" required>
                                     <span class="won">원</span>
                                 </div>
                             </fieldset>
@@ -109,13 +109,6 @@
                                     <li><button type="button" class="select-items"><span>신용카드</span><img src="./images/delete-x.svg" alt="삭제"></button></li>
                                     <li><button type="button" class="select-items"><span>추가하기</span></button></li>
                                 </ul>
-
-                                <!-- <select name="payment-select" id="payment-select">
-                                    <option value="선택" selected hidden>선택하세요</option>
-                                    <option value="현금">현금</option>
-                                    <option value="신용카드">신용카드</option>
-                                    <option value="추가하기">추가하기</option>
-                                </select> -->
                             </fieldset>
                             <div class="dividing-line"></div>
                             <fieldset class="category category-select">
