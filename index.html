@@ -124,13 +124,21 @@
 				</div>
 				<div class="select-payment">
 					<label for="selectPayment">결제수단</label>
-					<select name="payment" id="selectPayment">
+					<div class="select-payment-dropdown">
+						<input type="text" placeholder="선택하세요" />
+						<div class="option">
+							<div>현금</div>
+							<div>신용카드</div>
+							<div>추가하기</div>
+						</div>
+					</div>
+				</div>
+					<!-- <select name="payment" id="selectPayment">
 						<option value="" selected disabled hidden>선택하세요</option>
 						<option value="현금">현금</option>
 						<option value="체크카드">체크카드</option>
 						<option value="추가하기">추가하기</option>
-					</select>
-				</div>
+					</select> -->
 				<div class="select-category">
 					<label for="selectCategory">분류</label>
 					<select name="category" id="selectCategory">

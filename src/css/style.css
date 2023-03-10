@@ -1,6 +1,9 @@
 /* reset css */
 /* @import "reset.css"; */
 /* @import "root.css"; */
+* {
+  box-sizing: border-box;
+}
 
 body {
   background-color: var(--color-off-white);
