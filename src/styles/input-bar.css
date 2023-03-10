@@ -230,8 +230,8 @@
   filter: var(--filter-white);
 }
 
-/* new payment method modal */
-.new-payment-method-modal {
+/* modal */
+.alert-and-modal {
   width: 100%;
   height: 100%;
   display: none;
@@ -240,11 +240,11 @@
   z-index: 1;
 }
 
-.new-payment-method-modal.is-active {
+.alert-and-modal.is-active {
   display: block;
 }
 
-.new-payment-method-modal form {
+.alert-and-modal form {
   width: 400px;
   height: 228px;
   padding: 40px;
@@ -261,30 +261,30 @@
   box-shadow: var(--shadow);
 }
 
-.new-payment-method-modal form .modal-content {
+.alert-and-modal form .modal-content {
   margin-bottom: 32px;
 }
 
-.new-payment-method-modal form .modal-content .modal-title {
+.alert-and-modal form .modal-content .modal-title {
   height: 24px;
   margin-bottom: 24px;
-
   font-size: var(--fs-body-regular);
   font-weight: var(--fw-body);
   font-style: normal;
   line-height: var(--lh-body-regular);
 }
 
-.new-payment-method-modal form .modal-content input {
+.alert-and-modal form .modal-content .modal-body {
   width: 100%;
   height: 44px;
   padding: 10px;
   background-color: var(--color-white);
   border: 1px solid var(--color-primary);
   border-radius: var(--radius-primary);
+  color: var(--color-primary);
 }
 
-.new-payment-method-modal form .modal-content input::placeholder {
+.alert-and-modal form .modal-content .modal-body::placeholder {
   color: var(--color-primary-alt);
   font-family: var(--ff-body);
   font-size: var(--fs-body-regular);
@@ -293,13 +293,18 @@
   line-height: var(--lh-body-regular);
 }
 
-.new-payment-method-modal form .modal-btns {
+#delete-payment-method-modal .modal-body {
+  background-color: var(--color-primary-alt-40);
+  border: none;
+}
+
+.alert-and-modal form .modal-btns {
   height: 24px;
   display: flex;
   justify-content: space-between;
 }
 
-.new-payment-method-modal form .modal-btns > button {
+.alert-and-modal form .modal-btns > button {
   width: 28px;
   background-color: transparent;
   border: none;
@@ -311,12 +316,16 @@
   cursor: pointer;
 }
 
-.new-payment-method-modal form .modal-btns .cancel-btn {
+.alert-and-modal form .modal-btns .cancel-btn {
   width: 28px;
   height: 24px;
   color: var(--color-primary);
 }
 
-.new-payment-method-modal form .modal-btns .add-btn {
+.alert-and-modal form .modal-btns .add-btn {
   color: var(--color-secondary-yellow);
+}
+
+.alert-and-modal form .modal-btns .delete-btn {
+  color: var(--color-secondary-red);
 }
