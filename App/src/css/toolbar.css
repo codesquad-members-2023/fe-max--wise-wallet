@@ -44,12 +44,6 @@
   max-width: 80px;
 }
 
-[role="toolbar"] #amount {
-  width: 78px;
-  border: 0;
-  text-align: right;
-}
-
 [role="toolbar"] .field {
   height: 24px;
   display: flex;
@@ -75,7 +69,9 @@
 }
 
 [role="toolbar"] .field > input,
-[role="toolbar"] .field > button {
+[role="toolbar"] .field > button,
+[role="toolbar"] .field-amount .fieldset input,
+[role="toolbar"] .field-amount .cover span {
   width: 100%;
   font-family: var(--font-family-bold);
   font-weight: var(--font-weight-bold);
@@ -101,25 +97,42 @@
   color: var(--color-primary-alt-40);
 }
 
-[role="toolbar"] .field.field-amount figure {
+[role="toolbar"] .field-amount figure {
   display: flex;
 }
 
-[role="toolbar"] .field.field-amount .cover {
-  width: 74px;
-  height: 24px;
+[role="toolbar"] .field-amount .cover {
+  min-width: 74px;
+  text-align: right;
+  background-color: var(--color-white);
+  padding:0px 15px 0px 4px;
+}
+
+
+[role="toolbar"] .field-amount .cover span.alt {
+  color: var(--color-primary-alt-40);
+}
+
+[role="toolbar"] .field-amount .fieldset {
+  position: relative;
+  height: 100%;
+}
+
+[role="toolbar"] #amount {
+  width: 100%;
+  padding: 0;
+  border: 0;
+  top: 0;
   position: absolute;
-  margin-left: 20px;
+  text-align: right;
+  opacity: 0;
   background-color: var(--color-white);
 }
 
-[role="toolbar"] .field.field-amount .cover:hover {
-  display: none;
-}
-
-[role="toolbar"] #amount:hover + .cover,
-[role="toolbar"] #amount:focus + .cover {
-  display: none;
+[role="toolbar"] #amount:active,
+[role="toolbar"] #amount:hover,
+[role="toolbar"] #amount:focus {
+  opacity: 1;
 }
 
 [role="toolbar"] button.popup {

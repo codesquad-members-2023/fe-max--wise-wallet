@@ -58,6 +58,7 @@
   --border-radius-8: 8px;
 }
 
+
 .display,
 .body,
 .bold {
@@ -122,7 +123,8 @@
 }
 
 .inner {
-  width: 894px;
+  max-width: 894px;
+  width: 100vw;
   margin: auto;
   position: relative;
   box-sizing: border-box;
@@ -135,4 +137,9 @@
   width: 1px;
   height: 1px;
   margin: -1px;
+}
+
+.cover {
+  height: 100%;
+  overflow: hidden;
 }

@@ -24,11 +24,9 @@ Toolbar.prototype.init = function () {
 
   this.domNode.addEventListener("click", this.handleContainerClick.bind(this));
 
-  this.copyButton = this.domNode.querySelector(".copy");
-  this.cutButton = this.domNode.querySelector(".cut");
-  this.pasteButton = this.domNode.querySelector(".paste");
+  this.amountInput = this.domNode.querySelector("#amount");
+  this.amountInput.addEventListener("input", this.handleAmountInput.bind(this));
 
-  this.nightModeCheck = this.domNode.querySelector(".nightmode");
   items = this.domNode.querySelectorAll(".item");
 
   for (i = 0; i < items.length; i++) {
@@ -46,16 +44,19 @@ Toolbar.prototype.init = function () {
     this.lastItem = toolbarItem;
     this.toolbarItems.push(toolbarItem);
   }
-
-  var spinButtons = this.domNode.querySelectorAll("[role=spinbutton]");
-
-  for (i = 0; i < spinButtons.length; i++) {
-    var s = new SpinButton(spinButtons[i], this);
-    s.init();
-  }
 };
 
-Toolbar.prototype.handleAmount = function () {};
+Toolbar.prototype.handleAmountInput = function (e) {
+  const { target } = e;
+  const parent = target.parentNode;
+  const cover = parent.querySelector(".cover");
+  const span = cover.querySelector("span");
+  console.log(span.className)
+  if (target.value === "0") span.className = "alt";
+  else span.className = "";
+  if (target.value > 9999999) target.value = "9999999";
+  span.textContent = parseInt(target.value).toLocaleString("ko-KR");
+};
 
 Toolbar.prototype.handleContainerClick = function () {
   if (event.target !== this.domNode) return;
@@ -122,7 +123,6 @@ Toolbar.prototype.hidePopupLabels = function () {
     tp.classList.remove("show");
   });
 };
-
 
 window.addEventListener("load", function () {
   var toolbars = document.querySelectorAll('[role="toolbar"].format');
