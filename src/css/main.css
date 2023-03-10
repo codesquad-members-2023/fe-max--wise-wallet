@@ -61,20 +61,23 @@
 }
 
 .daily-details-content {
+  padding-top: 4px;
   flex-basis: 320px;
   color: var(--color-primary);
 }
 
 .daily-details-payment {
+  padding-top: 4px;
   flex-basis: 120px;
   color: var(--color-primary-alt);
 }
 
 .daily-details-price {
+  padding-top: 4px;
   flex-basis: 234px;
   text-align: right;
 }
-
+/* 수입 지출 색상 구분 */
 .expenditure .daily-details-price {
   color: var(--color-secondary-red);
 }
