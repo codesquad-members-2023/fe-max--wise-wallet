@@ -187,19 +187,66 @@
         </div>
 
         <!-- 내역 리스트 -->
-        <div>
+        <div class="main__history-list-container">
           <ul>
             <li>
-              <div>2월 17일</div>
-              <div>금</div>
-              <div>수입 : <span>50,000원</span></div>
-              <div>지출 : <span>-20,000원</span></div>
-              <ul>
+              <div class="main__history-list-info">
+                <div class="history-list-info__dateday">
+                  <span class="history-list-info__date">2월 17일</span>
+                  <span class="history-list-info__day">금</span>
+                </div>
+                <div class="history-list-info__box">
+                  <div class="history-list-info__income">
+                    수입 <span>50,000원</span>
+                  </div>
+                </div>
+              </div>
+              <ul class="main__history-list__item">
                 <li>
-                  <div>태그</div>
-                  <div>내용</div>
-                  <div>결제수단</div>
-                  <div>금액</div>
+                  <div class="history-list__item__tag tag-life">생활</div>
+                  <div class="history-list__item__content">내용</div>
+                  <div class="history-list__item__payment-method">결제수단</div>
+                  <div class="history-list__item__amount plus-color">
+                    2,101,000원
+                  </div>
+                </li>
+                <li>
+                  <div class="history-list__item__tag tag-unclassified">
+                    미분류
+                  </div>
+                  <div class="history-list__item__content">내용</div>
+                  <div class="history-list__item__payment-method">결제수단</div>
+                  <div class="history-list__item__amount minus-color">
+                    -9,500원
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              <div class="main__history-list-info">
+                <div class="history-list-info__dateday">
+                  <span class="history-list-info__date">2월 17일</span>
+                  <span class="history-list-info__day">금</span>
+                </div>
+                <div class="history-list-info__box">
+                  <div class="history-list-info__income">
+                    수입 <span>50,000원</span>
+                  </div>
+                  <div class="history-list-info__expense">
+                    지출 <span>-20,000원</span>
+                  </div>
+                </div>
+              </div>
+              <ul class="main__history-list__item">
+                <li>
+                  <div class="history-list__item__tag tag-life">생활</div>
+                  <div class="history-list__item__content">영화 스트리밍</div>
+                  <div class="history-list__item__payment-method">결제수단</div>
+                  <div class="history-list__item__amount plus-color">
+                    2,101,000원
+                  </div>
                 </li>
               </ul>
             </li>

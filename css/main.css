@@ -246,3 +246,114 @@ input[type='checkbox'] {
 .main__all-history-container__box--expense label {
   padding-left: 30px;
 }
+
+/* 전체 내역 리스트 */
+.main__history-list-container {
+  margin-top: 28px;
+}
+.main__history-list-info {
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-bold-medium);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.history-list-info-dateday {
+  display: flex;
+  flex-direction: column;
+}
+.history-list-info__date {
+  color: var(--color-primary);
+  margin-right: 8px;
+}
+.history-list-info__day,
+.history-list-info__income,
+.history-list-info__expense {
+  color: var(--color-primary-alt);
+}
+.history-list-info__income,
+.history-list-info__expense,
+.history-list-info__box span {
+  padding-left: 8px;
+}
+.history-list-info__box {
+  display: flex;
+}
+
+/* 내역 리스트 */
+.main__history-list__item {
+  margin: 21px 0;
+}
+.main__history-list__item li {
+  font-weight: var(--font-weight-bold);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  /* gap: 16px; */
+  height: 64px;
+  border-top: 1px solid var(--color-primary-alt);
+}
+.main__history-list__item li:last-child {
+  border-bottom: 1px solid var(--color-primary-alt);
+}
+.history-list__item__tag {
+  background: var(--color-category-purple);
+  font-size: var(--font-size-bold-medium);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-white);
+  height: 32px;
+  width: 92px;
+  border-radius: 25px;
+  padding: 4px 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.history-list__item__content {
+  color: var(--color-primary);
+  width: 320px;
+}
+.history-list__item__payment-method {
+  color: var(--color-primary-alt);
+  width: 120px;
+}
+.history-list__item__amount {
+  width: 234px;
+  text-align: right;
+}
+.history-list__item__amount.plus-color {
+  color: var(--color-secondary-red);
+}
+.history-list__item__amount.minus-color {
+  color: var(--color-secondary-cyan);
+}
+.tag-life {
+  background-color: var(--color-category-navy);
+}
+.tag-food {
+  background-color: var(--color-category-blue);
+}
+.tag-transpotation {
+  background-color: var(--color-category-mint);
+}
+.tag-shopping {
+  background-color: var(--color-category-cyan);
+}
+.tag-health {
+  background-color: var(--color-category-sky);
+}
+.tag-culture {
+  background-color: var(--color-category-pink);
+}
+.tag-unclassified {
+  background-color: var(--color-category-purple);
+}
+.tag-salary {
+  background-color: var(--color-category-green);
+}
+.tag-allowance {
+  background-color: var(--color-category-yellow);
+}
+.tag-etc {
+  background-color: var(--color-category-orange);
+}
