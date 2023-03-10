@@ -125,9 +125,9 @@
 				<div class="select-payment">
 					<label for="selectPayment">결제수단</label>
 					<div class="select-payment-dropdown">
-						<input type="text" placeholder="선택하세요" />
+						<input onclick="show('')" class="select-box" type="text" placeholder="선택하세요" readonly/>
 						<div class="option">
-							<div>
+							<div onclick="show('현금')">
 								현금
 								<button type="button">
 									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
@@ -141,7 +141,7 @@
 									</svg>
 								</button>
 							</div>
-							<div>
+							<div onclick="show('신용카드')">
 								신용카드
 								<button type="button">
 									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
@@ -278,5 +278,6 @@
 				</ul>
 			</section>
 		</main>
+		<script src="./src/js/dropdown.js"></script>
 	</body>
 </html>
