@@ -15,6 +15,12 @@ body {
   border: 0;
 }
 
+.hidden {
+  opacity: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+
 /* header */
 
 .main-header {
@@ -113,8 +119,34 @@ body {
 .main__new-history__payment-method,
 .main__new-history__description {
   padding: 16px 25px 16px 24px;
+  position: relative;
   color: var(--color-primary-alt);
 }
+
+.main__new-history__date::after,
+.main__new-history__amount::after,
+.main__new-history__description::after,
+.main__new-history__payment-method::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  top: 16px;
+  width: 1px;
+  height: 44px;
+  border-right: 1px solid var(--color-primary);
+}
+
+.main__new-history__amount input,
+.main__new-history__category input,
+.main__new-history__date input,
+.main__new-history__payment-method input,
+.main__new-history__description input {
+  margin-top: 4px;
+  height: 24px;
+  font-weight: var(--font-weight-body);
+}
+
 .main__new-history__form label {
   font-size: var(--font-size-bold-small);
   font-weight: var(--font-weight-bold);
@@ -123,7 +155,6 @@ body {
 .main__new-history__form input,
 .main__new-history__form select {
   font-size: var(--font-size-body-regular);
-  padding-top: 4px;
 }
 /* 새 내역 입력 (일자) */
 .main__new-history__date input {
@@ -136,11 +167,10 @@ body {
 }
 .main__new-history__amount > div {
   display: flex;
-  height: 24px;
 }
 .main__new-history__amount input {
   width: 78px;
-  height: 24px;
+  text-align: right;
   margin-right: 8px;
   padding: 0;
 }
@@ -160,12 +190,14 @@ input[type='number'] {
 }
 .main__new-history__amount button {
   width: 24px;
+  margin-top: 4px;
   height: 24px;
 }
 .main__new-history__amount span {
+  margin-top: 4px;
   height: 24px;
-  line-height: var(--line-height-body-regular);
   color: var(--color-primary);
+  line-height: var(--line-height-body-regular);
 }
 /* 새 내역 입력 (내용) */
 .main__new-history__description {
@@ -173,6 +205,80 @@ input[type='number'] {
 }
 .main__new-history__description input {
   width: 164px;
+}
+
+/* 새 내역 입력 (결제 수단, 분류) */
+.dropdown {
+  position: relative;
+}
+.con {
+  width: 100px;
+  height: 44px;
+}
+.con1 {
+  border-radius: var(--border-radius-sqaure);
+  display: flex;
+}
+.arrow-icon {
+  background-image: url('../img/icon_arrow_down.svg');
+  width: 16px;
+  height: 16px;
+  background-position: right center;
+  background-repeat: no-repeat;
+}
+.dropdown label {
+  color: #a79fcb;
+  color: var(--color-primary-alt);
+}
+.dropdown input {
+  color: var(--color-primary-alt);
+  font-weight: var(--font-weight-body);
+  font-size: var(--font-size-body-regula);
+  width: 100px;
+  text-align: left;
+}
+.dropdown .options {
+  font-weight: var(--font-weight-body);
+  font-size: var(--font-size-body-regula);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--border-radius-sqaure);
+  background-color: var(--color-white);
+  box-shadow: var(--box-shadow);
+  width: 148px;
+  cursor: pointer;
+  position: absolute;
+  z-index: 9999;
+  top: 70px;
+  right: -25px;
+  transition: all 0.7s ease;
+  transform: translateY(-8px);
+}
+.dropdown .options .option,
+.dropdown .options .add {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 24px 17px 24px;
+  transition: all 0.2s ease;
+  position: relative;
+}
+.dropdown .options .option p {
+  line-height: var(--line-height-body-regular);
+}
+.dropdown .options .option::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  width: 100px;
+  border-bottom: 1px solid var(--color-primary);
+}
+.dropdown .options li:last-child::after {
+  content: none;
+}
+.dropdown.opened .options {
+  color: var(--color-primary);
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 /* 새 내역 입력 (버튼) */

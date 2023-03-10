@@ -121,29 +121,60 @@
           </div>
 
           <div class="main__new-history__payment-method">
-            <label for="payment-method">결제수단</label>
-            <select name="" id="payment-method">
-              <option value="" selected>선택하세요</option>
-              <option value="money">
-                현금
-                <img src="./img/icon_delete.svg" alt="결제 수단 삭제" />
-              </option>
-              <option value="">추가하기</option>
-            </select>
+            <div class="dropdown">
+              <div class="con">
+                <label for="payment" class="payment">결제수단</label>
+                <div class="con1">
+                  <input
+                    class="arrow-icon"
+                    type="text"
+                    placeholder="선택하세요"
+                    readonly
+                    id="payment"
+                  />
+                </div>
+              </div>
+              <ul class="options hidden">
+                <li class="option">
+                  <p>현금</p>
+                  <img src="./img/icon_delete.svg" alt="" />
+                </li>
+                <li class="option">
+                  <p>신용카드</p>
+                  <img src="./img/icon_delete.svg" alt="" />
+                </li>
+                <li class="option">
+                  <p>체크카드</p>
+                  <img src="./img/icon_delete.svg" alt="" />
+                </li>
+                <li class="add">
+                  <p>추가하기</p>
+                </li>
+              </ul>
+            </div>
           </div>
 
           <div class="main__new-history__category">
-            <label for="category">분류</label>
-            <select name="income" id="category">
-              <option value="" selected>선택하세요</option>
-              <option value="life">생활</option>
-              <option value="food">식비</option>
-              <option value="transportation">교통</option>
-              <option value="shoppong">쇼핑/뷰티</option>
-              <option value="health">의료/건강</option>
-              <option value="culture">문화/여가</option>
-              <option value="unclassified">미분류</option>
-            </select>
+            <div class="dropdown">
+              <div class="con">
+                <label for="category" class="payment">분류</label>
+                <div class="con1">
+                  <input
+                    class="arrow-icon"
+                    type="text"
+                    placeholder="선택하세요"
+                    readonly
+                    id="category"
+                  />
+                </div>
+              </div>
+              <ul class="options hidden">
+                <li class="option"><p>UI Design</p></li>
+                <li class="option">HTML</li>
+                <li class="option">CSS</li>
+                <li class="option">JS</li>
+              </ul>
+            </div>
           </div>
 
           <!-- <div>
