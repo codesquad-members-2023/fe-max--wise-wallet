@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="main.css" />
   </head>
   <body>
-    <!-- 클래스명에 container 사용해보자 -->
     <header class="header_container">
       <header class="header_container_contents">
         <div id="header_title_logo">Wise Wallet</div>
@@ -32,7 +31,35 @@
         </div>
       </header>
     </header>
-    <section class="input_bar"></section>
+    <section class="input_bar">
+      <div id="input_bar_date">
+        <p id="date_info">일자</p>
+        <p id="date_year_month_day">20230217</p>
+      </div>
+      <div class= "separator" id="input_bar_price">
+        <p id="price_info">금액</p>
+        <button class="price_container" id="change_btn">-</button>
+        <input type="text" class="price_container" id="price_input">
+        <p class="price_container" id="krw">원</p>
+      </div>
+      <div class= "separator" id="input_bar_memo">
+        <p id="memo_info">내용</p>
+        <input type="text" id="memo_input">
+      </div>
+      <div class= "separator" id="input_bar_payment">
+        <p id="payment_info">결제수단</p>
+        <select name="payment" id="payment_select">
+          <option value="">선택하세요</option>
+        </select>
+      </div>
+      <div class= "separator" id="input_bar_category">
+        <p id="category_info">분류</p>
+        <select name="category" id="category_select">
+          <option value="">선택하세요</option>
+        </select>
+      </div>
+      <button id="input_bar_check_button"></button>
+    </section>
     <section class="main_container">
       <header class="main_header"></header>
       <section class="main_section">
