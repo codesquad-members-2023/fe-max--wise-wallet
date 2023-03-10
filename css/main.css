@@ -186,3 +186,63 @@ input[type='number'] {
   background: var(--color-secondary-yellow);
   border-radius: var(--border-radius-sqaure);
 }
+
+/* 전체 내역 */
+.main__all-history {
+  position: relative;
+  width: 848px;
+  margin: 0 auto;
+  top: 48px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.main__all-history-container {
+  height: 32px;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+.main__all-history-container p {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-body);
+  font-size: var(--font-size-body-large);
+  line-height: var(--line-height-body-large);
+}
+.main__all-history-container span {
+  padding-left: 8px;
+}
+.main__all-history-container__box {
+  display: flex;
+  height: 24px;
+  align-items: center;
+  font-size: var(--font-size-body-medium);
+  font-weight: var(--font-weight-body);
+  color: var(--color-primary);
+}
+
+input[type='checkbox'] {
+  display: none;
+}
+
+.main__all-history-container__box input[type='checkbox'] + label {
+  display: inline-block;
+  display: block;
+  background-image: url('../img/icon_checkbox_unchecked.svg');
+  background-position: left center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.main__all-history-container__box input[type='checkbox']:checked + label {
+  background-image: url('../img/icon_checkbox_checked.svg');
+}
+
+.main__all-history-container__box--expense {
+  margin-left: 16px;
+}
+.main__all-history-container__box--income label,
+.main__all-history-container__box--expense label {
+  padding-left: 30px;
+}

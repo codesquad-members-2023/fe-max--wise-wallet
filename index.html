@@ -168,17 +168,21 @@
 
       <!-- 전체 내역 -->
       <section class="main__all-history" aria-labelledby="all-history">
-        <h1 id="all-history" aria-label="전체 내역">전체 내역</h1>
-        <p>전체 내역 <span>14</span>건</p>
+        <h1 id="all-history" class="sr-only" aria-label="전체 내역">
+          전체 내역
+        </h1>
+        <div class="main__all-history-container">
+          <p>전체 내역 <span>14</span>건</p>
 
-        <div>
-          <div>
-            <input type="checkbox" name="total-income" id="total-income" />
-            <label for="total-income">수입 <span>2,010,580</span></label>
-          </div>
-          <div>
-            <input type="checkbox" name="total-expense" id="total-expense" />
-            <label for="total-expense">지출 <span>834,640</span></label>
+          <div class="main__all-history-container__box">
+            <div class="main__all-history-container__box--income">
+              <input type="checkbox" id="total-income" />
+              <label for="total-income">수입<span>2,010,580</span></label>
+            </div>
+            <div class="main__all-history-container__box--expense">
+              <input type="checkbox" id="total-expense" />
+              <label for="total-expense">지출<span>834,640</span></label>
+            </div>
           </div>
         </div>
 
