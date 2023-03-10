@@ -377,8 +377,6 @@ input {
   box-sizing: border-box;
   width: 148px;
 }
-/* 디바이딩라인 뒤에서 두개 마진 지우기 */
-
 .btn-select {
   display: flex;
   align-items: center;
@@ -386,7 +384,6 @@ input {
   width: 100%;
   padding: 1px 20px 14px 20px;
   background-color: transparent;
-  border: 1px solid yellowgreen;
 
   box-sizing: border-box;
   cursor: pointer;
@@ -412,7 +409,11 @@ input {
   box-shadow: 0px 2px 2px rgba(82, 77, 144, 0.08),
     0px 4px 4px rgba(82, 77, 144, 0.1);
   border-radius: 8px;
+  margin-top: 10px;
   z-index: 100;
+}
+.income-member.active{
+  display: block;
 }
 
 .btn-select.on + .list-member {
@@ -677,6 +678,7 @@ input {
 }
 .list-detail:hover .delete-btn {
   display: flex;
+  cursor: pointer;
 }
 .list-detail .list-detail-item {
   flex: 1;
@@ -957,14 +959,16 @@ x 플러스 마이너스 이것도 체크박스로
 해야하는거
 0310
 x 탭메뉴 클릭시 아이콘 색 변경,
-x 날짜 오늘날짜가 보이도록(선택한날짜로 20230309 가 되도록)
+x 날짜 오늘날짜가 보이도록(선택한날짜로 20230309 가 되도록) 
 플러스 마이너스에 따라 셀렉트 박스 구성 바꾸기,
 월 이동 가능하게,
 숫자만 입력되도록, 숫자 세자리마다 콤마
 호버 옵션(기획서 다시 읽기),
 추가하기 누르면 모달창이 뜨도록,
-모달창에 입력한거 셀렉트 박스에 추가
-
+모달창에 입력한거 셀렉트 박스에 추가,
+취소 모달창 구현,
+파일 분리 참고(쿤디)
+날짜 넘버로 바꾸기고려
 
 확대하면 영어로 써진 달이 감춰짐->홛대되면서 메인이 밀려올라와 짜부된것처럼 보임?
 축소시 메인리스트 카테고리영역이 삐져나옴(min 혹은 max위드 관련인듯..?)

@@ -34,14 +34,24 @@ const chartBoard = document.querySelector(".chart-board");
 // 각 카테고리 항목으로 변경해야함
 const chartHidden = document.querySelectorAll(".hidden_area");
 
-// chartBoard와 chartHidden영역이 아닌곳을 클릭하면 다시 닫기?
+// chartBoard와 chartHidden영역이 아닌곳을 클릭하면 다시 닫기로..?
 chartBoard.addEventListener("click", function () {
   chartHidden.forEach((element) => {
     element.classList.remove("hidden");
   });
 });
 
-/* 셀렉트박스 */
+/* 셀렉트박스 변경*/
+const plusMinusBtn = document.querySelector("#plus-minus-btn");
+const incomeMember = document.querySelector(".income-member");
+
+// plusMinusBtn.addEventListener("click", function () {
+//   plusMinusBtn.checked
+//     ? incomeMember.classList.add("active")
+//     : incomeMember.classList.remove("active");
+// });
+
+/* 셀렉트박스리스트*/
 const categorySelectHead = document.querySelector(".category-select-head");
 const categoryListMember = document.querySelector(".category-list-member");
 categorySelectHead.addEventListener("click", () => {
@@ -68,7 +78,7 @@ paymentListMember.addEventListener("click", (event) => {
 
 /* 오늘날짜로 세팅 */
 const inputElement = document.querySelector("#date-input");
-const date = new Date(); // 날짜 객체 생성
+const date = new Date();
 const year = date.getFullYear();
 const month = (date.getMonth() + 1).toString().padStart(2, "0");
 const day = date.getDate().toString().padStart(2, "0");

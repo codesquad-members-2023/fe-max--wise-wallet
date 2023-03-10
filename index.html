@@ -2,352 +2,350 @@
 <html lang="ko">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="입지출관리를 도와주는 가계부 웹페이지">
-    <title>Wise-Wallet</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" type="text/css"
-        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
-    <link rel="stylesheet" href="./css/reset.css">
-    <link rel="stylesheet" href="./css/style.css">
-    <!-- 폰트 파일로 -->
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="입지출관리를 도와주는 가계부 웹페이지">
+  <title>Wise-Wallet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" type="text/css"
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
-    <div id="layout">
-        <header class="header">
-            <div class="header-wrap">
-                <h1><a href="/" class="logo">Wise Wallet</a></h1>
-                <div id="month-year">
-                    <button type="button" class="month-year-icon"><img src="./images/Vectorleft.svg" alt="이전달"></button>
-                    <div id="month-year-text">
-                        <p>2023</p>
-                        <p>2</p>
-                        <p>February</p>
-                    </div>
-                    <button type="button" class="month-year-icon"><img src="./images/Vectorright.svg" alt="다음달">
-                    </button>
+  <div id="layout">
+    <header class="header">
+      <div class="header-wrap">
+        <h1><a href="/" class="logo">Wise Wallet</a></h1>
+        <div id="month-year">
+          <button type="button" class="month-year-icon"><img src="./images/Vectorleft.svg" alt="이전달"></button>
+          <div id="month-year-text">
+            <p>2023</p>
+            <p>2</p>
+            <p>February</p>
+          </div>
+          <button type="button" class="month-year-icon"><img src="./images/Vectorright.svg" alt="다음달">
+          </button>
+        </div>
+        <nav id="tab">
+          <button type="button" class="history-icon tab-button" title="내역버튼">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z"
+                stroke="#FCFCFC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M14 2V8H20" stroke="#FCFCFC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M16 13H8" stroke="#FCFCFC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M16 17H8" stroke="#FCFCFC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M10 9H9H8" stroke="#FCFCFC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <button type="button" class="calender-icon tab-button" title="캘린더버튼">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M19 4H5C3.89543 4 3 4.89543 3 6V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V6C21 4.89543 20.1046 4 19 4Z"
+                stroke="#A79FCB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M16 2V6" stroke="#A79FCB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M8 2V6" stroke="#A79FCB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M3 10H21" stroke="#A79FCB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <button type="button" class="statistics-icon tab-button" title="통계버튼">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M18 20V10" stroke="#A79FCB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M12 20V4" stroke="#A79FCB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+              <path d="M6 20V14" stroke="#A79FCB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <article id="main-list-article" class="active tab-content">
+        <div id="main-list">
+          <div class="input-bar">
+            <form class="input-bar-wrap">
+              <fieldset class="date">
+                <label for="date-input">일자</label>
+                <input type="text" id="date-input" pattern="[0-9]{8}" title="'yyyymmdd'와 같은 8자리 숫자" required>
+              </fieldset>
+              <div class="dividing-line"></div>
+              <fieldset class="price">
+                <label for="price-input">금액</label>
+                <div class="price-wrap">
+                  <input type="checkbox" name="plus-minus-btn" id="plus-minus-btn" title="수익지출변경버튼" required>
+                  <label for="plus-minus-btn"></label>
+                  <input type="text" id="price-input" placeholder="0" pattern="[0-9]{15}" title="숫자" required>
+                  <span class="won">원</span>
                 </div>
-                <nav id="tab">
-                    <button type="button" class="history-icon tab-button" title="내역버튼">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z"
-                                stroke="#FCFCFC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M14 2V8H20" stroke="#FCFCFC" stroke-width="1.5" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <path d="M16 13H8" stroke="#FCFCFC" stroke-width="1.5" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <path d="M16 17H8" stroke="#FCFCFC" stroke-width="1.5" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <path d="M10 9H9H8" stroke="#FCFCFC" stroke-width="1.5" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
+              </fieldset>
+              <div class="dividing-line"></div>
+              <fieldset class="memo">
+                <label for="memo-input">내용</label>
+                <input type="text" id="memo-input" placeholder="입력하세요" required>
+              </fieldset>
+              <div class="dividing-line"></div>
+              <fieldset class="payment payment-select">
+                <label for="payment-select">결제수단</label>
+                <button type="button" class="btn-select payment-select-head">
+                  <span>선택하세요</span>
+                  <img src="./images/chevron-down.svg" alt="카테고리펼치기">
+                </button>
+                <ul class="list-member payment-list-member">
+                  <li>
+                    <button type="button" class="select-items"><span>현금</span> <img src="./images/delete-x.svg"
+                        alt="삭제">
                     </button>
-                    <button type="button" class="calender-icon tab-button" title="캘린더버튼">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M19 4H5C3.89543 4 3 4.89543 3 6V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V6C21 4.89543 20.1046 4 19 4Z"
-                                stroke="#A79FCB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                            <path d="M16 2V6" stroke="#A79FCB" stroke-width="1.5" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <path d="M8 2V6" stroke="#A79FCB" stroke-width="1.5" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <path d="M3 10H21" stroke="#A79FCB" stroke-width="1.5" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
+                  </li>
+                  <li>
+                    <button type="button" class="select-items"><span>신용카드</span>
+                      <img src="./images/delete-x.svg" alt="삭제">
                     </button>
-                    <button type="button" class="statistics-icon tab-button" title="통계버튼"><svg width="24" height="24"
-                            viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M18 20V10" stroke="#A79FCB" stroke-width="1.5" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <path d="M12 20V4" stroke="#A79FCB" stroke-width="1.5" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                            <path d="M6 20V14" stroke="#A79FCB" stroke-width="1.5" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
+                  </li>
+                  <li>
+                    <button type="button" class="select-items"><span>추가하기</span>
                     </button>
-                </nav>
+                  </li>
+                </ul>
+              </fieldset>
+              <div class="dividing-line"></div>
+              <fieldset class="category category-select">
+                <label class="category-select1-label" for="category-select1">분류</label>
+
+                <button type="button" class="btn-select category-select-head">
+                  <span>선택하세요</span>
+                  <img src="./images/chevron-down.svg" alt="카테고리펼치기">
+                </button>
+                <ul class="list-member category-list-member active">
+                  <li><button type="button" class="select-items">생활</button></li>
+                  <li><button type="button" class="select-items">식비</button></li>
+                  <li><button type="button" class="select-items">교통</button></li>
+                  <li><button type="button" class="select-items">의료/건강</button></li>
+                  <li><button type="button" class="select-items">문화/여가</button></li>
+                  <li><button type="button" class="select-items">미분류</button></li>
+                </ul>
+                <ul class="list-member income-member">
+                  <li><button type="button" class="select-items">월급</button></li>
+                  <li><button type="button" class="select-items">용돈</button></li>
+                  <li><button type="button" class="select-items">추가하기</button></li>
+                </ul>
+
+              </fieldset>
+              <fieldset class="edit-btn-layout">
+                <input type="checkbox" name="edit-btn" id="edit-btn" title="수정확인">
+                <!-- 기본 disabled여야함 -->
+                <label for="edit-btn"></label>
+              </fieldset>
+            </form>
+            <div class="modal-bg hidden">
+              <!-- hidden -->
+              <form class="modal-box">
+                <div class="modal-body">
+                  <p>추가하실 결제수단을 적어주세요</p>
+                  <label for="modal-input" hidden>모달인풋</label>
+                  <input type="text" id="modal-input" placeholder="입력하세요" required>
+                </div>
+                <div class="modal-btn-layout">
+                  <label for="확인버튼" hidden>확인</label>
+                  <button type="button" class="modal-btn cancel-btn">취소</button>
+                  <input class="modal-btn confirm-btn" type="button" value="확인">
+                </div>
+              </form>
             </div>
-        </header>
-        <main id="main">
-            <article id="main-list-article" class="active tab-content">
-                <div id="main-list">
-                    <div class="input-bar">
-                        <form class="input-bar-wrap">
-                            <fieldset class="date">
-                                <label for="date-input" >일자</label>
-                                <input type="text" id="date-input" pattern="[0-9]{8}" title="'yyyymmdd'와 같은 8자리 숫자" required>
-                            </fieldset>
-                            <div class="dividing-line"></div>
-                            <fieldset class="price">
-                                <label for="price-input">금액</label>
-                                <div class="price-wrap">
-                                    <input type="checkbox" name="plus-minus-btn" id="plus-minus-btn" title="수익지출변경버튼" required>
-                                    <label for="plus-minus-btn"></label>
-                                    <input type="text" id="price-input" placeholder="0" pattern="[0-9]{15}" title="숫자" required>
-                                    <span class="won">원</span>
-                                </div>
-                            </fieldset>
-                            <div class="dividing-line"></div>
-                            <fieldset class="memo">
-                                <label for="memo-input">내용</label>
-                                <input type="text" id="memo-input" placeholder="입력하세요" required>
-                            </fieldset>
-                            <div class="dividing-line"></div>
-                            <fieldset class="payment payment-select">
-                                <label for="payment-select">결제수단</label>
-                                <button type="button" class="btn-select payment-select-head">
-                                    <span>선택하세요</span>
-                                    <img src="./images/chevron-down.svg" alt="카테고리펼치기">
-                                </button>
-                                <ul class="list-member payment-list-member">
-                                    <li><button type="button" class="select-items"><span>현금</span> <img src="./images/delete-x.svg" alt="삭제"></button></li>
-                                    <li><button type="button" class="select-items"><span>신용카드</span><img src="./images/delete-x.svg" alt="삭제"></button></li>
-                                    <li><button type="button" class="select-items"><span>추가하기</span></button></li>
-                                </ul>
-                            </fieldset>
-                            <div class="dividing-line"></div>
-                            <fieldset class="category category-select">
-                                <label class="category-select1-label" for="category-select1">분류</label>
-
-                                <button type="button" class="btn-select category-select-head">
-                                    <span>선택하세요</span>
-                                    <img src="./images/chevron-down.svg" alt="카테고리펼치기">
-                                </button>
-                                <ul class="list-member category-list-member">
-                                    <li><button type="button" class="select-items">생활</button></li>
-                                    <li><button type="button" class="select-items">식비</button></li>
-                                    <li><button type="button" class="select-items">교통</button></li>
-                                    <li><button type="button" class="select-items">의료/건강</button></li>
-                                    <li><button type="button" class="select-items">문화/여가</button></li>
-                                    <li><button type="button" class="select-items">미분류</button></li>
-                                </ul>
-                                <!-- <ul class="list-member">
-                                    <li><button type="button" class="select-items">월급</button></li>
-                                    <li><button type="button" class="select-items">용돈</button></li>
-                                    <li><button type="button" class="select-items">추가하기</button></li>
-                                </ul> -->
-
-                            </fieldset>
-                            <fieldset class="edit-btn-layout">
-                                <input type="checkbox" name="edit-btn" id="edit-btn" title="수정확인" >
-                                <!-- 기본 disabled여야함 -->
-                                <label for="edit-btn"></label>
-                            </fieldset>
-                        </form>
-                        <div class="modal-bg hidden">
-                            <!-- hidden -->
-                            <form class="modal-box">
-                                <div class="modal-body">
-                                    <p>추가하실 결제수단을 적어주세요</p>
-                                    <label for="modal-input" hidden>모달인풋</label>
-                                    <input type="text" id="modal-input" placeholder="입력하세요" required>
-                                </div>
-                                <div class="modal-btn-layout">
-                                    <label for="확인버튼" hidden>확인</label>
-                                    <button type="button" class="modal-btn cancel-btn">취소</button>
-                                    <input class="modal-btn confirm-btn" type="button" value="확인">
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="list-info">
-                        <div class="list-info-left">
-                            <span class="info-total-text">전체 내역</span>
-                            <span class="info-total-count">13건</span>
-                        </div>
-                        <form class="list-info-right">
-                            <fieldset class="list-info-checkbox-layout">
-                                <input type="checkbox" name="income-btn" id="income-btn" class="list-info-checkbox"
-                                    title="수입체크박스" checked>
-                                <label for="income-btn">수입 2,010,870</label>
-                                <input type="checkbox" name="expenditure-btn" id="expenditure-btn"
-                                    class="list-info-checkbox" title="지출체크박스" checked>
-                                <label for="expenditure-btn">지출 798,870</label>
-                            </fieldset>
-                        </form>
-                    </div>
-                    <ul>
-                        <li>
-                            <div class="list-body">
-                                <div class="list-body-info">
-                                    <div class="date-day">
-                                        <span class="date-day-date">2월 10일</span>
-                                        <span class="date-day-day">금</span>
-                                    </div>
-                                    <div class="income-expenditure">
-                                        <span>수입</span>
-                                        <span>2,010,580원</span>
-                                        <span>지출</span>
-                                        <span>9,500원</span>
-                                    </div>
-                                </div>
-                                <ul>
-                                    <li>
-                                        <div class="list-detail">
-                                            <div class="list-detail-category ">
-                                                <span>문화/여가</span>
-                                            </div>
-                                            <span class="list-detail-body ">스트리밍 정기 서비스 결제</span>
-                                            <span class="list-detail-payment list-detail-item">현대카드</span>
-                                            <span class="list-detail-price list-detail-item">-10,900원</span>
-                                            <button title="삭제하기" class="delete-btn"><img src="./images/delete-x.svg"
-                                                    alt="삭제"> <span class="delete-text">삭제하기</span></button>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li>
-                            <div class="list-body">
-                                <div class="list-body-info">
-                                    <div class="date-day">
-                                        <span class="date-day-date">2월 10일</span>
-                                        <span class="date-day-day">금</span>
-                                    </div>
-                                    <div class="income-expenditure">
-                                        <span>수입</span>
-                                        <span>2,010,580원</span>
-                                        <span>지출</span>
-                                        <span>9,500원</span>
-                                    </div>
-                                </div>
-                                <ul>
-                                    <li>
-                                        <div class="list-detail">
-                                            <div class="list-detail-category ">
-                                                <span>문화/여가</span>
-                                            </div>
-                                            <span class="list-detail-body ">스트리밍 정기 서비스 결제</span>
-                                            <span class="list-detail-payment list-detail-item">현대카드</span>
-                                            <span class="list-detail-price list-detail-item">-10,900원</span>
-                                            <button type="button" title="삭제하기" class="delete-btn"><img
-                                                    src="./images/delete-x.svg" alt="삭제"> <span
-                                                    class="delete-text">삭제하기</span></button>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
+          </div>
+          <div class="list-info">
+            <div class="list-info-left">
+              <span class="info-total-text">전체 내역</span>
+              <span class="info-total-count">13건</span>
+            </div>
+            <form class="list-info-right">
+              <fieldset class="list-info-checkbox-layout">
+                <input type="checkbox" name="income-btn" id="income-btn" class="list-info-checkbox" title="수입체크박스"
+                  checked>
+                <label for="income-btn">수입 2,010,870</label>
+                <input type="checkbox" name="expenditure-btn" id="expenditure-btn" class="list-info-checkbox"
+                  title="지출체크박스" checked>
+                <label for="expenditure-btn">지출 798,870</label>
+              </fieldset>
+            </form>
+          </div>
+          <ul>
+            <li>
+              <div class="list-body">
+                <div class="list-body-info">
+                  <div class="date-day">
+                    <span class="date-day-date">2월 10일</span>
+                    <span class="date-day-day">금</span>
+                  </div>
+                  <div class="income-expenditure">
+                    <span>수입</span>
+                    <span>2,010,580원</span>
+                    <span>지출</span>
+                    <span>9,500원</span>
+                  </div>
                 </div>
-            </article>
-
-            <article id="week-calender-article" class="tab-content">
-                <div id="week-calender">
-                    <div class="calender-head-box">
-                        <span class="calender-head-day">일</span>
-                        <span class="calender-head-day">월</span>
-                        <span class="calender-head-day">화</span>
-                        <span class="calender-head-day">수</span>
-                        <span class="calender-head-day">목</span>
-                        <span class="calender-head-day">금</span>
-                        <span class="calender-head-day">토</span>
+                <ul>
+                  <li>
+                    <div class="list-detail">
+                      <div class="list-detail-category ">
+                        <span>문화/여가</span>
+                      </div>
+                      <span class="list-detail-body ">스트리밍 정기 서비스 결제</span>
+                      <span class="list-detail-payment list-detail-item">현대카드</span>
+                      <span class="list-detail-price list-detail-item">-10,900원</span>
+                      <button title="삭제하기" class="delete-btn"><img src="./images/delete-x.svg" alt="삭제"> <span
+                          class="delete-text">삭제하기</span></button>
                     </div>
-                    <div class="calender-body">
-                        <!-- 월마다 구성이 달라져야하는데.. -->
-                        <!-- 테이블?? -->
-                    </div>
-                    <div class="monthly-total">
-                        <div class="monthly-total-left">
-                            <span>총 수입</span>
-                            <span>2,010,580원</span>
-                            <span>총 지출</span>
-                            <span>845,340원</span>
-                        </div>
-                        <div class="monthly-total-right">
-                            <span>총합</span>
-                            <span>1,175,304원</span>
-                        </div>
-                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+            <li>
+              <div class="list-body">
+                <div class="list-body-info">
+                  <div class="date-day">
+                    <span class="date-day-date">2월 10일</span>
+                    <span class="date-day-day">금</span>
+                  </div>
+                  <div class="income-expenditure">
+                    <span>수입</span>
+                    <span>2,010,580원</span>
+                    <span>지출</span>
+                    <span>9,500원</span>
+                  </div>
                 </div>
-            </article>
+                <ul>
+                  <li>
+                    <div class="list-detail">
+                      <div class="list-detail-category ">
+                        <span>문화/여가</span>
+                      </div>
+                      <span class="list-detail-body ">스트리밍 정기 서비스 결제</span>
+                      <span class="list-detail-payment list-detail-item">현대카드</span>
+                      <span class="list-detail-price list-detail-item">-10,900원</span>
+                      <button type="button" title="삭제하기" class="delete-btn"><img src="./images/delete-x.svg" alt="삭제">
+                        <span class="delete-text">삭제하기</span></button>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </article>
 
-            <article id="statistics-article" class="tab-content">
-                <div id="statistics">
-                    <div class="chart-board">
-                        <div class="chart-board-layout">
-                            <div class="pie-chart-layout">
-                                <div class="pie-chart">음.. 원으로다가..</div>
-                            </div>
-                            <div class="chart-detail">
-                                <div class="chart-detail-title">
-                                    <span class="chart-detail-title-text">이번달 지출금액</span>
-                                    <span class="chart-detail-title-text chart-detail-title-count">834,650원</span>
-                                </div>
-                                <div class="chart-detail-category">
-                                    <ul>
-                                        <li class="list-body chart-detail-list">
-                                            <div class="list-detail">
-                                                <div class="list-detail-category">
-                                                    <span>문화/여가</span>
-                                                </div>
-                                                <p class="chart-detail-percent chart-detail-item">64%</p>
-                                                <p class="list-detail-item chart-detail-item chart-detail-item-count">
-                                                    -10,900원</p>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- 이 div들 변경할 수 있는 시맨틱 태그가 있는지 생각해보기 -->
-                    <div class="bar-chart-board hidden hidden_area">
-                        <h2 class="bar-chart-title">생활 카테고리 추이</h2>
-                        <div class="bar-chart-body">차트 바디</div>
-                        <div class="bar-chart-date">
-                            <span class="bar-chart-month">1</span>
-                            <span class="bar-chart-month">2</span>
-                            <span class="bar-chart-month">3</span>
-                            <span class="bar-chart-month">4</span>
-                            <span class="bar-chart-month">5</span>
-                            <span class="bar-chart-month">6</span>
-                            <span class="bar-chart-month">7</span>
-                            <span class="bar-chart-month">8</span>
-                            <span class="bar-chart-month">9</span>
-                            <span class="bar-chart-month">10</span>
-                            <span class="bar-chart-month">11</span>
-                            <span class="bar-chart-month">12</span>
-                        </div>
-                    </div>
-                    <div class="chart-list chart-list-body hidden hidden_area">
-                        <div class="list-body chart-list-body">
-                            <div class="list-body-info">
-                                <div class="date-day">
-                                    <span class="date-day-date">2월 10일</span>
-                                    <span class="date-day-day">금</span>
-                                </div>
-                            </div>
-                            <ul>
-                                <li>
-                                    <div class="list-detail">
-                                        <div class="list-detail-category ">
-                                            <span>문화/여가</span>
-                                        </div>
-                                        <span class="list-detail-body ">스트리밍 정기 서비스 결제</span>
-                                        <span class="list-detail-payment list-detail-item">현대카드</span>
-                                        <span class="list-detail-price list-detail-item">-10,900원</span>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+      <article id="week-calender-article" class="tab-content">
+        <div id="week-calender">
+          <div class="calender-head-box">
+            <span class="calender-head-day">일</span>
+            <span class="calender-head-day">월</span>
+            <span class="calender-head-day">화</span>
+            <span class="calender-head-day">수</span>
+            <span class="calender-head-day">목</span>
+            <span class="calender-head-day">금</span>
+            <span class="calender-head-day">토</span>
+          </div>
+          <div class="calender-body">
+            <!-- 월마다 구성이 달라져야하는데.. -->
+            <!-- 테이블?? -->
+          </div>
+          <div class="monthly-total">
+            <div class="monthly-total-left">
+              <span>총 수입</span>
+              <span>2,010,580원</span>
+              <span>총 지출</span>
+              <span>845,340원</span>
+            </div>
+            <div class="monthly-total-right">
+              <span>총합</span>
+              <span>1,175,304원</span>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <article id="statistics-article" class="tab-content">
+        <div id="statistics">
+          <div class="chart-board">
+            <div class="chart-board-layout">
+              <div class="pie-chart-layout">
+                <div class="pie-chart">음.. 원으로다가..</div>
+              </div>
+              <div class="chart-detail">
+                <div class="chart-detail-title">
+                  <span class="chart-detail-title-text">이번달 지출금액</span>
+                  <span class="chart-detail-title-text chart-detail-title-count">834,650원</span>
                 </div>
-            </article>
+                <div class="chart-detail-category">
+                  <ul>
+                    <li class="list-body chart-detail-list">
+                      <div class="list-detail">
+                        <div class="list-detail-category">
+                          <span>문화/여가</span>
+                        </div>
+                        <p class="chart-detail-percent chart-detail-item">64%</p>
+                        <p class="list-detail-item chart-detail-item chart-detail-item-count">
+                          -10,900원</p>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- 이 div들 변경할 수 있는 시맨틱 태그가 있는지 생각해보기 -->
+          <div class="bar-chart-board hidden hidden_area">
+            <h2 class="bar-chart-title">생활 카테고리 추이</h2>
+            <div class="bar-chart-body">차트 바디</div>
+            <div class="bar-chart-date">
+              <span class="bar-chart-month">1</span>
+              <span class="bar-chart-month">2</span>
+              <span class="bar-chart-month">3</span>
+              <span class="bar-chart-month">4</span>
+              <span class="bar-chart-month">5</span>
+              <span class="bar-chart-month">6</span>
+              <span class="bar-chart-month">7</span>
+              <span class="bar-chart-month">8</span>
+              <span class="bar-chart-month">9</span>
+              <span class="bar-chart-month">10</span>
+              <span class="bar-chart-month">11</span>
+              <span class="bar-chart-month">12</span>
+            </div>
+          </div>
+          <div class="chart-list chart-list-body hidden hidden_area">
+            <div class="list-body chart-list-body">
+              <div class="list-body-info">
+                <div class="date-day">
+                  <span class="date-day-date">2월 10일</span>
+                  <span class="date-day-day">금</span>
+                </div>
+              </div>
+              <ul>
+                <li>
+                  <div class="list-detail">
+                    <div class="list-detail-category ">
+                      <span>문화/여가</span>
+                    </div>
+                    <span class="list-detail-body ">스트리밍 정기 서비스 결제</span>
+                    <span class="list-detail-payment list-detail-item">현대카드</span>
+                    <span class="list-detail-price list-detail-item">-10,900원</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </article>
+    </main>
+  </div>
 
-        </main>
-    </div>
 
 
 
 
-
-    <script type="module" src="./js/index.js"></script>
+  <script type="module" src="./js/index.js"></script>
 </body>
 
 </html>
