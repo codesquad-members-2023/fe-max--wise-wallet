@@ -76,7 +76,12 @@
         <label class="input-bar__item" id="input-bar__amount" for="amount">
           <div class="input-bar__item-name">금액</div>
           <div class="input-bar__item-input__container">
-            <img src="src/assets/icons/minus.svg" alt="Minus Sign" />
+            <label class="plus-minus-container" for="plus-minus-input">
+              <input type="checkbox" name="plus-minus" id="plus-minus-input" />
+              <img src="src/assets/icons/minus.svg" alt="Minus Sign" />
+              <img src="src/assets/icons/plus.svg" alt="Plus Sign" />
+            </label>
+
             <input
               type="text"
               placeholder="0"
