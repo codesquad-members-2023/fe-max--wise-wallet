@@ -125,10 +125,10 @@
 				<div class="select-payment">
 					<label for="selectPayment">결제수단</label>
 					<div class="select-payment-dropdown">
-						<input onclick="show('')" class="select-box" type="text" placeholder="선택하세요" readonly/>
-						<div class="option">
-							<div onclick="show('현금')">
-								현금
+						<input class="select-box" type="text" placeholder="선택하세요" readonly/>
+						<ul class="option">
+							<li class="option-item">
+								<span>현금</span>
 								<button type="button">
 									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
 										<path
@@ -140,9 +140,9 @@
 										/>
 									</svg>
 								</button>
-							</div>
-							<div onclick="show('신용카드')">
-								신용카드
+							</li>
+							<li class="option-item">
+								<span>신용카드</span>
 								<button type="button">
 									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
 										<path
@@ -154,17 +154,11 @@
 										/>
 									</svg>
 								</button>
-							</div>
-							<div>추가하기</div>
-						</div>
+							</li>
+							<li class="option-item"><span>추가하기</span></li>
+						</ul>
 					</div>
 				</div>
-				<!-- <select name="payment" id="selectPayment">
-						<option value="" selected disabled hidden>선택하세요</option>
-						<option value="현금">현금</option>
-						<option value="체크카드">체크카드</option>
-						<option value="추가하기">추가하기</option>
-					</select> -->
 				<div class="select-category">
 					<label for="selectCategory">분류</label>
 					<select name="category" id="selectCategory">

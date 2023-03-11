@@ -103,7 +103,7 @@
   display: block;
 }
 
-.select-payment-dropdown .option div {
+.select-payment-dropdown .option li {
   width: 100px;
   height: 57px;
   margin: auto;
@@ -112,14 +112,14 @@
   position: relative;
 }
 
-.select-payment-dropdown .option div button {
+.select-payment-dropdown .option li button {
   position:absolute;
   height: 16px;
   top: 20px;
   right: 0;
 }
 
-.select-payment-dropdown .option > div:last-child {
+.select-payment-dropdown .option > li:last-child {
   border-bottom: none;
 }
 
