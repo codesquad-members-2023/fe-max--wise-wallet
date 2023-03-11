@@ -1,3 +1,6 @@
+import { input_bar_event } from "./inputBar/index.js";
+import { localStorageInit } from "./localStorage/index.js";
+
 // get Date
 const get_date_element = () => {
   const year = document.getElementById("year");
@@ -100,6 +103,8 @@ const init = () => {
   });
 
   price_checkbox.addEventListener("click", change_ul);
+  input_bar_event();
+  localStorageInit();
 
   setNow();
 };

@@ -102,14 +102,18 @@
   height: 40px;
 }
 
-#input_bar_form #input-content {
+#input_bar_form #input_checkbox:disabled {
+  cursor: not-allowed;
+}
+
+#input_bar_form #input_content {
   width: 173px;
   border: none;
   background: none;
   color: var(--color-primary);
 }
 
-#input_bar_form #input-price {
+#input_bar_form #input_price {
   width: 78px;
   text-align: right;
   margin: 0 10px;

@@ -73,6 +73,7 @@
                   id="input_date"
                   name="input_date"
                   class="body-regular"
+                  autocomplete="off"
                 />
               </div>
             </fieldset>
@@ -84,10 +85,12 @@
               </label>
               <div>
                 <input
-                  type="number"
-                  id="input-price"
+                  type="text"
+                  id="input_price"
                   class="body-regular"
                   placeholder="0"
+                  autocomplete="off"
+                  value=""
                 />
                 <span class="body-regular primary">원</span>
               </div>
@@ -96,8 +99,8 @@
               <legend>내용</legend>
               <input
                 type="text"
-                id="input-content"
-                name="input-content"
+                id="input_content"
+                name="input_content"
                 class="body-regular"
                 placeholder="입력하세요"
                 autocomplete="off"
@@ -109,7 +112,7 @@
                 <div class="selected">
                   <div class="selected-value body-regular">선택하세요</div>
                   <input
-                    id="ayment_value"
+                    id="payment_value"
                     class="selected_text"
                     type="text"
                     value=""
@@ -366,7 +369,7 @@
         </dialog>
       </main>
     </div>
-    <script src="./src/js/main.js"></script>
-    <script src="./src/js/custom_select.js"></script>
+    <script type="module" src="./src/js/main.js"></script>
+    <script type="module" src="./src/js/custom_select.js"></script>
   </body>
 </html>

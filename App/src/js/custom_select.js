@@ -6,8 +6,14 @@ const selectOption = (optionElement) => {
   const selectBox = optionElement.closest(".select");
   const selectedElement = selectBox.querySelector(".selected-value");
   const selectedInput = selectBox.querySelector(".selected_text");
-  selectedElement.textContent = optionElement.textContent;
-  selectedInput.value = optionElement.textContent;
+
+  selectedElement.textContent = optionElement.textContent.trim();
+  selectedInput.value = optionElement.textContent.trim();
+
+  // 이벤트 객체를 생성
+  const changeEvent = new Event("change");
+  // selectedInput에 직접 change 이벤트를 발생
+  selectedInput.dispatchEvent(changeEvent);
 };
 
 const create_option = (value) => {
@@ -42,7 +48,7 @@ const custom_select_init = () => {
     });
   });
 
-  // 결젯수단 추가하기 버튼
+  // 결제수단 추가하기 버튼
   add_element.forEach((select) => {
     select.addEventListener("click", (e) => {
       const add_option_modal = document.getElementById("add_option_modal");
