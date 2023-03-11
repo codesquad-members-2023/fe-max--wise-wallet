@@ -1,7 +1,7 @@
 /* 인풋바영역 */
 .input-bar {
-  position: relative;
-  z-index: 1;
+	position: relative;
+	z-index: 1;
 }
 
 .input-bar form {
@@ -60,67 +60,68 @@
 	font-weight: var(--font-weight-body);
 }
 /* 드롭다운 메뉴 */
-.select-payment label {
+.select-payment label,
+.select-category label {
 	position: absolute;
 	top: 0;
 }
 
-.select-payment-dropdown {
+.select-dropdown {
 	position: absolute;
 	top: 20px;
-  font-size: var(--font-size-body-regular);
+	font-size: var(--font-size-body-regular);
 	font-weight: var(--font-weight-body);
 }
 
-.select-payment-dropdown input {
+.select-dropdown input {
 	width: 100px;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none'%3E%3Cpath stroke='%23A79FCB' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m4 6 4 4 4-4'/%3E%3C/svg%3E");
+	border: none;
+	outline: none;
+	cursor: pointer;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none'%3E%3Cpath stroke='%23A79FCB' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m4 6 4 4 4-4'/%3E%3C/svg%3E");
 	background-repeat: no-repeat;
 	background-position-x: 100%;
 	background-position-y: 2px;
 }
 
-.select-payment-dropdown .option {
+.select-dropdown .option {
 	width: 148px;
 	position: absolute;
 	top: 48px;
-  left: 50%;
-  transform: translateX(-50%);
-  cursor: pointer;
+	left: 50%;
+	transform: translateX(-50%);
+	cursor: pointer;
 	background-color: var(--color-white);
 	border: 1px solid var(--color-primary);
 	border-radius: 8px;
-  overflow: hidden;
+	overflow: hidden;
 	box-shadow: 0px 2px 2px rgba(82, 77, 144, 0.08), 0px 4px 4px rgba(82, 77, 144, 0.1);
 	z-index: 2;
-  display: none;
+	display: none;
 }
 
-.select-payment-dropdown.active .option {
-  display: block;
+.select-dropdown.active .option {
+	display: block;
 }
 
-.select-payment-dropdown .option li {
-  width: 100px;
-  height: 57px;
-  margin: auto;
-  padding-top: 16px;
-  border-bottom: 1px solid var(--color-primary);
-  position: relative;
+.select-dropdown.active .option li {
+	width: 100px;
+	height: 57px;
+	margin: auto;
+	padding-top: 16px;
+	border-bottom: 1px solid var(--color-primary);
+	position: relative;
 }
 
-.select-payment-dropdown .option li button {
-  position:absolute;
-  height: 16px;
-  top: 20px;
-  right: 0;
+.select-dropdown .option li button {
+	position: absolute;
+	height: 16px;
+	top: 20px;
+	right: 0;
 }
 
-.select-payment-dropdown .option > li:last-child {
-  border-bottom: none;
+.select-dropdown .option > li:last-child {
+	border-bottom: none;
 }
 
 /* 날짜 입력창 */
