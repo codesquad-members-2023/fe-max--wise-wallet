@@ -114,7 +114,6 @@
   height: 32px;
   margin: 48px 0 28px 0;
   z-index: 1;
-  color: #524d90;
 }
 
 .history_info {
@@ -144,15 +143,80 @@
   line-height: 32px;
 }
 
+.history_info {
+  display: flex;
+}
+
+#total_history_info {
+  color: #524D90;
+  width: auto;
+  height: 32px;
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 32px;
+}
+
+#total_history_count {
+  margin-left: 8px;
+  color: #524D90;
+  width: auto;
+  height: 32px;
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 32px;
+}
+
+.history_info {
+  display: flex;
+}
+
+#total_history_info {
+  color: #524D90;
+  width: auto;
+  height: 32px;
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 32px;
+}
+
+#total_history_count {
+  margin-left: 8px;
+  color: #524D90;
+  width: auto;
+  height: 32px;
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 32px;
+}
+
 .total_history_check_total_price {
   display: flex;
   justify-content: space-between;
   color: #524d90;
+  color: #524D90;
 }
 
 .income_history {
   display: flex;
   justify-content: space-between;
+}
+
+#income_text {
+  width: 119px;
+  height: 24px;
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
 }
 
 #income_text {
@@ -168,6 +232,16 @@
 .expenses_history {
   display: flex;
   justify-content: space-between;
+}
+
+#expenses_text {
+  width: 119px;
+  height: 24px;
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
 }
 
 #expenses_text {
@@ -206,18 +280,24 @@
   justify-content: space-between;
 }
 
+.history_date {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* #transaction_date {
 /* #transaction_date {
   padding-left: 15px;
 } */
 
 #transaction_day {
-  color: #a79fcb;
+  color: #A79FCB;
 }
 
 #total_price {
   text-align: right;
   padding-right: 15px;
-  color: #a79fcb;
+  color: #A79FCB;
 }
 
 .main_details {
@@ -229,6 +309,8 @@
 }
 
 #main_category {
+  margin: 16px;
+  padding: 4px 8px;
   margin: 16px;
   padding: 4px 8px;
   width: 92px;
@@ -273,8 +355,14 @@
 
 #main_price {
   margin-right: 16px;
+  margin-right: 16px;
   width: 234px;
   height: 22px;
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
   font-family: "Pretendard";
   font-style: normal;
   font-weight: 500;
