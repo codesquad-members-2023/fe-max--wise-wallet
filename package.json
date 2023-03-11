@@ -17,7 +17,8 @@
 			"sourceType": "module"
 		},
 		"rules": {
-			"object-curly-newline": 0
+			"object-curly-newline": 0,
+			"prefer-const": 0
 		},
 		"env": {
 			"browser": true,

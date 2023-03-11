@@ -1,0 +1,83 @@
+.info-filter {
+  width: 848px;
+  position: absolute;
+  top: 286px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-list {
+  width: 846px;
+  position: absolute;
+  top: 346px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+}
+
+.daily-info {
+  margin-bottom: 21px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.daily-details-container {
+  margin-bottom: 32px;
+}
+
+.daily-details {
+  padding: 16px 0px;
+  box-sizing: border-box;
+  border-top: 1px solid var(--color-primary-alt);
+  display: flex;
+  justify-content: space-evenly;
+  font-size: var(--font-size-body-medium);
+  font-weight: var(--font-weight-body);
+}
+
+.daily-details-container li:last-child {
+  border-bottom: 1px solid var(--color-primary-alt);
+}
+
+.daily-details-category {
+  box-sizing: border-box;
+  padding-top: 4px;
+  height: 32px;
+  text-align: center;
+  background-color: var(--color-category-mint);
+  color: var(--color-white);
+  font-size: var(--font-size-bold-medium);
+  font-weight: var(--font-weight-bold);
+  flex-basis: 92px;
+  border-radius: 25px;
+}
+
+.daily-details-content {
+  padding-top: 4px;
+  flex-basis: 320px;
+  color: var(--color-primary);
+}
+
+.daily-details-payment {
+  padding-top: 4px;
+  flex-basis: 120px;
+  color: var(--color-primary-alt);
+}
+
+.daily-details-price {
+  padding-top: 4px;
+  flex-basis: 234px;
+  text-align: right;
+}
+/* 수입 지출 색상 구분 */
+.expenditure .daily-details-price {
+  color: var(--color-secondary-red);
+}
+
+.income .daily-details-price {
+  color: var(--color-secondary-cyan);
+}

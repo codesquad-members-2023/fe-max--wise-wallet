@@ -1,0 +1,178 @@
+/* 인풋바영역 */
+.input-bar {
+	position: relative;
+	z-index: 1;
+}
+
+.input-bar form {
+	background-color: var(--color-white);
+	width: 894px;
+	height: 76px;
+	position: absolute;
+	top: -32px;
+	left: 50%;
+	transform: translateX(-50%);
+	border: 1px solid var(--color-primary);
+	border-radius: 8px;
+	box-shadow: 0px 2px 2px rgba(82, 77, 144, 0.08), 0px 4px 4px rgba(82, 77, 144, 0.1);
+	box-sizing: border-box;
+	display: flex;
+	align-items: center;
+}
+/* 라벨 폰트 컬러와 크기 */
+.input-bar form label {
+	color: var(--color-primary-alt);
+	font-size: var(--font-size-bold-small);
+}
+/* 인풋바 내 폼 요소들 */
+.input-bar form > div {
+	height: 44px;
+	padding: 16px 24px;
+	border-left: 1px solid var(--color-primary);
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	position: relative;
+}
+
+.input-bar form > div:first-child {
+	border-left: none;
+}
+
+.input-bar form > div:last-child {
+	border-left: none;
+}
+/* input창 스타일 */
+.input-bar form input {
+	color: var(--color-primary);
+	font-size: var(--font-size-body-regular);
+	font-weight: var(--font-weight-body);
+}
+/* select창 스타일 */
+.input-bar form select {
+	width: 100px;
+	height: 24px;
+	flex-shrink: 0;
+	padding: 0;
+	color: var(--color-primary-alt);
+	font-size: var(--font-size-body-regular);
+	font-weight: var(--font-weight-body);
+}
+/* 드롭다운 메뉴 */
+.select-payment label,
+.select-category label {
+	position: absolute;
+	top: 0;
+}
+
+.select-dropdown {
+	position: absolute;
+	top: 20px;
+	font-size: var(--font-size-body-regular);
+	font-weight: var(--font-weight-body);
+}
+
+.select-dropdown input {
+	width: 100px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none'%3E%3Cpath stroke='%23A79FCB' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m4 6 4 4 4-4'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position-x: 100%;
+	background-position-y: 2px;
+}
+
+.select-dropdown .option {
+	width: 148px;
+	position: absolute;
+	top: 48px;
+	left: 50%;
+	transform: translateX(-50%);
+	cursor: pointer;
+	background-color: var(--color-white);
+	border: 1px solid var(--color-primary);
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0px 2px 2px rgba(82, 77, 144, 0.08), 0px 4px 4px rgba(82, 77, 144, 0.1);
+	z-index: 2;
+	display: none;
+}
+
+.select-dropdown.active .option {
+	display: block;
+}
+
+.select-dropdown.active .option li {
+	width: 100px;
+	height: 57px;
+	margin: auto;
+	padding-top: 16px;
+	border-bottom: 1px solid var(--color-primary);
+	position: relative;
+}
+
+.select-dropdown .option li button {
+	position: absolute;
+	height: 16px;
+	top: 20px;
+	right: 0;
+}
+
+.select-dropdown .option > li:last-child {
+	border-bottom: none;
+}
+
+/* 날짜 입력창 */
+.input-date {
+	width: 137px;
+}
+
+.input-date input {
+	width: 88px;
+	height: 24px;
+	flex-shrink: 0;
+}
+/* 금액 입력창 */
+.input-price {
+	width: 183px;
+}
+
+.input-price-window {
+	width: 134px;
+	height: 24px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.input-price-window input {
+	width: 78px;
+	text-align: right;
+}
+
+.input-price-window span {
+	width: 16px;
+}
+/* 내용 입력창 */
+.input-memo {
+	width: 213px;
+}
+
+.input-memo input {
+	width: 164px;
+	height: 24px;
+	flex-shrink: 0;
+}
+/* 결제수단 선택창 */
+.select-payment {
+	width: 149px;
+}
+/* 분류 선택창 */
+.select-category {
+	width: 124px;
+}
+/* 입력 버튼 */
+.submit-btn {
+	width: 40px;
+}
