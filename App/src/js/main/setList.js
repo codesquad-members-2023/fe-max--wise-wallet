@@ -95,11 +95,10 @@ export const setList = (array) => {
         </tr>`;
     $tbody.innerHTML += info_tr;
     $tbody.innerHTML += list_tr;
+    // 그냥 tr을 하나하나 넣고 마지막에 헤드를 맨앞에 넣으면 어떨가?
   });
 
-  $main_history_list.appendChild($tbody);
-
-  return;
+  return $tbody;
 };
 
 const setGroup = (array) => {
