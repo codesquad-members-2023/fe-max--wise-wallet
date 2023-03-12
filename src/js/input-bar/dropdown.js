@@ -1,16 +1,16 @@
-//- Dropdowns - Payment Method and Category
+//- Payment Method Dropdown Nodes
 const paymentMethodDropdown = document.querySelector(
   "#payment-method-dropdown"
 );
 const paymentMethodOptionsContainer = paymentMethodDropdown.nextElementSibling;
-const paymentMethodOptions =
-  paymentMethodOptionsContainer.querySelectorAll(".option");
 const addPaymentMethodOption = paymentMethodOptionsContainer.querySelector(
   "#add-payment-method-option"
 );
 const paymentMethodInputDisplay = paymentMethodDropdown.querySelector(
   ".input-bar__item-input"
 );
+
+//- Category Dropdown Nodes
 const categoryDropdown = document.querySelector("#category-dropdown");
 const categoryOptionsContainer = categoryDropdown.nextElementSibling;
 const categoryOptions = categoryOptionsContainer.querySelectorAll(".option");
@@ -20,10 +20,22 @@ const categoryInputDisplay = categoryDropdown.querySelector(
 
 //- New Payment Method Modal
 const newPaymentMethodModal = document.querySelector(
-  ".new-payment-method-modal"
+  "#new-payment-method-modal"
 );
 const newPaymentMethodForm = newPaymentMethodModal.querySelector("form");
-const modalCancelBtn = newPaymentMethodModal.querySelector(".cancel-btn");
+const newPaymentMethodCancelBtn =
+  newPaymentMethodModal.querySelector(".cancel-btn");
+
+//- Delete Payment Method Confirmation Modal
+const deletePaymentMethodModal = document.querySelector(
+  "#delete-payment-method-modal"
+);
+const deletePaymentMethodForm = deletePaymentMethodModal.querySelector("form");
+const targetPaymentMethodModalBody = deletePaymentMethodForm.querySelector(
+  ".modal-content .modal-body"
+);
+const deletePaymentMethodCancelBtn =
+  deletePaymentMethodModal.querySelector(".cancel-btn");
 
 //- Click Outside to Close
 window.addEventListener("click", (evt) => {
@@ -43,8 +55,8 @@ window.addEventListener("click", (evt) => {
   }
 
   //- Close modal
-  if (el === newPaymentMethodModal) {
-    newPaymentMethodModal.classList.remove("is-active");
+  if (el === newPaymentMethodModal || el === deletePaymentMethodModal) {
+    el.classList.remove("is-active");
   }
 });
 
@@ -55,46 +67,32 @@ paymentMethodDropdown.addEventListener("click", () => {
 });
 
 //- Payment Method Option
-paymentMethodOptions.forEach((opt) => {
-  const deleteBtn = opt.querySelector(".option-delete-btn");
-  opt.addEventListener("click", (evt) => {
-    //- Delete Option
-    if (deleteBtn?.contains(evt.target)) {
-      opt.remove();
-      return;
-    }
+paymentMethodOptionsContainer.addEventListener("click", (evt) => {
+  const el = evt.target;
+  const targetOption = el.closest(".option");
+  const paymentMethod = targetOption?.dataset?.value;
 
-    const selectedOption = opt.dataset.value;
+  //- If clicked on delete button.
+  if (el.tagName === "IMG" || el.tagName === "BUTTON") {
+    deletePaymentMethodModal.classList.add("is-active");
+    targetPaymentMethodModalBody.value = paymentMethod;
+    return;
+  }
 
+  //- If selected a payment method.
+  if (el.tagName === "SPAN") {
     //- Open Payment Method Modal
-    if (selectedOption === "추가하기") {
+    if (paymentMethod === "추가하기") {
       paymentMethodInputDisplay.innerText = "선택하세요";
       paymentMethodInputDisplay.style.color = "var(--color-primary-alt)";
       newPaymentMethodModal.classList.add("is-active");
       return;
     }
 
-    paymentMethodInputDisplay.innerText = selectedOption;
+    paymentMethodInputDisplay.innerText = paymentMethod;
     paymentMethodInputDisplay.style.color = "var(--color-primary)";
     paymentMethodOptionsContainer.classList.remove("is-active");
-  });
-});
-
-//- Category Dropdown
-categoryDropdown.addEventListener("click", () => {
-  paymentMethodOptionsContainer.classList.remove("is-active");
-  categoryOptionsContainer.classList.toggle("is-active");
-});
-
-//- Category Option
-categoryOptions.forEach((opt) => {
-  opt.addEventListener("click", () => {
-    const selectedOption = opt.dataset.value;
-
-    categoryInputDisplay.innerText = selectedOption;
-    categoryInputDisplay.style.color = "var(--color-primary)";
-    categoryOptionsContainer.classList.remove("is-active");
-  });
+  }
 });
 
 //- Add New Payment Method
@@ -114,19 +112,47 @@ newPaymentMethodForm.addEventListener("submit", (evt) => {
         alt="Remove Payment Method" />
     </button>
   `;
-  newLi.addEventListener("click", (evt) => {
-    const deleteBtn = newLi.querySelector(".option-delete-btn");
-    if (deleteBtn.contains(evt.target)) {
-      newLi.remove();
-    }
-  });
-
   paymentMethodOptionsContainer.insertBefore(newLi, addPaymentMethodOption);
 
   newPaymentMethodModal.classList.remove("is-active");
 });
 
-//- Close Modal
-modalCancelBtn.addEventListener("click", () => {
+//- Delete Payment Method
+deletePaymentMethodForm.addEventListener("submit", (evt) => {
+  evt.preventDefault();
+
+  const paymentMethodOptions =
+    paymentMethodOptionsContainer.querySelectorAll(".option");
+  const targetLi = [...paymentMethodOptions].filter(
+    (li) => li.dataset.value === targetPaymentMethodModalBody.value
+  );
+  targetLi[0].remove();
+
+  deletePaymentMethodModal.classList.remove("is-active");
+});
+
+//- Close New Payment Method Modal
+newPaymentMethodCancelBtn.addEventListener("click", () => {
   newPaymentMethodModal.classList.remove("is-active");
+});
+
+//- Close Delete Payment Method Modal
+deletePaymentMethodCancelBtn.addEventListener("click", () => {
+  deletePaymentMethodModal.classList.remove("is-active");
+});
+
+//- Category Dropdown
+categoryDropdown.addEventListener("click", () => {
+  paymentMethodOptionsContainer.classList.remove("is-active");
+  categoryOptionsContainer.classList.toggle("is-active");
+});
+
+//- Category Option
+categoryOptions.forEach((opt) => {
+  opt.addEventListener("click", () => {
+    const selectedOption = opt.dataset.value;
+    categoryInputDisplay.innerText = selectedOption;
+    categoryInputDisplay.style.color = "var(--color-primary)";
+    categoryOptionsContainer.classList.remove("is-active");
+  });
 });
