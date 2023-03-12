@@ -1,4 +1,5 @@
 import { plusMinusInput } from "./amount-input.js";
+import { newEntryForm } from "./index.js";
 
 //- Payment Method Dropdown Nodes
 const paymentMethodDropdown = document.querySelector(
@@ -63,7 +64,6 @@ window.addEventListener("click", (evt) => {
     !el?.parentElement?.classList.contains("option-delete-btn")
   ) {
     paymentMethodOptionsContainer.classList.remove("is-active");
-    // categoryOptionsContainer.classList.remove("is-active");
     categoryOptionsContainerExpense.classList.remove("is-active");
     categoryOptionsContainerIncome.classList.remove("is-active");
   }
@@ -107,6 +107,7 @@ paymentMethodOptionsContainer.addEventListener("click", (evt) => {
     paymentMethodInput.value = paymentMethod;
     paymentMethodInput.style.color = "var(--color-primary)";
     paymentMethodOptionsContainer.classList.remove("is-active");
+    newEntryForm.dispatchEvent(new Event("change", { bubbles: true }));
   }
 });
 
@@ -176,5 +177,6 @@ categoryDropdown.addEventListener("click", () => {
     categoryInput.style.color = "var(--color-primary)";
     categoryOptionsContainerExpense.classList.remove("is-active");
     categoryOptionsContainerIncome.classList.remove("is-active");
+    newEntryForm.dispatchEvent(new Event("change", { bubbles: true }));
   });
 });

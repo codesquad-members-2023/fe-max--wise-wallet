@@ -114,11 +114,13 @@
             class="input-bar__item-input__container dropdown"
             id="payment-method-dropdown">
             <input
+              type="text"
+              placeholder="선택하세요"
               class="input-bar__item-input"
               id="payment-method"
               name="payment-method"
-              value="선택하세요"
-              disabled />
+              disabled
+              required />
 
             <img
               src="src/assets/icons/chevron-down.svg"
@@ -158,11 +160,13 @@
             class="input-bar__item-input__container dropdown"
             id="category-dropdown">
             <input
+              type="text"
+              placeholder="선택하세요"
               class="input-bar__item-input"
               id="category"
               name="category"
-              value="선택하세요"
-              disabled />
+              disabled
+              required />
 
             <img
               src="src/assets/icons/chevron-down.svg"
@@ -206,7 +210,7 @@
           </ul>
         </label>
 
-        <button type="submit" disabled>
+        <button type="submit" class="entry-submit-btn" disabled>
           <img src="src/assets/icons/check.svg" alt="Submit" />
         </button>
       </form>
