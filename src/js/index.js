@@ -64,16 +64,106 @@ categoryListMember.addEventListener("click", (event) => {
   }
 });
 
+/* 결제수단 추가 */
+
+/* 모달창 */
+const addPaymentBtn = document.querySelector(".add-payment-btn");
+const modal = document.querySelector(".modal-bg");
+const cancelBtn = document.querySelector(".cancel-btn");
+
+addPaymentBtn.addEventListener("click", function () {
+  $("#modal-input").classList.remove("delete");
+  $("#modal-input").disabled = false;
+  $("#modal-input").required = true;
+  modal.classList.remove("hidden");
+});
+cancelBtn.addEventListener("click", function () {
+  modal.classList.add("hidden");
+});
+
+const addModalInput = document.querySelector("#modal-input");
+const confirmAddBtn = document.querySelector(".confirm-btn");
+const paymentLi = document.createElement("li");
+const addPaymentLi = document.querySelector(".add-payment");
+let isConfirmed = 0;
+
+confirmAddBtn.addEventListener("click", function () {
+  if (addModalInput.value === "") {
+    return;
+  }
+  if ($("#modal-input").disabled) {
+    isConfirmed = 1;
+  }
+  if (addModalInput.value !== "" && !isConfirmed) {
+    addPaymentLi.insertAdjacentHTML(
+      "beforebegin",
+      `<li>
+      <button type="button" class="select-items">
+        <span>${addModalInput.value}</span>
+        <img src="../images/delete-x.svg" alt="삭제">
+      </button>
+    </li>
+    `
+    );
+    modal.classList.add("hidden");
+  }
+  addModalInput.value = "";
+});
+
 const paymentSelectHead = document.querySelector(".payment-select-head");
 const paymentListMember = document.querySelector(".payment-list-member");
 paymentSelectHead.addEventListener("click", () => {
   paymentSelectHead.classList.add("on");
 });
+
 paymentListMember.addEventListener("click", (event) => {
+  console.log(event.target.classList);
+  if (event.target.classList.contains("add-payment-btn")) {
+    paymentSelectHead.innerText = "선택하세요";
+    return;
+  }
   if (event.target.nodeName === "BUTTON") {
     paymentSelectHead.innerText = event.target.innerText;
     paymentSelectHead.classList.remove("on");
   }
+});
+
+/* 결제수단 삭제 */
+/* 버튼을 누르면 모달창이 뜨고, 
+모달창의 인풋 스타일이 바뀐다,
+인풋엔 해당버튼 옆 텍스트가 들어간다
+disabled상태로 인풋을 락한다
+확인 버튼을 누르면 해당 버튼의 li노드가 사라진다 */
+
+const deleteConfirmHandler = (e) => {
+  const deleteImg = e.target.closest("li");
+  console.log(deleteImg);
+  deleteImg.parentNode.removeChild(deleteImg);
+};
+
+const deletPaymentBtn = document.querySelectorAll(
+  ".payment-list-member li img"
+);
+console.log(deletPaymentBtn);
+deletPaymentBtn.forEach((element) => {
+  // console.log(element)
+  element.addEventListener("click", function (e) {
+    modal.classList.remove("hidden");
+    $("#modal-input").classList.add("delete");
+    // console.log(element.previousElementSibling.textContent)
+    $("#modal-input").value = element.previousElementSibling.textContent;
+    $("#modal-input").disabled = true;
+    $(".confirm-btn").classList.add("delete");
+    $(".confirm-btn").value = "삭제";
+    // console.log($(".payment-list-member li span").textContent);
+    if (isConfirmed === 1) {
+      deleteConfirmHandler(e);
+      modal.classList.add("hidden");
+      isConfirmed = 0;
+      $(".confirm-btn").classList.remove("delete");
+      $(".confirm-btn").value = "확인";
+    }
+  });
 });
 
 /* 오늘날짜로 세팅 */
@@ -98,4 +188,18 @@ priceInput.addEventListener("keyup", function (e) {
     const formatValue = value.toLocaleString("ko-KR");
     priceInput.value = formatValue;
   }
+});
+
+/* 월 변화 */
+const changeMonthHandler = (e) => {
+  // console.log(e.currentTarget)
+  if(e.currentTarget.classList.contains("previous-month-btn")){
+    
+  }
+};
+
+$All(".month-year-icon").forEach(element => {
+  element.addEventListener("click", (e)=>{
+    changeMonthHandler(e)
+  })
 });

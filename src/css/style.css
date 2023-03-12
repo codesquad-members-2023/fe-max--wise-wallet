@@ -505,6 +505,7 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 200;
 }
 .modal-box {
   width: 400px;
@@ -552,6 +553,10 @@ input {
   line-height: 24px;
   color: #524d90;
 }
+.modal-body #modal-input.delete{
+  background: rgba(167, 159, 203, 0.4);
+  border: none;
+}
 .modal-body #modal-input::placeholder {
   font-family: "Pretendard";
   font-style: normal;
@@ -578,6 +583,9 @@ input {
 }
 .modal-btn-layout .confirm-btn {
   color: #f5b853;
+}
+.modal-btn-layout .confirm-btn.delete {
+  color: #E75B3F;
 }
 
 .hidden {
