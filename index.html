@@ -4,12 +4,14 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>account book</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css"
-    />
-    <link rel="stylesheet" href="main.css" />
+    <link rel="stylesheet" href="./src/style/reset.css">
+    <link rel="stylesheet" href="./src/style/main.css" />
+    <link rel="stylesheet" href="./src/style/header.css">
+    <link rel="stylesheet" href="./src/style/input_bar.css">
+    <link rel="stylesheet" href="./src/style/main_section.css">
+    <link rel="stylesheet" href="./src/style/svg.css">
+    <script defer src="./src/svg/svg.js"></script>
+    <title>Wise Wallet</title>
   </head>
   <body>
     <header class="header_container"></header>
@@ -21,19 +23,18 @@
       <div class="header_container_contents">
         <div id="header_title_logo">Wise Wallet</div>
         <div class="header_monthYear_info">
-          <nav id="previous_month"><</nav>
+          <nav id="chevron_left"></nav>
           <div id="header_monthYear_text">
             <p id="monthYear_text_year">2023</p>
             <p id="monthYear_text_month_number">2</p>
             <p id="monthYear_text_month_char">Feburary</p>
           </div>
-          <nav id="following_month">></nav>
+          <nav id="chevron_right"></nav>
         </div>
         <div class="header_tab">
-          
-          <nav class="nav_history">history</nav>
-          <nav id="nav_calendar">calendar</nav>
-          <nav id="nav_statistics">statistics</nav>
+          <nav id="nav_doc"></nav>
+          <nav id="nav_calendar"></nav>
+          <nav id="nav_chart"></nav>
         </div>  
       </div>
 
@@ -44,7 +45,7 @@
         </div>
         <div class= "separator" id="input_bar_price">
           <p id="price_info">금액</p>
-          <button class="price_container" id="change_btn">-</button>
+          <button class="price_container" id="change_btn"></button>
           <input type="text" class="price_container" id="price_input">
           <p class="price_container" id="krw">원</p>
         </div>
@@ -63,44 +64,51 @@
           <select name="category" id="category_select">
             <option value="">선택하세요</option>
           </select>
+          <button id="input_bar_check"></button>
         </div>
-        <button id="input_bar_check_button">v</button>
       </section>
 
-      <header class="main_header">
-        <div class="history_info">
-          <p id="total_history_info">전체 내역</p>
-          <p id="total_history_count">1건</p>
-        </div>
-        <div class="total_history_check_total_price">
-          <div class="income_history">
-            <input type="checkbox" id="income_checkbox">
-            <p id="income_text">수입 0</p>
-          </div>
-          <div class="expenses_history">
-            <input type="checkbox" id="expeses_checkbox">
-            <p id="expenses_text">지출 10,900</p>
-          </div>
-        </div>
-      </header>
       <section class="main_section">
 
+        <header class="main_header">
+          <p id="total_history_count">전체 내역 1건</p>
+          <div class="total_history_check_total_price">
+            <div class="income_history">
+              <button class="check" id="income_checkbox" checked>
+              </button>
+              <p id="income_text">수입 0</p>
+            </div>
+            <div class="expenses_history">
+              <button class="check"  id="expenses_checkbox" checked>
+              </button>
+              <p id="expenses_text">지출 10,900</p>
+            </div>
+          </div>
+        </header>
+
         <section class="main_section_container">
-          
           <list class="transaction_history_container">
-            <div class="transaction_history_header">
+            <div class="separator" id="transaction_history_header">
               <div class="history_date">
                 <div id="transaction_date">2월 15일</div>
                 <div id="transaction_day">수</div>
               </div>
               <div id="total_price">지출 10,900원</div>
             </div>
-            <list class="main_details">
-              <div id="main_category">문화/여가</div>
-              <div id="main_details_text">스트리밍 서비스 정기 결제</div>
-              <div id="main_means">현대카드</div>
-              <div id="main_price">- 10,900원</div>
-            </list>
+            <table class="details_list">
+              <td class="separator" id="main_details">
+                <div id="main_category">문화/여가</div>
+                <div id="main_details_text">스트리밍 서비스 정기 결제</div>
+                <div id="main_means">현대카드</div>
+                <div id="main_price">- 10,900원</div>
+              </td>
+              <td class="separator" id="main_details">
+                <div id="main_category">문화/여가</div>
+                <div id="main_details_text">스트리밍 서비스 정기 결제</div>
+                <div id="main_means">현대카드</div>
+                <div id="main_price">- 10,900원</div>
+              </td>
+            </table>
           </list>
 
         </section>
