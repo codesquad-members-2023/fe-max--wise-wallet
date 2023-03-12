@@ -1,0 +1,331 @@
+#input-bar__container {
+  width: 100%;
+  height: 92px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+#input-bar__container > form {
+  width: var(--layout-inner-width);
+  height: 76px;
+  padding: 16px 24px;
+  display: flex;
+  position: absolute;
+  top: -32px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-primary);
+  box-shadow: var(--shadow);
+}
+
+.input-bar__item {
+  height: 44px;
+  padding-inline: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  border-right: 1px solid var(--color-primary);
+  color: var(--color-primary);
+}
+
+.input-bar__item:first-of-type {
+  padding-left: 0;
+}
+
+.input-bar__item:last-of-type {
+  border-right: none;
+}
+
+.input-bar__item-name {
+  height: 16px;
+  color: var(--color-primary-alt);
+  font-size: var(--fs-bold-regular);
+  font-weight: var(--fw-bold);
+  line-height: var(--lh-bold-regular);
+}
+
+.input-bar__item-input {
+  height: 24px;
+  color: var(--color-primary);
+  font-family: var(--ff-body);
+  font-size: var(--fs-body-regular);
+  font-weight: var(--fw-body);
+  line-height: var(--lh-body-regular);
+  background-color: transparent;
+  border: none;
+}
+
+.input-bar__item-input::placeholder {
+  color: var(--color-primary-alt);
+}
+
+.input-bar__item-input__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* date input */
+#input-bar__date {
+  width: 120px;
+}
+
+.input-bar__item-input#date {
+  position: relative;
+}
+
+.input-bar__item-input#date::-webkit-inner-spin-button {
+  display: none;
+}
+
+.input-bar__item-input#date::-webkit-calendar-picker-indicator {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* amount input */
+#input-bar__amount {
+  width: 175px;
+}
+
+.plus-minus-container {
+  width: 24px;
+  height: 24px;
+}
+
+#plus-minus-input,
+#plus-minus-input:checked ~ img:nth-of-type(1),
+#plus-minus-input ~ img:nth-of-type(2) {
+  display: none;
+}
+
+#plus-minus-input:checked ~ img:nth-of-type(2) {
+  display: block;
+}
+
+#plus-minus-input ~ img {
+  cursor: pointer;
+}
+
+.input-bar__item-input#amount {
+  width: 78px;
+  text-align: right;
+}
+
+.input-bar__item-input#amount::-webkit-inner-spin-button,
+.input-bar__item-input#amount::-webkit-outer-spin-button {
+  display: none;
+}
+
+.input-bar__item-input#amount::after {
+  content: "원";
+  width: 20px;
+  height: 20px;
+  color: black;
+}
+
+/* content input */
+#input-bar__content {
+  width: 212px;
+}
+
+/* payment method input */
+#input-bar__payment-method {
+  width: 148px;
+}
+
+/* category input */
+#input-bar__category {
+  width: 148px;
+}
+
+/* select dropdown */
+.input-bar__item .options-container {
+  width: 148px;
+  padding: 0 24px;
+  display: none;
+  position: absolute;
+  top: 65px;
+  left: 0;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-primary);
+  box-shadow: var(--shadow);
+  list-style: none;
+}
+
+.input-bar__item .options-container.is-active {
+  display: block;
+}
+
+.input-bar__item .options-container .option {
+  width: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--color-primary);
+  cursor: pointer;
+}
+
+.input-bar__item .options-container .option:last-of-type {
+  border-bottom: none;
+}
+
+.input-bar__item .options-container .option span {
+  width: 100%;
+  height: 100%;
+  padding: 16px 0;
+}
+
+.input-bar__item .options-container .option img {
+  filter: var(--filter-secondary-red);
+}
+
+.input-bar__item-input#payment-method,
+.input-bar__item-input#category {
+  color: var(--color-primary-alt);
+}
+
+#input-bar__payment-method .input-bar__item-input__container,
+#input-bar__category .input-bar__item-input__container {
+  cursor: pointer;
+}
+
+.option-delete-btn {
+  width: 16px;
+  height: 16px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.option-delete-btn > img {
+  width: 100%;
+  height: 100%;
+}
+
+/* button */
+#input-bar__container > form > button {
+  width: 40px;
+  height: 40px;
+  background-color: var(--color-primary-alt-40);
+  border: none;
+  border-radius: var(--radius-primary);
+  cursor: not-allowed;
+}
+
+#input-bar__container > form > button:not(button:disabled) {
+  background-color: var(--color-secondary-yellow);
+  cursor: pointer;
+}
+
+#input-bar__container > form > button > img {
+  width: 24px;
+  height: 24px;
+  filter: var(--filter-white);
+}
+
+/* modal */
+.alert-and-modal {
+  width: 100%;
+  height: 100%;
+  display: none;
+  position: fixed;
+  background-color: var(--color-black-40);
+  z-index: 1;
+}
+
+.alert-and-modal.is-active {
+  display: block;
+}
+
+.alert-and-modal form {
+  width: 400px;
+  height: 228px;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-primary);
+  box-shadow: var(--shadow);
+}
+
+.alert-and-modal form .modal-content {
+  margin-bottom: 32px;
+}
+
+.alert-and-modal form .modal-content .modal-title {
+  height: 24px;
+  margin-bottom: 24px;
+  font-size: var(--fs-body-regular);
+  font-weight: var(--fw-body);
+  font-style: normal;
+  line-height: var(--lh-body-regular);
+}
+
+.alert-and-modal form .modal-content .modal-body {
+  width: 100%;
+  height: 44px;
+  padding: 10px;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-primary);
+  color: var(--color-primary);
+}
+
+.alert-and-modal form .modal-content .modal-body::placeholder {
+  color: var(--color-primary-alt);
+  font-family: var(--ff-body);
+  font-size: var(--fs-body-regular);
+  font-weight: var(--fw-body);
+  font-style: normal;
+  line-height: var(--lh-body-regular);
+}
+
+#delete-payment-method-modal .modal-body {
+  background-color: var(--color-primary-alt-40);
+  border: none;
+}
+
+.alert-and-modal form .modal-btns {
+  height: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.alert-and-modal form .modal-btns > button {
+  width: 28px;
+  background-color: transparent;
+  border: none;
+  font-family: var(--ff-bold);
+  font-size: var(--fs-bold-large);
+  font-weight: var(--fw-bold);
+  font-style: normal;
+  line-height: var(--lh-bold-medium);
+  cursor: pointer;
+}
+
+.alert-and-modal form .modal-btns .cancel-btn {
+  width: 28px;
+  height: 24px;
+  color: var(--color-primary);
+}
+
+.alert-and-modal form .modal-btns .add-btn {
+  color: var(--color-secondary-yellow);
+}
+
+.alert-and-modal form .modal-btns .delete-btn {
+  color: var(--color-secondary-red);
+}

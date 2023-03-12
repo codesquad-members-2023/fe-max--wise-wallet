@@ -25,6 +25,12 @@
   height: 24px;
 }
 
+/* month carousel */
+.month-year__carousel__btn {
+  background-color: transparent;
+  border: none;
+}
+
 /* view tabs */
 .view-nav > fieldset {
   display: flex;
