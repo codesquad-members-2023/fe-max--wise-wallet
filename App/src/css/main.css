@@ -152,6 +152,9 @@
 }
 
 /* main */
+#main {
+  margin-bottom: 80px;
+}
 #main #main_wrapper {
   width: 848px;
   text-align: center;
@@ -300,6 +303,11 @@
   height: 35px;
   display: flex;
   align-items: center;
+}
+
+#main .uniqueKey,
+#main .isEditing {
+  display: none;
 }
 
 /* modal */

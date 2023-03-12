@@ -119,23 +119,6 @@ const custom_select_init = () => {
       });
     });
   });
-
-  // document.addEventListener("click", function (e) {
-  //   const targetElement = e.target;
-  //   const isSelect =
-  //     targetElement.classList.contains("select") ||
-  //     targetElement.closest(".select");
-
-  //   if (isSelect) {
-  //     return;
-  //   }
-
-  //   const allSelectBoxElements = document.querySelectorAll(".select");
-
-  //   allSelectBoxElements.forEach((boxElement) => {
-  //     boxElement.classList.remove("active");
-  //   });
-  // });
 };
 
 custom_select_init();

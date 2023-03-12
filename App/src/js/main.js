@@ -1,5 +1,6 @@
-import { input_bar_event } from "./inputBar/index.js";
+import { inputBarInit } from "./inputBar/index.js";
 import { localStorageInit } from "./localStorage/index.js";
+import { mainInit } from "./main/index.js";
 
 // get Date
 const get_date_element = () => {
@@ -103,9 +104,10 @@ const init = () => {
   });
 
   price_checkbox.addEventListener("click", change_ul);
-  input_bar_event();
+  inputBarInit();
   localStorageInit();
 
+  mainInit();
   setNow();
 };
 
