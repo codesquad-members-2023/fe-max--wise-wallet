@@ -1,0 +1,265 @@
+.main_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 848px;
+  height: 32px;
+  margin: 48px 0 28px 0;
+  z-index: 1;
+}
+
+.history_info {
+  display: flex;
+}
+
+#total_history_info {
+  color: #524d90;
+  width: auto;
+  height: 32px;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 32px;
+}
+
+#total_history_count {
+  margin-left: 8px;
+  color: #524d90;
+  width: auto;
+  height: 32px;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 32px;
+}
+
+.history_info {
+  display: flex;
+}
+
+#total_history_info {
+  color: #524D90;
+  width: auto;
+  height: 32px;
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 32px;
+}
+
+#total_history_count {
+  margin-left: 8px;
+  color: #524D90;
+  width: auto;
+  height: 32px;
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 32px;
+}
+
+.history_info {
+  display: flex;
+}
+
+#total_history_info {
+  color: #524D90;
+  width: auto;
+  height: 32px;
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 32px;
+}
+
+#total_history_count {
+  margin-left: 8px;
+  color: #524D90;
+  width: auto;
+  height: 32px;
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 32px;
+}
+
+.total_history_check_total_price {
+  display: flex;
+  justify-content: space-between;
+  color: #524d90;
+  color: #524D90;
+}
+
+.income_history {
+  display: flex;
+  justify-content: space-between;
+}
+
+#income_text {
+  width: 119px;
+  height: 24px;
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+#income_text {
+  width: 119px;
+  height: 24px;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.expenses_history {
+  display: flex;
+  justify-content: space-between;
+}
+
+#expenses_text {
+  width: 119px;
+  height: 24px;
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+#expenses_text {
+  width: 119px;
+  height: 24px;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.main_section {
+  width: 846px;
+  height: auto;
+  overflow: hidden;
+  left: 297px;
+  top: 152px;
+  z-index: 1;
+}
+
+.main_section_container {
+  width: 846px;
+  height: auto;
+  overflow: hidden;
+}
+
+.transaction_history_header {
+  display: flex;
+  justify-content: space-between;
+  color: #524d90;
+}
+
+.history_date {
+  display: flex;
+  justify-content: space-between;
+}
+
+.history_date {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* #transaction_date {
+/* #transaction_date {
+  padding-left: 15px;
+} */
+
+#transaction_day {
+  color: #A79FCB;
+}
+
+#total_price {
+  text-align: right;
+  padding-right: 15px;
+  color: #A79FCB;
+}
+
+.main_details {
+  width: 846px;
+  height: 64px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#main_category {
+  margin: 16px;
+  padding: 4px 8px;
+  margin: 16px;
+  padding: 4px 8px;
+  width: 92px;
+  height: 32px;
+  color: #fcfcfc;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+  background-color: #d092e2;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#main_details_text {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  align-items: center;
+  margin: 20px 0 20px 0;
+  width: 320px;
+  height: 24px;
+  color: #524d90;
+}
+
+#main_means {
+  width: 120px;
+  height: 24px;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  color: #a79fcb;
+}
+
+#main_price {
+  margin-right: 16px;
+  margin-right: 16px;
+  width: 234px;
+  height: 22px;
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  text-align: right;
+  color: #e75b3f;
+}

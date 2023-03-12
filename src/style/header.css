@@ -1,0 +1,57 @@
+.header_container_contents {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 846px;
+  height: 96px;
+  margin: 40px 0 26px 0;
+  z-index: 1;
+  color: #fcfcfc;
+}
+
+#header_title_logo {
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 24px;
+}
+
+.header_monthYear_info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#header_monthYear_text {
+  text-align: center;
+}
+
+#monthYear_text_year {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+#monthYear_text_month_number {
+  font-family: "Outfit";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 56px;
+}
+
+#monthYear_text_month_char {
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.header_tab {
+  display: flex;
+  justify-content: space-between;
+}
