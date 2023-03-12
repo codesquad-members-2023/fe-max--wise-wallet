@@ -6,25 +6,24 @@ export const addPaymentClickEvent = (select) => {
     const $ul = e.target.closest("ul");
     $add_option_modal.showModal();
 
-    const modal_form = $add_option_modal.querySelector("form");
-    const modal_input = $add_option_modal.querySelector("input");
+    const $confirm_btn = $add_option_modal.querySelector(".confirm_btn");
+    const $cancel_btn = $add_option_modal.querySelector(".cancel_btn");
+
+    const $input = $add_option_modal.querySelector("input");
 
     // 확인 버튼
-    modal_form.addEventListener("submit", (event) => {
-      if (modal_input.value == "") {
-        event.preventDefault();
-        modal_input.focus();
+    $confirm_btn.addEventListener("click", (event) => {
+      if ($input.value == "") {
+        $input.focus();
       } else {
-        const new_option = createOption(modal_input.value);
+        const new_option = createOption($input.value);
         $ul.prepend(new_option);
-        modal_input.value = "";
+        $input.value = "";
       }
     });
 
-    const cancel_btn = document.querySelector("#add_option_modal .cancel_btn");
-
     // 취소 버튼
-    cancel_btn.addEventListener("click", () => {
+    $cancel_btn.addEventListener("click", () => {
       $add_option_modal.close();
     });
   });
