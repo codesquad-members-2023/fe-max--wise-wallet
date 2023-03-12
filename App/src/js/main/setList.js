@@ -55,8 +55,8 @@ export const setList = (array) => {
             </td>
           </tr>`;
     });
-    const date = key;
 
+    const date = key;
     const year = date.slice(0, 4);
     const month = date.slice(4, 6);
     const day = date.slice(6, 8);
@@ -93,9 +93,9 @@ export const setList = (array) => {
             </div>
           </td>
         </tr>`;
+
     $tbody.innerHTML += info_tr;
     $tbody.innerHTML += list_tr;
-    // 그냥 tr을 하나하나 넣고 마지막에 헤드를 맨앞에 넣으면 어떨가?
   });
 
   return $tbody;

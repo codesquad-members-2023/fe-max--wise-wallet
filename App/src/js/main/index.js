@@ -9,6 +9,7 @@ export const mainInit = () => {
   const value = getLocalStorage();
   const $th = setTh(value);
   const $tbody = setList(value);
+
   $tbody.prepend($th);
   $main_history_list.appendChild($tbody);
 };

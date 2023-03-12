@@ -9,7 +9,6 @@ export const setLocalStorage = () => {
   const content = document.getElementById("input_content");
   const payment = document.getElementById("payment_value");
   const category_select = document.getElementById("category_value");
-
   const obj = {
     uniqueKey: uniqueKey,
     date: date.value,
@@ -19,6 +18,7 @@ export const setLocalStorage = () => {
     payment: payment.value,
     category_select: category_select.value,
   };
+
   localStorage.setItem(uniqueKey, JSON.stringify(obj));
   resetInputBar(date, price, isPositive, content, payment, category_select);
   mainInit();

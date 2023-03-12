@@ -17,11 +17,10 @@ export const removePaymentClickEvent = (select) => {
     const $selectBox = $this.closest(".select");
     const $selected_value = $selectBox.querySelector(".selected-value");
     const $selected_text = $selectBox.querySelector(".selected_text");
-
-    $input.value = text;
-
     const $confirm_btn = $remove_option_modal.querySelector(".confirm_btn");
     const $cancel_btn = $remove_option_modal.querySelector(".cancel_btn");
+
+    $input.value = text;
 
     // 삭제 버튼
     $confirm_btn.addEventListener("click", () => {

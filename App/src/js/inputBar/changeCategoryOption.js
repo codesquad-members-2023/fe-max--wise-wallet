@@ -34,14 +34,20 @@ export const changeCategoryOption = () => {
   const $category_select = document.getElementById("category_select");
   const $price_toggle = document.getElementById("price_toggle").checked;
   const $drop_menu = document.getElementById("drop_menu");
+  const $selected_value = $category_select.querySelector(".selected-value");
+  const $selected_text = $category_select.querySelector(".selected_text");
   const $ul = document.createElement("ul");
   $ul.id = "drop_menu";
 
   $price_toggle
     ? ($ul.innerHTML = expenditure_li)
     : ($ul.innerHTML = income_li);
+
   if ($drop_menu !== null) {
     $category_select.removeChild($drop_menu);
   }
   $category_select.appendChild($ul);
+
+  $selected_value.textContent = "선택하세요";
+  $selected_text.value = "";
 };

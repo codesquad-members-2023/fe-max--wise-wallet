@@ -4,10 +4,9 @@ export const createOption = (value) => {
         class="remove_option_btn reset-btn"
         type="button"
       ></button>`;
-
   const $new_li = document.createElement("li");
-  $new_li.innerHTML = element;
 
+  $new_li.innerHTML = element;
   $new_li.classList.add("add-option");
   $new_li.classList.add("body-regular");
   return $new_li;
