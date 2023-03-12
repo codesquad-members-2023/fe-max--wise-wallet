@@ -14,11 +14,49 @@
   border-radius: 8px;
 }
 
-.separator {
+.input_bar .separator {
   padding: 0 24px;
   border-left: 1px solid #524d90;
 }
 
+#input_bar_date {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 137px;
+  height: 76px;
+}
+
+#input_bar_price {
+  width: 183px;
+  height: 76px;
+}
+
+#input_bar_memo {
+  width: 213px;
+  height: 76px;
+}
+
+#input_bar_payment {
+  width: 149px;
+  height: 76px;
+}
+
+#input_bar_category {
+  width: 212px;
+  height: 76px;
+}
+
 .price_container {
   float: left;
+}
+
+#change_btn {
+  border: 0;
+  background-color: transparent;
+}
+
+#input_bar_check {
+  border: 0;
+  background-color: transparent;
 }

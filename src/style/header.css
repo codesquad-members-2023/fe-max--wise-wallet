@@ -10,6 +10,8 @@
 }
 
 #header_title_logo {
+  width: 132px;
+  height: 24px;
   font-family: "Outfit";
   font-style: normal;
   font-weight: 400;
@@ -18,12 +20,16 @@
 }
 
 .header_monthYear_info {
+  width: 232px;
+  height: 96px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 #header_monthYear_text {
+  width: 120px;
+  height: 96px;
   text-align: center;
 }
 
@@ -52,6 +58,9 @@
 }
 
 .header_tab {
+  width: 132px;
+  height: 44px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
