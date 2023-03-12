@@ -1,3 +1,5 @@
+import { plusMinusInput } from "./amount-input.js";
+
 //- Payment Method Dropdown Nodes
 const paymentMethodDropdown = document.querySelector(
   "#payment-method-dropdown"
@@ -12,9 +14,17 @@ const paymentMethodInputDisplay = paymentMethodDropdown.querySelector(
 
 //- Category Dropdown Nodes
 const categoryDropdown = document.querySelector("#category-dropdown");
-const categoryOptionsContainer = categoryDropdown.nextElementSibling;
-const categoryOptions = categoryOptionsContainer.querySelectorAll(".option");
-const categoryInputDisplay = categoryDropdown.querySelector(
+const categoryOptionsContainerExpense = document.querySelector(
+  "#category-dropdown ~ .expense"
+);
+const categoryOptionsContainerIncome = document.querySelector(
+  "#category-dropdown ~ .income"
+);
+const categoryOptionsExpense =
+  categoryOptionsContainerExpense.querySelectorAll(".option");
+const categoryOptionsIncome =
+  categoryOptionsContainerIncome.querySelectorAll(".option");
+export const categoryInputDisplay = categoryDropdown.querySelector(
   ".input-bar__item-input"
 );
 
@@ -46,12 +56,16 @@ window.addEventListener("click", (evt) => {
     !paymentMethodDropdown.contains(el) &&
     !paymentMethodOptionsContainer.contains(el) &&
     !categoryDropdown.contains(el) &&
-    !categoryOptionsContainer.contains(el) &&
+    // !categoryOptionsContainer.contains(el) &&
+    !categoryOptionsContainerExpense.contains(el) &&
+    !categoryOptionsContainerIncome.contains(el) &&
     !el?.classList.contains(".option-delete-btn") &&
     !el?.parentElement?.classList.contains("option-delete-btn")
   ) {
     paymentMethodOptionsContainer.classList.remove("is-active");
-    categoryOptionsContainer.classList.remove("is-active");
+    // categoryOptionsContainer.classList.remove("is-active");
+    categoryOptionsContainerExpense.classList.remove("is-active");
+    categoryOptionsContainerIncome.classList.remove("is-active");
   }
 
   //- Close modal
@@ -62,7 +76,8 @@ window.addEventListener("click", (evt) => {
 
 //- Payment Method Dropdown
 paymentMethodDropdown.addEventListener("click", () => {
-  categoryOptionsContainer.classList.remove("is-active");
+  categoryOptionsContainerExpense.classList.remove("is-active");
+  categoryOptionsContainerIncome.classList.remove("is-active");
   paymentMethodOptionsContainer.classList.toggle("is-active");
 });
 
@@ -144,15 +159,22 @@ deletePaymentMethodCancelBtn.addEventListener("click", () => {
 //- Category Dropdown
 categoryDropdown.addEventListener("click", () => {
   paymentMethodOptionsContainer.classList.remove("is-active");
-  categoryOptionsContainer.classList.toggle("is-active");
+  if (plusMinusInput.checked) {
+    categoryOptionsContainerExpense.classList.remove("is-active");
+    categoryOptionsContainerIncome.classList.add("is-active");
+  } else {
+    categoryOptionsContainerIncome.classList.remove("is-active");
+    categoryOptionsContainerExpense.classList.add("is-active");
+  }
 });
 
 //- Category Option
-categoryOptions.forEach((opt) => {
+[...categoryOptionsExpense, ...categoryOptionsIncome].forEach((opt) => {
   opt.addEventListener("click", () => {
     const selectedOption = opt.dataset.value;
     categoryInputDisplay.innerText = selectedOption;
     categoryInputDisplay.style.color = "var(--color-primary)";
-    categoryOptionsContainer.classList.remove("is-active");
+    categoryOptionsContainerExpense.classList.remove("is-active");
+    categoryOptionsContainerIncome.classList.remove("is-active");
   });
 });
