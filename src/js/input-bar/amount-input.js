@@ -1,6 +1,8 @@
-import { categoryInputDisplay } from "./dropdown.js";
+import { categoryInput } from "./dropdown.js";
 
-const amountInput = document.querySelector(".input-bar__item-input#amount");
+export const amountInput = document.querySelector(
+  ".input-bar__item-input#amount"
+);
 export const plusMinusInput = document.querySelector("#plus-minus-input");
 
 amountInput.addEventListener("input", () => {
@@ -9,6 +11,6 @@ amountInput.addEventListener("input", () => {
 });
 
 plusMinusInput.addEventListener("change", () => {
-  categoryInputDisplay.innerText = "선택하세요";
-  categoryInputDisplay.style.color = "var(--color-primary-alt)";
+  categoryInput.value = "선택하세요";
+  categoryInput.style.color = "var(--color-primary-alt)";
 });

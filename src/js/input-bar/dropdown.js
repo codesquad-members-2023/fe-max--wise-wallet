@@ -8,7 +8,7 @@ const paymentMethodOptionsContainer = paymentMethodDropdown.nextElementSibling;
 const addPaymentMethodOption = paymentMethodOptionsContainer.querySelector(
   "#add-payment-method-option"
 );
-const paymentMethodInputDisplay = paymentMethodDropdown.querySelector(
+const paymentMethodInput = paymentMethodDropdown.querySelector(
   ".input-bar__item-input"
 );
 
@@ -24,7 +24,7 @@ const categoryOptionsExpense =
   categoryOptionsContainerExpense.querySelectorAll(".option");
 const categoryOptionsIncome =
   categoryOptionsContainerIncome.querySelectorAll(".option");
-export const categoryInputDisplay = categoryDropdown.querySelector(
+export const categoryInput = categoryDropdown.querySelector(
   ".input-bar__item-input"
 );
 
@@ -98,14 +98,14 @@ paymentMethodOptionsContainer.addEventListener("click", (evt) => {
   if (el.tagName === "SPAN") {
     //- Open Payment Method Modal
     if (paymentMethod === "추가하기") {
-      paymentMethodInputDisplay.innerText = "선택하세요";
-      paymentMethodInputDisplay.style.color = "var(--color-primary-alt)";
+      paymentMethodInput.value = "선택하세요";
+      paymentMethodInput.style.color = "var(--color-primary-alt)";
       newPaymentMethodModal.classList.add("is-active");
       return;
     }
 
-    paymentMethodInputDisplay.innerText = paymentMethod;
-    paymentMethodInputDisplay.style.color = "var(--color-primary)";
+    paymentMethodInput.value = paymentMethod;
+    paymentMethodInput.style.color = "var(--color-primary)";
     paymentMethodOptionsContainer.classList.remove("is-active");
   }
 });
@@ -172,8 +172,8 @@ categoryDropdown.addEventListener("click", () => {
 [...categoryOptionsExpense, ...categoryOptionsIncome].forEach((opt) => {
   opt.addEventListener("click", () => {
     const selectedOption = opt.dataset.value;
-    categoryInputDisplay.innerText = selectedOption;
-    categoryInputDisplay.style.color = "var(--color-primary)";
+    categoryInput.value = selectedOption;
+    categoryInput.style.color = "var(--color-primary)";
     categoryOptionsContainerExpense.classList.remove("is-active");
     categoryOptionsContainerIncome.classList.remove("is-active");
   });
