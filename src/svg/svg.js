@@ -94,3 +94,22 @@ const closed = `
 <path d="M7.75732 16.2426L16.2426 7.75736" stroke="#524D90" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
 `;
+
+// checked 버튼 svg 코드
+const checked = `
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="2" y="2" width="20" height="20" rx="5" fill="#524D90"/>
+<path d="M17 9L10.125 15.6667L7 12.6364" stroke="#FCFCFC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+`;
+const svgIncomeCheck = document.getElementById("income_checkbox");
+svgIncomeCheck.innerHTML = checked;
+const svgExpensesCheck = document.getElementById("expenses_checkbox");
+svgExpensesCheck.innerHTML = checked;
+
+// unchecked 버튼 svg 코드
+const unchecked = `
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="2.75" y="2.75" width="18.5" height="18.5" rx="4.25" stroke="#524D90" stroke-width="1.5"/>
+</svg>
+`;

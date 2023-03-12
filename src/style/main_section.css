@@ -8,81 +8,11 @@
   z-index: 1;
 }
 
-.history_info {
-  display: flex;
-}
-
-#total_history_info {
+#total_history_count {
   color: #524d90;
   width: auto;
   height: 32px;
   font-family: "Pretendard";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 22px;
-  line-height: 32px;
-}
-
-#total_history_count {
-  margin-left: 8px;
-  color: #524d90;
-  width: auto;
-  height: 32px;
-  font-family: "Pretendard";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 22px;
-  line-height: 32px;
-}
-
-.history_info {
-  display: flex;
-}
-
-#total_history_info {
-  color: #524D90;
-  width: auto;
-  height: 32px;
-  font-family: 'Pretendard';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 22px;
-  line-height: 32px;
-}
-
-#total_history_count {
-  margin-left: 8px;
-  color: #524D90;
-  width: auto;
-  height: 32px;
-  font-family: 'Pretendard';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 22px;
-  line-height: 32px;
-}
-
-.history_info {
-  display: flex;
-}
-
-#total_history_info {
-  color: #524D90;
-  width: auto;
-  height: 32px;
-  font-family: 'Pretendard';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 22px;
-  line-height: 32px;
-}
-
-#total_history_count {
-  margin-left: 8px;
-  color: #524D90;
-  width: auto;
-  height: 32px;
-  font-family: 'Pretendard';
   font-style: normal;
   font-weight: 500;
   font-size: 22px;
@@ -93,7 +23,11 @@
   display: flex;
   justify-content: space-between;
   color: #524d90;
-  color: #524D90;
+}
+
+.main_header .check {
+  border: 0;
+  background-color: transparent;
 }
 
 .income_history {
@@ -111,16 +45,6 @@
   line-height: 24px;
 }
 
-#income_text {
-  width: 119px;
-  height: 24px;
-  font-family: "Pretendard";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 24px;
-}
-
 .expenses_history {
   display: flex;
   justify-content: space-between;
@@ -130,16 +54,6 @@
   width: 119px;
   height: 24px;
   font-family: 'Pretendard';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 24px;
-}
-
-#expenses_text {
-  width: 119px;
-  height: 24px;
-  font-family: "Pretendard";
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
@@ -172,15 +86,6 @@
   display: flex;
   justify-content: space-between;
   color: #524d90;
-}
-
-.details_list {
-  border-collapse: collapse;
-}
-
-.history_date {
-  display: flex;
-  justify-content: space-between;
 }
 
 .history_date {
