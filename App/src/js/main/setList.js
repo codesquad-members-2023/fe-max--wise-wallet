@@ -26,7 +26,6 @@ export const setList = (array) => {
         obj.isPositive ? `income` : `expenditure`
       }_tr">
             <td>
-              <input class="uniqueKey" value="${obj.uniqueKey}" />
               <input class="isEditing" type="checkbox" />
               <div
                 class="history_category ${getBgColor(
@@ -50,7 +49,8 @@ export const setList = (array) => {
                 <div class="history_price body-medium secondary-red">
                 <div class="price_text">
                 ${addComma(obj.price)} 원</div>
-                <div class="cancel">삭제하기</div>
+                <button class="remove reset-btn">삭제하기</button>
+                <input class="uniqueKey" value="${obj.uniqueKey}" />
                 </div>
             </td>
           </tr>`;

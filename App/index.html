@@ -220,52 +220,78 @@
             <!-- 내용이 출력되는 곳  -->
           </table>
         </div>
-        <dialog id="add_option_modal" class="payment_modal">
-          <form method="dialog">
-            <h2 class="modal_tite body-regular">
-              추가하실 결제수단을 적어주세요.
-            </h2>
+        <!-- modal -->
+        <div>
+          <dialog id="add_option_modal" class="payment_modal">
+            <form method="dialog">
+              <h2 class="modal_tite body-regular">
+                추가하실 결제수단을 적어주세요.
+              </h2>
 
-            <input type="text" class="modal_input body-regular" value="" />
-            <menu>
-              <button
-                class="cancel_btn reset-btn bold-large primary"
-                value="cancel"
-              >
-                취소
-              </button>
-              <button
-                class="confirm_btn reset-btn bold-large secondary-yellow"
-                value="default"
-              >
-                등록
-              </button>
-            </menu>
-          </form>
-        </dialog>
+              <input type="text" class="modal_input body-regular" value="" />
+              <menu>
+                <button
+                  class="cancel_btn reset-btn bold-large primary"
+                  value="cancel"
+                >
+                  취소
+                </button>
+                <button
+                  class="confirm_btn reset-btn bold-large secondary-yellow"
+                  value="default"
+                >
+                  등록
+                </button>
+              </menu>
+            </form>
+          </dialog>
 
-        <dialog id="remove_option_modal" class="payment_modal">
-          <form method="dialog">
-            <h2 class="modal_tite body-regular">
-              해당 결제수단을 삭제하시겠습니까?
-            </h2>
-            <input type="text" class="modal_input body-regular" disabled />
-            <menu>
-              <button
-                class="cancel_btn reset-btn bold-large primary"
-                value="cancel"
-              >
-                취소
-              </button>
-              <button
-                class="confirm_btn reset-btn bold-large secondary-red"
-                value="default"
-              >
-                삭제
-              </button>
-            </menu>
-          </form>
-        </dialog>
+          <dialog id="remove_option_modal" class="payment_modal">
+            <form method="dialog">
+              <h2 class="modal_tite body-regular">
+                해당 결제수단을 삭제하시겠습니까?
+              </h2>
+              <input type="text" class="modal_input body-regular" disabled />
+              <menu>
+                <button
+                  class="cancel_btn reset-btn bold-large primary"
+                  value="cancel"
+                >
+                  취소
+                </button>
+                <button
+                  class="confirm_btn reset-btn bold-large secondary-red"
+                  value="default"
+                >
+                  삭제
+                </button>
+              </menu>
+            </form>
+          </dialog>
+
+          <dialog id="remove_list_modal" class="payment_modal">
+            <form method="dialog">
+              <h2 class="modal_tite body-regular">
+                아래 내역을 삭제하시겠습니까?
+              </h2>
+              <div id="remove_list_modal_text"></div>
+              <menu>
+                <button
+                  class="cancel_btn reset-btn bold-large primary"
+                  value="cancel"
+                >
+                  취소
+                </button>
+                <button
+                  class="confirm_btn reset-btn bold-large secondary-red"
+                  value="default"
+                >
+                  삭제
+                </button>
+              </menu>
+            </form>
+          </dialog>
+        </div>
       </main>
     </div>
   </body>

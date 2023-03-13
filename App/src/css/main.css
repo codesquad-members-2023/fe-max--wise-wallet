@@ -272,19 +272,23 @@
   align-items: center;
 }
 
-#main .cancel {
+#main .remove {
   display: none;
   margin: 0 0 0 10px;
   padding: 4px 8px;
   border: 1px solid var(--color-secondary-red);
   border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-secondary-red);
 }
 
-#main .cancel::before {
+#main .remove::before {
   display: inline-block;
   content: "\00d7";
-  font-size: 15pt;
+  font-size: 20pt;
   margin: 0 5px;
+  color: var(--color-secondary-red);
 }
 
 #main .list_tr {
@@ -295,12 +299,12 @@
   background-color: #ffffff;
 }
 
-#main .list_tr:hover .cancel {
-  display: initial;
+#main .list_tr:hover .remove {
+  display: flex;
 }
 
 #main .price_text {
-  height: 35px;
+  height: 40px;
   display: flex;
   align-items: center;
 }
@@ -349,4 +353,8 @@
 
 #remove_option_modal input {
   background-color: var(--color-primary-alt-40);
+}
+
+#remove_list_modal_text p {
+  color: var(--color-primary);
 }

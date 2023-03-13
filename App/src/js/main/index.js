@@ -1,4 +1,5 @@
 import { getLocalStorage } from "../localStorage/getLocalStorage.js";
+import { removeBtn } from "./removeBtnClickEvent.js";
 import { removeList } from "./removeList.js";
 import { setList } from "./setList.js";
 import { setTh } from "./setTh.js";
@@ -12,4 +13,8 @@ export const mainInit = () => {
 
   $tbody.prepend($th);
   $main_history_list.appendChild($tbody);
+
+  const $removeBtn = document.querySelectorAll("#main .remove");
+
+  $removeBtn.forEach(removeBtn);
 };
