@@ -1,0 +1,87 @@
+@import "reset.css";
+@import "variables.css";
+
+/* Font */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
+/* Components */
+@import "components/header.css";
+@import "components/input-bar.css";
+
+.body {
+    background-color: var(--color-off-white);
+}
+
+.display_small {
+    font-family: var(--font-family-display);
+    font-weight: var(--font-weight-display-small);
+    font-size: var(--font-size-display-small);
+    line-height: var(--line-height-display-small);
+    color: var(--color-white);
+}
+
+.display_large {
+    font-family: var(--font-family-display);
+    font-weight: var(--font-weight-display-large);
+    font-size: var(--font-size-display-large);
+    line-height: var(--line-height-display-large);
+    color: var(--color-white);
+}
+
+.body_regular {
+    font-family: var(--font-family-body);
+    font-weight: var(--font-weight-body);
+    font-size: var(--font-size-body-regular);
+    line-height: var(--line-height-body-regular);
+    color: var(--color-primary);
+}
+
+.body_medium {
+    font-family: var(--font-family-body);
+    font-weight: var(--font-weight-body);
+    font-size: var(--font-size-body-medium);
+    line-height: var(--line-height-body-medium);
+    color: var(--color-primary);
+}
+
+.body_large {
+    font-family: var(--font-family-body);
+    font-weight: var(--font-weight-body);
+    font-size: var(--font-size-body-large);
+    line-height: var(--line-height-body-large);
+    color: var(--color-primary);
+}
+
+.bold_small {
+    font-family: var(--font-family-bold);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-bold-small);
+    line-height: var(--line-height-bold-small);
+    color: var(--color-white);
+}
+
+.bold_medium {
+    font-family: var(--font-family-bold);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-bold-medium);
+    line-height: var(--line-height-bold-medium);
+    color: var(--color-primary);
+}
+
+.bold_large {
+    font-family: var(--font-family-bold);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-bold-large);
+    line-height: var(--line-height-bold-large);
+    color: var(--color-primary);
+}
+
+.tap-page {
+    display: flex;
+    justify-content: center;
+}
+
+.display-none {
+    display: none;
+}

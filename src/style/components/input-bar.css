@@ -1,0 +1,133 @@
+.input-bar {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    position: absolute;
+    top: 162px;
+    height: 76px;
+    width: 894px;
+    border: 1px solid var(--color-primary);
+    border-radius: 8px;
+    background-color: var(--color-white);
+}
+
+.bar-seperator {
+    width: 1px;
+    height: 44px;
+    background-color: var(--color-primary);
+}
+
+.bar-date, .bar-amount, .bar-description, .bar-payments {
+    height: 44px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bar-date label,
+.bar-amount label,
+.bar-description label,
+.bar-payments label,
+.bar-category label {
+    margin-bottom: 4px;
+    color: var(--color-primary-alt);
+}
+
+.amount-section, .payments-section, .bar-category {
+    display: flex;
+}
+
+.input-box {
+    height: 24px;
+    font-family: var(--font-family-body);
+    font-weight: var(--font-weight-body);
+    font-size: var(--font-size-body-regular);
+    line-height: var(--line-height-body-regular);
+    color: var(--color-primary);
+    background-color: var(--color-white);
+    border: none;
+}
+
+.input-box::placeholder {
+    font-family: var(--font-family-body);
+    font-weight: var(--font-weight-body);
+    font-size: var(--font-size-body-regular);
+    color: var(--color-primary-alt);
+}
+
+.bar-date label, .bar-date input {
+    width: 88px;
+}
+
+.bar-amount label, .amount-section {
+    width: 134px;
+}
+
+.amount-btn {
+    margin: 0px;
+    width: 24px;
+    height: 24px;
+}
+
+.amount-section input:nth-child(2) {
+    margin: 0px 8px;
+    width: 78px;
+    text-align: right;
+}
+
+.bar-description .bar-category {
+    width: 212px;
+    height: 76px;
+}
+
+.bar-description label, .bar-description input {
+    width: 164px;
+}
+
+.payments-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.bar-payments label,
+.bar-category label,
+.payments-section {
+    width: 100px;
+}
+
+.bar-category {
+    display: flex;
+}
+
+.dropbox-category {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.payments-section span, .category-section span {
+    width: 80px;
+    color: var(--color-primary-alt)
+}
+
+.dropbox-btn {
+    margin-left: 4px;
+    width: 16px;
+    height: 16px;
+    rotate: 90deg;
+}
+
+.input-bar-btn {
+    margin-left: 24px;
+    height: 40px;
+    width: 40px;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-primary-alt);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
