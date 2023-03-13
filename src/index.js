@@ -3,7 +3,6 @@ import { initInputBarDate } from "./js/init/initInputBarDate.js";
 import { initDateDisplay } from "./js/init/initDateDisplay.js";
 import { initEventHandler } from "./js/init/initEventHandler.js";
 
-
 /* 파일분리 생각해두기 */
 
 /* 탭이동, 버튼 색 변경 */
@@ -23,20 +22,30 @@ chartBoard.addEventListener("click", function () {
 /* 셀렉트박스 변경*/
 const plusMinusBtn = document.querySelector("#plus-minus-btn");
 const incomeMember = document.querySelector(".income-member");
-
-// plusMinusBtn.addEventListener("click", function () {
-//   plusMinusBtn.checked
-//     ? incomeMember.classList.add("active")
-//     : incomeMember.classList.remove("active");
-// });
+const expenditureMember = document.querySelector(".category-list-member");
 
 /* 셀렉트박스리스트*/
 const categorySelectHead = document.querySelector(".category-select-head");
-const categoryListMember = document.querySelector(".category-list-member");
+
+const categorySelect = document.querySelector(".category-select");
 categorySelectHead.addEventListener("click", () => {
+  // console.log(plusMinusBtn.checked)
   categorySelectHead.classList.add("on");
+  if (plusMinusBtn.checked) {
+    // console.log(categorySelect.lastElementChild)
+    categorySelect.replaceChild(incomeMember,expenditureMember)
+  } else {
+    // .replaceChild(변경해줄 노드, 변경하는 노드);
+    categorySelect.replaceChild(expenditureMember,incomeMember)
+  }
 });
-categoryListMember.addEventListener("click", (event) => {
+expenditureMember.addEventListener("click", (event) => {
+  if (event.target.nodeName === "BUTTON") {
+    categorySelectHead.innerText = event.target.innerText;
+    categorySelectHead.classList.remove("on");
+  }
+});
+incomeMember.addEventListener("click", (event) => {
   if (event.target.nodeName === "BUTTON") {
     categorySelectHead.innerText = event.target.innerText;
     categorySelectHead.classList.remove("on");
@@ -170,29 +179,13 @@ disabled상태로 인풋을 락한다
 // });
 
 // /* 월 변화 */
-// const changeMonthHandler = (e) => {
-//   // console.log(e.currentTarget)
-//   if (e.currentTarget.classList.contains("previous-month-btn")) {
-//     // console.log(e.currentTarget);
-//   }
-// };
-
-// $All(".month-year-icon").forEach((element) => {
-//   element.addEventListener("click", (e) => {
-//     changeMonthHandler(e);
-//   });
-// });
-
-
 
 const init = () => {
-  initDateDisplay()
-  initInputBarDate()
-  initEventHandler()
-}
-document.addEventListener("DOMContentLoaded", init)
-
-
+  initDateDisplay();
+  initInputBarDate();
+  initEventHandler();
+};
+document.addEventListener("DOMContentLoaded", init);
 
 /* 
 한거

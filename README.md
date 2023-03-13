@@ -325,3 +325,9 @@ false이면(default 값) 핸들러는 버블링 단계에서 동작
 true이면 핸들러는 캡처링 단계에서 동작
 
 캡처링과 버블링 단계의 핸들러는 타깃 단계에서 트리거
+
+## 키 이벤트 작동 시점
+keypress(deprecated), keydown, keyup   
+키보드 이벤트(Keyboard Event)는 사용자가 키를 누르거나 키를 놓을 때 발생   
+키를 누를 때는 keydown 타입의 이벤트가 발생하고, 키를 놓을 때는 keyup 타입의 이벤트가 발생
+
