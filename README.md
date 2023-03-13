@@ -210,3 +210,34 @@ wcag 2.1 korean
 wcag legal
 
 aoda
+
+# 디버깅
+## 메소드찾기
+컨 + 쉬프트 + p
+## 요소 크기 측정
+컨 + 쉬프트 + p > ruler
+## scroll into view
+요소에 해당하는 화면으로 이동
+## force state
+상태 강제 : 호버 등
+## break on
+조건에 따라 멈추기
+ex 하위 요소가 바뀐다면~ 
+ex 해당 js코드로 이동 가능
+## node정보 파악
+요소 > 프로퍼티
+## 주변 노드 탐색 !
+elDiv.firstChild 첫번째 자식 `<ul></ul>`보여줌
+- 공백을 감지하기 때문에 #text로 들어온다
+elDiv.childNodes 자식의 자식 노드까진 찾지 못한다
+- [ul, text] 형태로 들어옴
+elDiv.firstElementChild
+- 텍스트 노드를 제외하고 엘리먼트 노드를 찾아준다
+
+## 노드 타입
+- 엘리먼트 노드 element_node = div, p
+- 텍스트 노드 text_node = attribute나 element의 텍스트
+nodeType을 통해 알 수 있음 
+1 = element 
+3 = texts
+## 노드 추가
