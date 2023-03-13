@@ -13,3 +13,5 @@
 - inputbar 입력기능 구현
 - 제출하기 버튼 활성화 기능추가
 - 제출한 내용을 바탕으로 기존 데이터를 수정하고 렌더링하기
+#### 세부사항
+- [x] Header, Logo, Carousel, Tabs 클래스 생성, init, render 구현
