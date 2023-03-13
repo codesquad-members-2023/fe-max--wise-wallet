@@ -13,7 +13,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 894px;
+    width: 846px;
     height: 96px;
     margin: 0 auto;
 }
@@ -57,10 +57,22 @@
 }
 .header .tab {
     display: flex;
-    justify-content: space-around;
     align-items: center;
     width: 132px;
     height: 44px;
+}
+
+.tab .tab-box {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    width: 44px;
+    height: 44px;
+}
+
+.tab-box img {
+    display: block;
+    margin: 0 auto;
 }
 
 body {
@@ -76,7 +88,7 @@ body {
     height: 76px;
     margin: auto;
 
-    background: var(--color-off-white);
+    background: var(--color-white);
     color: var(--color-primary-alt);
 
     border: 1px solid #524d90;
@@ -86,6 +98,19 @@ body {
 
     font-family: var(--font-family-bold);
 }
+
+/* .date::after,
+.category::after,
+.memo::after,
+.payment::after {
+    content: "";
+    display: block;
+    width: 1px;
+    height: 44px;
+    background-image: url("./img/line.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+} */
 
 .inputBar .labelText {
     font-weight: var(--font-weight-bold);
@@ -204,11 +229,20 @@ input ::placeholder {
     display: flex;
 }
 
+.input-select {
+    background-image: url("./img/downcheck.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin: auto;
+    width: 16px;
+    height: 16px;
+}
+
 .inputBar .price {
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    margin: 0 auto;
+    justify-content: space-evenly;
+
     width: 212px;
     height: 76px;
 }
@@ -217,7 +251,7 @@ input ::placeholder {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     width: 100px;
     height: 44px;
 }
@@ -230,6 +264,10 @@ input ::placeholder {
 #priceCheck {
     width: 40px;
     height: 40px;
+    background-image: url("./img/price-check.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    /* margin: 0 auto; */
 }
 
 main {
@@ -246,7 +284,7 @@ main {
     top: 16px;
 }
 
-.info .infoLeft {
+.info .info-left {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -264,7 +302,7 @@ main {
     color: #524d90;
 }
 
-.info .infoRight {
+.info .info-right {
     display: flex;
     /* align-items: center; */
     background-position: center;
@@ -273,20 +311,20 @@ main {
     height: 24px;
 }
 
-.info .infoInBox {
+.info .in-box {
     display: flex;
     /* align-items: center; */
     width: 151px;
     height: 24px;
 }
-.info .infoOutBox {
+.info .out-box {
     display: flex;
 
     width: 133px;
     height: 24px;
 }
 
-.info .infoInText {
+.info .in-text {
     font-family: "Pretendard";
     font-style: normal;
     font-weight: 500;
@@ -300,7 +338,7 @@ main {
     color: #524d90;
 }
 
-#inCheck {
+#in-check {
     /* display: none; */
 
     background-repeat: no-repeat;
@@ -324,7 +362,7 @@ main {
     color: #524d90;
 }
 
-#outCheck {
+#out-check {
     /* display: none; */
 
     background-repeat: no-repeat;
@@ -332,4 +370,133 @@ main {
     background-position: center center;
     width: 24px;
     height: 24px;
+}
+
+.list {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    top: 60px;
+    margin: 0 auto;
+    width: 846px;
+    height: 1352px;
+
+    boreder: none;
+}
+
+.list-box {
+}
+
+.list .list-info {
+    position: relative;
+
+    display: flex;
+    justify-content: space-between;
+    width: 846px;
+    height: 24px;
+}
+
+.list-info .date-day {
+    display: flex;
+    justify-content: space-between;
+    width: 73px;
+    height: 24px;
+
+    font-family: "Pretendard";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 24px;
+    color: #524d90;
+}
+
+.list-info .income {
+    display: flex;
+    justify-content: space-between;
+    width: 94px;
+    height: 24px;
+
+    font-family: "Pretendard";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 24px;
+    color: #a79fcb;
+}
+
+.list .list-detail {
+    position: relative;
+    top: 21px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+    width: 846px;
+    height: 64px;
+
+    border-top: 1px solid rgba(167, 159, 203, 0.4);
+    border-bottom: 1px solid rgba(167, 159, 203, 0.4);
+}
+
+.list-detail .name-box {
+    display: flex;
+    align-items: center;
+
+    width: 92px;
+    height: 32px;
+
+    background: #d092e2;
+    border-radius: 25px;
+}
+
+.name-box .detail-name {
+    width: 54px;
+    height: 24px;
+    margin: 0 auto;
+    font-family: "Pretendard";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 24px;
+
+    text-align: center;
+
+    color: #fcfcfc;
+}
+
+.list-detail .detail-text {
+    width: 320px;
+    height: 24px;
+    font-family: "Pretendard";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    color: #524d90;
+}
+
+.list-detail .detail-payment {
+    width: 120px;
+    height: 24px;
+
+    font-family: "Pretendard";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+
+    color: #a79fcb;
+}
+
+.list-detail .detail-total {
+    width: 234px;
+    height: 22px;
+    font-family: "Pretendard";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: right;
+    color: #e75b3f;
 }

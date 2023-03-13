@@ -25,14 +25,14 @@
                     <div class="date">
                         <div>2023</div>
                         <div id="month">2</div>
-                        <div>Feburary</div>
+                        <div>February</div>
                     </div>
                     <div><img src="./img/name=chevron-right.svg" alt="오른쪽" /></div>
                 </div>
                 <div class="tab">
-                    <div><img src="./img/doc.svg" alt="" /></div>
-                    <div><img src="./img/calendar.svg" alt="" /></div>
-                    <div><img src="./img/chart.svg" alt="" /></div>
+                    <div class="tab-box"><img src="./img/doc.svg" alt="" /></div>
+                    <div class="tab-box"><img src="./img/calendar.svg" alt="" /></div>
+                    <div class="tab-box"><img src="./img/chart.svg" alt="" /></div>
                 </div>
             </div>
         </header>
@@ -64,7 +64,7 @@
                         <div class="labelText">결제수단</div>
                         <div class="payDrop">
                             <div>선택하세요</div>
-                            <select name="payment"></select>
+                            <select class="input-select" name="payment"></select>
                         </div>
                     </div>
                 </div>
@@ -73,48 +73,50 @@
                         <div class="labelText">분류</div>
                         <div class="priceChoice">
                             <div>선택하세요</div>
-                            <select name="price"></select>
+                            <select class="input-select" name="price"></select>
                         </div>
                     </div>
                     <input id="priceCheck" type="checkbox" name="check" />
                 </div>
             </form>
             <section class="info">
-                <div class="infoLeft">
+                <div class="info-left">
                     <div class="infoTotal">전체 내역</div>
                     <div class="infoNumber">13건</div>
                 </div>
-                <div class="infoRight">
-                    <div class="infoInBox">
-                        <input id="inCheck" type="checkbox" name="check" />
-                        <div class="infoInText">수입</div>
+                <div class="info-right">
+                    <div class="in-box">
+                        <input id="in-check" type="checkbox" name="check" />
+                        <div class="in-text">수입</div>
                     </div>
-                    <div class="infoOutBox">
-                        <input id="outCheck" type="checkbox" name="check" />
+                    <div class="out-box">
+                        <input id="out-check" type="checkbox" name="check" />
                         <div class="infoOutText">지출</div>
                     </div>
                 </div>
             </section>
-            <!-- <section>
-                <div>
-                    <div class="info">
-                        <div class="dateDay">
+            <section class="list">
+                <div class="list-box">
+                    <div class="list-info">
+                        <div class="date-day">
                             <div class="date">3월 15일</div>
                             <div class="day">수</div>
                         </div>
                         <div class="income">
-                            <div>지출<div>
+                            <div>지출</div>
                             <div>원</div>
                         </div>
                     </div>
-                    <div class="detail">
-                        <span class="category">문화/여가</span>
-                        <div>내용에다 입력한 입력내용 그래용</div>
-                        <div>결제수단 입력내용</div>
-                        <div>계산된 가격</div>
+                    <div class="list-detail">
+                        <span class="name-box">
+                            <div class="detail-name">문화/여가</div>
+                        </span>
+                        <div class="detail-text">내용에다 입력한 입력내용 그래용</div>
+                        <div class="detail-payment">결제수단</div>
+                        <div class="detail-total">계산된 가격</div>
                     </div>
                 </div>
-            </section> -->
+            </section>
         </main>
         <footer></footer>
     </body>
