@@ -1,3 +1,10 @@
+let date = new Date();
+let year = date.getFullYear();
+let month = date.getMonth() + 1;
+
+document.getElementById("year").innerHTML = year;
+document.getElementById("month").innerHTML = month;
+
 // 월 이름 배열
 const monthNames = [
     "January",
@@ -15,7 +22,7 @@ const monthNames = [
 ];
 
 // 이전 달 버튼 클릭 이벤트 핸들러
-document.getElementById("prevMonth").addEventListener("click", function () {
+document.getElementById("prev-month").addEventListener("click", function () {
     let month = parseInt(document.getElementById("month").textContent);
     month--;
     if (month < 1) {
@@ -27,7 +34,7 @@ document.getElementById("prevMonth").addEventListener("click", function () {
 });
 
 // 다음 달 버튼 클릭 이벤트 핸들러
-document.getElementById("nextMonth").addEventListener("click", function () {
+document.getElementById("next-month").addEventListener("click", function () {
     let month = parseInt(document.getElementById("month").textContent);
     month++;
     if (month > 12) {

@@ -1,4 +1,4 @@
-.inputBar {
+.input-bar {
   position: relative;
   top: -32px;
 
@@ -17,21 +17,17 @@
   border-radius: 8px;
 }
 
-.inputBar .labelText {
-  font: var(--font-bold-small);
-}
-
-.inputBar .date,
-.inputBar .category,
-.inputBar .memo,
-.inputBar .payment {
+.input-bar .date,
+.input-bar .category,
+.input-bar .memo,
+.input-bar .payment {
   position: relative;
   height: 44px;
 }
 
-.inputBar .date::after,
-.inputBar .category::after,
-.inputBar .memo::after,
+.input-bar .date::after,
+.input-bar .category::after,
+.input-bar .memo::after,
 .inputBar .payment::after {
   content: "";
   position: absolute;
@@ -43,7 +39,7 @@
   transform: translateY(-50%);
 }
 
-.inputBar .date {
+.input-bar .date {
   display: flex;
   align-items: center;
 
@@ -51,7 +47,7 @@
   height: 76px;
 }
 
-.inputBar .dateText {
+.input-bar .date-text {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -60,7 +56,11 @@
   height: 44px;
 }
 
-#dateInput {
+.input-bar .label-text {
+  font: var(--font-bold-small);
+}
+
+#date-input {
   display: flex;
   align-items: center;
   /* margin: 0 auto; */
@@ -72,14 +72,14 @@
   color: #524d90;
 }
 
-.inputBar .category {
+.input-bar .category {
   display: flex;
   align-items: center;
   width: 183px;
   height: 76px;
 }
 
-.inputBar .categoryText {
+.input-bar .category-text {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -88,21 +88,21 @@
   height: 44px;
 }
 
-.inputBar .categoryInput {
+.input-bar .category-input {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
 }
 
-#categoryMinus {
+#category-minus {
   width: 24px;
   height: 24px;
   padding-right: 6px;
   padding-left: 6px;
 }
 
-#categoryPrice {
+#category-price {
   text-align: right;
   width: 78px;
   height: 24px;
@@ -110,19 +110,19 @@
   font: var(--font-body-regular);
 }
 
-#categoryPrice::placeholder {
+#category-price::placeholder {
   color: #a79fcb;
   font: var(--font-body-regular);
 }
 
-.inputBar .memo {
+.input-bar .memo {
   display: flex;
   align-items: center;
   width: 213px;
   height: 76px;
 }
 
-.inputBar .memoText {
+.input-bar .memo-text {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -141,14 +141,14 @@
   font: var(--font-body-regular);
 }
 
-.inputBar .payment {
+.input-bar .payment {
   display: flex;
   align-items: center;
   width: 149px;
   height: 76px;
 }
 
-.inputBar .paymentText {
+.input-bar .payment-text {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -157,7 +157,7 @@
   height: 44px;
 }
 
-.inputBar .payDrop {
+.input-bar .pay-drop {
   display: flex;
 }
 
@@ -170,7 +170,7 @@
   height: 16px;
 }
 
-.inputBar .price {
+.input-bar .price {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
@@ -179,7 +179,7 @@
   height: 76px;
 }
 
-.inputBar .priceText {
+.input-bar .price-text {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -188,12 +188,12 @@
   height: 44px;
 }
 
-.inputBar .priceChoice {
+.input-bar .price-choice {
   display: flex;
   justify-content: space-between;
 }
 
-#priceCheck {
+#price-check {
   width: 40px;
   height: 40px;
   background-image: url("./img/price-check.svg");

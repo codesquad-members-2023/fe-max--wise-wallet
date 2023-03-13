@@ -9,7 +9,7 @@
   color: #fcfcfc;
 }
 
-.header .headerBox {
+.header .header-box {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -22,7 +22,7 @@
   font: var(--font-display-small);
 }
 
-.header .monthYear {
+.header .month-year {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -30,7 +30,7 @@
   height: 96;
 }
 
-.header .monthYear .date {
+.month-year .date {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
