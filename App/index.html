@@ -22,7 +22,6 @@
     <link rel="stylesheet" href="./src/css/datepicker.css" />
     <link rel="stylesheet" href="./src/css/header.css" />
     <link rel="stylesheet" href="./src/css/main.css" />
-    <link rel="stylesheet" href="./src/css/calender.css" />
     <title>Wise wallet</title>
   </head>
   <body>
@@ -646,7 +645,7 @@
             <!-- 입출금 내역 -->
             <article id="history">
               <h2 class="blind">입출금 내역</h2>
-              <div class="history__info" >
+              <div class="history__info">
                 <h3 tabindex="0">전체내역<span>13</span>건</h3>
                 <ul aria-labelledby="income">
                   <li>
@@ -931,7 +930,7 @@
             <h1 class="blind">달력</h1>
             <table id="calender">
               <colgroup>
-                <col span="7"/>
+                <col span="7" />
               </colgroup>
               <thead>
                 <tr>
@@ -998,7 +997,163 @@
             role="tabpanel"
             aria-labelledby="tab-3"
             class="is-hidden">
-            <h1>통계</h1>
+            <h1 class="blind">통계</h1>
+            <article id="PieChartBoard">
+              <h2 class="blind">파이차트</h2>
+              <figure class="PieChartBoard__chart">
+                <div class="chart"></div>
+                <figcaption class="blind">차트 영역</figcaption>
+              </figure>
+              <article class="PieChartBoard__board">
+                <h3 class="blind">보드 영역</h3>
+                <dl>
+                  <dt>이번 달 지출 금액</dt>
+                  <dd>836,640원</dd>
+                </dl>
+                <ul class="board__info">
+                  <li class="info__item">
+                    <span class="category" data-category="0">생활</span>
+                    <span class="percent">64%</span>
+                    <span class="price">536,460원</span>
+                  </li>
+                  <li class="info__item">
+                    <span class="category" data-category="1">의료/건강</span>
+                    <span class="percent">15%</span>
+                    <span class="price">536,460원</span>
+                  </li>
+                  <li class="info__item">
+                    <span class="category" data-category="2">쇼핑/뷰티</span>
+                    <span class="percent">7%</span>
+                    <span class="price">536,460원</span>
+                  </li>
+                  <li class="info__item">
+                    <span class="category" data-category="3">교통</span>
+                    <span class="percent">6%</span>
+                    <span class="price">536,460원</span>
+                  </li>
+                  <li class="info__item">
+                    <span class="category" data-category="4">식비</span>
+                    <span class="percent">5%</span>
+                    <span class="price">536,460원</span>
+                  </li>
+                  <li class="info__item">
+                    <span class="category" data-category="5">문화/여가</span>
+                    <span class="percent">2%</span>
+                    <span class="price">536,460원</span>
+                  </li>
+                  <li class="info__item">
+                    <span class="category" data-category="6">미분류</span>
+                    <span class="percent">1%</span>
+                    <span class="price">536,460원</span>
+                  </li>
+                </ul>
+              </article>
+            </article>
+            <article id="graph">
+              <h3>생활 카테고리 소비 추이</h3>
+              <figure></figure>
+            </article>
+
+            <ul class="detail">
+              <li class="detail-item">
+                <article class="detail__date">
+                  <div class="date__header">
+                    <h4
+                      tabindex="0"
+                      aria-label="날짜 2월 17일 금요일"
+                      class="header__date-day">
+                      <span class="date">2월 17일</span
+                      ><span class="day">금</span>
+                    </h4>
+                    <dl tabindex="0" class="header__income-expenditure">
+                      <dt>수입</dt>
+                      <dd>2,000,000원</dd>
+                      <dt>지출</dt>
+                      <dd>9,500원</dd>
+                    </dl>
+                  </div>
+                  <div class="date__body">
+                    <ul class="body__list">
+                      <li tabindex="0" class="list__item">
+                        <span
+                          class="category"
+                          data-category="0"
+                          aria-label="생활 카테고리"
+                          >생활</span
+                        >
+                        <span
+                          class="body"
+                          aria-describedby="거래내용 칫솔 6개 세트, 치약 3개 세트"
+                          >칫솔 6개 세트, 치약 3개 세트</span
+                        >
+                        <span
+                          class="payment"
+                          aria-describedby="결제수단 비씨카드"
+                          >비씨카드</span
+                        >
+                        <span
+                          class="price"
+                          aria-describedby="소비 금액 36,460원"
+                          >-36,460원</span
+                        >
+                      </li>
+                      <li tabindex="0" class="list__item">
+                        <span class="category" data-category="1">식비</span>
+                        <span class="body">잔치국수와 김밥</span>
+                        <span class="payment">현대카드</span>
+                        <span class="price">-36,460원</span>
+                      </li>
+                    </ul>
+                  </div>
+                </article>
+              </li>
+              <li class="detail-item">
+                <article class="detail__date">
+                  <div class="date__header">
+                    <h4
+                      tabindex="0"
+                      aria-label="날짜 2월 17일 금요일"
+                      class="header__date-day">
+                      <span class="date">2월 17일</span
+                      ><span class="day">금</span>
+                    </h4>
+                    <dl tabindex="0" class="header__income-expenditure">
+                      <dt>수입</dt>
+                      <dd>2,000,000원</dd>
+                      <dt>지출</dt>
+                      <dd>9,500원</dd>
+                    </dl>
+                  </div>
+                  <div class="date__body">
+                    <ul class="body__list">
+                      <li tabindex="0" class="list__item">
+                        <span
+                          class="category"
+                          data-category="0"
+                          aria-label="생활 카테고리"
+                          >생활</span
+                        >
+                        <span
+                          class="body"
+                          aria-describedby="거래내용 칫솔 6개 세트, 치약 3개 세트"
+                          >칫솔 6개 세트, 치약 3개 세트</span
+                        >
+                        <span
+                          class="payment"
+                          aria-describedby="결제수단 비씨카드"
+                          >비씨카드</span
+                        >
+                        <span
+                          class="price"
+                          aria-describedby="소비 금액 36,460원"
+                          >-36,460원</span
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </article>
+              </li>
+            </ul>
           </div>
         </div>
       </main>
