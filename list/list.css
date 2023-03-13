@@ -1,0 +1,108 @@
+.list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  top: 60px;
+  margin: 0 auto;
+  width: 846px;
+  height: 1352px;
+
+  boreder: none;
+}
+
+.list-box {
+}
+
+.list .list-info {
+  position: relative;
+
+  display: flex;
+  justify-content: space-between;
+  width: 846px;
+  height: 24px;
+}
+
+.list-info .date-day {
+  display: flex;
+  justify-content: space-between;
+  width: 73px;
+  height: 24px;
+
+  font: var(--font-bold-medium);
+  color: #524d90;
+}
+
+.list-info .income {
+  display: flex;
+  justify-content: space-between;
+  width: 94px;
+  height: 24px;
+
+  font: var(--font-bold-medium);
+  color: #a79fcb;
+}
+
+.list .list-detail {
+  position: relative;
+  top: 21px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  width: 846px;
+  height: 64px;
+
+  border-top: 1px solid rgba(167, 159, 203, 0.4);
+  border-bottom: 1px solid rgba(167, 159, 203, 0.4);
+}
+
+.list-detail .name-box {
+  display: flex;
+  align-items: center;
+
+  width: 92px;
+  height: 32px;
+
+  background: #d092e2;
+  border-radius: 25px;
+}
+
+.name-box .detail-name {
+  width: 54px;
+  height: 24px;
+  margin: 0 auto;
+  font: var(--font-bold-medium);
+
+  text-align: center;
+
+  color: #fcfcfc;
+}
+
+.list-detail .detail-text {
+  width: 320px;
+  height: 24px;
+
+  font: var(--font-body-medium);
+
+  color: #524d90;
+}
+
+.list-detail .detail-payment {
+  width: 120px;
+  height: 24px;
+
+  font: var(--font-body-medium);
+
+  color: #a79fcb;
+}
+
+.list-detail .detail-total {
+  width: 234px;
+  height: 22px;
+
+  font: var(--font-body-medium);
+
+  text-align: right;
+  color: #e75b3f;
+}

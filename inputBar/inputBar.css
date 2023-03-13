@@ -1,0 +1,203 @@
+.inputBar {
+  position: relative;
+  top: -32px;
+
+  display: flex;
+  width: 894px;
+  height: 76px;
+  margin: auto;
+
+  background: var(--color-white);
+  color: var(--color-primary-alt);
+
+  border: 1px solid #524d90;
+
+  box-shadow: 0px 2px 2px rgba(82, 77, 144, 0.08),
+    0px 4px 4px rgba(82, 77, 144, 0.1);
+  border-radius: 8px;
+}
+
+.inputBar .labelText {
+  font: var(--font-bold-small);
+}
+
+.inputBar .date,
+.inputBar .category,
+.inputBar .memo,
+.inputBar .payment {
+  position: relative;
+  height: 44px;
+}
+
+.inputBar .date::after,
+.inputBar .category::after,
+.inputBar .memo::after,
+.inputBar .payment::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 1px;
+  height: 44px;
+  background-color: #524d90;
+  transform: translateY(-50%);
+}
+
+.inputBar .date {
+  display: flex;
+  align-items: center;
+
+  width: 137px;
+  height: 76px;
+}
+
+.inputBar .dateText {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 88px;
+  height: 44px;
+}
+
+#dateInput {
+  display: flex;
+  align-items: center;
+  /* margin: 0 auto; */
+
+  width: 88px;
+  height: 24px;
+
+  font: var(--font-body-regular);
+  color: #524d90;
+}
+
+.inputBar .category {
+  display: flex;
+  align-items: center;
+  width: 183px;
+  height: 76px;
+}
+
+.inputBar .categoryText {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 134px;
+  height: 44px;
+}
+
+.inputBar .categoryInput {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+#categoryMinus {
+  width: 24px;
+  height: 24px;
+  padding-right: 6px;
+  padding-left: 6px;
+}
+
+#categoryPrice {
+  text-align: right;
+  width: 78px;
+  height: 24px;
+  color: var(--color-primary);
+  font: var(--font-body-regular);
+}
+
+#categoryPrice::placeholder {
+  color: #a79fcb;
+  font: var(--font-body-regular);
+}
+
+.inputBar .memo {
+  display: flex;
+  align-items: center;
+  width: 213px;
+  height: 76px;
+}
+
+.inputBar .memoText {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 164px;
+  height: 44px;
+}
+
+#memo-input {
+  width: 164px;
+  height: 24px;
+}
+
+#memo-input::placeholder {
+  color: #a79fcb;
+  font: var(--font-body-regular);
+}
+
+.inputBar .payment {
+  display: flex;
+  align-items: center;
+  width: 149px;
+  height: 76px;
+}
+
+.inputBar .paymentText {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 100px;
+  height: 44px;
+}
+
+.inputBar .payDrop {
+  display: flex;
+}
+
+.input-select {
+  background-image: url("./img/downcheck.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin: auto;
+  width: 16px;
+  height: 16px;
+}
+
+.inputBar .price {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  width: 212px;
+  height: 76px;
+}
+
+.inputBar .priceText {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* margin: 0 auto; */
+  width: 100px;
+  height: 44px;
+}
+
+.inputBar .priceChoice {
+  display: flex;
+  justify-content: space-between;
+}
+
+#priceCheck {
+  width: 40px;
+  height: 40px;
+  background-image: url("./img/price-check.svg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  /* margin: 0 auto; */
+}

@@ -1,502 +1,104 @@
-.header {
-    display: flex;
-    /* align-items: center; */
-    width: 100%;
-    height: 194px;
-    padding-top: 40px;
-
-    background-color: var(--color-primary);
-    color: #fcfcfc;
-}
-
-.header .headerBox {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 846px;
-    height: 96px;
-    margin: 0 auto;
-}
-
-.header .logo {
-    font-family: var(--font-family-display);
-    font-style: normal;
-    font-weight: var(--font-weight-display-small);
-    font-size: var(--font-size-display-small);
-    line-height: var(--line-height-display-small);
-}
-
-.header .monthYear {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 232px;
-    height: 96;
-}
-
-.header .monthYear .date {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    height: 96px;
-
-    font-family: var(--font-family-bold);
-    font-style: normal;
-    font-weight: var(--font-weight-bold);
-    font-size: var(--font-size-bold-regular);
-    line-height: var(--line-height-bold-regular);
-}
-
-#month {
-    font-family: var(--font-family-display);
-    font-style: normal;
-    font-weight: var(--font-weight-display-large);
-    font-size: var(--font-size-display-large);
-    line-height: var(--line-height-display-large);
-}
-.header .tab {
-    display: flex;
-    align-items: center;
-    width: 132px;
-    height: 44px;
-}
-
-.tab .tab-box {
-    display: flex;
-    align-items: center;
-    margin: 0 auto;
-    width: 44px;
-    height: 44px;
-}
-
-.tab-box img {
-    display: block;
-    margin: 0 auto;
-}
-
 body {
-    background-color: #f7f6f3;
+  background-color: #f7f6f3;
 }
-
-.inputBar {
-    position: relative;
-    top: -32px;
-
-    display: flex;
-    width: 894px;
-    height: 76px;
-    margin: auto;
-
-    background: var(--color-white);
-    color: var(--color-primary-alt);
-
-    border: 1px solid #524d90;
-
-    box-shadow: 0px 2px 2px rgba(82, 77, 144, 0.08), 0px 4px 4px rgba(82, 77, 144, 0.1);
-    border-radius: 8px;
-
-    font-family: var(--font-family-bold);
-}
-
-/* .date::after,
-.category::after,
-.memo::after,
-.payment::after {
-    content: "";
-    display: block;
-    width: 1px;
-    height: 44px;
-    background-image: url("./img/line.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-} */
-
-.inputBar .labelText {
-    font-weight: var(--font-weight-bold);
-    font-size: var(--font-size-bold-regular);
-    line-height: var(--line-height-bold-regular);
-}
-
-.inputBar .date {
-    display: flex;
-    align-items: center;
-
-    width: 137px;
-    height: 76px;
-}
-
-.inputBar .dateText {
-    margin: 0 auto;
-    width: 88px;
-    height: 44px;
-}
-
-#dateInput {
-    width: 88px;
-    height: 24px;
-}
-
-.inputBar .category {
-    display: flex;
-    align-items: center;
-    width: 183px;
-    height: 76px;
-}
-
-.inputBar .categoryText {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: 0 auto;
-    width: 134px;
-    height: 44px;
-}
-
-.inputBar .categoryInput {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-
-#categoryMinus {
-    width: 24px;
-    height: 24px;
-    padding-right: 6px;
-    padding-left: 6px;
-}
-
-#categoryPrice {
-    text-align: right;
-    width: 78px;
-    height: 24px;
-    color: var(--color-primary);
-    font-family: "Pretendard";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 24px;
-}
-
-input ::placeholder {
-    color: var(--color-primary-alt);
-    font-family: "Pretendard";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 24px;
-}
-
-.inputBar .memo {
-    display: flex;
-    align-items: center;
-    width: 213px;
-    height: 76px;
-}
-
-.inputBar .memoText {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: 0 auto;
-    width: 164px;
-    height: 44px;
-}
-
-#memoInput {
-    width: 164px;
-    height: 24px;
-}
-
-.inputBar .payment {
-    display: flex;
-    align-items: center;
-    width: 149px;
-    height: 76px;
-}
-
-.inputBar .paymentText {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: 0 auto;
-    width: 100px;
-    height: 44px;
-}
-
-.inputBar .payDrop {
-    display: flex;
-}
-
-.input-select {
-    background-image: url("./img/downcheck.svg");
-    background-repeat: no-repeat;
-    background-position: center center;
-    margin: auto;
-    width: 16px;
-    height: 16px;
-}
-
-.inputBar .price {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-
-    width: 212px;
-    height: 76px;
-}
-
-.inputBar .priceText {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    /* margin: 0 auto; */
-    width: 100px;
-    height: 44px;
-}
-
-.inputBar .priceChoice {
-    display: flex;
-    justify-content: space-between;
-}
-
-#priceCheck {
-    width: 40px;
-    height: 40px;
-    background-image: url("./img/price-check.svg");
-    background-repeat: no-repeat;
-    background-position: center center;
-    /* margin: 0 auto; */
-}
-
 main {
-    height: 1584px;
+  height: 1584px;
 }
 .info {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 848px;
-    height: 32px;
-    margin: auto;
-    top: 16px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 848px;
+  height: 32px;
+  margin: auto;
+  top: 16px;
 }
 
 .info .info-left {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 133px;
-    height: 32px;
-    font-family: "Pretendard";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 22px;
-    line-height: 32px;
-    /* identical to box height, or 145% */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 133px;
+  height: 32px;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 32px;
+  /* identical to box height, or 145% */
 
-    /* Primary */
+  /* Primary */
 
-    color: #524d90;
+  color: #524d90;
 }
 
 .info .info-right {
-    display: flex;
-    /* align-items: center; */
-    background-position: center;
-    justify-content: space-between;
-    width: 296px;
-    height: 24px;
+  display: flex;
+  /* align-items: center; */
+  background-position: center;
+  justify-content: space-between;
+  width: 296px;
+  height: 24px;
 }
 
 .info .in-box {
-    display: flex;
-    /* align-items: center; */
-    width: 151px;
-    height: 24px;
+  display: flex;
+  /* align-items: center; */
+  width: 151px;
+  height: 24px;
 }
 .info .out-box {
-    display: flex;
+  display: flex;
 
-    width: 133px;
-    height: 24px;
+  width: 133px;
+  height: 24px;
 }
 
 .info .in-text {
-    font-family: "Pretendard";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 24px;
-    width: 119px;
-    height: 24px;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  width: 119px;
+  height: 24px;
 
-    padding-left: 8px;
+  padding-left: 8px;
 
-    color: #524d90;
+  color: #524d90;
 }
 
 #in-check {
-    /* display: none; */
+  /* display: none; */
 
-    background-repeat: no-repeat;
-    background-image: url("./img/check.svg");
-    background-position: center center;
-    width: 24px;
-    height: 24px;
+  background-repeat: no-repeat;
+  background-image: url("./img/check.svg");
+  background-position: center center;
+  width: 24px;
+  height: 24px;
 }
 
 .info .infoOutText {
-    font-family: "Pretendard";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 24px;
-    width: 119px;
-    height: 24px;
+  font-family: "Pretendard";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 24px;
+  width: 119px;
+  height: 24px;
 
-    padding-left: 8px;
+  padding-left: 8px;
 
-    color: #524d90;
+  color: #524d90;
 }
 
 #out-check {
-    /* display: none; */
+  /* display: none; */
 
-    background-repeat: no-repeat;
-    background-image: url("./img/check.svg");
-    background-position: center center;
-    width: 24px;
-    height: 24px;
-}
-
-.list {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    top: 60px;
-    margin: 0 auto;
-    width: 846px;
-    height: 1352px;
-
-    boreder: none;
-}
-
-.list-box {
-}
-
-.list .list-info {
-    position: relative;
-
-    display: flex;
-    justify-content: space-between;
-    width: 846px;
-    height: 24px;
-}
-
-.list-info .date-day {
-    display: flex;
-    justify-content: space-between;
-    width: 73px;
-    height: 24px;
-
-    font-family: "Pretendard";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 24px;
-    color: #524d90;
-}
-
-.list-info .income {
-    display: flex;
-    justify-content: space-between;
-    width: 94px;
-    height: 24px;
-
-    font-family: "Pretendard";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 24px;
-    color: #a79fcb;
-}
-
-.list .list-detail {
-    position: relative;
-    top: 21px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-
-    width: 846px;
-    height: 64px;
-
-    border-top: 1px solid rgba(167, 159, 203, 0.4);
-    border-bottom: 1px solid rgba(167, 159, 203, 0.4);
-}
-
-.list-detail .name-box {
-    display: flex;
-    align-items: center;
-
-    width: 92px;
-    height: 32px;
-
-    background: #d092e2;
-    border-radius: 25px;
-}
-
-.name-box .detail-name {
-    width: 54px;
-    height: 24px;
-    margin: 0 auto;
-    font-family: "Pretendard";
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 24px;
-
-    text-align: center;
-
-    color: #fcfcfc;
-}
-
-.list-detail .detail-text {
-    width: 320px;
-    height: 24px;
-    font-family: "Pretendard";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 24px;
-    color: #524d90;
-}
-
-.list-detail .detail-payment {
-    width: 120px;
-    height: 24px;
-
-    font-family: "Pretendard";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 24px;
-
-    color: #a79fcb;
-}
-
-.list-detail .detail-total {
-    width: 234px;
-    height: 22px;
-    font-family: "Pretendard";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 24px;
-    text-align: right;
-    color: #e75b3f;
+  background-repeat: no-repeat;
+  background-image: url("./img/check.svg");
+  background-position: center center;
+  width: 24px;
+  height: 24px;
 }
