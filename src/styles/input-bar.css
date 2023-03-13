@@ -1,18 +1,17 @@
-#input-bar__container {
-  width: 100%;
-  height: 92px;
+.input-bar {
+  width: var(--layout-inner-width);
   display: flex;
   justify-content: center;
-  position: relative;
+  position: absolute;
+  top: -32px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-#input-bar__container > form {
-  width: var(--layout-inner-width);
+.input-bar > form {
   height: 76px;
   padding: 16px 24px;
   display: flex;
-  position: absolute;
-  top: -32px;
   background-color: var(--color-white);
   border: 1px solid var(--color-primary);
   border-radius: var(--radius-primary);
@@ -69,19 +68,19 @@
 }
 
 /* date input */
-#input-bar__date {
+#input-bar-date {
   width: 120px;
 }
 
-.input-bar__item-input#date {
+.input-bar__item-input#date-input {
   position: relative;
 }
 
-.input-bar__item-input#date::-webkit-inner-spin-button {
+.input-bar__item-input#date-input::-webkit-inner-spin-button {
   display: none;
 }
 
-.input-bar__item-input#date::-webkit-calendar-picker-indicator {
+.input-bar__item-input#date-input::-webkit-calendar-picker-indicator {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -90,7 +89,7 @@
 }
 
 /* amount input */
-#input-bar__amount {
+#input-bar-amount {
   width: 175px;
 }
 
@@ -113,17 +112,17 @@
   cursor: pointer;
 }
 
-.input-bar__item-input#amount {
+.input-bar__item-input#amount-input {
   width: 78px;
   text-align: right;
 }
 
-.input-bar__item-input#amount::-webkit-inner-spin-button,
-.input-bar__item-input#amount::-webkit-outer-spin-button {
+.input-bar__item-input#amount-input::-webkit-inner-spin-button,
+.input-bar__item-input#amount-input::-webkit-outer-spin-button {
   display: none;
 }
 
-.input-bar__item-input#amount::after {
+.input-bar__item-input#amount-input::after {
   content: "원";
   width: 20px;
   height: 20px;
@@ -131,17 +130,17 @@
 }
 
 /* content input */
-#input-bar__content {
+#input-bar-content {
   width: 212px;
 }
 
 /* payment method input */
-#input-bar__payment-method {
+#input-bar-payment-method {
   width: 148px;
 }
 
 /* category input */
-#input-bar__category {
+#input-bar-category {
   width: 148px;
 }
 
@@ -191,13 +190,13 @@
   filter: var(--filter-secondary-red);
 }
 
-.input-bar__item-input#payment-method,
-.input-bar__item-input#category {
+.input-bar__item-input#payment-method-input,
+.input-bar__item-input#category-input {
   color: var(--color-primary-alt);
 }
 
-#input-bar__payment-method .input-bar__item-input__container,
-#input-bar__category .input-bar__item-input__container {
+#input-bar-payment-method .input-bar__item-input__container,
+#input-bar-category .input-bar__item-input__container {
   cursor: pointer;
 }
 
@@ -214,8 +213,8 @@
   height: 100%;
 }
 
-/* button */
-#input-bar__container > form > button {
+/* submit button */
+.input-bar > form > button {
   width: 40px;
   height: 40px;
   background-color: var(--color-primary-alt-40);
@@ -224,113 +223,13 @@
   cursor: not-allowed;
 }
 
-#input-bar__container > form > button:not(button:disabled) {
+.input-bar > form > button:not(button:disabled) {
   background-color: var(--color-secondary-yellow);
   cursor: pointer;
 }
 
-#input-bar__container > form > button > img {
+.input-bar > form > button > img {
   width: 24px;
   height: 24px;
   filter: var(--filter-white);
-}
-
-/* modal */
-.alert-and-modal {
-  width: 100%;
-  height: 100%;
-  display: none;
-  position: fixed;
-  background-color: var(--color-black-40);
-  z-index: 1;
-}
-
-.alert-and-modal.is-active {
-  display: block;
-}
-
-.alert-and-modal form {
-  width: 400px;
-  height: 228px;
-  padding: 40px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: var(--color-white);
-  border: 1px solid var(--color-primary);
-  border-radius: var(--radius-primary);
-  box-shadow: var(--shadow);
-}
-
-.alert-and-modal form .modal-content {
-  margin-bottom: 32px;
-}
-
-.alert-and-modal form .modal-content .modal-title {
-  height: 24px;
-  margin-bottom: 24px;
-  font-size: var(--fs-body-regular);
-  font-weight: var(--fw-body);
-  font-style: normal;
-  line-height: var(--lh-body-regular);
-}
-
-.alert-and-modal form .modal-content .modal-body {
-  width: 100%;
-  height: 44px;
-  padding: 10px;
-  background-color: var(--color-white);
-  border: 1px solid var(--color-primary);
-  border-radius: var(--radius-primary);
-  color: var(--color-primary);
-}
-
-.alert-and-modal form .modal-content .modal-body::placeholder {
-  color: var(--color-primary-alt);
-  font-family: var(--ff-body);
-  font-size: var(--fs-body-regular);
-  font-weight: var(--fw-body);
-  font-style: normal;
-  line-height: var(--lh-body-regular);
-}
-
-#delete-payment-method-modal .modal-body {
-  background-color: var(--color-primary-alt-40);
-  border: none;
-}
-
-.alert-and-modal form .modal-btns {
-  height: 24px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.alert-and-modal form .modal-btns > button {
-  width: 28px;
-  background-color: transparent;
-  border: none;
-  font-family: var(--ff-bold);
-  font-size: var(--fs-bold-large);
-  font-weight: var(--fw-bold);
-  font-style: normal;
-  line-height: var(--lh-bold-medium);
-  cursor: pointer;
-}
-
-.alert-and-modal form .modal-btns .cancel-btn {
-  width: 28px;
-  height: 24px;
-  color: var(--color-primary);
-}
-
-.alert-and-modal form .modal-btns .add-btn {
-  color: var(--color-secondary-yellow);
-}
-
-.alert-and-modal form .modal-btns .delete-btn {
-  color: var(--color-secondary-red);
 }

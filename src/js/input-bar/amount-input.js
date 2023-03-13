@@ -1,8 +1,6 @@
 import { categoryInput } from "./dropdown.js";
 
-export const amountInput = document.querySelector(
-  ".input-bar__item-input#amount"
-);
+export const amountInput = document.querySelector("#amount-input");
 export const plusMinusInput = document.querySelector("#plus-minus-input");
 
 amountInput.addEventListener("input", () => {

@@ -2,12 +2,10 @@ import "./dropdown.js";
 import "./amount-input.js";
 
 //- Date Input
-const dateInput = document.querySelector(".input-bar__item-input#date");
+const dateInput = document.querySelector(".input-bar__item-input#date-input");
 
 //- New Entry
-export const newEntryForm = document.querySelector(
-  "#input-bar__container form"
-);
+export const newEntryForm = document.querySelector(".input-bar form");
 const allInputs = newEntryForm.querySelectorAll(".input-bar__item-input");
 const submitBtn = newEntryForm.querySelector(".entry-submit-btn");
 
@@ -16,9 +14,11 @@ dateInput.valueAsDate = new Date();
 
 //- Check if all inputs are filled.
 newEntryForm.addEventListener("change", () => {
-  if ([...allInputs].every((x) => x.value)) {
+  if ([...allInputs].every((x) => x.value && x.value !== "선택하세요")) {
     console.log("ready to submit!");
     submitBtn.disabled = false;
+  } else {
+    submitBtn.disabled = true;
   }
 });
 

@@ -48,7 +48,7 @@ const targetPaymentMethodModalBody = deletePaymentMethodForm.querySelector(
 const deletePaymentMethodCancelBtn =
   deletePaymentMethodModal.querySelector(".cancel-btn");
 
-//- Click Outside to Close
+//- Click outside to close
 window.addEventListener("click", (evt) => {
   const el = evt.target;
 
@@ -57,10 +57,9 @@ window.addEventListener("click", (evt) => {
     !paymentMethodDropdown.contains(el) &&
     !paymentMethodOptionsContainer.contains(el) &&
     !categoryDropdown.contains(el) &&
-    // !categoryOptionsContainer.contains(el) &&
     !categoryOptionsContainerExpense.contains(el) &&
     !categoryOptionsContainerIncome.contains(el) &&
-    !el?.classList.contains(".option-delete-btn") &&
+    !el?.classList.contains("option-delete-btn") &&
     !el?.parentElement?.classList.contains("option-delete-btn")
   ) {
     paymentMethodOptionsContainer.classList.remove("is-active");
@@ -143,7 +142,8 @@ deletePaymentMethodForm.addEventListener("submit", (evt) => {
     (li) => li.dataset.value === targetPaymentMethodModalBody.value
   );
   targetLi[0].remove();
-
+  paymentMethodInput.value = "";
+  newEntryForm.dispatchEvent(new Event("change", { bubbles: true }));
   deletePaymentMethodModal.classList.remove("is-active");
 });
 
