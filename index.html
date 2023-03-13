@@ -102,7 +102,7 @@
 		</header>
 
 		<section class="input-bar">
-			<form action="/somewhere">
+			<form class="input-bar-form" action="/somewhere">
 				<div class="input-date">
 					<label for="inputDate">일자</label>
 					<input id="inputDate" type="number" value="20230217" />
@@ -125,11 +125,11 @@
 				</div>
 				<div class="select-payment">
 					<label for="selectPayment">결제수단</label>
-					<div class="select-dropdown">
+					<div class="select-dropdown" id="paymentDropdown">
 						<input class="select-box" type="text" placeholder="선택하세요" readonly/>
 						<ul class="option">
 							<li class="option-item">
-								<span>현금</span>
+								<p>현금</p>
 								<button type="button">
 									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
 										<path
@@ -143,7 +143,7 @@
 								</button>
 							</li>
 							<li class="option-item">
-								<span>신용카드</span>
+								<p>신용카드</p>
 								<button type="button">
 									<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none">
 										<path
@@ -156,22 +156,22 @@
 									</svg>
 								</button>
 							</li>
-							<li class="option-item"><span>추가하기</span></li>
+							<li class="option-item"><p>추가하기</p></li>
 						</ul>
 					</div>
 				</div>
 				<div class="select-category">
 					<label for="selectCategory">분류</label>
-					<div class="select-dropdown">
+					<div class="select-dropdown" id="categoryDropdown">
 						<input class="select-box" type="text" placeholder="선택하세요" readonly>
 						<ul class="option">
-							<li class="option-item"><span>생활</span></li>
-							<li class="option-item"><span>식비</span></li>
-							<li class="option-item"><span>교통</span></li>
-							<li class="option-item"><span>쇼핑/뷰티</span></li>
-							<li class="option-item"><span>의료/건강</span></li>
-							<li class="option-item"><span>문화/여가</span></li>
-							<li class="option-item"><span>미분류</span></li>
+							<li class="option-item"><p>생활</p></li>
+							<li class="option-item"><p>식비</p></li>
+							<li class="option-item"><p>교통</p></li>
+							<li class="option-item"><p>쇼핑/뷰티</p></li>
+							<li class="option-item"><p>의료/건강</p></li>
+							<li class="option-item"><p>문화/여가</p></li>
+							<li class="option-item"><p>미분류</p></li>
 						</ul>
 					</div>
 				</div>
@@ -277,6 +277,7 @@
 				</ul>
 			</section>
 		</main>
-		<script src="./src/js/dropdown.js"></script>
+		<!-- <script src="./src/js/dropdown.js"></script> -->
+		<script src="./src/js/dropdown2.js"></script>
 	</body>
 </html>
