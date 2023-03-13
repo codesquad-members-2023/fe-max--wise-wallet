@@ -5,12 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./src/style/reset.css">
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css" />
+    <link href='https://fonts.googleapis.com/css?family=Outfit' rel='stylesheet'>
     <link rel="stylesheet" href="./src/style/main.css" />
     <link rel="stylesheet" href="./src/style/header.css">
     <link rel="stylesheet" href="./src/style/input_bar.css">
     <link rel="stylesheet" href="./src/style/main_section.css">
     <link rel="stylesheet" href="./src/style/svg.css">
     <script defer src="./src/svg/svg.js"></script>
+    <script defer src="./src/js/input_bar.js"></script>
     <title>Wise Wallet</title>
   </head>
   <body>
@@ -38,35 +41,41 @@
         </div>  
       </div>
 
-      <section class="input_bar">
-        <div id="input_bar_date">
-          <p id="date_info">일자</p>
-          <p id="date_year_month_day">20230217</p>
+      <form class="input_bar">
+        <div class="date">
+          <label for="date" id="date">일자</label>
+          <input id="input_date" type="date">
         </div>
-        <div class= "separator" id="input_bar_price">
-          <p id="price_info">금액</p>
-          <button class="price_container" id="change_btn"></button>
-          <input type="text" class="price_container" id="price_input">
-          <p class="price_container" id="krw">원</p>
+        <div class="price">
+          <label for="price" id = price>금액</label>
+          <div id="container">
+            <button id="change_btn"></button>
+            <input type="text" id="price_input" placeholder="0">
+            <p id="krw">원</p>
+          </div>
         </div>
-        <div class= "separator" id="input_bar_memo">
-          <p id="memo_info">내용</p>
-          <input type="text" id="memo_input">
+        <div class="memo">
+          <label for="memo" id="memo">내용</label>
+          <input type="text" id="memo_input" placeholder="입력하세요">
         </div>
-        <div class= "separator" id="input_bar_payment">
-          <p id="payment_info">결제수단</p>
+        <div class="payment">
+          <label for="payment" id="payment">결제수단</label>
           <select name="payment" id="payment_select">
             <option value="">선택하세요</option>
           </select>
         </div>
-        <div class= "separator" id="input_bar_category">
-          <p id="category_info">분류</p>
-          <select name="category" id="category_select">
-            <option value="">선택하세요</option>
-          </select>
+        <div class="category">
+          <label for="category" id="category">분류</label>
+          <div id="container">
+            <select name="category" id="category_select">
+              <option value="">선택하세요</option>
+            </select>
+          </div>
+        </div>
+        <div>
           <button id="input_bar_check"></button>
         </div>
-      </section>
+      </form>
 
       <section class="main_section">
 
