@@ -1,4 +1,5 @@
 import { getLocalStorage } from "../localStorage/getLocalStorage.js";
+import { changeCheckBoxEvent } from "./changeCheckBoxEvent.js";
 import { removeBtn } from "./removeBtnClickEvent.js";
 import { removeList } from "./removeList.js";
 import { setList } from "./setList.js";
@@ -17,4 +18,7 @@ export const mainInit = () => {
   const $removeBtn = document.querySelectorAll("#main .remove");
 
   $removeBtn.forEach(removeBtn);
+
+  const $history_checkbox = document.querySelectorAll(".history_toggle");
+  $history_checkbox.forEach(changeCheckBoxEvent);
 };

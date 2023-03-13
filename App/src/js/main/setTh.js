@@ -20,7 +20,7 @@ export const setTh = (array) => {
          ${
            income !== 0
              ? `<div>
-              <input type="checkbox" name="" id="income_toggle" checked="checked" />
+              <input type="checkbox" id="income_toggle" class="history_toggle"  checked="checked" />
               <label
                 id="income_checkbox"
                 class="history_checkbox"
@@ -35,7 +35,7 @@ export const setTh = (array) => {
         ${
           expenditure !== 0
             ? `<div>
-            <input type="checkbox" name="" id="expenditure_toggle" checked="checked" />
+            <input type="checkbox" id="expenditure_toggle" class="history_toggle" checked="checked" />
             <label
               id="expenditure_checkbox"
               class="history_checkbox"
