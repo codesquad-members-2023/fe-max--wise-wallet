@@ -47,6 +47,7 @@
 }
 
 .input-bar__item-input {
+  width: 100%;
   height: 24px;
   color: var(--color-primary);
   font-family: var(--ff-body);
@@ -142,6 +143,10 @@
 /* category input */
 #input-bar__category {
   width: 148px;
+}
+
+.input-bar__item-input__container.dropdown > input {
+  cursor: pointer;
 }
 
 /* select dropdown */
