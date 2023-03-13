@@ -132,6 +132,7 @@
 }
 
 #memo-input {
+  color: var(--color-primary);
   width: 164px;
   height: 24px;
 }
