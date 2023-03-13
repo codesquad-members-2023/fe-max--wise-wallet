@@ -683,6 +683,7 @@ input {
 }
 .list-detail:hover {
   background: #fcfcfc;
+  cursor: pointer;
 }
 .list-detail:hover .delete-btn {
   display: flex;
