@@ -163,6 +163,10 @@ body {
   background: var(--color-white);
 }
 
+.input-bar__transaction-type {
+  cursor: pointer;
+}
+
 .input-bar__date {
   width: 88px;
 }
@@ -187,6 +191,7 @@ body {
 
 #input-bar__payment {
   width: 100px;
+  cursor: pointer;
 
   display: flex;
   justify-content: space-between;
@@ -206,6 +211,8 @@ body {
 
 #input-bar__category {
   width: 100px;
+  cursor: pointer;
+
   display: flex;
 }
 
@@ -237,6 +244,10 @@ body {
 .payment-dropdown__ul > li:last-of-type,
 .category-dropdown__ul > li:last-of-type {
   border-bottom: 0px;
+}
+
+.input-bar__submit-button.active {
+  cursor: pointer;
 }
 
 .main {

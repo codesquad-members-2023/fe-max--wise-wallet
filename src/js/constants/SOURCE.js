@@ -8,4 +8,5 @@ export const SOURCE = {
   PLUS_ICON: "/src/assets/plus-icon.svg",
   RIGHT_ARROW: "/src/assets/right_arrow.svg",
   SUBMIT_BUTTON: "/src/assets/submit-button.svg",
+  SUBMIT_BUTTON_ACTIVE: "/src/assets/submit-button-active.svg",
 };

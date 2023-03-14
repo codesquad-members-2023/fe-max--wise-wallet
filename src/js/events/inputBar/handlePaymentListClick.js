@@ -1,19 +1,10 @@
 import { showElement } from "../../utils/showElement.js";
 import { hideElement } from "../../utils/hideElement.js";
 import { getAddPaymentModalTemplate, getPaymentListChildrenTemplate } from "../../views/modal/addPayment.js";
+import { inputBarStore } from "../../store/inputBarStore.js";
 
 export const handlePaymentListClick = ({ target }) => {
-  if (isValidClick(target)) return;
-
-  if (isDropdownListClick(target)) {
-    const $dropdown = document.querySelector(".payment-dropdown");
-    const $paymentText = document.querySelector(".input-bar__payment-text");
-
-    hideElement($dropdown);
-    $paymentText.textContent = target.textContent;
-
-    return;
-  }
+  if (isInvalidClick(target)) return;
 
   if (isAddButtonClick(target)) {
     const $modal = document.querySelector(".modal");
@@ -22,11 +13,19 @@ export const handlePaymentListClick = ({ target }) => {
     setModalTemplate($modal, modalTemplate);
     setModalButtonEvent($modal, target);
     showElement($modal);
+
+    return;
   }
+
+  const $dropdown = document.querySelector(".payment-dropdown");
+  const $paymentText = document.querySelector(".input-bar__payment-text");
+
+  hideElement($dropdown);
+  inputBarStore.setPayment(target.closest("li").dataset.value);
+  $paymentText.textContent = target.closest("li").dataset.value;
 };
 
-const isValidClick = (target) => target.classList.contains("payment-dropdown__ul") || target.classList.contains("payment-dropdown__list-delete");
-const isDropdownListClick = (target) => target.classList.contains("payment-dropdown__list");
+const isInvalidClick = (target) => target.classList.contains("payment-dropdown__ul") || target.classList.contains("payment-dropdown__list-delete");
 const isAddButtonClick = (target) => target.classList.contains("payment-dropdown__add-button");
 
 const setModalTemplate = (element, template) => {
