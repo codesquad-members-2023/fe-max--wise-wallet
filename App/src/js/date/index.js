@@ -1,3 +1,4 @@
+import { mainInit } from "../main/index.js";
 import { getDate } from "./getDate.js";
 import { setDate } from "./setDate.js";
 import { setNow } from "./setNow.js";
@@ -10,12 +11,14 @@ export const dateInit = () => {
     const [year, month, month_en] = getDate();
     const newDate = new Date(year.innerHTML, month.innerHTML - 2);
     setDate([year, month, month_en], newDate);
+    mainInit();
   });
 
   right_arrow.addEventListener("click", () => {
     const [year, month, month_en] = getDate();
     const newDate = new Date(year.innerHTML, month.innerHTML);
     setDate([year, month, month_en], newDate);
+    mainInit();
   });
 
   setNow();

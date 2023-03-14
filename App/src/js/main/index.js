@@ -5,11 +5,15 @@ import { removeList } from "./removeList.js";
 import { setList } from "./setList.js";
 import { setTh } from "./setTh.js";
 import { setEditData } from "../inputBar/setEditData.js";
+import { getDate } from "../date/getDate.js";
 
 export const mainInit = () => {
   removeList();
   const $main_history_list = document.querySelector("#main_history_list");
-  const value = getLocalStorage();
+  const [year, month] = getDate();
+  const date = year.textContent + month.textContent.padStart(2, 0);
+  const value = getLocalStorage().filter((e) => e.date.slice(0, 6) === date);
+
   const $th = setTh(value);
   const $tbody = setList(value);
   $tbody.prepend($th);
