@@ -11,5 +11,6 @@ export const getBgColor = (category) => {
     용돈: "bg-color-category-green",
     기타수입: "bg-color-category-green",
   };
+
   return bgColor[category];
 };

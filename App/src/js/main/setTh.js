@@ -16,11 +16,11 @@ export const setTh = (array) => {
         <h3 id="main_total_history" class="body-large">
           전체 내역 <span>${array.length}</span> 건
         </h3>
-        ${
-          income !== 0
-            ? `<div id="main_income_expenditure" class="body-medium">
-            <div>
-              <input type="checkbox" name="" id="income_toggle" checked="checked" />
+         <div id="main_income_expenditure" class="body-medium">
+         ${
+           income !== 0
+             ? `<div>
+              <input type="checkbox" id="income_toggle" class="history_toggle"  checked="checked" />
               <label
                 id="income_checkbox"
                 class="history_checkbox"
@@ -29,13 +29,13 @@ export const setTh = (array) => {
               수입
               <span id="income_price">&nbsp;${addComma(income)}</span>
             </div>`
-            : ``
-        }
+             : ``
+         }
         
         ${
           expenditure !== 0
             ? `<div>
-            <input type="checkbox" name="" id="expenditure_toggle" checked="checked" />
+            <input type="checkbox" id="expenditure_toggle" class="history_toggle" checked="checked" />
             <label
               id="expenditure_checkbox"
               class="history_checkbox"
