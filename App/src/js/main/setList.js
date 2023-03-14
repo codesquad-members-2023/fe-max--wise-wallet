@@ -26,7 +26,6 @@ export const setList = (array) => {
         obj.isPositive ? `income` : `expenditure`
       }_tr">
             <td>
-              <input class="isEditing" type="checkbox" />
               <div
                 class="history_category ${getBgColor(
                   obj.category_select

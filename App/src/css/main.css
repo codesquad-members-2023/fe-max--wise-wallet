@@ -127,7 +127,8 @@
   fill: var(--color-secondary-yellow);
 }
 
-#input_bar_form #price_toggle {
+#input_bar_form #price_toggle,
+#input_bar_form #isEdit {
   display: none;
 }
 
@@ -294,11 +295,11 @@
 #main .list_tr {
   cursor: pointer;
 }
-
+#main .selected_list,
 #main .list_tr:hover {
   background-color: #ffffff;
 }
-
+#main .selected_list .remove,
 #main .list_tr:hover .remove {
   display: flex;
 }
@@ -309,8 +310,7 @@
   align-items: center;
 }
 
-#main .uniqueKey,
-#main .isEditing {
+#main .uniqueKey {
   display: none;
 }
 

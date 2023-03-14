@@ -1,14 +1,14 @@
 import { setNow } from "../date/setNow.js";
 import { changeCategoryOption } from "./changeCategoryOption.js";
 
-export const resetInputBar = (
-  date,
-  price,
-  isPositive,
-  content,
-  payment,
-  category_select
-) => {
+export const resetInputBar = () => {
+  const date = document.getElementById("input_date");
+  const price = document.getElementById("input_price");
+  const isPositive = document.getElementById("price_toggle");
+  const content = document.getElementById("input_content");
+  const payment = document.getElementById("payment_value");
+  const category_select = document.getElementById("category_value");
+  const $isEdit = document.getElementById("isEdit");
   setNow();
   if (isPositive.checked) {
     changeCategoryOption();
@@ -19,6 +19,7 @@ export const resetInputBar = (
   payment.value = "";
   category_select.value = "";
   isPositive.checked = false;
+  isEdit.checked = false;
 
   const $selected_value = document.querySelectorAll(".selected-value");
   const $input = document.querySelector("#input_bar input");
@@ -28,7 +29,7 @@ export const resetInputBar = (
   });
 
   // 이벤트 객체를 생성
-  const changeEvent = new Event("change");
+  const changeEvent = new Event("keyup");
   // input에 직접 change 이벤트를 발생
   $input.dispatchEvent(changeEvent);
 };
