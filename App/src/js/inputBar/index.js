@@ -5,7 +5,6 @@ import { checkEditInputData } from "./checkEditInputData.js";
 import { checkInputDate } from "./checkInputDate.js";
 import { checkInputPrice } from "./checkInputPrice.js";
 import { checkInputsFilled } from "./checkInputsFilled.js";
-import { setEditData } from "./setEditData.js";
 
 export const inputBarInit = () => {
   const $date_input = document.getElementById("input_date");
@@ -46,8 +45,4 @@ export const inputBarInit = () => {
       checkInputsFilled();
     });
   });
-
-  const $tbody = document.getElementById("main_history_list");
-  // tr 클릭
-  $tbody.addEventListener("click", setEditData);
 };

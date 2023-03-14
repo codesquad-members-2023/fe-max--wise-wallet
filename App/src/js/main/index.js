@@ -4,6 +4,7 @@ import { removeBtn } from "./removeBtnClickEvent.js";
 import { removeList } from "./removeList.js";
 import { setList } from "./setList.js";
 import { setTh } from "./setTh.js";
+import { setEditData } from "../inputBar/setEditData.js";
 
 export const mainInit = () => {
   removeList();
@@ -21,4 +22,8 @@ export const mainInit = () => {
 
   const $history_checkbox = document.querySelectorAll(".history_toggle");
   $history_checkbox.forEach(changeCheckBoxEvent);
+
+  const $body = document.querySelector("body");
+  // tr 클릭
+  $body.addEventListener("click", setEditData);
 };
