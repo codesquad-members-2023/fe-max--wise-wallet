@@ -6,7 +6,7 @@ main {
 
 #history {
   width: 100%;
-  padding: 92px 24px 0;
+  padding: 48px 23px 0;
   box-sizing: border-box;
 }
 
@@ -176,7 +176,8 @@ main {
 }
 
 #history .list__item .body {
-  width: 320px;
+  flex-grow: 4;
+  max-width: 320px;
 }
 
 #history .list__item .category[data-category="0"] {
@@ -188,7 +189,8 @@ main {
 }
 
 #history .list__item .payment {
-  width: 120px;
+  flex-grow: 1;
+  max-width: 120px;
 }
 
 #history .list__item .price {
@@ -249,10 +251,7 @@ main {
 }
 
 #calender thead th {
-  font-family: var(--font-family-body);
-  font-weight: var(--font-weight-body);
-  font-size: var(--font-size-body-regular);
-  line-height: var(--line-height-body-regular);
+  font: var(--font-body-regular);
   padding: 12px 0;
   border: 1px solid var(--color-primary);
   border-left-width: 0px;
@@ -272,10 +271,7 @@ main {
 }
 
 #calender tbody td {
-  font-family: var(--font-family-body);
-  font-weight: var(--font-weight-body);
-  font-size: var(--font-size-body-regular);
-  line-height: var(--line-height-body-regular);
+  font: var(--font-body-regular);
   background-color: var(--color-white);
   height: 102px;
   padding: 9px;
@@ -373,10 +369,7 @@ main {
 #PieChartBoard .PieChartBoard__board dl dt,
 #PieChartBoard .PieChartBoard__board dl dd {
   display: inline-block;
-  font-family: var(--font-family-body);
-  font-weight: var(--font-weight-body);
-  font-size: var(--font-size-body-large);
-  line-height: var(--line-height-body-large);
+  font: var(--font-body-large);
   color: var(--color-primary);
 }
 
@@ -399,10 +392,7 @@ main {
 }
 
 #PieChartBoard .board__info .info__item span {
-  font-family: var(--font-family-body);
-  font-weight: var(--font-weight-body);
-  font-size: var(--font-size-body-medium);
-  line-height: var(--line-height-body-medium);
+  font: var(--font-body-medium);
 }
 
 #PieChartBoard .info__item .category {
@@ -413,10 +403,7 @@ main {
   justify-content: center;
   color: var(--color-white);
   border-radius: 25px;
-  font-family: var(--font-family-bold);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-bold-medium);
-  line-height: var(--line-height-bold-medium);
+  font: var(--font-bold-medium);
 }
 
 #PieChartBoard .info__item .category[data-category="0"] {
@@ -461,10 +448,7 @@ main {
 }
 
 #graph h3 {
-  font-family: var(--font-family-body);
-  font-weight: var(--font-weight-body);
-  font-size: var(--font-size-body-large);
-  line-height: var(--line-height-body-large);
+  font: var(--font-body-large);
   color: var(--color-primary);
 }
 
@@ -488,10 +472,7 @@ main {
 
 #graph + .detail .header__date-day .date,
 #graph + .detail .header__date-day .day {
-  font-family: var(--font-family-bold);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-bold-medium);
-  line-height: var(--line-height-bold-medium);
+  font: var(--font-body-medium);
   color: var(--color-primary);
 }
 
@@ -506,10 +487,7 @@ main {
 
 #graph + .detail .header__income-expenditure dt,
 #graph + .detail .header__income-expenditure dd {
-  font-family: var(--font-family-bold);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-bold-medium);
-  line-height: var(--line-height-bold-medium);
+  font: var(--font-bold-medium);
   color: var(--color-primary-alt);
 }
 
@@ -539,10 +517,7 @@ main {
 
 #graph + .detail .list__item span {
   display: inline-block;
-  font-family: var(--font-family-body);
-  font-weight: var(--font-weight-body);
-  font-size: var(--font-size-body-medium);
-  line-height: var(--line-height-body-medium);
+  font: var(--font-body-medium);
   color: var(--color-primary);
 }
 
@@ -554,10 +529,7 @@ main {
   justify-content: center;
   color: var(--color-white);
   border-radius: 25px;
-  font-family: var(--font-family-bold);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-bold-medium);
-  line-height: var(--line-height-bold-medium);
+  font: var(--font-bold-medium);
 }
 
 #graph + .detail .list__item .body {
