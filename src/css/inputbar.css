@@ -45,20 +45,12 @@
 }
 /* input창 스타일 */
 .input-bar form input {
+	outline: none;
 	color: var(--color-primary);
 	font-size: var(--font-size-body-regular);
 	font-weight: var(--font-weight-body);
 }
-/* select창 스타일 */
-.input-bar form select {
-	width: 100px;
-	height: 24px;
-	flex-shrink: 0;
-	padding: 0;
-	color: var(--color-primary-alt);
-	font-size: var(--font-size-body-regular);
-	font-weight: var(--font-weight-body);
-}
+
 /* 드롭다운 메뉴 */
 .select-payment label,
 .select-category label {
