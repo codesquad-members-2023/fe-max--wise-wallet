@@ -9,14 +9,14 @@
   color: #fcfcfc;
 }
 
+.content_container nav:hover {
+  cursor: grab;
+}
+
 #header_title_logo {
   width: 132px;
   height: 24px;
-  font-family: "Outfit";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 24px;
+  font: var(--font-display-small);
 }
 
 .header_monthYear_info {
@@ -31,30 +31,11 @@
   width: 120px;
   height: 96px;
   text-align: center;
-}
-
-#monthYear_text_year {
-  font-family: "Pretendard";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 16px;
+  font: var(--font-bold-small);
 }
 
 #monthYear_text_month_number {
-  font-family: "Outfit";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 48px;
-  line-height: 56px;
-}
-
-#monthYear_text_month_char {
-  font-family: "Pretendard";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 16px;
+  font: var(--font-display-large);
 }
 
 .header_tab {

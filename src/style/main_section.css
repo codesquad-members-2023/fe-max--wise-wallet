@@ -1,3 +1,12 @@
+.main_section {
+  width: 848px;
+  height: auto;
+  overflow: hidden;
+  left: 297px;
+  top: 152px;
+  z-index: 1;
+}
+
 .main_header {
   display: flex;
   justify-content: space-between;
@@ -12,61 +21,39 @@
   color: #524d90;
   width: auto;
   height: 32px;
-  font-family: "Pretendard";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 22px;
-  line-height: 32px;
+  font: var(--font-body-large);
 }
 
 .total_history_check_total_price {
   display: flex;
-  justify-content: space-between;
   color: #524d90;
 }
 
-.main_header .check {
-  border: 0;
-  background-color: transparent;
-}
-
-.income_history {
+.income_history, .expenses_history {
   display: flex;
-  justify-content: space-between;
+  text-align: right;
+  margin-left: 14px;
+  font: var(--font-body-medium);
 }
 
-#income_text {
-  width: 119px;
+#income_text, #expenses_text {
+  width: auto;
   height: 24px;
-  font-family: 'Pretendard';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 24px;
 }
 
-.expenses_history {
-  display: flex;
-  justify-content: space-between;
+input[type=checkbox] {
+  display: none;
 }
 
-#expenses_text {
-  width: 119px;
-  height: 24px;
-  font-family: 'Pretendard';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 24px;
+input[type=checkbox] + label {
+  cursor: grab;
+  padding-left: 30px;
+  background-image: url(/src/svg/unchecked.svg);
+  background-repeat: no-repeat;
 }
 
-.main_section {
-  width: 846px;
-  height: auto;
-  overflow: hidden;
-  left: 297px;
-  top: 152px;
-  z-index: 1;
+input[type=checkbox]:checked + label {
+  background-image: url(/src/svg/checked.svg);
 }
 
 .main_section_container {
@@ -94,12 +81,12 @@
 }
 
 #transaction_day {
+  margin-left: 8px;
   color: #A79FCB;
 }
 
 #total_price {
   text-align: right;
-  padding-right: 15px;
   color: #A79FCB;
 }
 
@@ -110,21 +97,16 @@
   align-items: center;
   align-self: stretch;
   gap: 16px;
+  font: var(--font-body-medium);
 }
 
 #main_category {
   margin: 16px;
   padding: 4px 8px;
-  margin: 16px;
-  padding: 4px 8px;
   width: 92px;
   height: 32px;
   color: #fcfcfc;
-  font-family: "Pretendard";
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 24px;
+  font: var(--font-bold-medium);
   background-color: #d092e2;
   border-radius: 25px;
   display: flex;
@@ -134,11 +116,6 @@
 }
 
 #main_details_text {
-  font-family: "Pretendard";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 24px;
   align-items: center;
   margin: 20px 0 20px 0;
   width: 320px;
@@ -149,29 +126,13 @@
 #main_means {
   width: 120px;
   height: 24px;
-  font-family: "Pretendard";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 24px;
   color: #a79fcb;
 }
 
 #main_price {
   margin-right: 16px;
-  margin-right: 16px;
   width: 234px;
   height: 22px;
-  font-family: 'Pretendard';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 24px;
-  font-family: "Pretendard";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 24px;
   text-align: right;
   color: #e75b3f;
 }
