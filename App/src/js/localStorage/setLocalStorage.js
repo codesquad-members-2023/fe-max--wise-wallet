@@ -1,5 +1,5 @@
 import { mainInit } from "../main/index.js";
-import { resetInputBar } from "./resetInputBar.js";
+import { resetInputBar } from "../inputBar/resetInputBar.js";
 
 export const setLocalStorage = () => {
   const uniqueKey = new Date().getTime().toString();

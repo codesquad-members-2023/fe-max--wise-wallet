@@ -1,5 +1,5 @@
 import { setNow } from "../date/setNow.js";
-import { changeCategoryOption } from "../inputBar/changeCategoryOption.js";
+import { changeCategoryOption } from "./changeCategoryOption.js";
 
 export const resetInputBar = (
   date,
