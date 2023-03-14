@@ -9,7 +9,7 @@ export const setLocalStorage = (key) => {
   const content = document.getElementById("input_content");
   const payment = document.getElementById("payment_value");
   const category_select = document.getElementById("category_value");
-  console.log(key, "key");
+
   const obj = {
     uniqueKey: uniqueKey,
     date: date.value,
@@ -19,8 +19,6 @@ export const setLocalStorage = (key) => {
     payment: payment.value,
     category_select: category_select.value,
   };
-
-  console.log(uniqueKey, "uniqueKey");
 
   localStorage.setItem(uniqueKey, JSON.stringify(obj));
   resetInputBar();
