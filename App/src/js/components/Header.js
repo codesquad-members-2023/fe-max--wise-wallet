@@ -1,11 +1,11 @@
+import { Element } from "../Element.js";
 import { Carousel } from "./Carousel.js";
 import { Logo } from "./Logo.js";
 import { Tabs } from "./Tabs.js";
 
-export class Header {
+export class Header extends Element {
   constructor() {
-    this.domNode = null;
-    this.init();
+    super();
   }
 
   init() {
@@ -15,7 +15,7 @@ export class Header {
       "aria-roledescription": "캐러셀",
       "aria-label": "날짜",
     });
-    const tabs = new Tabs("tabs")
+    const tabs = new Tabs("tabs");
     this.domNode.innerHTML = `
       <div class="inner">
         <!-- 로고 -->
@@ -26,9 +26,5 @@ export class Header {
         ${tabs.view()}
       </div>
     `;
-  }
-
-  view() {
-    return this.domNode.outerHTML;
   }
 }

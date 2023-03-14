@@ -28,7 +28,7 @@ main {
 }
 
 #history .history__info h3 {
- font-family: var(--font-family-body);
+  font-family: var(--font-family-body);
   font-size: var(--font-size-body-large);
   font-weight: var(--font-weight-body);
   line-height: var(--line-height-body-large);
@@ -330,6 +330,35 @@ main {
 #PieChartBoard .PieChartBoard__chart .chart {
   width: 254px;
   height: 254px;
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--color-category-navy) 0,
+    var(--color-category-navy) var(--data-category0),
+    var(--color-category-blue) var(--data-category0),
+    var(--color-category-blue) var(--data-category1),
+    var(--color-category-mint) var(--data-category1),
+    var(--color-category-mint) var(--data-category2),
+    var(--color-category-cyan) var(--data-category2),
+    var(--color-category-cyan) var(--data-category3),
+    var(--color-category-sky) var(--data-category3),
+    var(--color-category-sky) var(--data-category4),
+    var(--color-category-pink) var(--data-category4),
+    var(--color-category-pink) var(--data-category5),
+    var(--color-category-purple) var(--data-category5),
+    var(--color-category-purple) var(--data-category6)
+  );
+  position: relative;
+}
+
+#PieChartBoard .PieChartBoard__chart .chart .center {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 160px;
+  height: 160px;
+  background-color: var(--color-white);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
 }
 
 #PieChartBoard .PieChartBoard__board {
@@ -444,12 +473,9 @@ main {
   margin-top: 40px;
 }
 
-
-
 #graph + .detail {
   margin-top: 24px;
 }
-
 
 #graph + .detail .detail-item:nth-child(n + 2) {
   margin-top: 33px;

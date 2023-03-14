@@ -1,3 +1,5 @@
+import { Element } from "../Element.js";
+
 const SVG = {
   document: `
     <svg
@@ -104,10 +106,9 @@ function TabView(attrs, icon) {
   `;
 }
 
-export class Tabs {
+export class Tabs extends Element {
   constructor(className) {
-    this.domNode = null;
-    this.init();
+    super();
     this.domNode.className = className;
   }
 
@@ -145,12 +146,8 @@ export class Tabs {
     this.domNode.innerHTML = `
       <h2 id="tablist-1" class="blind">날짜 캐러셀</h2>
       <div role="tablist" aria-labelledby="tablist-1" class="manual">
-        ${tabs.map(([attrs, icon]) => TabView(attrs, icon))}
+        ${tabs.map(([attrs, icon]) => TabView(attrs, icon)).join("")}
       </div>
     `;
-  }
-
-  view() {
-    return this.domNode.outerHTML;
   }
 }
