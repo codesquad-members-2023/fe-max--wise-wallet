@@ -1,4 +1,5 @@
 import { addComma } from "../utils/addComma.js";
+import { changeCategoryOption } from "./changeCategoryOption.js";
 
 export const setInputBar = ({
   date,
@@ -14,13 +15,9 @@ export const setInputBar = ({
   const $input_content = document.getElementById("input_content");
   const $payment_value = document.getElementById("payment_value");
   const $category_value = document.getElementById("category_value");
-  const $isEdit = document.getElementById("isEdit");
-  $isEdit.checked = true;
 
   $input_date.value = date;
-  if (isPositive.checked) {
-    changeCategoryOption();
-  }
+  changeCategoryOption();
 
   $input_price.value = addComma(price);
   $price_toggle.checked = isPositive;

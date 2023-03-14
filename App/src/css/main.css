@@ -127,8 +127,7 @@
   fill: var(--color-secondary-yellow);
 }
 
-#input_bar_form #price_toggle,
-#input_bar_form #isEdit {
+#input_bar_form #price_toggle {
   display: none;
 }
 

@@ -12,18 +12,18 @@ export const mainInit = () => {
   const value = getLocalStorage();
   const $th = setTh(value);
   const $tbody = setList(value);
-
   $tbody.prepend($th);
   $main_history_list.appendChild($tbody);
 
+  // tr 삭제 버튼
   const $removeBtn = document.querySelectorAll("#main .remove");
-
   $removeBtn.forEach(removeBtn);
 
+  // 수입/지출 필터링
   const $history_checkbox = document.querySelectorAll(".history_toggle");
   $history_checkbox.forEach(changeCheckBoxEvent);
 
-  const $body = document.querySelector("body");
   // tr 클릭
+  const $body = document.querySelector("body");
   $body.addEventListener("click", setEditData);
 };

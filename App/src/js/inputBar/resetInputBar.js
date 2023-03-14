@@ -8,7 +8,7 @@ export const resetInputBar = () => {
   const content = document.getElementById("input_content");
   const payment = document.getElementById("payment_value");
   const category_select = document.getElementById("category_value");
-  const $isEdit = document.getElementById("isEdit");
+
   setNow();
   if (isPositive.checked) {
     changeCategoryOption();
@@ -19,7 +19,6 @@ export const resetInputBar = () => {
   payment.value = "";
   category_select.value = "";
   isPositive.checked = false;
-  $isEdit.checked = false;
 
   const $selected_value = document.querySelectorAll(".selected-value");
   const $input = document.querySelector("#input_bar input");

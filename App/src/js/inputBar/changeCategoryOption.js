@@ -40,8 +40,8 @@ export const changeCategoryOption = () => {
   $ul.id = "drop_menu";
 
   $price_toggle
-    ? ($ul.innerHTML = expenditure_li)
-    : ($ul.innerHTML = income_li);
+    ? ($ul.innerHTML = income_li)
+    : ($ul.innerHTML = expenditure_li);
 
   if ($drop_menu !== null) {
     $category_select.removeChild($drop_menu);
