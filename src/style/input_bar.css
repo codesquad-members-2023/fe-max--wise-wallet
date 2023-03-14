@@ -1,142 +1,27 @@
 .input_bar {
-  width: 894px;
+  width: 944px;
   height: 76px;
   display: flex;
   justify-content: space-between;
   z-index: 1;
   border: 1px solid #524d90;
   border-radius: 8px;
-  color: #524d90;
-  background-color: #fcfcfc;
   box-shadow: 0px 2px 2px rgba(82, 77, 144, 0.08),
     0px 4px 4px rgba(82, 77, 144, 0.1);
+  font: var(--font-body-regular);
+  color: #524d90;
+  background-color: #fcfcfc;
 }
 
-.input_bar #change_btn {
-  border: 0;
-  background-color: transparent;
-  z-index: 2;
-}
-
-.input_bar input {
-  font-family: 'Pretendard';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
-  border: none;
-  background-color: transparent;
-  color: #A79FCB;
-  z-index: 2;
-}
-
-.input_bar input::placeholder {
-  font-family: 'Pretendard';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
-  color: #A79FCB;
-}
-
-.input_bar select {
-  border: none;
-  background-color: transparent;
-  color: #A79FCB;
-  z-index: 2;
-}
-
-.input_bar #input_bar_check {
-  border: 0;
-  background-color: transparent;
-  z-index: 2;
-}
-
-.input_bar > div {
-  position: relative;
-  margin: 0 24px;
-}
-
-.input_bar > div::before  {
-  content : "";
-  position: absolute;
-  left: 24px;
-  height: 44px;
-  width: 100%;
-  border-right:1px solid #524D90;
-}
-
-div.date {
-  width: 88px;
-  height: 76px;
-}
-
-#input_date {
-  height: 24px;
-}
-
-div.price {
-  width: 134px;
-  height: 76px;
-}
-
-#change_btn {
+.input_bar * {
   padding: 0;
-  width: 24px;
-  height: 24px;
+  margin: 0;
 }
 
-#price_input {
-  width: 78px;
-  height: 24px;
-  text-align: right;
-}
-
-#krw {
-  width: 16px;
-  height: 24px;
-  font-family: 'Pretendard';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
-}
-
-div.memo {
-  width: 164px;
-  height: 76px;
-}
-
-#memo_input {
-  width: 164px;
-  height: 24px;
-}
-
-div.payment {
-  width: 100px;
-  height: 76px;
-}
-
-#payment_select {
-  width: 80px;
-  height: 24px;
-}
-
-div.category {
-  width: 100px;
-  height: 76px;
-}
-
-#category_select {
-  width: 100px;
-  height: 24px;
-}
-
-#input_bar_check {
-  padding: 0;
-  width: 40px;
-  height: 40px;
-  justify-content: center;
+.input_bar label {
+  color: #A79FCB;
+  font: var(--font-bold-small);
+  margin-bottom: 4px;
 }
 
 .input_bar div {
@@ -149,11 +34,127 @@ div.category {
   flex-direction: row;
 }
 
-.input_bar label {
+.input_bar #change_btn {
+  border: 0;
+  background-color: transparent;
+  z-index: 2;
+}
+
+.input_bar input {
+  padding: auto 0;
+  border: none;
+  background-color: transparent;
+  font: var(--font-body-regular);
+  color: #524d90;
+  z-index: 2;
+}
+
+.input_bar input::placeholder {
+  font: var(--font-body-regular);
   color: #A79FCB;
-  font-family: 'Pretendard';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 12px;
-  line-height: 16px;
+}
+
+.input_bar #input_bar_check {
+  border: 0;
+  background-color: transparent;
+  z-index: 2;
+}
+
+.input_bar > div {
+  position: relative;
+  margin: 0 24px;
+  height: 76px;
+}
+
+.input_bar > div::before  {
+  content : "";
+  position: absolute;
+  left: 24px;
+  height: 44px;
+  width: 100%;
+  border-right:1px solid #524D90;
+}
+
+.input_bar > .category::before, .input_bar div:last-child::before {
+  border: none;
+}
+
+div#container {
+  width: 134px;
+}
+
+div.date {
+  width: 88px;
+}
+
+#input_date {
+  height: 24px;
+}
+
+#input_date:hover {
+  cursor: grab;
+}
+
+div.price {
+  width: 134px;
+}
+
+#change_btn {
+  padding: 0;
+  width: 24px;
+  height: 24px;
+}
+
+#price_input {
+  margin: 0 8px;
+  width: 78px;
+  height: 24px;
+  text-align: right;
+}
+
+#krw {
+  width: 16px;
+  height: 24px;
+  text-align: center;
+}
+
+div.memo {
+  width: 164px;
+}
+
+#memo_input {
+  width: 164px;
+  height: 24px;
+}
+
+div.payment {
+  width: 149px;
+}
+
+#payment_input, #category_input {
+  width: 100px;
+  height: 24px;
+  padding-right: 20px;
+  background-image: url("/src/svg/select.svg");
+  background-position: right center;
+  background-repeat: no-repeat;
+  background-size: 16px;
+}
+
+#payment_input:hover, #category_input:hover {
+  cursor: grab;
+}
+
+div.category {
+  width: 100px;
+}
+
+#input_bar_check {
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+}
+
+.input_bar button:hover {
+  cursor: grab;
 }
