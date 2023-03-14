@@ -142,6 +142,7 @@ document.querySelector(".input-bar-wrap").addEventListener("click", (e) => {
 /* 리스트 보관 */
 
 /* 리스트 추가 */
+/* 인풋바 폴더에 추가하기 */
 $("#edit-btn").addEventListener("click", (e) => {
   const dateIn = document.querySelector("#date-input");
   const priceIn = document.querySelector("#price-input");
@@ -155,7 +156,7 @@ $("#edit-btn").addEventListener("click", (e) => {
     type: typeIn.checked,
     date: dateIn.value,
     price: priceIn.value,
-    memo: memoIn,
+    memo: memoIn.value,
     paymentIn: paymentIn,
     categoryIn: categoryIn,
   };
@@ -179,6 +180,7 @@ const render = () => {
   if (inputStore.listArray.lenth !== 0) {
     console.log(inputStore.listArray[0].paymentIn);
   }
+
 };
 /* 전체 건수 */
 const countList = () => {
