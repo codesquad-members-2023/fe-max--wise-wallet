@@ -60,14 +60,6 @@ input {
   padding: 0;
   background-color: transparent;
 }
-select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  border: none;
-	padding-left: 0;
-	background: transparent;
-}
 /* number 인풋 화살표 초기화 */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -78,10 +70,3 @@ input::-webkit-inner-spin-button {
 input[type=number] {
 	-moz-appearance:textfield; /* Firefox */
 }
-/* 브라우저 기본 달력 초기화 */
-/* [type="date"]::-webkit-inner-spin-button {
-  display: none;
-}
-[type="date"]::-webkit-calendar-picker-indicator {
-  display: none;
-} */
