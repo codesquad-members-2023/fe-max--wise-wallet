@@ -2,6 +2,8 @@ import { $, $All } from "./js/utils/dom.js";
 import { initInputBarDate } from "./js/init/initInputBarDate.js";
 import { initDateDisplay } from "./js/init/initDateDisplay.js";
 import { initEventHandler } from "./js/init/initEventHandler.js";
+import { inputStore } from "./js/store/inputStore.js";
+import { getCurrentTime } from "./js/utils/getCurrentTime.js";
 
 /* 파일분리 생각해두기 */
 
@@ -116,21 +118,73 @@ paymentListMember.addEventListener("click", (event) => {
 });
 
 /* 인풋이 모두 입력되면 확인버튼 활성화 */
-document.querySelector(".input-bar").addEventListener("click", (e) => {
-  const dateIn = document.querySelector("#date-input")
-  const priceIn = document.querySelector("#price-input")
-  const memoIn = document.querySelector("#memo-input")
-  const paymentIn = paymentSelectHead.innerText
-  const categoryIn = categorySelectHead.innerText
+document.querySelector(".input-bar-wrap").addEventListener("click", (e) => {
+  const dateIn = document.querySelector("#date-input");
+  const priceIn = document.querySelector("#price-input");
+  const memoIn = document.querySelector("#memo-input");
+  const paymentIn = paymentSelectHead.innerText;
+  const categoryIn = categorySelectHead.innerText;
 
-  if(dateIn.value !== '' && priceIn.value !== 0 && memoIn.value!=='' && paymentIn !== '선택하세요' &&categoryIn!=='선택하세요'){
-    $('#edit-btn').disabled = false
-    $('#edit-btn').checked = true
-  } else{
-    $('#edit-btn').disabled = true
+  if (
+    validator(dateIn.value) &&
+    validator(priceIn.value) &&
+    validator(memoIn.value) &&
+    validator(paymentIn) &&
+    validator(categoryIn)
+  ) {
+    $("#edit-btn").disabled = false;
+    $("#edit-btn").checked = true;
+  } else {
+    $("#edit-btn").disabled = true;
+  }
+});
+/* 리스트 보관 */
+
+/* 리스트 추가 */
+$("#edit-btn").addEventListener("click", (e) => {
+  const dateIn = document.querySelector("#date-input");
+  const priceIn = document.querySelector("#price-input");
+  const memoIn = document.querySelector("#memo-input");
+  const paymentIn = paymentSelectHead.innerText;
+  const categoryIn = categorySelectHead.innerText;
+
+  const storedValue = {
+    creationTime : getCurrentTime(),
+    date: dateIn.value,
+    price: priceIn.value,
+    memo:  memoIn,
+    paymentIn : paymentIn,
+    categoryIn : categoryIn
+  };
+
+  
+  if (!$("#edit-btn").checked) {
+    //
+    inputStore.generateList(storedValue)
+    console.log(inputStore.listArray)
+    render();
   }
 });
 
+const render = () => {
+  if(inputStore.listArray.lenth !== 0){
+    console.log(inputStore.listArray[0].paymentIn)
+  }
+};
+
+/* 체인지,밸리데이터 호출<값이 유효한지 체크 */
+const validator = (value) => {
+  if (value === "") {
+    return false;
+  }
+  if (value === 0) {
+    return false;
+  }
+  if (value === "선택하세요") {
+    return false;
+  }
+  return true;
+};
 
 /* 결제수단 삭제 */
 /* 버튼을 누르면- 모달창이 뜨고, 
@@ -241,10 +295,11 @@ x 파일 분리 참고(쿤디) - 1차 구조 변경 완료, 2차 js기능별로 
 
 해야하는거
 0314
-인풋바 내용을 전부 입력하면 확인버튼 활성화, 리스트로 등록가능
+x 인풋바 내용을 전부 입력하면 확인버튼 활성화, 
+리스트로 등록가능하게 저장
 리스트에 삭제하기 이외 부분을 누르면 인풋바가 해당 내용들로 채워지면서 수정 기능 발생
 수입/지출 필터링에 따른 목록 랜더링
-날짜 넘버로 바꾸기고려
+날짜 넘버로 바꾸기고려(정규식으로 eE랑 +- 막아야함)
 
 * 레이아웃
 호버 옵션(기획서 다시 읽기),
