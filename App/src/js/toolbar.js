@@ -57,7 +57,6 @@ Toolbar.prototype.handleAmountInput = function (e) {
   if (target.value > 9999999) target.value = "9999999";
   span.textContent = parseInt(target.value).toLocaleString("ko-KR");
 };
-
 Toolbar.prototype.handleContainerClick = function () {
   if (event.target !== this.domNode) return;
   this.setFocusCurrentItem();
