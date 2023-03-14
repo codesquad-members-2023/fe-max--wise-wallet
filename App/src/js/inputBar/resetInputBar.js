@@ -19,7 +19,7 @@ export const resetInputBar = () => {
   payment.value = "";
   category_select.value = "";
   isPositive.checked = false;
-  isEdit.checked = false;
+  $isEdit.checked = false;
 
   const $selected_value = document.querySelectorAll(".selected-value");
   const $input = document.querySelector("#input_bar input");
