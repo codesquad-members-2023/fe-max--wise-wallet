@@ -1,7 +1,8 @@
-export class Logo {
+import { Element } from "../Element.js";
+
+export class Logo extends Element {
   constructor() {
-    this.domNode = null;
-    this.init();
+    super();
   }
 
   init() {
@@ -16,9 +17,5 @@ export class Logo {
         <span>wallet</span>
       </a>
     `;
-  }
-
-  view() {
-    return this.domNode.outerHTML;
   }
 }

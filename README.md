@@ -15,3 +15,4 @@
 - 제출한 내용을 바탕으로 기존 데이터를 수정하고 렌더링하기
 #### 세부사항
 - [x] Header, Logo, Carousel, Tabs 클래스 생성, init, render 구현
+- [x] Element Class 생성 및 관련 객체에 상속 Main 객체 생성 및 내부 작업 진행 중 Inputbar 작업 세분화 작업 일부 완료
