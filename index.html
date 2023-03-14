@@ -5,73 +5,68 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wise-Wallet</title>
-    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard-dynamic-subset.css" />
-    <link rel="stylesheet" href="./css/reset.css" />
-    <link rel="stylesheet" href="./css/main.css" />
-    <link rel="stylesheet" href="./css/input-bar.css">
-    <link rel="stylesheet" href="./css/main-content.css">
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard-dynamic-subset.css"
+    />
+    <link rel="stylesheet" href="./src/css/reset.css" />
+    <link rel="stylesheet" href="./src/css/variables.css" />
+    <link rel="stylesheet" href="./src/css/common.css" />
+    <link rel="stylesheet" href="./src/css/main.css" />
+    <link rel="stylesheet" href="./src/css/input-bar.css" />
+    <link rel="stylesheet" href="./src/css/main-content.css" />
   </head>
   <body>
     <!-- 메인 페이지 헤더 -->
-    <header class="page-header">
+    <header id="header">
       <section>
-        <img class="page-header__logo" src="./images/Logo.svg" alt="로고" />
+        <img class="header-logo" src="./src/images/Logo.svg" alt="로고" />
 
-        <section class="page-header__month-carousel">
-          <button type="button" class="button--transparent">
-            <img
-              class="page-header__month-carousel--button-icon"
-              src="./images/chevron-left.svg"
-              alt="이전 달로 이동 버튼"
-            />
-          </button>
-          <section class="page-header__month-carousel--current">
+        <section class="month-carousel">
+          <button type="button" class="button--transparent prev-month-btn"></button>
+          <section class="month-view">
             <p>2023</p>
             <p>2</p>
             <p>February</p>
           </section>
-          <button type="button" class="button--transparent">
-            <img
-              class="page-header__month-carousel--button-icon"
-              src="./images/chevron-right.svg"
-              alt="다음 달로 이동 버튼"
-            />
-          </button>
+          <button type="button" class="button--transparent next-month-btn"></button>
         </section>
 
-        <nav class="page-header__nav">
-          <fieldset class="page-header__nav--tabs">
-            <div>
+        <nav class="page-tabs">
+          <ul>
+            <li>
               <input type="radio" name="nav-tab" id="main-page-tab" checked />
               <label for="main-page-tab">
                 <img
                   class="tab-icon"
-                  src="./images/doc.svg"
+                  src="./src/images/doc.svg"
                   alt="수입지출 내역으로 이동 버튼"
                 />
               </label>
-            </div>
-            <div>
+            </li>
+            <li>
               <input type="radio" name="nav-tab" id="calendar-page-tab" />
               <label for="calendar-page-tab">
                 <img
                   class="tab-icon"
-                  src="./images/calendar.svg"
+                  src="./src/images/calendar.svg"
                   alt="달력으로 이동 버튼"
                 />
               </label>
-            </div>
-            <div>
+            </li>
+            <li>
               <input type="radio" name="nav-tab" id="chart-page-tab" />
               <label for="chart-page-tab">
                 <img
                   class="tab-icon"
-                  src="./images/chart.svg"
+                  src="./src/images/chart.svg"
                   alt="차트로 이동 버튼"
                 />
               </label>
-            </div>
-          </fieldset>
+            </li>
+          </ul>
         </nav>
       </section>
     </header>
@@ -87,7 +82,11 @@
               class="input-bar__input-wrapper input-bar__input-wrapper--date"
             >
               <label for="input-date">일자</label>
-              <input type="text" name="input-date" id="input-date" value="20230310">
+              <input
+                type="text"
+                name="input-date"
+                id="input-date"
+              />
             </section>
           </article>
 
@@ -99,10 +98,15 @@
               <label for="input-price">금액</label>
               <div>
                 <!-- <button class="button--transparent">
-                  <img src="./images/minus.svg" alt="마이너스" />
+                  <img src="./src/images/minus.svg" alt="마이너스" />
                 </button> -->
                 <div>
-                  <input type="checkbox" name="sign" id="sign-switcher" checked>
+                  <input
+                    type="checkbox"
+                    name="sign"
+                    id="sign-switcher"
+                    checked
+                  />
                   <label for="sign-switcher"></label>
                 </div>
                 <input type="text" id="input-price" value="0" />
@@ -135,21 +139,25 @@
             </section>
 
             <!-- 결제수단 드롭다운 패널 -->
-            <!-- <div class="input-bar__dropdown-panel">
+            <div class="input-bar__dropdown-panel">
               <ul>
                 <li class="dropdown-panel__option">
                   <div class="dropdown-panel__option--content">
                     <p>현금</p>
-                    <button class="button--transparent button-transparent dropdown-panel__button--delete">
-                      <img src="./images/closed.svg" alt="현금 삭제" />
+                    <button
+                      class="button--transparent button-transparent dropdown-panel__button--delete"
+                    >
+                      <img src="./src/images/closed.svg" alt="현금 삭제" />
                     </button>
                   </div>
                 </li>
                 <li class="dropdown-panel__option">
                   <div class="dropdown-panel__option--content">
                     <p>신용카드</p>
-                    <button class="button--transparent dropdown-panel__button--delete">
-                      <img src="./images/closed.svg" alt="신용카드 삭제" />
+                    <button
+                      class="button--transparent dropdown-panel__button--delete"
+                    >
+                      <img src="./src/images/closed.svg" alt="신용카드 삭제" />
                     </button>
                   </div>
                 </li>
@@ -159,7 +167,7 @@
                   </div>
                 </li>
               </ul>
-            </div> -->
+            </div>
           </article>
 
           <!-- 분류 선택 -->
@@ -221,7 +229,7 @@
               </div> -->
             </section>
             <button class="button--transparent input-bar__check-button">
-              <img src="./images/checkbox.svg" alt="내역 입력 확인" />
+              <img src="./src/images/checkbox.svg" alt="내역 입력 확인" />
             </button>
           </article>
         </form>
@@ -279,7 +287,9 @@
                     <p class="font-primary-alt">금</p>
                   </div>
 
-                  <section class="transaction__item-amount flex-row font-primary-alt">
+                  <section
+                    class="transaction__item-amount flex-row font-primary-alt"
+                  >
                     <div class="transaction__item-amount--income flex-row">
                       <p>수입</p>
                       <p>2,010,580원</p>
@@ -293,31 +303,47 @@
                 <!-- 일별 수입지출 상세내역 -->
                 <section class="transaction__item-detail-list flex-column">
                   <div class="transaction__item-detail-data flex-row">
-                    <div class="transaction__item-detail-data--category flex-row-center bg-category-blue">
+                    <div
+                      class="transaction__item-detail-data--category flex-row-center bg-category-blue"
+                    >
                       <p>식비</p>
                     </div>
-                    <div class="transaction__item-detail-data--content flex-row font-primary">
+                    <div
+                      class="transaction__item-detail-data--content flex-row font-primary"
+                    >
                       <p>잔치국수와 김밥</p>
                     </div>
-                    <div class="transaction__item-detail-data--payment-type flex-row font-primary-alt">
+                    <div
+                      class="transaction__item-detail-data--payment-type flex-row font-primary-alt"
+                    >
                       <p>현대카드</p>
                     </div>
-                    <div class="transaction__item-detail-data--price flex-row font-secondary-red">
+                    <div
+                      class="transaction__item-detail-data--price flex-row font-secondary-red"
+                    >
                       <p>-9,500원</p>
                     </div>
                   </div>
 
                   <div class="transaction__item-detail-data flex-row">
-                    <div class="transaction__item-detail-data--category flex-row-center bg-category-green">
+                    <div
+                      class="transaction__item-detail-data--category flex-row-center bg-category-green"
+                    >
                       <p>입금</p>
                     </div>
-                    <div class="transaction__item-detail-data--content flex-row font-primary">
+                    <div
+                      class="transaction__item-detail-data--content flex-row font-primary"
+                    >
                       <p>2월 급여</p>
                     </div>
-                    <div class="transaction__item-detail-data--payment-type flex-row font-primary-alt">
+                    <div
+                      class="transaction__item-detail-data--payment-type flex-row font-primary-alt"
+                    >
                       <p>현금</p>
                     </div>
-                    <div class="transaction__item-detail-data--price flex-row font-secondary-cyan">
+                    <div
+                      class="transaction__item-detail-data--price flex-row font-secondary-cyan"
+                    >
                       <p>2,010,580원</p>
                     </div>
                   </div>
@@ -334,8 +360,12 @@
                     <p class="font-primary-alt">화</p>
                   </div>
 
-                  <section class="transaction__item-amount flex-row font-primary-alt">
-                    <div class="transaction__item-amount--income flex-row no-display">
+                  <section
+                    class="transaction__item-amount flex-row font-primary-alt"
+                  >
+                    <div
+                      class="transaction__item-amount--income flex-row no-display"
+                    >
                       <p>수입</p>
                       <p>2,010,580원</p>
                     </div>
@@ -348,31 +378,47 @@
                 <!-- 일별 수입지출 상세내역 -->
                 <section class="transaction__item-detail-list flex-column">
                   <div class="transaction__item-detail-data flex-row">
-                    <div class="transaction__item-detail-data--category flex-row-center bg-category-cyan">
+                    <div
+                      class="transaction__item-detail-data--category flex-row-center bg-category-cyan"
+                    >
                       <p>쇼핑/뷰티</p>
                     </div>
-                    <div class="transaction__item-detail-data--content flex-row font-primary">
+                    <div
+                      class="transaction__item-detail-data--content flex-row font-primary"
+                    >
                       <p>여름 의류</p>
                     </div>
-                    <div class="transaction__item-detail-data--payment-type flex-row font-primary-alt">
+                    <div
+                      class="transaction__item-detail-data--payment-type flex-row font-primary-alt"
+                    >
                       <p>현대카드</p>
                     </div>
-                    <div class="transaction__item-detail-data--price flex-row font-secondary-red">
+                    <div
+                      class="transaction__item-detail-data--price flex-row font-secondary-red"
+                    >
                       <p>-59,000원</p>
                     </div>
                   </div>
 
                   <div class="transaction__item-detail-data flex-row">
-                    <div class="transaction__item-detail-data--category flex-row-center bg-category-pink">
+                    <div
+                      class="transaction__item-detail-data--category flex-row-center bg-category-pink"
+                    >
                       <p>문화/여가</p>
                     </div>
-                    <div class="transaction__item-detail-data--content flex-row font-primary">
+                    <div
+                      class="transaction__item-detail-data--content flex-row font-primary"
+                    >
                       <p>영화 스트리밍</p>
                     </div>
-                    <div class="transaction__item-detail-data--payment-type flex-row font-primary-alt">
+                    <div
+                      class="transaction__item-detail-data--payment-type flex-row font-primary-alt"
+                    >
                       <p>현대카드</p>
                     </div>
-                    <div class="transaction__item-detail-data--price flex-row font-secondary-red">
+                    <div
+                      class="transaction__item-detail-data--price flex-row font-secondary-red"
+                    >
                       <p>-9,900원</p>
                     </div>
                   </div>
@@ -383,5 +429,7 @@
         </section>
       </section>
     </main>
+
+    <script type="module" src="./src/js/index.js"></script>
   </body>
 </html>

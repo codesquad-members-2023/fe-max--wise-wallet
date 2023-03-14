@@ -1,0 +1,66 @@
+/* 자주 사용하는 flexbox */
+.flex-row {
+    display: flex;
+    align-items: center;
+  }
+  
+  .flex-row-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .flex-row-between {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .flex-column {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .gap-8 {
+    gap: 8px;
+  }
+  
+  /* font color */
+  .font-primary {
+    color: var(--color-primary);
+  }
+  
+  .font-primary-alt {
+    color: var(--color-primary-alt);
+  }
+  
+  .font-secondary-red {
+    color: var(--color-secondary-red);
+  }
+  
+  .font-secondary-cyan {
+    color: var(--color-secondary-cyan);
+  }
+  
+  /* background-color */
+  .bg-category-blue {
+    background-color: var(--color-category-blue);
+  }
+  
+  .bg-category-green {
+    background-color: var(--color-category-green);
+  }
+  
+  .bg-category-cyan {
+    background-color: var(--color-category-cyan);
+  }
+  
+  .bg-category-pink {
+    background-color: var(--color-category-pink);
+  }
+  
+  /* display none */
+  .no-display {
+    display: none;
+  }
+  
