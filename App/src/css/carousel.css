@@ -45,17 +45,11 @@
 
 .carousel .carousel-item .year,
 .carousel .carousel-item .month-name {
-  font-family: var(--font-family-bold);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-bold-large);
-  line-height: var(--line-height-bold-regular);
+  font: var(--font-bold-regular)
 }
 
 .carousel .carousel-item .month {
-  font-family: var(--font-family-display);
-  font-weight: var(--font-weight-display-large);
-  font-size: var(--font-size-display-large);
-  line-height: var(--line-height-display-large);
+  font: var(--font-display-large)
 }
 
 /* Shared CSS for Pause, Previous and Next Buttons */

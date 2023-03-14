@@ -298,7 +298,7 @@ DatePickerDialog.prototype.close = function (flag) {
   this.dialogNode.style.display = "none";
 
   if (flag) {
-    this.buttonNode.focus();
+    this.textboxNode.focus();
   }
 };
 
@@ -803,8 +803,6 @@ DatePickerDialog.prototype.handleButtonClick = function (event) {
     this.open();
     this.setFocusDay();
   }
-
-  event.preventDefault();
 };
 
 DatePickerDialog.prototype.handleBackgroundMouseUp = function (event) {
