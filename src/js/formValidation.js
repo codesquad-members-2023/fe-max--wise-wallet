@@ -1,7 +1,9 @@
 const form = document.querySelector('form');
 const dateInput = document.querySelector('#inputDate');
+const inputPrice = document.querySelector('#inputPrice');
 
 const dateRegEx = /^\d{4}(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])$/;
+const priceRegEx = /^\d{1,3}(,\d{3})*(\.\d+)?$/;
 
 const validateWithRegex = (input, regex) => {
 	form.addEventListener('change', e => {
@@ -19,3 +21,4 @@ const validateWithRegex = (input, regex) => {
 };
 
 validateWithRegex(dateInput, dateRegEx);
+validateWithRegex(inputPrice, priceRegEx);
