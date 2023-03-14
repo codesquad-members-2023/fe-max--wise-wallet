@@ -1,18 +1,8 @@
 const form = document.querySelector('form');
 const dateInput = document.querySelector('#inputDate');
 
-const getToday = () => {
-	const date = new Date();
-	const year = date.getFullYear();
-	const month = `0${date.getMonth() + 1}`.slice(-2);
-	const day = `0${date.getDate()}`.slice(-2);
-
-	return year + month + day;
-};
-
-dateInput.value = getToday();
-
 const dateRegEx = /^\d{4}(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])$/;
+
 const validateWithRegex = (input, regex) => {
 	form.addEventListener('change', e => {
 		if (regex.test(input.value)) {

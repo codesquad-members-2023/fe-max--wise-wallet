@@ -14,7 +14,7 @@ const showDropdown = e => {
 	});
 };
 
-const handleDropdown = () => {
+export const handleDropdown = () => {
 	inputBar.addEventListener('click', e => {
 		// 결제수단 인풋박스 클릭시 active 토글
 		if (
