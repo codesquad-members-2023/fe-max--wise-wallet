@@ -33,10 +33,7 @@
 [role="toolbar"] label,
 [role="toolbar"] a,
 [role="toolbar"] .input {
-  font-family: var(--font-family-bold);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-bold-regular);
-  line-height: var(--line-height-bold-regular);
+  font: var(--font-bold-regular);
   color: var(--color-primary-alt);
   margin-bottom: 4px;
   display: inline-block;
@@ -49,10 +46,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-family: var(--font-family-bold);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-bold-large);
-  line-height: var(--line-height-bold-large);
+  font: var(--font-bold-large);
   color: var(--color-primary);
 }
 
@@ -73,10 +67,7 @@
 [role="toolbar"] .field-amount .fieldset input,
 [role="toolbar"] .field-amount .cover span {
   width: 100%;
-  font-family: var(--font-family-bold);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-bold-large);
-  line-height: var(--line-height-bold-large);
+  font: var(--font-bold-large);
   color: var(--color-primary);
   flex-grow: 1;
   background-color: var(--color-white);
@@ -90,10 +81,8 @@
 }
 
 [role="toolbar"] .field input::placeholder {
-  font-family: var(--font-family-bold);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-bold-large);
-  line-height: var(--line-height-bold-large);
+  
+  font: var(--font-bold-large);
   color: var(--color-primary-alt-40);
 }
 
@@ -105,9 +94,8 @@
   min-width: 74px;
   text-align: right;
   background-color: var(--color-white);
-  padding:0px 15px 0px 4px;
+  padding: 0px 15px 0px 4px;
 }
-
 
 [role="toolbar"] .field-amount .cover span.alt {
   color: var(--color-primary-alt-40);
@@ -263,10 +251,7 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-family: var(--font-family-body);
-  font-weight: var(--font-weight-body);
-  font-size: var(--font-size-body-regular);
-  line-height: var(--line-height-body-regular);
+  font: var(--font-body-regular);
   color: var(--color-primary);
 }
 
@@ -274,7 +259,7 @@ textarea {
   display: block;
 }
 
-[role="toolbar"] .menu-popup [role="menu"] [role="menuitemradio"] button {
+[role="toolbar"] .menu-popup [role="menu"] [role="menuitemradio"] .delete {
   width: 16px;
   height: 16px;
   padding: 0;
@@ -285,6 +270,15 @@ textarea {
   justify-content: center;
   align-items: center;
   background-color: transparent;
+}
+
+[role="toolbar"] .menu-popup [role="menu"] [role="menuitemradio"] .add {
+  font: var(--font-body-regular);
+  background-color: transparent;
+  border: 0;
+  color: var(--color-primary);
+  text-align: left;
+  padding: 0;
 }
 
 [role="toolbar"] .menu-popup [role="menu"] [role="menuitemradio"]:last-child {

@@ -1,4 +1,16 @@
 import { Element } from "../Element.js";
+import { DELETE, OPEN } from "./SVG.js";
+
+function MenuItemRadioView([payment, check]) {
+  return `
+    <li role="menuitemradio" aria-checked="${check}">
+      <span>${payment}</span>
+      <button class="delete" aria-hidden="true">
+        ${DELETE}
+      </button>
+    </li>
+  `;
+}
 
 export class PaymentGroup extends Element {
   constructor() {
@@ -8,6 +20,10 @@ export class PaymentGroup extends Element {
   init() {
     this.domNode = document.createElement("DIV");
     this.domNode.className = "menu-popup group";
+    const payments = [
+      ["현금", true],
+      ["신용카드", false],
+    ];
     this.domNode.innerHTML = `  
       <label for="payment" aria-hidden="true">결제수단</label>
       <div class="field">
@@ -22,72 +38,15 @@ export class PaymentGroup extends Element {
           <span class="placeholder"> 입력하세요 </span>
         </button>
         <label for="payment">
-          <svg
-            width="16"
-            height="16"
-            viewBox="0 0 16 16"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <path
-              d="M4 6L8 10L12 6"
-              stroke="#A79FCB"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round" />
-          </svg>
+          ${OPEN}
         </label>
       </div>
       <ul role="menu" id="menu1" aria-label="결제수단">
-        <li role="menuitemradio" aria-checked="true">
-          <span>현금</span>
-          <button tabindex="-1">
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M12 4L4 12"
-                stroke="#E75B3F"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round" />
-              <path
-                d="M4 4L12 12"
-                stroke="#E75B3F"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
-          </button>
-        </li>
+        ${payments.map(MenuItemRadioView).join("")}
         <li role="menuitemradio" aria-checked="false">
-          <span>신용카드</span>
-          <button tabindex="-1">
-            <svg
-              width="16"
-              height="16"
-              viewBox="0 0 16 16"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M12 4L4 12"
-                stroke="#E75B3F"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round" />
-              <path
-                d="M4 4L12 12"
-                stroke="#E75B3F"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round" />
-            </svg>
+          <button class="add">
+            추가하기
           </button>
-        </li>
-        <li role="menuitemradio" aria-checked="false">
-          <span>추가하기</span>
         </li>
       </ul>
     `;
