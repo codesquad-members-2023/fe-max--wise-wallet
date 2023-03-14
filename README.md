@@ -20,26 +20,26 @@
 1주차
 - 루카스에 올라온 학습 자료들은 차근차근 살펴보며 학습한다.
   - HTML 구조화 설계 ✅
-  - CSS로 스타일 입히기(CSS 기초 & CSS Layout)
-  - HTML, CSS 실습 영상 시청
-  - DOM, Event란?
+  - CSS로 스타일 입히기(CSS 기초 & CSS Layout) ✅
+  - HTML, CSS 실습 영상 시청 ✅
+  - DOM, Event란? ✅
 - 깃허브에 학습 계획을 정리해서 PR을 보낸다. ✅
 - 1주차에 만들어야하는 기능들 하나씩 구현해본다.
   - HTML, CSS로 메인 페이지 UI 만들기
     - HTML ✅
-    - CSS
+    - CSS ✅
   - '월' 이동 기능 구현
   - 새로운 내역 입력 기능 구현
 - HTML 시맨틱(semantic) 태그에 대해서 공부한다. ✅
-- 웹 접근성(Web Accessibility)에 대해서 알아본다.
+- 웹 접근성(Web Accessibility)에 대해서 알아본다. ✅
 - SPA에 대해서 조사해본다.
 - 깔끔한 코드 작성을 위해서 ESLint, Prettier에 대해서 알아보고 설정한다. ✅
 - Figma로 만들어진 기획서를 읽어보고 이해해본다. ✅
 
 2주차
 - 영상으로 HTML, CSS, JS 디버깅 방법에 대해서 학습한다. → [https://www.youtube.com/watch?v=ErMvjDMskFA&list=PLBQiFVHp3AalqVNN6N7yG81e3MBhHMShA&index=1](https://www.youtube.com/watch?v=ErMvjDMskFA&list=PLBQiFVHp3AalqVNN6N7yG81e3MBhHMShA&index=1) ✅
-- DOM Event와 APIs에 대해서 학습한다.
-- Event bubbling, capturing, delegation에 대해서 알아보고 이해해본다.
+- DOM Event와 APIs에 대해서 학습한다. ✅
+- Event bubbling, capturing, delegation에 대해서 알아보고 이해해본다. ✅
     
     → [https://ko.javascript.info/events](https://ko.javascript.info/events)
     
@@ -279,3 +279,4 @@
 2주차
 - [https://ko.javascript.info/events](https://ko.javascript.info/events)
 - [https://dom.spec.whatwg.org/](https://dom.spec.whatwg.org/)
+- [https://developer.mozilla.org/en-US/docs/Web/API/Element/tagName](https://developer.mozilla.org/en-US/docs/Web/API/Element/tagName)
