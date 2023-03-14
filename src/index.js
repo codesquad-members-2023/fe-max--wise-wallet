@@ -4,6 +4,7 @@ import { initDateDisplay } from "./js/init/initDateDisplay.js";
 import { initEventHandler } from "./js/init/initEventHandler.js";
 import { inputStore } from "./js/store/inputStore.js";
 import { getCurrentTime } from "./js/utils/getCurrentTime.js";
+import { initListTotalCount } from "./js/init/initListTotalCount.js";
 
 /* 파일분리 생각해두기 */
 
@@ -145,34 +146,46 @@ $("#edit-btn").addEventListener("click", (e) => {
   const dateIn = document.querySelector("#date-input");
   const priceIn = document.querySelector("#price-input");
   const memoIn = document.querySelector("#memo-input");
+  const typeIn = document.querySelector("#plus-minus-btn");
   const paymentIn = paymentSelectHead.innerText;
   const categoryIn = categorySelectHead.innerText;
 
   const storedValue = {
-    creationTime : getCurrentTime(),
+    creationTime: getCurrentTime(),
+    type: typeIn.checked,
     date: dateIn.value,
     price: priceIn.value,
-    memo:  memoIn,
-    paymentIn : paymentIn,
-    categoryIn : categoryIn
+    memo: memoIn,
+    paymentIn: paymentIn,
+    categoryIn: categoryIn,
   };
 
-  
   if (!$("#edit-btn").checked) {
     //
-    inputStore.generateList(storedValue)
-    console.log(inputStore.listArray)
+    inputStore.generateList(storedValue);
+    console.log(inputStore.listArray);
+
     render();
   }
 });
 
 const render = () => {
-  if(inputStore.listArray.lenth !== 0){
-    console.log(inputStore.listArray[0].paymentIn)
+  // .innerHTML = template 식으로 추가..?
+  //일별 ul, 각 리스트 ul <두 덩어리
+
+  //이것도.. init상태가 뭔지 생각하기 // 일단 inputStore에 있는 걸로 초기상태 지정 0
+  document.querySelector(".info-total-count").innerText = countList() + "건";
+
+  if (inputStore.listArray.lenth !== 0) {
+    console.log(inputStore.listArray[0].paymentIn);
   }
 };
+/* 전체 건수 */
+const countList = () => {
+  return inputStore.listArray.length;
+};
 
-/* 체인지,밸리데이터 호출<값이 유효한지 체크 */
+/* 밸리데이터 호출<값이 유효한지 체크 */
 const validator = (value) => {
   if (value === "") {
     return false;
@@ -185,6 +198,12 @@ const validator = (value) => {
   }
   return true;
 };
+
+/* 전체 건수 세기 */
+// const countList = () => {
+//   return inputStore.listArray.length
+// };
+// document.querySelector(".info-total-count").innerText = countList()
 
 /* 결제수단 삭제 */
 /* 버튼을 누르면- 모달창이 뜨고, 
@@ -254,7 +273,9 @@ const init = () => {
   initDateDisplay();
   initInputBarDate();
   initEventHandler();
+  initListTotalCount();
 };
+
 document.addEventListener("DOMContentLoaded", init);
 
 /* 
@@ -296,10 +317,11 @@ x 파일 분리 참고(쿤디) - 1차 구조 변경 완료, 2차 js기능별로 
 해야하는거
 0314
 x 인풋바 내용을 전부 입력하면 확인버튼 활성화, 
-리스트로 등록가능하게 저장
+x 리스트로 등록가능하게 저장
 리스트에 삭제하기 이외 부분을 누르면 인풋바가 해당 내용들로 채워지면서 수정 기능 발생
 수입/지출 필터링에 따른 목록 랜더링
 날짜 넘버로 바꾸기고려(정규식으로 eE랑 +- 막아야함)
+체인지:input값 변경 감시/뮤테이션 옵저버..?(어려워보임)
 
 * 레이아웃
 호버 옵션(기획서 다시 읽기),
