@@ -5,7 +5,8 @@ export const priceInput = (e) => {
     value = Number(value.replaceAll(",", ""));
     if (isNaN(value)) {
       //NaN인지 판별
-      $("#price-input").value = 0;
+      $("#price-input").value = "";
+    
     } else {
       //NaN이 아닌 경우
       const formatValue = value.toLocaleString("ko-KR");

@@ -33,10 +33,10 @@ categorySelectHead.addEventListener("click", () => {
   categorySelectHead.classList.add("on");
   if (plusMinusBtn.checked) {
     // console.log(categorySelect.lastElementChild)
-    categorySelect.replaceChild(incomeMember,expenditureMember)
+    categorySelect.replaceChild(incomeMember, expenditureMember);
   } else {
     // .replaceChild(변경해줄 노드, 변경하는 노드);
-    categorySelect.replaceChild(expenditureMember,incomeMember)
+    categorySelect.replaceChild(expenditureMember, incomeMember);
   }
 });
 expenditureMember.addEventListener("click", (event) => {
@@ -51,7 +51,6 @@ incomeMember.addEventListener("click", (event) => {
     categorySelectHead.classList.remove("on");
   }
 });
-
 /* 결제수단 추가 */
 
 /* 모달창 */
@@ -115,6 +114,23 @@ paymentListMember.addEventListener("click", (event) => {
     paymentSelectHead.classList.remove("on");
   }
 });
+
+/* 인풋이 모두 입력되면 확인버튼 활성화 */
+document.querySelector(".input-bar").addEventListener("click", (e) => {
+  const dateIn = document.querySelector("#date-input")
+  const priceIn = document.querySelector("#price-input")
+  const memoIn = document.querySelector("#memo-input")
+  const paymentIn = paymentSelectHead.innerText
+  const categoryIn = categorySelectHead.innerText
+
+  if(dateIn.value !== '' && priceIn.value !== 0 && memoIn.value!=='' && paymentIn !== '선택하세요' &&categoryIn!=='선택하세요'){
+    $('#edit-btn').disabled = false
+    $('#edit-btn').checked = true
+  } else{
+    $('#edit-btn').disabled = true
+  }
+});
+
 
 /* 결제수단 삭제 */
 /* 버튼을 누르면- 모달창이 뜨고, 
@@ -214,22 +230,24 @@ x 추가하기 누르면 모달창이 뜨도록,
 x 모달창에 입력한거 셀렉트 박스에 추가,
 x 숫자 세자리마다 콤마
 
-해야하는거
+한거
 0313
-플러스 마이너스에 따라 셀렉트 박스 구성 바꾸기,
+x플러스 마이너스에 따라 셀렉트 박스 구성 바꾸기,
 x 월 이동 가능하게,
   - 월 양옆으로 이동하면 input도 바뀌어야함
 x 숫자만 입력되도록,
-호버 옵션(기획서 다시 읽기),
 [보류] 취소 모달창 구현 - 스타일만 바꾸는 쪽으로 하려했는데.. 추가구현사항으로 분리됨,
 x 파일 분리 참고(쿤디) - 1차 구조 변경 완료, 2차 js기능별로 나누기
 
-인풋바 내용을 전부 입력하면 리스트로 등록가능
+해야하는거
+0314
+인풋바 내용을 전부 입력하면 확인버튼 활성화, 리스트로 등록가능
 리스트에 삭제하기 이외 부분을 누르면 인풋바가 해당 내용들로 채워지면서 수정 기능 발생
 수입/지출 필터링에 따른 목록 랜더링
 날짜 넘버로 바꾸기고려
 
 * 레이아웃
+호버 옵션(기획서 다시 읽기),
 확대하면 영어로 써진 달이 감춰짐->홛대되면서 메인이 밀려올라와 짜부된것처럼 보임?
 축소시 메인리스트 카테고리영역이 삐져나옴(min 혹은 max위드 관련인듯..?)
 메인리스트 카테고리 영역도 탭으로 선택이 돼야함

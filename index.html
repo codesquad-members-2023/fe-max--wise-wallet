@@ -71,7 +71,7 @@
             <form class="input-bar-wrap">
               <fieldset class="date">
                 <label for="date-input">일자</label>
-                <input type="text" id="date-input" pattern="[0-9]{8}" title="'yyyymmdd'와 같은 8자리 숫자" required>
+                <input type="number" id="date-input" pattern="[0-9]{8}" title="'yyyymmdd'와 같은 8자리 숫자" required>
               </fieldset>
               <div class="dividing-line"></div>
               <fieldset class="price">
@@ -136,7 +136,7 @@
 
               </fieldset>
               <fieldset class="edit-btn-layout">
-                <input type="checkbox" name="edit-btn" id="edit-btn" title="수정확인">
+                <input type="checkbox" name="edit-btn" id="edit-btn" title="수정확인" disabled>
                 <!-- 기본 disabled여야함 -->
                 <label for="edit-btn"></label>
               </fieldset>
