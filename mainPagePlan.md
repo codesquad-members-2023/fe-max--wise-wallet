@@ -41,28 +41,28 @@
     - [x] 데이터를 localStorage에 저장
     - [x] 저장 완료 후 list 갱신
 
-- [ ] **main list**
+- [x] **main list**
 
-  - [ ] list header 출력
+  - [x] list header 출력
     - [x] 전체내역 건수
     - [x] 각각 체크박스와 수입, 지출 총 합 출력
-    - [ ] 체크 여부에 따라 수입, 지출만 출력
+    - [x] 체크 여부에 따라 수입, 지출만 출력
   - [x] list main 출력
     - [x] 최근 날짜를 위에 배치
     - [x] 같은 날짜는 하나의 묶음으로 표시
   - [x] 첫줄
-    - [x] 날짜 표시
+    - [x] 날짜 표시s
     - [x] 해당 날짜의 지출, 수입 총액
-  - [ ] 내용
+  - [x] 내용
     - [x] 카테고리, 내용, 결제 수단, 금액 순으로 출력
-    - [ ] hover
+    - [x] hover
       - [x] 배경색 변경 (#ffffff)
       - [x] 우측에 삭제하기 버튼 표시
-        - [ ] 클릭하면 modal이 열린다.
-        - [ ] 클릭한 list 내역 출력
-        - [ ] 삭제 클릭하면 삭제 후 list 갱신
-    - [ ] click
-      - [ ] list를 클릭하하면 list 내역이 input bar에 올라간다.
-      - [ ] hover되지 않아도 변경된(#ffffff) 배경과 삭제 버튼을 표시
-      - [ ] 기존 내역과 달라진 경우 체크 버튼 활성화
-      - [ ] input bar 비우며 list 갱신
+        - [x] 클릭하면 modal이 열린다.
+        - [x] 클릭할 list 내역 출력
+        - [x] 삭제 클릭하면 삭제 후 list 갱신
+    - [x] click
+      - [x] list를 클릭하하면 list 내역이 input bar에 올라간다.
+      - [x] hover되지 않아도 변경된(#ffffff) 배경과 삭제 버튼을 표시
+      - [x] 기존 내역과 달라진 경우 체크 버튼 활성화
+      - [x] input bar 비우며 list 갱신
