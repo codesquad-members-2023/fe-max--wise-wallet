@@ -11,8 +11,8 @@
     rel="stylesheet">
   <link rel="stylesheet" type="text/css"
     href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css" />
-  <link rel="stylesheet" href="./css/reset.css">
-  <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./src/css/reset.css">
+  <link rel="stylesheet" href="./src/css/style.css">
 </head>
 
 <body>
@@ -21,13 +21,15 @@
       <div class="header-wrap">
         <h1><a href="/" class="logo">Wise Wallet</a></h1>
         <div id="month-year">
-          <button type="button" class="month-year-icon"><img src="./images/Vectorleft.svg" alt="이전달"></button>
-          <div id="month-year-text">
-            <p>2023</p>
-            <p>2</p>
-            <p>February</p>
+          <button type="button" class="month-year-icon previous-month-btn"><img src="./src/images/Vectorleft.svg"
+              alt="이전달"></button>
+          <div class="month-year-text">
+            <p class="header-year">2023</p>
+            <p class="header-month">2</p>
+            <p class="header-month-name">February</p>
           </div>
-          <button type="button" class="month-year-icon"><img src="./images/Vectorright.svg" alt="다음달">
+          <button type="button" class="month-year-icon next-month-btn"><img src="./src/images/Vectorright.svg"
+              alt="다음달">
           </button>
         </div>
         <nav id="tab">
@@ -69,7 +71,7 @@
             <form class="input-bar-wrap">
               <fieldset class="date">
                 <label for="date-input">일자</label>
-                <input type="text" id="date-input" pattern="[0-9]{8}" title="'yyyymmdd'와 같은 8자리 숫자" required>
+                <input type="number" id="date-input" pattern="[0-9]{8}" title="'yyyymmdd'와 같은 8자리 숫자" required>
               </fieldset>
               <div class="dividing-line"></div>
               <fieldset class="price">
@@ -91,21 +93,21 @@
                 <label for="payment-select">결제수단</label>
                 <button type="button" class="btn-select payment-select-head">
                   <span>선택하세요</span>
-                  <img src="./images/chevron-down.svg" alt="카테고리펼치기">
+                  <img src="./src/images/chevron-down.svg" alt="카테고리펼치기">
                 </button>
                 <ul class="list-member payment-list-member">
                   <li>
-                    <button type="button" class="select-items"><span>현금</span> <img src="./images/delete-x.svg"
-                        alt="삭제">
+                    <button type="button" class="select-items "><span>현금</span>
+                      <img src="./src/images/delete-x.svg" alt="삭제">
                     </button>
                   </li>
                   <li>
                     <button type="button" class="select-items"><span>신용카드</span>
-                      <img src="./images/delete-x.svg" alt="삭제">
+                      <img src="./src/images/delete-x.svg" alt="삭제">
                     </button>
                   </li>
-                  <li>
-                    <button type="button" class="select-items"><span>추가하기</span>
+                  <li class="add-payment">
+                    <button type="button" class="select-items add-payment-btn"><span>추가하기</span>
                     </button>
                   </li>
                 </ul>
@@ -116,9 +118,9 @@
 
                 <button type="button" class="btn-select category-select-head">
                   <span>선택하세요</span>
-                  <img src="./images/chevron-down.svg" alt="카테고리펼치기">
+                  <img src="./src/images/chevron-down.svg" alt="카테고리펼치기">
                 </button>
-                <ul class="list-member category-list-member active">
+                <ul class="list-member category-list-member ">
                   <li><button type="button" class="select-items">생활</button></li>
                   <li><button type="button" class="select-items">식비</button></li>
                   <li><button type="button" class="select-items">교통</button></li>
@@ -126,15 +128,15 @@
                   <li><button type="button" class="select-items">문화/여가</button></li>
                   <li><button type="button" class="select-items">미분류</button></li>
                 </ul>
-                <ul class="list-member income-member">
+                <ul class="list-member category-income-member">
                   <li><button type="button" class="select-items">월급</button></li>
                   <li><button type="button" class="select-items">용돈</button></li>
-                  <li><button type="button" class="select-items">추가하기</button></li>
+                  <li><button type="button" class="select-items">기타수입</button></li>
                 </ul>
 
               </fieldset>
               <fieldset class="edit-btn-layout">
-                <input type="checkbox" name="edit-btn" id="edit-btn" title="수정확인">
+                <input type="checkbox" name="edit-btn" id="edit-btn" title="수정확인" disabled>
                 <!-- 기본 disabled여야함 -->
                 <label for="edit-btn"></label>
               </fieldset>
@@ -186,7 +188,7 @@
                     <span>9,500원</span>
                   </div>
                 </div>
-                <ul>
+                <ul class="list-datail-box">
                   <li>
                     <div class="list-detail">
                       <div class="list-detail-category ">
@@ -195,7 +197,7 @@
                       <span class="list-detail-body ">스트리밍 정기 서비스 결제</span>
                       <span class="list-detail-payment list-detail-item">현대카드</span>
                       <span class="list-detail-price list-detail-item">-10,900원</span>
-                      <button title="삭제하기" class="delete-btn"><img src="./images/delete-x.svg" alt="삭제"> <span
+                      <button title="삭제하기" class="delete-btn"><img src="./src/images/delete-x.svg" alt="삭제"> <span
                           class="delete-text">삭제하기</span></button>
                     </div>
                   </li>
@@ -225,7 +227,8 @@
                       <span class="list-detail-body ">스트리밍 정기 서비스 결제</span>
                       <span class="list-detail-payment list-detail-item">현대카드</span>
                       <span class="list-detail-price list-detail-item">-10,900원</span>
-                      <button type="button" title="삭제하기" class="delete-btn"><img src="./images/delete-x.svg" alt="삭제">
+                      <button type="button" title="삭제하기" class="delete-btn"><img src="./src/images/delete-x.svg"
+                          alt="삭제">
                         <span class="delete-text">삭제하기</span></button>
                     </div>
                   </li>
@@ -345,7 +348,7 @@
 
 
 
-  <script type="module" src="./js/index.js"></script>
+  <script type="module" src="./src/index.js" defer="defer"></script>
 </body>
 
 </html>

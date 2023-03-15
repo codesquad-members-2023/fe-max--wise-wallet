@@ -141,17 +141,17 @@ input {
   background-color: transparent;
   cursor: pointer;
 }
-#month-year-text p {
+.month-year-text p {
   text-align: center;
   font-family: "Outfit", sans-serif;
   font-weight: 700;
 }
-#month-year-text p:nth-child(2) {
+.month-year-text p:nth-child(2) {
   font-size: 48px;
   line-height: 56px;
   margin: 4px 0;
 }
-#month-year-text p:nth-child(odd) {
+.month-year-text p:nth-child(odd) {
   font-size: 12px;
   line-height: 16px;
 }
@@ -254,6 +254,12 @@ input {
   line-height: 24px;
 
   color: #524d90;
+}
+.date #date-input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
 .date #date-input:invalid{
   border: 1px solid blue;
@@ -395,7 +401,7 @@ input {
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
-  color: #a79fcb;
+  color: #524d90;
 }
 
 .list-member {
@@ -412,7 +418,7 @@ input {
   margin-top: 10px;
   z-index: 100;
 }
-.income-member.active{
+.category-income-member.active{
   display: block;
 }
 
@@ -505,6 +511,7 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 200;
 }
 .modal-box {
   width: 400px;
@@ -552,6 +559,10 @@ input {
   line-height: 24px;
   color: #524d90;
 }
+.modal-body #modal-input.delete{
+  background: rgba(167, 159, 203, 0.4);
+  border: none;
+}
 .modal-body #modal-input::placeholder {
   font-family: "Pretendard";
   font-style: normal;
@@ -578,6 +589,9 @@ input {
 }
 .modal-btn-layout .confirm-btn {
   color: #f5b853;
+}
+.modal-btn-layout .confirm-btn.delete {
+  color: #E75B3F;
 }
 
 .hidden {
@@ -675,6 +689,7 @@ input {
 }
 .list-detail:hover {
   background: #fcfcfc;
+  cursor: pointer;
 }
 .list-detail:hover .delete-btn {
   display: flex;
@@ -937,41 +952,3 @@ input {
   width: 894px;
 }
 
-/* 
-한거
-0308
-x 폼태그로 감싸지 않고 div로만 감싸져있던 인풋들을 전부 폼태그로 감싸줌
-x 통계탭 영역 테두리 영역 잡기
-x 통계탭 영역 상단 박스 누르면 아래 박스 보이게 임시로 해놓음 원래 각 카테고리를 눌러야 보여야하지만
-
-
-한거
-0309
-x 폰트파일 가져오기, 
-x 통계차트의 꺾은선 차트 부분제외 나머지 부분 채우기, 
-x 클릭시 바뀌는 이미지,->아예 svg태그로?
-x 체크박스 커스텀,
-x 인풋 태그(모달창 내부 인풋 포함) 입력 텍스트를 위한 여백
-x 메인리스트 카테고리 영역에 호버시 삭제하기 버튼
-x 셀렉트박스 커스텀,
-x 플러스 마이너스 이것도 체크박스로
-
-해야하는거
-0310
-x 탭메뉴 클릭시 아이콘 색 변경,
-x 날짜 오늘날짜가 보이도록(선택한날짜로 20230309 가 되도록) 
-플러스 마이너스에 따라 셀렉트 박스 구성 바꾸기,
-월 이동 가능하게,
-숫자만 입력되도록, 숫자 세자리마다 콤마
-호버 옵션(기획서 다시 읽기),
-추가하기 누르면 모달창이 뜨도록,
-모달창에 입력한거 셀렉트 박스에 추가,
-취소 모달창 구현,
-파일 분리 참고(쿤디)
-날짜 넘버로 바꾸기고려
-
-확대하면 영어로 써진 달이 감춰짐->홛대되면서 메인이 밀려올라와 짜부된것처럼 보임?
-축소시 메인리스트 카테고리영역이 삐져나옴(min 혹은 max위드 관련인듯..?)
-메인리스트 카테고리 영역도 탭으로 선택이 돼야함
-바닥 여백은 얼마나?
- */
