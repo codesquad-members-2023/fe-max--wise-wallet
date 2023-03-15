@@ -29,6 +29,7 @@ const expenditureMember = document.querySelector(".category-list-member");
 const categorySelectHead = document.querySelector(".category-select-head");
 
 const categorySelect = document.querySelector(".category-select");
+
 categorySelectHead.addEventListener("click", () => {
   categorySelectHead.classList.add("on");
   if (plusMinusBtn.checked) {
@@ -37,6 +38,7 @@ categorySelectHead.addEventListener("click", () => {
     categorySelect.replaceChild(expenditureMember, incomeMember);
   }
 });
+
 expenditureMember.addEventListener("click", (event) => {
   if (event.target.nodeName === "BUTTON") {
     categorySelectHead.innerText = event.target.innerText;
@@ -101,16 +103,16 @@ const paymentListMember = document.querySelector(".payment-list-member");
 //   paymentSelectHead.classList.add("on");
 // });
 
-paymentListMember.addEventListener("click", (event) => {
-  if (event.target.classList.contains("add-payment-btn")) {
-    paymentSelectHead.innerText = "선택하세요";
-    return;
-  }
-  if (event.target.nodeName === "BUTTON") {
-    paymentSelectHead.innerText = event.target.innerText;
-    paymentSelectHead.classList.remove("on");
-  }
-});
+// paymentListMember.addEventListener("click", (event) => {
+//   if (event.target.classList.contains("add-payment-btn")) {
+//     paymentSelectHead.innerText = "선택하세요";
+//     return;
+//   }
+//   if (event.target.nodeName === "BUTTON") {
+//     paymentSelectHead.innerText = event.target.innerText;
+//     paymentSelectHead.classList.remove("on");
+//   }
+// });
 
 /* 인풋이 모두 입력되면 확인버튼 활성화 */
 $(".input-bar-wrap").addEventListener("click", (e) => {
