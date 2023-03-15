@@ -10,8 +10,6 @@ import { getDate } from "../date/getDate.js";
 export const mainInit = () => {
   removeList();
   const $main_history_list = document.querySelector("#main_history_list");
-  const [year, month] = getDate();
-  const date = year.textContent + month.textContent.padStart(2, 0);
   const value = getLocalStorage();
 
   const $th = setTh(value);
