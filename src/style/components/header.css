@@ -1,0 +1,83 @@
+.header {
+    height: 194px;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-primary);
+}
+
+.header-contents {
+    width: 864px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-logo {
+    width: 132px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    outline: none;
+}
+
+.header-logo:hover, :active {
+    text-decoration: none;
+}
+
+.header-selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.selector {
+    width: 120px;
+    margin: 0px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.selector span:nth-child(2) {
+    margin: 4px 0px;
+}
+
+.select-btn {
+    height: 32px;
+    width: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-primary);
+    border: none;
+    cursor: pointer;
+}
+
+.select-btn img {
+    height: 32px;
+    width: 32px;
+}
+
+.header-taps {
+    display: flex;
+}
+
+.header-taps button {
+    margin: 0px 10px;
+    height: 24px;
+    width: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-primary);
+    border: none;
+    cursor: pointer;
+}
+
+.tap-active img {
+    filter: brightness(0) invert(1);
+}

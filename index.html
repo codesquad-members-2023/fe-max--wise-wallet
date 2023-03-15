@@ -4,113 +4,128 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="reset.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css">
+    <link rel="stylesheet" href="src/style/style.css">
     <title>Wise Wallet</title>
 </head>
-<body id="body">
-    <header id="header">
-        <div id="header_box">
-            <div id="header_logo" class="display_small font_white">Wise Wallet</div>
-            <div id="header_month">
-                <img class="icon_medium" src="src/arrowleft_icon.png" alt="">
-                <div id="month_selector">
-                    <span id="selector_year" class="bold_regular font_white">2023</span>
-                    <span id="selector__num" class="display_large font_white">2</span>
-                    <span id="selector__eng" class="bold_regular font_white">February</span>
+<body class="body">
+    <header class="header">
+        <div class="header-contents">
+            <a class="header-logo" href="index.html"><h1 class="display_small">Wise Wallet</h1></a>
+            <div class="header-selector">
+                <button class="select-btn" type="button"><img src="src/assets/icon/arrowleft_icon.svg" alt=""></button>
+                <div class="selector">
+                    <span class="selector-year bold_small"></span>
+                    <span class="selector-num display_large"></span>
+                    <span class="selector-eng bold_small"></span>
                 </div>
-                <img class="icon_medium" src="src/arrowright_icon.png" alt="">
+                <button class="select-btn" type="button"><img src="src/assets/icon/arrowright_icon.svg" alt=""></button>
             </div>
-            <div id="header_taps">
-                <img class="taps icon_small" src="src/list_icon.png" alt="">
-                <img class="taps icon_small" src="src/calendar_icon.png" alt="">
-                <img class="taps icon_small" src="src/chart_icon.png" alt="">
-            </div>
+            <nav class="header-taps">
+                <button class="list-btn tap-active"><img src="src/assets/icon/list_icon.svg" alt=""></button>
+                <button class="calendar-btn"><img src="src/assets/icon/calendar_icon.svg" alt=""></button>
+                <button class="chart-btn"><img src="src/assets/icon/chart_icon.svg" alt=""></button>
+            </nav>
         </div>
     </header>
-    <form id="input_bar">
-        <div id="bar_date" class="input_section">
-            <label for="input_date" class="input_title bold_regular font_alt">일자</label>
-            <input id="input_date" class="input_box body_regular font_primary" type="number" value="20230307">
-        </div>
-        <div class="line"></div>
-        <div id="bar_amount" class="input_section">
-            <label for="input_amount" class="input_title bold_regular font_alt">금액</label>
-            <div id="amount_section">
-                <img class="icon_small" src="src/minus_icon.png" alt="">
-                <input id="input_amount" class="input_box body_regular font_primary" placeholder="0" type="text">
-                <span class="body_regular font_primary">원</span>
-            </div>
-        </div>
-        <div class="line"></div>
-        <div id="bar_description" class="input_section">
-            <label for="input_description" class="input_title bold_regular font_alt">내용</label>
-            <input id="input_description" class="input_box body_regular font_primary" placeholder="입력하세요" type="text">
-        </div>
-        <div class="line"></div>
-        <div id="bar_payments" class="input_section">
-            <label for="input_payments" class="input_title bold_regular font_alt">결제수단</label>
-            <div id="payments_section">
-                <input id="input_payments" class="input_box body_regular font_primary" placeholder="선택하세요" type="text">
-                <img class="icon_select" src="src/name=chevron-right.svg" alt="">
-            </div>
-        </div>
-        <div class="line"></div>
-        <div id="bar_category" class="input_section">
-            <label for="input_category" class="input_title bold_regular font_alt">분류</label>
-            <div id="category_section">
-                <input id="input_category" class="input_box body_regular font_primary" placeholder="선택하세요" type="text">
-                <img class="icon_select" src="src/name=chevron-right.svg" alt="">
-            </div>
-        </div>
-        <button id="input_btn" type="button">
-            <img id="btn_icon" class="icon_small" src="src/check_icon.png" alt="">
-        </button>
-    </form>
-    <div id="info_list">
-        <div id="list_title">
-            <span id="title_content" class="body_large font_primary">전체 내역 13건</span>
-        </div>
-        <div id="list_category" class="body_medium font_primary">
-            <div id="list_income">
-                <img class="check_box icon_small" src="src/checkbox_icon.png" alt="">
-                <span id="income_amount">수입 2,010,580</span>
-            </div>
-            <div id="list_expense">
-                <img class="check_box icon_small" src="src/checkbox_icon.png" alt="">
-                <span id="expense_amount">지출 798,180</span>
-            </div>
-        </div>
-    </div>
-    <section id="list_month">
-        <div id="list_20230215" class="list_contents">
-            <div class="contents_title">
-                <div class="contents_date">
-                    <span class="bold_medium font_primary">2월 15일</span>
-                    <span class="bold_medium font_alt">수</span>
+    <main class="main">
+        <section class="list-tap">
+            <form class="input-bar">
+                <div class="bar-date">
+                    <label for="date-input" class="bold_small">일자</label>
+                    <input id="date-input" class="input-box" type="number" maxlength="8" value="">
                 </div>
-                <div class="contents_amount">
-                    <span class="bold_medium font_alt">지출</span>
-                    <span class="bold_medium font_alt">56,240원</span>
+                <div class="bar-seperator"></div>
+                <div class="bar-amount">
+                    <label for="amount-input" class="bold_small">금액</label>
+                    <div class="amount-section">
+                        <input id="amount-btn" class="amount-switch-btn" type="checkbox">
+                        <label for="amount-btn"></label>
+                        <input id="amount-input" class="input-box" placeholder="0" type="text">
+                        <span class="body_regular">원</span>
+                    </div>
                 </div>
+                <div class="bar-seperator"></div>
+                <div class="bar-description">
+                    <label for="description-input" class="bold_small">내용</label>
+                    <input id="description-input" class="input-box" placeholder="입력하세요" type="text">
+                </div>
+                <div class="bar-seperator"></div>
+                <div class="bar-payments">
+                    <label for="payments-input" class="dropbox-title bold_small">결제수단</label>
+                    <div class="payments-section">
+                        <span class="input-box">선택하세요</span>
+                        <img class="dropbox-btn" src="src/assets/icon/dropbox_icon.svg" alt="">
+                    </div>
+                </div>
+                <div class="bar-seperator"></div>
+                <div class="bar-category">
+                    <div class="category-section">
+                            <label for="category-input" class="dropbox-title bold_small">분류</label>
+                            <div class="dropbox-category">
+                                <span class="input-box">선택하세요</span>
+                                <img class="dropbox-btn" src="src/assets/icon/dropbox_icon.svg" alt="">
+                            </div>
+                    </div>
+                    <button class="btn" type="button">
+                        <img src="src/assets/icon/check_icon.svg" alt="">
+                    </button>
+                </div>
+            </form>
+            <div class="list-contents">
+                <div class="info-title">
+                    <span class="body_large">전체 내역 13건</span>
+                    <div class="info-contents">
+                        <div class="info-income">
+                            <input id="checkbox-income" class="checkbox" type="checkbox" name="" id="">
+                            <label for="checkbox-income"></label>
+                            <span class="body_medium">수입 2,010,580원</span>
+                        </div>
+                        <div class="info-expense">
+                            <input id="checkbox-expense" class="checkbox" type="checkbox" name="" id="">
+                            <label for="checkbox-expense"></label>
+                            <span class="body_medium">지출 798,180원</span>
+                        </div>
+                    </div>
+                </div>
+                <ul class="date-list">
+                    <div class="list-title">
+                        <div class="date-title">
+                            <span class="bold_medium">2월 15일</span>
+                            <span class="bold_medium">수</span>
+                        </div>
+                        <div class="contents-title">
+                            <span class="bold_medium">수입</span>
+                            <span class="bold_medium">56,240원</span>
+                            <span class="bold_medium">지출</span>
+                            <span class="bold_medium">56,240원</span>
+                        </div>
+                    </div>
+                    <li class="list-item">
+                        <div class="item-contents">
+                            <div class="tag culture">문화/여가</div>
+                            <span class="list-name">스트리밍 서비스 정기 결제</span>
+                            <span class="list-payment">현대카드</span>
+                            <span class="list-amount">-10,900원</span>
+                        </div>
+                    </li>
+                    <li class="list-item">
+                        <div class="item-contents">
+                            <div class="tag transport">교통</div>
+                            <span class="list-name">후불 교통비 결제</span>
+                            <span class="list-payment">현대카드</span>
+                            <span class="list-amount">-45,340원</span>
+                        </div>
+                    </li>
+                </ul>
             </div>
-            <div class="contents_main">
-                <div class="tags category_culture font_white bold_medium">문화/여가</div>
-                <span class="contents_description body_medium font_primary">스트리밍 서비스 정기 결제</span>
-                <span class="contents_payment body_medium font_alt">현대카드</span>
-                <span class="contents_money body_medium font_secred">-10,900원</span>
-            </div>
-            <div class="contents_main">
-                <div class="tags category_transportation font_white bold_medium">교통</div>
-                <span class="contents_description body_medium font_primary">후불 교통비 결제</span>
-                <span class="contents_payment body_medium font_alt">현대카드</span>
-                <span class="contents_money body_medium font_secred">-45,340원</span>
-            </div>
-        </div>
-    </section>
+        </section>
+        <section class="calendar-tap hidden">
+        </section>
+        <section class="chart-tap hidden">
+        </section>
+    </main>
+    <script src="src/script/inputbar.js"></script>
+    <script src="src/script/checkMaxLengthOfNumber.js"></script>
+    <script src="src/script/selectTap.js"></script>
 </body>
 </html>

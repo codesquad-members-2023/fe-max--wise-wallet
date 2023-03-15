@@ -1,0 +1,20 @@
+.btn {
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-primary-alt);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.btn img {
+    width: 24px;
+    height: 24px;
+}
+
+.active {
+    background-color: var(--color-secondary-yellow);
+}

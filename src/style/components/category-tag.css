@@ -1,0 +1,54 @@
+.tag {
+    width: 92px;
+    height: 32px;
+    border: none;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-family-bold);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-bold-medium);
+    line-height: var(--line-height-bold-medium);
+    color: var(--color-white);
+}
+
+.life {
+    background-color: var(--color-category-navy);
+}
+
+.food {
+    background-color: var(--color-category-blue);
+}
+
+.transport {
+    background-color: var(--color-category-mint);
+}
+
+.shopping {
+    background-color: var(--color-category-cyan);
+}
+
+.medical {
+    background-color: var(--color-category-sky);
+}
+
+.culture {
+    background-color: var(--color-category-pink);
+}
+
+.unclassified {
+    background-color: var(--color-category-purple);
+}
+
+.salary {
+    background-color: var(--color-category-green);
+}
+
+.allowance {
+    background-color: var(--color-category-yellow);
+}
+
+.etc {
+    background-color: var(--color-category-orange);
+}

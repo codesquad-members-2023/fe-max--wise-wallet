@@ -1,0 +1,14 @@
+.checkbox+label {
+    width: 24px;
+    height: 24px;
+    background: url("../../assets/icon/uncheckbox_icon.svg") no-repeat 0 0px / contain;
+    cursor: pointer;
+}
+
+.checkbox:checked+label {
+    background: url('../../assets/icon/checkbox_icon.svg') no-repeat 0 0px / contain;
+}
+
+.checkbox {
+    display: none;
+}
