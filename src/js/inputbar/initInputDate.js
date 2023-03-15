@@ -1,8 +1,10 @@
 import { getToday } from './getToday.js';
 
-const initInputDate = () => {
-	const dateInput = document.querySelector('#inputDate');
-	dateInput.value = getToday();
-};
+export const initInputDate = () => {
+	const $dateInput = document.querySelector('#inputDate');
+	let { year, month, date } = getToday();
+	month = `0${month}`.slice(-2);
+	date = `0${date}`.slice(-2);
 
-export { initInputDate };
+	$dateInput.value = year + month + date;
+};

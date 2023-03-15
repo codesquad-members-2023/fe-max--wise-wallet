@@ -1,8 +1,8 @@
 export const getToday = () => {
-	const date = new Date();
-	const year = date.getFullYear();
-	const month = `0${date.getMonth() + 1}`.slice(-2);
-	const day = `0${date.getDate()}`.slice(-2);
+	const todayDate = new Date();
+	const year = todayDate.getFullYear();
+	const month = todayDate.getMonth() + 1;
+	const date = todayDate.getDate();
 
-	return year + month + day;
+	return { year, month, date };
 };
