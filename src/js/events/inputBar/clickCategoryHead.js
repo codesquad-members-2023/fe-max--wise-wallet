@@ -6,13 +6,12 @@ export const clickCategoryHead = () => {
   const expenditureMember = document.querySelector(".category-list-member");
 
   const categorySelectHead = document.querySelector(".category-select-head");
-
   const categorySelect = document.querySelector(".category-select");
 
-  console.log(incomeMember.nodeType);
-  console.log(expenditureMember.nodeType);
-  console.log(categorySelectHead.nodeType);
-  console.log(categorySelect.nodeType);
+  console.log(incomeMember);
+  console.log(expenditureMember);
+  console.log(categorySelectHead);
+  console.log(categorySelect);
 
   categorySelectHead.classList.add("on");
   if (plusMinusBtn.checked) {
@@ -20,4 +19,5 @@ export const clickCategoryHead = () => {
   } else {
     categorySelect.replaceChild(expenditureMember, incomeMember);
   }
+
 };
