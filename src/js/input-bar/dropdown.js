@@ -1,3 +1,6 @@
+import { plusMinusInput } from "./amount-input.js";
+import { newEntryForm } from "./index.js";
+
 //- Payment Method Dropdown Nodes
 const paymentMethodDropdown = document.querySelector(
   "#payment-method-dropdown"
@@ -6,15 +9,23 @@ const paymentMethodOptionsContainer = paymentMethodDropdown.nextElementSibling;
 const addPaymentMethodOption = paymentMethodOptionsContainer.querySelector(
   "#add-payment-method-option"
 );
-const paymentMethodInputDisplay = paymentMethodDropdown.querySelector(
+const paymentMethodInput = paymentMethodDropdown.querySelector(
   ".input-bar__item-input"
 );
 
 //- Category Dropdown Nodes
 const categoryDropdown = document.querySelector("#category-dropdown");
-const categoryOptionsContainer = categoryDropdown.nextElementSibling;
-const categoryOptions = categoryOptionsContainer.querySelectorAll(".option");
-const categoryInputDisplay = categoryDropdown.querySelector(
+const categoryOptionsContainerExpense = document.querySelector(
+  "#category-dropdown ~ .expense"
+);
+const categoryOptionsContainerIncome = document.querySelector(
+  "#category-dropdown ~ .income"
+);
+const categoryOptionsExpense =
+  categoryOptionsContainerExpense.querySelectorAll(".option");
+const categoryOptionsIncome =
+  categoryOptionsContainerIncome.querySelectorAll(".option");
+export const categoryInput = categoryDropdown.querySelector(
   ".input-bar__item-input"
 );
 
@@ -37,7 +48,7 @@ const targetPaymentMethodModalBody = deletePaymentMethodForm.querySelector(
 const deletePaymentMethodCancelBtn =
   deletePaymentMethodModal.querySelector(".cancel-btn");
 
-//- Click Outside to Close
+//- Click outside to close
 window.addEventListener("click", (evt) => {
   const el = evt.target;
 
@@ -46,12 +57,14 @@ window.addEventListener("click", (evt) => {
     !paymentMethodDropdown.contains(el) &&
     !paymentMethodOptionsContainer.contains(el) &&
     !categoryDropdown.contains(el) &&
-    !categoryOptionsContainer.contains(el) &&
-    !el?.classList.contains(".option-delete-btn") &&
+    !categoryOptionsContainerExpense.contains(el) &&
+    !categoryOptionsContainerIncome.contains(el) &&
+    !el?.classList.contains("option-delete-btn") &&
     !el?.parentElement?.classList.contains("option-delete-btn")
   ) {
     paymentMethodOptionsContainer.classList.remove("is-active");
-    categoryOptionsContainer.classList.remove("is-active");
+    categoryOptionsContainerExpense.classList.remove("is-active");
+    categoryOptionsContainerIncome.classList.remove("is-active");
   }
 
   //- Close modal
@@ -62,7 +75,8 @@ window.addEventListener("click", (evt) => {
 
 //- Payment Method Dropdown
 paymentMethodDropdown.addEventListener("click", () => {
-  categoryOptionsContainer.classList.remove("is-active");
+  categoryOptionsContainerExpense.classList.remove("is-active");
+  categoryOptionsContainerIncome.classList.remove("is-active");
   paymentMethodOptionsContainer.classList.toggle("is-active");
 });
 
@@ -83,15 +97,16 @@ paymentMethodOptionsContainer.addEventListener("click", (evt) => {
   if (el.tagName === "SPAN") {
     //- Open Payment Method Modal
     if (paymentMethod === "추가하기") {
-      paymentMethodInputDisplay.innerText = "선택하세요";
-      paymentMethodInputDisplay.style.color = "var(--color-primary-alt)";
+      paymentMethodInput.value = "선택하세요";
+      paymentMethodInput.style.color = "var(--color-primary-alt)";
       newPaymentMethodModal.classList.add("is-active");
       return;
     }
 
-    paymentMethodInputDisplay.innerText = paymentMethod;
-    paymentMethodInputDisplay.style.color = "var(--color-primary)";
+    paymentMethodInput.value = paymentMethod;
+    paymentMethodInput.style.color = "var(--color-primary)";
     paymentMethodOptionsContainer.classList.remove("is-active");
+    newEntryForm.dispatchEvent(new Event("change", { bubbles: true }));
   }
 });
 
@@ -127,7 +142,8 @@ deletePaymentMethodForm.addEventListener("submit", (evt) => {
     (li) => li.dataset.value === targetPaymentMethodModalBody.value
   );
   targetLi[0].remove();
-
+  paymentMethodInput.value = "";
+  newEntryForm.dispatchEvent(new Event("change", { bubbles: true }));
   deletePaymentMethodModal.classList.remove("is-active");
 });
 
@@ -144,15 +160,23 @@ deletePaymentMethodCancelBtn.addEventListener("click", () => {
 //- Category Dropdown
 categoryDropdown.addEventListener("click", () => {
   paymentMethodOptionsContainer.classList.remove("is-active");
-  categoryOptionsContainer.classList.toggle("is-active");
+  if (plusMinusInput.checked) {
+    categoryOptionsContainerExpense.classList.remove("is-active");
+    categoryOptionsContainerIncome.classList.add("is-active");
+  } else {
+    categoryOptionsContainerIncome.classList.remove("is-active");
+    categoryOptionsContainerExpense.classList.add("is-active");
+  }
 });
 
 //- Category Option
-categoryOptions.forEach((opt) => {
+[...categoryOptionsExpense, ...categoryOptionsIncome].forEach((opt) => {
   opt.addEventListener("click", () => {
     const selectedOption = opt.dataset.value;
-    categoryInputDisplay.innerText = selectedOption;
-    categoryInputDisplay.style.color = "var(--color-primary)";
-    categoryOptionsContainer.classList.remove("is-active");
+    categoryInput.value = selectedOption;
+    categoryInput.style.color = "var(--color-primary)";
+    categoryOptionsContainerExpense.classList.remove("is-active");
+    categoryOptionsContainerIncome.classList.remove("is-active");
+    newEntryForm.dispatchEvent(new Event("change", { bubbles: true }));
   });
 });

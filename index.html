@@ -4,11 +4,12 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="src/styles/index.css" />
     <title>Wise Wallet</title>
+    <link rel="stylesheet" href="src/styles/index.css" />
+    <script src="src/js/index.js" type="module" defer></script>
   </head>
   <body>
-    <header id="top-header">
+    <header class="top-header">
       <div class="top-header__inner-wrapper">
         <div class="logo">
           <img src="src/assets/icons/logo.svg" alt="Wise Wallet Logo" />
@@ -62,142 +63,228 @@
       </div>
     </header>
 
-    <section id="input-bar__container">
-      <form action="#">
-        <label class="input-bar__item" id="input-bar__date" for="date">
-          <div class="input-bar__item-name">일자</div>
-          <input
-            type="date"
-            class="input-bar__item-input"
-            id="date"
-            name="date" />
-        </label>
+    <main>
+      <section class="input-bar">
+        <form action="#">
+          <label class="input-bar__item" id="input-bar-date" for="date">
+            <div class="input-bar__item-name">일자</div>
+            <input
+              type="date"
+              class="input-bar__item-input"
+              id="date-input"
+              name="date" />
+          </label>
 
-        <label class="input-bar__item" id="input-bar__amount" for="amount">
-          <div class="input-bar__item-name">금액</div>
-          <div class="input-bar__item-input__container">
-            <label class="plus-minus-container" for="plus-minus-input">
-              <input type="checkbox" name="plus-minus" id="plus-minus-input" />
-              <img src="src/assets/icons/minus.svg" alt="Minus Sign" />
-              <img src="src/assets/icons/plus.svg" alt="Plus Sign" />
-            </label>
+          <label class="input-bar__item" id="input-bar-amount" for="amount">
+            <div class="input-bar__item-name">금액</div>
+            <div class="input-bar__item-input__container">
+              <label class="plus-minus-container" for="plus-minus-input">
+                <input
+                  type="checkbox"
+                  name="plus-minus"
+                  id="plus-minus-input" />
+                <img src="src/assets/icons/minus.svg" alt="Minus Sign" />
+                <img src="src/assets/icons/plus.svg" alt="Plus Sign" />
+              </label>
 
+              <input
+                type="text"
+                placeholder="0"
+                class="input-bar__item-input"
+                id="amount-input"
+                name="amount"
+                required />
+              <span>원</span>
+            </div>
+          </label>
+
+          <label class="input-bar__item" id="input-bar-content" for="content">
+            <div class="input-bar__item-name">내용</div>
             <input
               type="text"
-              placeholder="0"
+              placeholder="입력하세요"
               class="input-bar__item-input"
-              id="amount"
-              name="amount"
+              id="content-input"
+              name="content"
               required />
-            <span>원</span>
-          </div>
-        </label>
+          </label>
 
-        <label class="input-bar__item" id="input-bar__content" for="content">
-          <div class="input-bar__item-name">내용</div>
-          <input
-            type="text"
-            placeholder="입력하세요"
-            class="input-bar__item-input"
-            id="content"
-            name="content"
-            required />
-        </label>
+          <label
+            class="input-bar__item"
+            id="input-bar-payment-method"
+            for="payment-method">
+            <div class="input-bar__item-name">결제수단</div>
 
-        <label
-          class="input-bar__item"
-          id="input-bar__payment-method"
-          for="payment-method">
-          <div class="input-bar__item-name">결제수단</div>
+            <div
+              class="input-bar__item-input__container dropdown"
+              id="payment-method-dropdown">
+              <input
+                type="text"
+                placeholder="선택하세요"
+                class="input-bar__item-input"
+                id="payment-method-input"
+                name="payment-method"
+                disabled
+                required />
 
-          <div
-            class="input-bar__item-input__container dropdown"
-            id="payment-method-dropdown">
-            <span
-              class="input-bar__item-input"
-              id="payment-method"
-              name="payment-method">
-              선택하세요
-            </span>
+              <img
+                src="src/assets/icons/chevron-down.svg"
+                alt="Payment Method Dropdown" />
+            </div>
 
-            <img
-              src="src/assets/icons/chevron-down.svg"
-              alt="Payment Method Dropdown" />
-          </div>
+            <ul class="options-container">
+              <li class="option" data-value="현금">
+                <span>현금</span>
+                <button type="button" class="option-delete-btn">
+                  <img
+                    src="src/assets/icons/close.svg"
+                    alt="Remove Payment Method" />
+                </button>
+              </li>
+              <li class="option" data-value="신용카드">
+                <span>신용카드</span>
+                <button type="button" class="option-delete-btn">
+                  <img
+                    src="src/assets/icons/close.svg"
+                    alt="Remove Payment Method" />
+                </button>
+              </li>
+              <li
+                class="option"
+                id="add-payment-method-option"
+                data-value="추가하기">
+                <span>추가하기</span>
+              </li>
+            </ul>
+          </label>
 
-          <ul class="options-container">
-            <li class="option" data-value="현금">
-              <span>현금</span>
-              <button type="button" class="option-delete-btn">
-                <img
-                  src="src/assets/icons/close.svg"
-                  alt="Remove Payment Method" />
-              </button>
-            </li>
-            <li class="option" data-value="신용카드">
-              <span>신용카드</span>
-              <button type="button" class="option-delete-btn">
-                <img
-                  src="src/assets/icons/close.svg"
-                  alt="Remove Payment Method" />
-              </button>
-            </li>
-            <li
-              class="option"
-              id="add-payment-method-option"
-              data-value="추가하기">
-              <span>추가하기</span>
-            </li>
-          </ul>
-        </label>
+          <label class="input-bar__item" id="input-bar-category" for="category">
+            <div class="input-bar__item-name">분류</div>
 
-        <label class="input-bar__item" id="input-bar__category" for="category">
-          <div class="input-bar__item-name">분류</div>
+            <div
+              class="input-bar__item-input__container dropdown"
+              id="category-dropdown">
+              <input
+                type="text"
+                placeholder="선택하세요"
+                class="input-bar__item-input"
+                id="category-input"
+                name="category"
+                disabled
+                required />
 
-          <div
-            class="input-bar__item-input__container dropdown"
-            id="category-dropdown">
-            <span class="input-bar__item-input" id="category" name="category">
-              선택하세요
-            </span>
+              <img
+                src="src/assets/icons/chevron-down.svg"
+                alt="Category Dropdown" />
+            </div>
 
-            <img
-              src="src/assets/icons/chevron-down.svg"
-              alt="Category Dropdown" />
-          </div>
+            <ul class="options-container expense">
+              <li class="option" data-value="생활">
+                <span>생활</span>
+              </li>
+              <li class="option" data-value="식비">
+                <span>식비</span>
+              </li>
+              <li class="option" data-value="교통">
+                <span>교통</span>
+              </li>
+              <li class="option" data-value="쇼핑/뷰티">
+                <span>쇼핑/뷰티</span>
+              </li>
+              <li class="option" data-value="의료/건강">
+                <span>의료/건강</span>
+              </li>
+              <li class="option" data-value="문화/여가">
+                <span>문화/여가</span>
+              </li>
+              <li class="option" data-value="미분류">
+                <span>미분류</span>
+              </li>
+            </ul>
 
-          <ul class="options-container">
-            <li class="option" data-value="생활">
-              <span>생활</span>
-            </li>
-            <li class="option" data-value="식비">
-              <span>식비</span>
-            </li>
-            <li class="option" data-value="교통">
-              <span>교통</span>
-            </li>
-            <li class="option" data-value="쇼핑/뷰티">
-              <span>쇼핑/뷰티</span>
-            </li>
-            <li class="option" data-value="의료/건강">
-              <span>의료/건강</span>
-            </li>
-            <li class="option" data-value="문화/여가">
-              <span>문화/여가</span>
-            </li>
-            <li class="option" data-value="미분류">
-              <span>미분류</span>
-            </li>
-          </ul>
-        </label>
+            <ul class="options-container income">
+              <li class="option" data-value="월급">
+                <span>월급</span>
+              </li>
+              <li class="option" data-value="용돈">
+                <span>용돈</span>
+              </li>
+              <li class="option" data-value="기타수입">
+                <span>기타수입</span>
+              </li>
+            </ul>
+          </label>
 
-        <button type="submit" disabled>
-          <img src="src/assets/icons/check.svg" alt="Submit" />
-        </button>
-      </form>
-    </section>
+          <button type="submit" class="entry-submit-btn" disabled>
+            <img src="src/assets/icons/check.svg" alt="Submit" />
+          </button>
+        </form>
+      </section>
 
-    <div class="alert-and-modal" id="new-payment-method-modal">
+      <section class="entries">
+        <header class="entries-header">
+          <h2>전체 내역 0건</h2>
+          <label for="income">
+            <input type="checkbox" name="income" id="income" checked />
+            <span>수입 0</span>
+          </label>
+          <label for="expense">
+            <input type="checkbox" name="expense" id="expense" checked />
+            <span>지출 0</span>
+          </label>
+        </header>
+
+        <section class="entries-body">
+          <article class="entries-per-day">
+            <header>
+              <h3>3월13일 월</h3>
+              <div class="entries-per-day__summary">
+                <span>수입 2,010,580원</span>
+                <span>지출 33,333원</span>
+              </div>
+            </header>
+
+            <ul class="entries-container">
+              <li class="entries__entry">
+                <span>생활</span>
+                <span>칫솔 6개 세트, 치약 3개 세트</span>
+                <span>비씨카드</span>
+                <span>-33,333원</span>
+              </li>
+              <li class="entries__entry">
+                <span>월급</span>
+                <span>3월 급여</span>
+                <span>현금</span>
+                <span>2,010,580원</span>
+              </li>
+            </ul>
+          </article>
+
+          <article class="entries-per-day">
+            <header>
+              <h3>3월12일 일</h3>
+              <div class="entries-per-day__summary">
+                <span>지출 33,333원</span>
+              </div>
+            </header>
+
+            <ul class="entries-container">
+              <li class="entries__entry">
+                <span>식비</span>
+                <span>빵</span>
+                <span>비씨카드</span>
+                <span>-11,111원</span>
+              </li>
+            </ul>
+          </article>
+        </section>
+      </section>
+    </main>
+
+    <!-- Alerts and Modals -->
+    <div
+      class="alert-and-modal new-payment-method"
+      id="new-payment-method-modal">
       <form action="#">
         <div class="modal-content">
           <h3 class="modal-title">추가하실 결제수단을 적어주세요.</h3>
@@ -215,7 +302,9 @@
       </form>
     </div>
 
-    <div class="alert-and-modal" id="delete-payment-method-modal">
+    <div
+      class="alert-and-modal delete-payment-method"
+      id="delete-payment-method-modal">
       <form action="#">
         <div class="modal-content">
           <h3 class="modal-title">해당 결제수단을 삭제하시겠습니까?</h3>
@@ -232,25 +321,5 @@
         </div>
       </form>
     </div>
-
-    <main>
-      <header>
-        <h2>전체 내역 0건</h2>
-        <label for="income">
-          <input type="checkbox" name="income" id="income" checked />
-          <span>수입 0</span>
-        </label>
-        <label for="expense">
-          <input type="checkbox" name="expense" id="expense" checked />
-          <span>지출 0</span>
-        </label>
-      </header>
-
-      <section id="entries-container">
-        <!-- entries -->
-      </section>
-    </main>
-
-    <script src="src/js/index.js" type="module"></script>
   </body>
 </html>
