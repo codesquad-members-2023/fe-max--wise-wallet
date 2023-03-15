@@ -73,28 +73,31 @@
 }
 
 /* view tabs */
-.view-nav > fieldset {
-  display: flex;
-  border: none;
-}
-
-.view-nav > fieldset > label {
-  width: 44px;
+.view-nav {
+  width: 132px;
   height: 44px;
+}
+
+.view-nav ul {
+  width: 100%;
+  height: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  list-style: none;
 }
 
-.view-nav__tab input {
-  display: none;
+.view-nav__tab {
+  width: 44px;
+  height: 100%;
+  padding: 10px;
+  display: flex;
 }
 
-.view-nav__tab input:checked + img {
-  filter: var(--filter-white);
-}
-
-.view-nav__tab > img {
+.view-nav__tab > a > img {
   filter: var(--filter-primary-alt);
   cursor: pointer;
+}
+
+.view-nav__tab > a > img.is-active {
+  filter: var(--filter-white);
 }

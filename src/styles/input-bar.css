@@ -1,4 +1,4 @@
-.input-bar {
+/* .input-bar {
   width: var(--layout-inner-width);
   display: flex;
   justify-content: center;
@@ -65,10 +65,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
+} */
 
 /* date input */
-#input-bar-date {
+/* #input-bar-date {
   width: 120px;
 }
 
@@ -86,10 +86,10 @@
   position: absolute;
   background: transparent;
   cursor: pointer;
-}
+} */
 
 /* amount input */
-#input-bar-amount {
+/* #input-bar-amount {
   width: 175px;
 }
 
@@ -98,17 +98,18 @@
   height: 24px;
 }
 
-#plus-minus-input,
-#plus-minus-input:checked ~ img:nth-of-type(1),
-#plus-minus-input ~ img:nth-of-type(2) {
+#is-expense-input,
+#is-expense-input:checked ~ img:nth-of-type(2),
+#is-expense-input:not(:checked) ~ img:nth-of-type(1) {
   display: none;
 }
 
-#plus-minus-input:checked ~ img:nth-of-type(2) {
+#is-expense-input:checked ~ img:nth-of-type(1),
+#is-expense-input:not(:checked) ~ img:nth-of-type(2) {
   display: block;
 }
 
-#plus-minus-input ~ img {
+#is-expense-input ~ img {
   cursor: pointer;
 }
 
@@ -127,29 +128,29 @@
   width: 20px;
   height: 20px;
   color: black;
-}
+} */
 
 /* content input */
-#input-bar-content {
+/* #input-bar-content {
   width: 212px;
-}
+} */
 
 /* payment method input */
-#input-bar-payment-method {
+/* #input-bar-payment-method {
   width: 148px;
-}
+} */
 
 /* category input */
-#input-bar-category {
+/* #input-bar-category {
   width: 148px;
 }
 
 .input-bar__item-input__container.dropdown > input {
   cursor: pointer;
-}
+} */
 
 /* select dropdown */
-.input-bar__item .options-container {
+/* .input-bar__item .options-container {
   width: 148px;
   padding: 0 24px;
   display: none;
@@ -211,10 +212,10 @@
 .option-delete-btn > img {
   width: 100%;
   height: 100%;
-}
+} */
 
 /* submit button */
-.input-bar > form > button {
+/* .input-bar > form > button {
   width: 40px;
   height: 40px;
   background-color: var(--color-primary-alt-40);
@@ -232,4 +233,4 @@
   width: 24px;
   height: 24px;
   filter: var(--filter-white);
-}
+} */
