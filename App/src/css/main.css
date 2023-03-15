@@ -34,6 +34,7 @@ main {
   line-height: var(--line-height-body-large);
 }
 
+
 #history .history__info ul li dl {
   display: flex;
   gap: 14px;

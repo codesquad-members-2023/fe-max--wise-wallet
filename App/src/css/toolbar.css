@@ -81,7 +81,6 @@
 }
 
 [role="toolbar"] .field input::placeholder {
-  
   font: var(--font-bold-large);
   color: var(--color-primary-alt-40);
 }
@@ -121,6 +120,32 @@
 [role="toolbar"] #amount:hover,
 [role="toolbar"] #amount:focus {
   opacity: 1;
+  font-family: var(--font-family-bold);
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-bold-large);
+  line-height: var(--line-height-bold-large);
+  color: var(--color-primary-alt-40);
+}
+
+[role="toolbar"] .field.field-amount figure {
+  display: flex;
+}
+
+[role="toolbar"] .field.field-amount .cover {
+  width: 74px;
+  height: 24px;
+  position: absolute;
+  margin-left: 20px;
+  background-color: var(--color-white);
+}
+
+[role="toolbar"] .field.field-amount .cover:hover {
+  display: none;
+}
+
+[role="toolbar"] #amount:hover + .cover,
+[role="toolbar"] #amount:focus + .cover {
+  display: none;
 }
 
 [role="toolbar"] button.popup {
