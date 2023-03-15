@@ -1,0 +1,389 @@
+body {
+  font-family: var(--font-family-body);
+  background-color: var(--color-off-white);
+}
+
+.sr-only {
+  border: 0;
+  padding: 0;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  clip-path: polygon(0 0, 0 0, 0 0);
+}
+
+.hidden {
+  opacity: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+/* header */
+
+.header {
+  width: 100%;
+  height: 194px;
+  padding-top: 40px;
+  background-color: var(--color-primary);
+}
+.header__wrap {
+  width: 846px;
+  height: 96px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header__logo {
+  order: 1;
+}
+.gnb {
+  order: 3;
+}
+
+.gnb__list {
+  display: flex;
+}
+.gnb__list-item,
+.gnb__list-item a {
+  width: 44px;
+  height: 44px;
+  display: block;
+}
+.gnb__list-item svg {
+  top: 50%;
+  left: 50%;
+  position: relative;
+  transform: translate(-50%, -50%);
+}
+.gnb__list-item.active svg path {
+  stroke: var(--color-white);
+}
+
+.header__date {
+  order: 2;
+  width: 232px;
+  display: flex;
+  justify-content: space-between;
+}
+.header__date__button--prev {
+  order: 1;
+  cursor: pointer;
+}
+.header__date__button--next {
+  order: 3;
+  cursor: pointer;
+}
+.header__date-wrap {
+  order: 2;
+  width: 120px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.header__date-wrap .year,
+.header__date-wrap .month,
+.header__date-wrap .month-word {
+  color: white;
+}
+
+/* main */
+.main {
+  bottom: 44px;
+  position: relative;
+}
+
+/* 새 내역 입력 (공통) */
+.history__wrap {
+}
+.history__form {
+  width: 894px;
+  height: 76px;
+  display: flex;
+  margin: 0 auto;
+  padding: 16px 24px;
+  align-items: center;
+}
+.history__form-amount,
+.history__form-category,
+.history__form-date,
+.history__form-payment-method,
+.history__form-description {
+  height: 44px;
+  position: relative;
+  /* padding-right: 24px; */
+  color: var(--color-primary-alt);
+  border-right: 1px solid var(--color-primary);
+}
+.history__form-category {
+  border: none;
+  padding: 0;
+}
+
+.history__form-amount input,
+.history__form-category input,
+.history__form-date input,
+.history__form-payment-method input,
+.history__form-description input {
+  margin-top: 4px;
+  height: 24px;
+}
+
+.history__form label {
+  color: var(--color-primary-alt);
+}
+
+/* 새 내역 입력 (일자) */
+.history__form-date {
+  width: 112px;
+  height: 44px;
+  display: flex;
+  padding-right: 24px;
+  flex-direction: column;
+}
+.history__form-date label {
+  width: 100%;
+}
+.history__form-date input {
+  width: 100%;
+  color: var(--color-primary);
+}
+/* 새 내역 입력 (금액) */
+.history__form-amount {
+  display: flex;
+  flex-direction: column;
+  padding: 0 24px;
+}
+.history__form-amount > div {
+  width: 134px;
+  height: 24px;
+  display: flex;
+  justify-content: space-between;
+}
+.history__form-amount input {
+  width: 78px;
+  text-align: right;
+  margin-right: 8px;
+  color: var(--color-primary-alt);
+}
+.history__form-amount input::-webkit-input-placeholder {
+  text-align: right;
+}
+.history__form-amount input:-moz-placeholder {
+  text-align: right;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type='number'] {
+  -moz-appearance: textfield;
+}
+.history__form-amount button {
+  width: 24px;
+  height: 24px;
+  margin-top: 4px;
+}
+.history__form-amount span {
+  height: 24px;
+  margin-top: 4px;
+}
+/* 새 내역 입력 (내용) */
+.history__form-description {
+  width: 213px;
+  height: 44px;
+  display: flex;
+  padding: 0 24px;
+  flex-direction: column;
+}
+.history__form-description input,
+.history__form-description label {
+  width: 164px;
+  color: var(--color-primary-alt);
+}
+
+/* 새 내역 입력 (결제 수단, 분류) */
+.dropdown__wrap {
+  position: relative;
+}
+.dropdown__selector {
+  width: 149px;
+  height: 44px;
+  display: flex;
+  padding-left: 24px;
+  flex-direction: column;
+}
+.dropdown__icon {
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-image: url('../img/icon_arrow_down.svg');
+}
+.dropdown__selector label {
+  width: 100px;
+  color: var(--color-primary-alt);
+}
+.dropdown__selector input {
+  width: 100px;
+  text-align: left;
+  color: var(--color-primary-alt);
+}
+.dropdown__wrap .options {
+  top: 70px;
+  width: 148px;
+  z-index: 9999;
+  cursor: pointer;
+  position: absolute;
+  transition: all 0.7s ease;
+  transform: translateY(-8px);
+}
+.dropdown__wrap .options .option,
+.dropdown__wrap .options .add {
+  display: flex;
+  position: relative;
+  transition: all 0.2s ease;
+  padding: 16px 24px 17px 24px;
+  justify-content: space-between;
+}
+.dropdown__wrap .options .option::after {
+  content: '';
+  bottom: 0px;
+  width: 100px;
+  position: absolute;
+  border-bottom: 1px solid var(--color-primary);
+}
+.dropdown__wrap .options li:last-child::after {
+  content: none;
+}
+.dropdown__wrap.opened .options {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* 새 내역 입력 (버튼) */
+.history__form-button {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  border-radius: var(--border-radius-sqaure);
+}
+
+.history__form-button.active svg rect {
+  fill-opacity: 1;
+  fill: var(--color-secondary-yellow);
+}
+
+/* 전체 내역 */
+.history-lists-top__wrap {
+  top: 48px;
+  width: 848px;
+  display: flex;
+  margin: 0 auto;
+  position: relative;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.history__lists-top {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.history__lists-top span {
+  padding-left: 8px;
+}
+.history__lists-top__total {
+  height: 24px;
+  display: flex;
+  align-items: center;
+}
+
+input[type='checkbox'] {
+  display: none;
+}
+
+.history__lists-top__total input[type='checkbox'] + label {
+  display: block;
+  cursor: pointer;
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-image: url('../img/icon_checkbox_unchecked.svg');
+}
+
+.history__lists-top__total input[type='checkbox']:checked + label {
+  background-image: url('../img/icon_checkbox_checked.svg');
+}
+
+.history__lists-top__total-expense {
+  margin-left: 16px;
+}
+.history__lists-top__total-income label,
+.history__lists-top__total-expense label {
+  padding-left: 30px;
+}
+
+/* 전체 내역 리스트 */
+.history-list__wrap {
+  margin-top: 28px;
+}
+.history-list__info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.history-list__info-dateday,
+.history-list-info__total {
+  display: flex;
+}
+.history-list__info-date {
+  margin-right: 8px;
+}
+.history-list__info-day,
+.history-list-info__income,
+.history-list-info__expense {
+  color: var(--color-primary-alt);
+}
+.history-list-info__income,
+.history-list-info__expense,
+.history-list-info__box span {
+  padding-left: 8px;
+}
+
+/* 내역 리스트 */
+.history-list__info {
+  margin: 21px 0;
+}
+.history-list__item li {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border-top: 1px solid var(--color-primary-alt-40);
+}
+.history-list__item li:last-child {
+  border-bottom: 1px solid var(--color-primary-alt-40);
+}
+.history-list__item-content {
+  width: 320px;
+}
+.history-list__item-payment-method {
+  width: 120px;
+  color: var(--color-primary-alt);
+}
+.history-list__item-amount {
+  width: 234px;
+  text-align: right;
+}
+.history-list__item-amount.plus-color {
+  color: var(--color-secondary-red);
+}
+.history-list__item-amount.minus-color {
+  color: var(--color-secondary-cyan);
+}
