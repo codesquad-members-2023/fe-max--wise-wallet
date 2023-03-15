@@ -10,7 +10,7 @@
 }
 
 .content_container nav:hover {
-  cursor: grab;
+  cursor: pointer;
 }
 
 #header_title_logo {

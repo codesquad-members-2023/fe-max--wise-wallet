@@ -20,7 +20,6 @@
     <link rel="stylesheet" href="./src/style/header.css" />
     <link rel="stylesheet" href="./src/style/input_bar.css" />
     <link rel="stylesheet" href="./src/style/main_section.css" />
-    <link rel="stylesheet" href="./src/style/svg.css" />
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="/src/style/datepicker.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -42,8 +41,8 @@
           </nav>
           <div id="header_monthYear_text">
             <p id="monthYear_text_year">2023</p>
-            <p id="monthYear_text_month_number">2</p>
-            <p id="monthYear_text_month_char">Feburary</p>
+            <p id="monthYear_text_month_number">3</p>
+            <p id="monthYear_text_month_char">March</p>
           </div>
           <nav id="chevron_right">
             <img src="/src/svg/chevron_right.svg" alt=">" />
@@ -70,9 +69,9 @@
         <div class="price">
           <label for="price" id="price">금액</label>
           <div id="container">
-            <button id="change_btn" type="button"></button>
+            <button id="change_btn" type="button"><img src="/src/svg/minus.svg" alt="change"></button>
             <input type="text" id="price_input" placeholder="0" />
-            <div id="krw">원</div>
+            <p id="krw">원</p>
           </div>
         </div>
         <div class="memo">
@@ -81,20 +80,20 @@
         </div>
         <div class="payment">
           <label for="payment" id="payment">결제수단</label>
-          <input type="text" id="payment_input" placeholder="입력하세요" />
+          <input type="text" id="payment_input" placeholder="선택하세요" />
         </div>
         <div class="category">
           <label for="category" id="category">분류</label>
-          <input type="text" id="category_input" placeholder="입력하세요" />
+          <input type="text" id="category_input" placeholder="선택하세요" />
         </div>
-        <div>
-          <button id="input_bar_check"></button>
+        <div id="check">
+          <button id="input_bar_check" type="button"><img src="/src/svg/disabled_check.svg" alt="button"></button>
         </div>
       </form>
 
       <section class="main_section">
         <header class="main_header">
-          <p id="total_history_count">전체 내역 1건</p>
+          <span id="total_history_count">전체 내역 1건</span>
           <div class="total_history_check_total_price">
             <div class="income_history">
               <input
@@ -121,8 +120,8 @@
           <list class="transaction_history_container">
             <div class="separator" id="transaction_history_header">
               <div class="history_date">
-                <div id="transaction_date">2월 15일</div>
-                <div id="transaction_day">수</div>
+                <div id="transaction_date">3월 14일</div>
+                <div id="transaction_day">화</div>
               </div>
               <div id="total_price">지출 10,900원</div>
             </div>

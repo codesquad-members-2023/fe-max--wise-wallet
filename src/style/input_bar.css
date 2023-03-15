@@ -1,5 +1,5 @@
 .input_bar {
-  width: 944px;
+  width: 894px;
   height: 76px;
   display: flex;
   justify-content: space-between;
@@ -92,7 +92,7 @@ div.date {
 }
 
 #input_date:hover {
-  cursor: grab;
+  cursor: pointer;
 }
 
 div.price {
@@ -122,17 +122,11 @@ div.memo {
   width: 164px;
 }
 
-#memo_input {
-  width: 164px;
-  height: 24px;
-}
-
 div.payment {
-  width: 149px;
+  width: 100px;
 }
 
 #payment_input, #category_input {
-  width: 100px;
   height: 24px;
   padding-right: 20px;
   background-image: url("/src/svg/select.svg");
@@ -142,11 +136,12 @@ div.payment {
 }
 
 #payment_input:hover, #category_input:hover {
-  cursor: grab;
+  cursor: pointer;
 }
 
 div.category {
   width: 100px;
+  margin-right: 24px;
 }
 
 #input_bar_check {
@@ -155,6 +150,10 @@ div.category {
   justify-content: center;
 }
 
+div#check {
+  margin: 0 18px 0 0;
+}
+
 .input_bar button:hover {
-  cursor: grab;
+  cursor: pointer;
 }

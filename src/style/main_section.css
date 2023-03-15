@@ -46,7 +46,7 @@ input[type=checkbox] {
 }
 
 input[type=checkbox] + label {
-  cursor: grab;
+  cursor: pointer;
   padding-left: 30px;
   background-image: url(/src/svg/unchecked.svg);
   background-repeat: no-repeat;
