@@ -1,6 +1,6 @@
-import { countListTotalCount } from "../utils/countListTotalCount.js";
+import { countListTotalLength } from "../utils/countListTotalLength.js";
 
 export const initListTotalCount = () => {
   document.querySelector(".info-total-count").innerText =
-    countListTotalCount() + "건";
+  countListTotalLength() + "건";
 };

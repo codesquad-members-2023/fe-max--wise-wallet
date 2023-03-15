@@ -1,5 +1,5 @@
 import { inputStore } from "../store/inputStore.js";
 
-export const countListTotalCount = () => {
+export const countListTotalLength = () => {
   return inputStore.listArray.length;
 };

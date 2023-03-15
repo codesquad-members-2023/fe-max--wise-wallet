@@ -8,8 +8,6 @@ import { initListTotalCount } from "./js/init/initListTotalCount.js";
 
 /* 파일분리 생각해두기 */
 
-/* 탭이동, 버튼 색 변경 */
-
 /* 통계탭 열기 */
 const chartBoard = document.querySelector(".chart-board");
 // 각 카테고리 항목으로 변경해야함
@@ -32,13 +30,10 @@ const categorySelectHead = document.querySelector(".category-select-head");
 
 const categorySelect = document.querySelector(".category-select");
 categorySelectHead.addEventListener("click", () => {
-  // console.log(plusMinusBtn.checked)
   categorySelectHead.classList.add("on");
   if (plusMinusBtn.checked) {
-    // console.log(categorySelect.lastElementChild)
     categorySelect.replaceChild(incomeMember, expenditureMember);
   } else {
-    // .replaceChild(변경해줄 노드, 변경하는 노드);
     categorySelect.replaceChild(expenditureMember, incomeMember);
   }
 });
@@ -102,12 +97,11 @@ confirmAddBtn.addEventListener("click", function () {
 
 const paymentSelectHead = document.querySelector(".payment-select-head");
 const paymentListMember = document.querySelector(".payment-list-member");
-paymentSelectHead.addEventListener("click", () => {
-  paymentSelectHead.classList.add("on");
-});
+// paymentSelectHead.addEventListener("click", () => {
+//   paymentSelectHead.classList.add("on");
+// });
 
 paymentListMember.addEventListener("click", (event) => {
-  console.log(event.target.classList);
   if (event.target.classList.contains("add-payment-btn")) {
     paymentSelectHead.innerText = "선택하세요";
     return;
@@ -119,7 +113,7 @@ paymentListMember.addEventListener("click", (event) => {
 });
 
 /* 인풋이 모두 입력되면 확인버튼 활성화 */
-document.querySelector(".input-bar-wrap").addEventListener("click", (e) => {
+$(".input-bar-wrap").addEventListener("click", (e) => {
   const dateIn = document.querySelector("#date-input");
   const priceIn = document.querySelector("#price-input");
   const memoIn = document.querySelector("#memo-input");
@@ -127,11 +121,11 @@ document.querySelector(".input-bar-wrap").addEventListener("click", (e) => {
   const categoryIn = categorySelectHead.innerText;
 
   if (
-    validator(dateIn.value) &&
-    validator(priceIn.value) &&
-    validator(memoIn.value) &&
-    validator(paymentIn) &&
-    validator(categoryIn)
+    isInputFilled(dateIn.value) &&
+    isInputFilled(priceIn.value) &&
+    isInputFilled(memoIn.value) &&
+    isInputFilled(paymentIn) &&
+    isInputFilled(categoryIn)
   ) {
     $("#edit-btn").disabled = false;
     $("#edit-btn").checked = true;
@@ -139,7 +133,6 @@ document.querySelector(".input-bar-wrap").addEventListener("click", (e) => {
     $("#edit-btn").disabled = true;
   }
 });
-/* 리스트 보관 */
 
 /* 리스트 추가 */
 /* 인풋바 폴더에 추가하기 */
@@ -175,7 +168,7 @@ const render = () => {
   //일별 ul, 각 리스트 ul <두 덩어리
 
   //이것도.. init상태가 뭔지 생각하기 // 일단 inputStore에 있는 걸로 초기상태 지정 0
-  document.querySelector(".info-total-count").innerText = countList() + "건";
+  document.querySelector(".info-total-count").innerText = countListLength() + "건";
 
   if (inputStore.listArray.lenth !== 0) {
     console.log(inputStore.listArray[0].paymentIn);
@@ -183,12 +176,14 @@ const render = () => {
 
 };
 /* 전체 건수 */
-const countList = () => {
+const countListLength = () => {
   return inputStore.listArray.length;
 };
 
-/* 밸리데이터 호출<값이 유효한지 체크 */
-const validator = (value) => {
+/* 밸리데이터 호출<값이 유효한지 체크 
+어 비어있는지 체크하는걸 이름을 잘못지어준...
+*/
+const isInputFilled = (value) => {
   if (value === "") {
     return false;
   }
@@ -201,76 +196,6 @@ const validator = (value) => {
   return true;
 };
 
-/* 전체 건수 세기 */
-// const countList = () => {
-//   return inputStore.listArray.length
-// };
-// document.querySelector(".info-total-count").innerText = countList()
-
-/* 결제수단 삭제 */
-/* 버튼을 누르면- 모달창이 뜨고, 
-모달창의 인풋 스타일이 바뀐다- css add,
-인풋엔 해당버튼 옆 텍스트가 들어간다
-disabled상태로 인풋을 락한다
-확인 버튼을 누르면 해당 버튼의 li노드가 사라진다 */
-
-// const deleteConfirmHandler = (e) => {
-//   const deleteImg = e.target.closest("li");
-//   console.log(deleteImg);
-//   deleteImg.parentNode.removeChild(deleteImg);
-// };
-
-// const deletPaymentBtn = document.querySelectorAll(
-//   ".payment-list-member li img"
-// );
-// console.log(deletPaymentBtn);
-// deletPaymentBtn.forEach((element) => {
-//   // console.log(element)
-//   element.addEventListener("click", function (e) {
-//     modal.classList.remove("hidden");
-//     $("#modal-input").classList.add("delete");
-//     // console.log(element.previousElementSibling.textContent)
-//     $("#modal-input").value = element.previousElementSibling.textContent;
-//     $("#modal-input").disabled = true;
-//     $(".confirm-btn").classList.add("delete");
-//     $(".confirm-btn").value = "삭제";
-//     // console.log($(".payment-list-member li span").textContent);
-//     if (isConfirmed === 1) {
-//       deleteConfirmHandler(e);
-//       modal.classList.add("hidden");
-//       isConfirmed = 0;
-//       $(".confirm-btn").classList.remove("delete");
-//       $(".confirm-btn").value = "확인";
-//     }
-//   });
-// });
-
-/* 오늘날짜로 세팅 */
-// const inputElement = document.querySelector("#date-input");
-// const date = new Date();
-// const year = date.getFullYear();
-// const month = (date.getMonth() + 1).toString().padStart(2, "0");
-// const day = date.getDate().toString().padStart(2, "0");
-// const formattedDate = `${year}${month}${day}`;
-// inputElement.value = formattedDate;
-
-// /* 세자리마다 콤마 */
-// const priceInput = document.querySelector("#price-input");
-// priceInput.addEventListener("keyup", function (e) {
-//   let value = e.target.value;
-//   value = Number(value.replaceAll(",", ""));
-//   if (isNaN(value)) {
-//     //NaN인지 판별
-//     priceInput.value = 0;
-//   } else {
-//     //NaN이 아닌 경우
-//     const formatValue = value.toLocaleString("ko-KR");
-//     priceInput.value = formatValue;
-//   }
-// });
-
-// /* 월 변화 */
-
 const init = () => {
   initDateDisplay();
   initInputBarDate();
@@ -279,6 +204,8 @@ const init = () => {
 };
 
 document.addEventListener("DOMContentLoaded", init);
+
+
 
 /* 
 한거
@@ -316,10 +243,14 @@ x 숫자만 입력되도록,
 [보류] 취소 모달창 구현 - 스타일만 바꾸는 쪽으로 하려했는데.. 추가구현사항으로 분리됨,
 x 파일 분리 참고(쿤디) - 1차 구조 변경 완료, 2차 js기능별로 나누기
 
-해야하는거
+한거
 0314
 x 인풋바 내용을 전부 입력하면 확인버튼 활성화, 
 x 리스트로 등록가능하게 저장
+
+해야하는거
+0315
+정규표현식 손보기
 리스트에 삭제하기 이외 부분을 누르면 인풋바가 해당 내용들로 채워지면서 수정 기능 발생
 수입/지출 필터링에 따른 목록 랜더링
 날짜 넘버로 바꾸기고려(정규식으로 eE랑 +- 막아야함)
@@ -331,4 +262,7 @@ x 리스트로 등록가능하게 저장
 축소시 메인리스트 카테고리영역이 삐져나옴(min 혹은 max위드 관련인듯..?)
 메인리스트 카테고리 영역도 탭으로 선택이 돼야함
 바닥 여백은 얼마나?
- */
+
+*/
+
+

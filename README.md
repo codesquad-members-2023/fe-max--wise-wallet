@@ -189,6 +189,7 @@
 ## 사용자 지정 CSS 속성 사용하기 (변수)
 
 ## ARIA(Accessible Rich Internet Applicaitons)
+
 ## aria-label
 우리 눈에 보이지 않더라도 브라우저에게는 전달이 되면 좋은 정보, 혹은 스크린 리더를 통해 웹을 사용하는 사용자들에게 전달해야 하는 정보를 제공하고 싶을 때 사용하는 게 aria-label
 
@@ -344,3 +345,9 @@ keypress(deprecated), keydown, keyup
 키를 누를 때는 keydown 타입의 이벤트가 발생하고, 키를 놓을 때는 keyup 타입의 이벤트가 발생
 
 ## BEM방식 CSS 명명규칙
+
+## append 와 appendchild 
+
+## classlist.add("","") 여러개 가능
+
+## 메모리와 로컬스토리지의 차이
