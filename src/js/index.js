@@ -8,4 +8,4 @@ const init = () => {
 	initInputDate();
 };
 
-window.onload = init;
+window.addEventListener('load', init);
