@@ -1,0 +1,49 @@
+@import url(./variable.css);
+
+#header {
+  min-width: 1440px;
+  height: 194px;
+  background-color: rgb(82, 77, 144);
+  color: rgb(252, 252, 252);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#header-wrapper {
+  min-width: 846px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#logo a {
+  color: var(--color-off-white);
+  text-decoration: none;
+}
+
+#logo a:visited {
+  color: var(--color-off-white);
+}
+
+#monthYear #date {
+  width: 164px;
+  height: 96px;
+  text-align: center;
+}
+
+#monthYear {
+  min-width: 232px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#tab button {
+  background-color: var(--color-primary);
+  cursor: pointer;
+  border-width: initial;
+  border-style: none;
+  border-color: initial;
+  border-image: initial;
+}

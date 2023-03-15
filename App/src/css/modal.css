@@ -1,0 +1,49 @@
+@import url(./variable.css);
+
+.payment_modal {
+  width: 400px;
+  height: 188px;
+  padding: 40px;
+  border: 1px solid var(--color-primary);
+  border-radius: 8px;
+  background-color: var(--color-white);
+}
+
+.payment_modal form {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.payment_modal menu {
+  display: flex;
+  justify-content: space-between;
+  height: 24px;
+}
+
+.payment_modal .modal_tite {
+  color: var(--color-primary);
+}
+
+.payment_modal .modal_input {
+  width: 100%;
+  height: 44px;
+  border-radius: 8px;
+  border: 1px solid var(--color-primary);
+  padding: 10px 20px;
+  color: var(--color-primary);
+  background-color: var(--color-white);
+}
+
+#remove_option_modal input {
+  background-color: var(--color-primary-alt-40);
+}
+
+#remove_list_modal_text p {
+  color: var(--color-primary);
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.4);
+}
