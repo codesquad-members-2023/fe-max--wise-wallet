@@ -45,20 +45,12 @@
 }
 /* input창 스타일 */
 .input-bar form input {
+	outline: none;
 	color: var(--color-primary);
 	font-size: var(--font-size-body-regular);
 	font-weight: var(--font-weight-body);
 }
-/* select창 스타일 */
-.input-bar form select {
-	width: 100px;
-	height: 24px;
-	flex-shrink: 0;
-	padding: 0;
-	color: var(--color-primary-alt);
-	font-size: var(--font-size-body-regular);
-	font-weight: var(--font-weight-body);
-}
+
 /* 드롭다운 메뉴 */
 .select-payment label,
 .select-category label {
@@ -146,7 +138,20 @@
 	justify-content: space-between;
 }
 
-.input-price-window input {
+.input-price-checkbox {
+	width: 24px;
+	height: 24px;
+	cursor: pointer;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none'%3E%3Cpath stroke='%23524D90' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 12h12' /%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+	background-position: bottom 3px right -1px;
+}
+
+.input-price-checkbox:checked {
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none'%3E%3Cpath stroke='%23524D90' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 12h12M12 18V6'/%3E%3C/svg%3E");
+}
+
+.input-price-window input:nth-of-type(2) {
 	width: 78px;
 	text-align: right;
 }

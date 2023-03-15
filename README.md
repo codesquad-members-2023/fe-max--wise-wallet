@@ -1,36 +1,65 @@
-# <1주차> HTML, CSS, DOM, Event 기초
+# 가계부 미션
 
-## ⭐️ 학습키워드: `#html5 layout` `#HTML,CSS 디버깅` `#html` `#css` `#css layout` `#SPA`
+## ⭐️ 1주차 학습키워드: `#html5 layout` `#HTML,CSS 디버깅` `#html` `#css` `#css layout` `#SPA`
+## ⭐️ 2주차 학습키워드: `#DOM APIs` `#Event` `#Event delegation`
 
 ## 🎯 학습 목표
-
+1주차
 - HTML 태그 활용
 - CSS 기반 동작원리 이해
 - CSS 레이아웃 구성 원리 이해
 - HTML,CSS 지식을 활용한 웹 단일 페이지 개발
 - HTML,CSS 기본 디버깅 방법
 
-## ⏰ 학습 계획
+2주차
+- DOM APIs를 다양하게 다뤄본다.
+- Event delegation(이벤트 위임)을 이해한다.
+- Event 객체를 잘 활용한다.
 
+## ⏰ 학습 계획
+1주차
 - 루카스에 올라온 학습 자료들은 차근차근 살펴보며 학습한다.
   - HTML 구조화 설계 ✅
-  - CSS로 스타일 입히기(CSS 기초 & CSS Layout)
-  - HTML, CSS 실습 영상 시청
-  - DOM, Event란?
+  - CSS로 스타일 입히기(CSS 기초 & CSS Layout) ✅
+  - HTML, CSS 실습 영상 시청 ✅
+  - DOM, Event란? ✅
 - 깃허브에 학습 계획을 정리해서 PR을 보낸다. ✅
 - 1주차에 만들어야하는 기능들 하나씩 구현해본다.
   - HTML, CSS로 메인 페이지 UI 만들기
     - HTML ✅
-    - CSS
+    - CSS ✅
   - '월' 이동 기능 구현
   - 새로운 내역 입력 기능 구현
 - HTML 시맨틱(semantic) 태그에 대해서 공부한다. ✅
-- 웹 접근성(Web Accessibility)에 대해서 알아본다.
+- 웹 접근성(Web Accessibility)에 대해서 알아본다. ✅
 - SPA에 대해서 조사해본다.
 - 깔끔한 코드 작성을 위해서 ESLint, Prettier에 대해서 알아보고 설정한다. ✅
 - Figma로 만들어진 기획서를 읽어보고 이해해본다. ✅
 
-## 📚 학습 정리
+2주차
+- 영상으로 HTML, CSS, JS 디버깅 방법에 대해서 학습한다. → [https://www.youtube.com/watch?v=ErMvjDMskFA&list=PLBQiFVHp3AalqVNN6N7yG81e3MBhHMShA&index=1](https://www.youtube.com/watch?v=ErMvjDMskFA&list=PLBQiFVHp3AalqVNN6N7yG81e3MBhHMShA&index=1) ✅
+- DOM Event와 APIs에 대해서 학습한다. ✅
+- Event bubbling, capturing, delegation에 대해서 알아보고 이해해본다. ✅
+    
+    → [https://ko.javascript.info/events](https://ko.javascript.info/events)
+    
+- 폼과 폼 조작에 대해서 학습한다. ✅
+- 새로운 내역입력 기능을 어떤 방식으로 구현할지 고민해본다.
+    - 일자는 현재 날짜가 디폴트로 들어가게 한다. ✅
+    - 금액은 3자리 수마다 ‘ , ’가 찍히게 한다. ✅
+    - 금액에 +,-로 수입/지출 분류가 바뀐다. ✅ 
+    - 모든 항목이 입력되었을 때 버튼 활성화
+        - 버튼 아이콘 색상은 어떻게 변하게 할까?
+- 메인 리스트에 항목을 어떻게 추가할지 고민한다.
+    - 최근에 등록한 내역이 위에 오도록
+    - 수입/지출에 따라 필터링이 될 수 있게
+    - 후에 수정/삭제가 가능하도록
+- 인풋바 결제수단 추가/삭제 기능 (선택사항)
+- 캘린더 영역 구현
+    - 탭으로 아이콘 이동가능하게
+    - html, css로 UI 만들기
+
+## 📚 1주차 학습 정리
 
 ### 1) Draft Pull Request
 
@@ -124,48 +153,75 @@
   	}
   }
   ```
+## 📚 2주차 학습 정리
 
+### 1) 디버깅 (Debugging)
+
+브라우저의 개발자 도구를 제대로 활용해보자!
+
+- HTML
+    - html은 브라우저에서 DOM으로 해석된다.
+    - element탭의 inspect 버튼으로 즉각적으로 요소 수정, 삭제 가능
+    - 레이아웃 배지 활용하기 (flex 등)
+    - 우클릭을 활용하자 → 노드 삭제, 가상 클래스 변경, break on
+    - 노드의 properties → JS로 접근하려면 필요하다!
+    - ruler(눈금자) 설정
+- CSS
+    - CSS 렌더링의 주요 3가지: CSS Priority, Cascading, Inheritance(상속)
+    - 하나의 요소에도 여러 스타일이 있는데 그 중 하나만 적용된다. → 위에 있을 수록 우선순위가 높음
+    - .cls 버튼으로 클래스 추가도 가능하다.
+    - Computed나 레이아웃으로 box-model 확인 가능
+- Javascript
+    - Source탭(혹은 디버거) 활용하기: break point, scope, step over, step into, call stack
+    - 비동기 코드의 동작도 순차적으로 보여줌
+    - element에서 동작을 보고싶은 곳에 break on 걸어주기
+    - 네트워크 통신 과정에서의 디버깅도 가능하다 (XHR/fetch Breakpoints)
+    - 특정 이벤트도 디버깅 가능
+    -`debugger` 활용하기
+### 2) Form Validation
+
+(1) 날짜
+
+- [https://jsikim1.tistory.com/104](https://jsikim1.tistory.com/104) 날짜 정규식
+- [https://blog.openreplay.com/regular-expressions-and-input-validations/](https://blog.openreplay.com/regular-expressions-and-input-validations/) 정규식 validation
+- [https://regexr.com/](https://regexr.com/) 정규식 테스트 사이트
+- [https://usang0810.tistory.com/32](https://usang0810.tistory.com/32) 8자리로 현재 날짜 출력하기
+
+(2) 금액
+
+- 자동으로 세 자리마 콤마(,) 입력되도록 하기 → change 이벤트가 아닌 input 이벤트? 입력이 일어날때마다 적용되도록 → 그런데 그러면 ,가 중복돼서 찍힘
+- 세자리마다 , 찍혀져 있는지 밸리데이션 → [https://stackoverflow.com/questions/5917082/regular-expression-to-match-numbers-with-or-without-commas-and-decimals-in-text](https://stackoverflow.com/questions/5917082/regular-expression-to-match-numbers-with-or-without-commas-and-decimals-in-text)
+- +,- 체크박스로 수입/지출 분류 전환되도록 하기
+    - [https://blogpack.tistory.com/811](https://blogpack.tistory.com/811) (체크박스 이미지 설정)
+    - [https://velog.io/@ywoosang/addEventListener-콜백함수-제대로-이해하기](https://velog.io/@ywoosang/addEventListener-%EC%BD%9C%EB%B0%B1%ED%95%A8%EC%88%98-%EC%A0%9C%EB%8C%80%EB%A1%9C-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0) (이벤트 핸들러 콜백으로 이벤트 객체(e) 이외 인자 전달하기)
+
+### 3) Month carousel
 ## ✨ 요구사항
 
 ### 1주차 주요 개발 feature
 
-<메인화면 UI>
+- ~~메인 페이지 전체 UI (HTML,CSS)~~
+- '월' 이동 기능
+  - [x]  처음에 오늘 날짜를 기준으로 연월 표시
+      - [x]  기존 getToday 함수 활용해서 현재 날짜 구하기
+      - [x]  연월 표시
+      - [x]  월에 맞는 이름 표시
+  - [x]  왼쪽 버튼 클릭시 이전달로 이동
+      - [x]  현재달 -1
+      - [x]  1월 일때 작년으로 바뀌면서 12월로
+  - [x]  오른쪽 버튼 클릭시 다음달로 이동
+      - [x]  현재달 +1
+      - [x]  12월 일때 내년으로 바뀌면서 1월로
+  - [ ]  헤더 연월에 맞춰 인풋바 일자도 변경되도록 하는 기능
+- 새로운 내역 입력
 
-- 헤더
-  - 로고
-    - 클릭 시 메인페이지로 이동
-  - 연월 표시 및 이동창
-    - 헤더 중앙에 연월 표시
-    - 좌우 화살표 아이콘 클릭시 ‘월’ 이동 기능
-  - 내비게이션 아이콘
-    - 내역/달력/통계 탭 표시
-    - 각 탭 클릭시 화면 이동
-- 새로운 내역 입력 창
-  - 날짜 인풋 박스
-    - 디폴트값 현재 날짜
-    - 클릭해서 직접 수정 가능
-  - 금액칸
-    - 플러스/마이너스 버튼으로 수입/지출 전환 기능
-    - 자동으로 세 자리마다 쉼표 입력
-  - 내용칸
-  - 결제수단 셀렉트 박스
-    - 기존 결제수단 삭제 기능
-    - 새로운 결제수단 추가 기능
-  - 분류 셀렉트 박스
-    - 수입 카테고리
-    - 지출 카테고리
-  - 확인 버튼
-    - 입력창에 모든 내용이 입력되었을 때만 활성화
-- 수입지출 내역 목록
-  - 상단 부분 전체내역
-    - 전체내역 건수 표시
-    - 해당월의 수입액과 지출액 총합 표시
-    - 수입액/지출액 필터링 기능
-  - 수입지출 리스트
-    - 일별 리스트는 최신순으로 정렬
-    - 일별리스트에 각 날짜와 날짜별 수입/지출액 표시
-    - 호버시 나타나는 삭제버튼으로 각 내역을 삭제할 수 있는 기능
-    - 호버시 삭제 버튼 외 다른 곳 클릭시 내역 수정을 할 수 있는 기능
+### 2주차 주요 개발 feature
+
+- 메인 영역
+    - 항목 수정 / 삭제
+    - 수입/지출 필터링에 따른 목록 랜더링
+    - 결제수단 추가/삭제 (선택기능. 필수 아님)
+- 캘린더 영역
 
 ### HTML
 
@@ -183,6 +239,15 @@
 - UI 조작을 위해서 기본적인 DOM API를 사용해본다.
 - 이벤트 등록은 addEventListener 메소드만 사용한다.
 
+### DOM & Event
+
+- DOM 조작과정에서 template literal 문법을 반드시 사용한다.
+- DOM 조작과정에서 createElement, appendChild , insertBefore 등의 메서드를 활용해본다.
+- Event 객체를 이해하고 이를 활용해본다.
+    - ex) event.target, event.preventDefault() 등
+- Event delegation 으로 중복된 이벤트 등록을 줄여본다.
+    - 우선 이벤트 버블링과 캡쳐링을 공부한다.
+
 ## ⚡️ 추가 요구사항
 
 ### CSS
@@ -195,15 +260,30 @@
 - commit 로그를 작성하는 좋은 사례를 찾아본다.
 - 매일매일 git push를 통해 원격 저장소에 코드를 올린다.
 
-## 🤔 생각할 거리
+### Javascript
 
+- native 객체(Array, Function, Number, String)에서 prototype을 어떻게 활용하고 있는지 찾아보고 정리한다.
+- 정리한 내용을 자유로운 형식으로 PR 보낼때 함께 보낸다.
+
+### Debugging
+
+- HTML, CSS, JS 디버깅 방법을 익히고 활용하면서 개발한다.
+- `console.log()`쓰지말기!
+
+## 🤔 생각할 거리
+1주차
 - ARIA
 - BEM
 - SPA
 - 아이콘이나 로고는 어떤 태그를 사용해야 할까? → <i> 태그를 사용하는 웹사이트들이 꽤 있었다.
 
-## 😵‍💫 삽질 기록
+2주차
+- html내 script 태그의 위치관련 → [https://medium.com/geekculture/where-to-put-a-script-tag-into-head-or-body-end-b5b063058e0b](https://medium.com/geekculture/where-to-put-a-script-tag-into-head-or-body-end-b5b063058e0b)
+- attribute vs property → [https://medium.com/hexlant/attribute-와-property-의-차이-c6f1c91ba91](https://medium.com/hexlant/attribute-%EC%99%80-property-%EC%9D%98-%EC%B0%A8%EC%9D%B4-c6f1c91ba91)
+- 웹 컴포넌트 shadow DOM → [https://ui.toast.com/posts/ko_20170721](https://ui.toast.com/posts/ko_20170721)
 
+## 😵‍💫 삽질 기록
+1주차
 - position absolute 시 요소의 가운데 정렬 → [https://velog.io/@sklove96/css-absolute-일-때-가운데-정렬-방법](https://velog.io/@sklove96/css-absolute-%EC%9D%BC-%EB%95%8C-%EA%B0%80%EC%9A%B4%EB%8D%B0-%EC%A0%95%EB%A0%AC-%EB%B0%A9%EB%B2%95)
 - 인풋바 금액 입력창에서 ‘-’버튼, 숫자 입력칸, ‘원’ 알맞게 배열하기 → flex 안에 감싸서 다시 flex
 - input [type=”date”]에서 기본 브라우저가 제공하는 달력 타입을 초기화 하니까 인풋창이 작게사라져버림 → 우선 type=number로 바꿔서 작업 계속
@@ -219,9 +299,30 @@
   - 수직 구분선은 어떻게? → border-left로 만들고 첫 요소랑 마지막 요소만 안 보이도록
   - 자꾸 끝부분이 삐져나가는 문제 → form에서 지정한 최대너비를 넘어가서 넘쳐버린듯 → box-sizing을 border-box로 해서 안넘치게 딱 맞추니까 해결
 
+2주차
+- 인풋바 드롭다운 메뉴를 이벤트 위임을 이용해서 다시 짜보기
+    - e.target과 e.currentTarget에서 tagName, className, id, parentNode, nextElementSibling 등 다양하게 활용해보기
+    - tagName은 값이 대문자로 리턴된다!
+    - 원하는 영역 외 다른 영역을 클릭했을 경우는 어떻게 할까?
+- 죽이고 싶은 **`cannot use import statement outside a module`** 에러
+    - package.json에 “type”: “module” 추가하기 → 실패
+    - script 태그에 type: “module” 추가하기 → 브라우저 에서는 이걸로 근데 그래도 index.js에서 import 해온 js 파일이 404 not found 에러
+    - 경로 설정에 문제였음 `import { initInputDate } from './initInputDate';` 여기서 ./initInputDate.js 로 확장자명 까지 경로를 확실히 명시해야 읽어올 수 있었음
+    - 근데 짜증나게 eslint에서 .js 붙이면 빨간줄 그어져서 헷갈림 eslint 짜증나
+    - [https://velog.io/@gabdol/자바스크립트-netERRABORTED-404-Not-Found-에러-해결-방법](https://velog.io/@gabdol/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-netERRABORTED-404-Not-Found-%EC%97%90%EB%9F%AC-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95)
 ## 참고자료
-
+1주차
 - [https://velog.io/@\_jouz_ryul/ESLint-Prettier-Airbnb-Style-Guide로-설정하기](https://velog.io/@_jouz_ryul/ESLint-Prettier-Airbnb-Style-Guide%EB%A1%9C-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0)
 - [https://poiemaweb.com/eslint](https://poiemaweb.com/eslint)
 - [https://github.com/prettier/eslint-config-prettier](https://github.com/prettier/eslint-config-prettier/)
 - [https://github.com/prettier/eslint-plugin-prettier](https://github.com/prettier/eslint-plugin-prettier)
+- [https://brunch.co.kr/@ggk234/11](https://brunch.co.kr/@ggk234/11)
+- [https://sumini.dev/guide/008-how-to-export-svg-from-figma/](https://sumini.dev/guide/008-how-to-export-svg-from-figma/)
+- [https://velog.io/@selswlg/CSS-root](https://velog.io/@selswlg/CSS-root)
+- [https://www.daleseo.com/css-position-absolute/](https://www.daleseo.com/css-position-absolute/)
+- [https://velog.io/@sklove96/css-absolute-일-때-가운데-정렬-방법](https://velog.io/@sklove96/css-absolute-%EC%9D%BC-%EB%95%8C-%EA%B0%80%EC%9A%B4%EB%8D%B0-%EC%A0%95%EB%A0%AC-%EB%B0%A9%EB%B2%95)
+
+2주차
+- [https://ko.javascript.info/events](https://ko.javascript.info/events)
+- [https://dom.spec.whatwg.org/](https://dom.spec.whatwg.org/)
+- [https://developer.mozilla.org/en-US/docs/Web/API/Element/tagName](https://developer.mozilla.org/en-US/docs/Web/API/Element/tagName)

@@ -37,12 +37,13 @@ header .month-year {
   height: 96px;
 }
 /* 월 이동 화살표 */
-header .month-year a {
+header .month-year button {
   display: block;
+  cursor: pointer;
   align-self: center;
 }
 /* 연월 표시 부분 */
-header .current-month {
+header .current-month-year {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -52,7 +53,7 @@ header .current-month {
   font-weight: var(--font-weight-display-large);
 }
 
-header .current-month span:nth-of-type(2) {
+header .current-month-year p:nth-of-type(2) {
   font-family: var(--font-family-display);
   font-size: var(--font-size-display-large);
 }
