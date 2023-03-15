@@ -22,35 +22,33 @@ chartBoard.addEventListener("click", function () {
 
 /* 셀렉트박스 변경*/
 const plusMinusBtn = document.querySelector("#plus-minus-btn");
-const incomeMember = document.querySelector(".income-member");
+const incomeMember = document.querySelector(".category-income-member");
 const expenditureMember = document.querySelector(".category-list-member");
-
 /* 셀렉트박스리스트*/
 const categorySelectHead = document.querySelector(".category-select-head");
-
 const categorySelect = document.querySelector(".category-select");
 
-categorySelectHead.addEventListener("click", () => {
-  categorySelectHead.classList.add("on");
-  if (plusMinusBtn.checked) {
-    categorySelect.replaceChild(incomeMember, expenditureMember);
-  } else {
-    categorySelect.replaceChild(expenditureMember, incomeMember);
-  }
-});
+// categorySelectHead.addEventListener("click", () => {
+//   categorySelectHead.classList.add("on");
+//   if (plusMinusBtn.checked) {
+//     categorySelect.replaceChild(incomeMember, expenditureMember);
+//   } else {
+//     categorySelect.replaceChild(expenditureMember, incomeMember);
+//   }
+// });
 
-expenditureMember.addEventListener("click", (event) => {
-  if (event.target.nodeName === "BUTTON") {
-    categorySelectHead.innerText = event.target.innerText;
-    categorySelectHead.classList.remove("on");
-  }
-});
-incomeMember.addEventListener("click", (event) => {
-  if (event.target.nodeName === "BUTTON") {
-    categorySelectHead.innerText = event.target.innerText;
-    categorySelectHead.classList.remove("on");
-  }
-});
+// expenditureMember.addEventListener("click", (event) => {
+//   if (event.target.nodeName === "BUTTON") {
+//     categorySelectHead.innerText = event.target.innerText;
+//     categorySelectHead.classList.remove("on");
+//   }
+// });
+// incomeMember.addEventListener("click", (event) => {
+//   if (event.target.nodeName === "BUTTON") {
+//     categorySelectHead.innerText = event.target.innerText;
+//     categorySelectHead.classList.remove("on");
+//   }
+// });
 /* 결제수단 추가 */
 
 /* 모달창 */
@@ -199,8 +197,8 @@ const isInputFilled = (value) => {
 };
 
 const init = () => {
-  initDateDisplay();
   initInputBarDate();
+  initDateDisplay();
   initEventHandler();
   initListTotalCount();
 };
