@@ -12,7 +12,7 @@ export const mainInit = () => {
   const $main_history_list = document.querySelector("#main_history_list");
   const [year, month] = getDate();
   const date = year.textContent + month.textContent.padStart(2, 0);
-  const value = getLocalStorage().filter((e) => e.date.slice(0, 6) === date);
+  const value = getLocalStorage();
 
   const $th = setTh(value);
   const $tbody = setList(value);
