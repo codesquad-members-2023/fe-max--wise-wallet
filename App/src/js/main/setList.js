@@ -1,5 +1,4 @@
 import { addComma } from "../utils/addComma.js";
-import { getBgColor } from "./getBgColor.js";
 
 export const setList = (array) => {
   const group = setGroup(array);
@@ -26,12 +25,9 @@ export const setList = (array) => {
         obj.isPositive ? `income` : `expenditure`
       }_tr">
             <td>
-              <input class="uniqueKey" value="${obj.uniqueKey}" />
-              <input class="isEditing" type="checkbox" />
               <div
-                class="history_category ${getBgColor(
-                  obj.category_select
-                )} bold-medium"
+                class="history_category bold-medium"
+                data-category="${obj.category_select}"
               >
               ${obj.category_select}
             </div>
@@ -50,13 +46,14 @@ export const setList = (array) => {
                 <div class="history_price body-medium secondary-red">
                 <div class="price_text">
                 ${addComma(obj.price)} 원</div>
-                <div class="cancel">삭제하기</div>
+                <button class="remove reset-btn">삭제하기</button>
+                <input class="uniqueKey" value="${obj.uniqueKey}" />
                 </div>
             </td>
           </tr>`;
     });
-    const date = key;
 
+    const date = key;
     const year = date.slice(0, 4);
     const month = date.slice(4, 6);
     const day = date.slice(6, 8);
@@ -93,13 +90,12 @@ export const setList = (array) => {
             </div>
           </td>
         </tr>`;
+
     $tbody.innerHTML += info_tr;
     $tbody.innerHTML += list_tr;
   });
 
-  $main_history_list.appendChild($tbody);
-
-  return;
+  return $tbody;
 };
 
 const setGroup = (array) => {

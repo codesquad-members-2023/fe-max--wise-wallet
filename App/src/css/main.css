@@ -1,164 +1,8 @@
 @import url(./variable.css);
-/* header */
-#header {
-  min-width: 1440px;
-  height: 194px;
-  background-color: rgb(82, 77, 144);
-  color: rgb(252, 252, 252);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-#header-wrapper {
-  min-width: 846px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-#logo a {
-  color: var(--color-off-white);
-  text-decoration: none;
-}
-
-#logo a:visited {
-  color: var(--color-off-white);
-}
-
-#monthYear #date {
-  width: 164px;
-  height: 96px;
-  text-align: center;
-}
-
-#monthYear {
-  min-width: 232px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-#tab button {
-  background-color: var(--color-primary);
-  cursor: pointer;
-  border-width: initial;
-  border-style: none;
-  border-color: initial;
-  border-image: initial;
-}
-
-/* input bar */
-#input_bar {
-  width: 894px;
-  height: 76px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-  border: 1px solid var(--color-primary);
-  border-radius: 8px;
-  position: relative;
-  top: -32px;
-  background-color: var(--color-white);
-}
-
-#input_bar_form {
-  width: 100%;
-  display: flex;
-  align-items: center;
-}
-
-#input_bar legend {
-  color: var(--color-primary-alt);
-  margin-bottom: 4px;
-}
-
-#input_bar_form fieldset {
-  border: none;
-  display: flex;
-  padding: 0 24px;
-  border-right: 1px solid var(--color-primary);
-}
-
-#input_bar_form fieldset:last-child {
-  border: none;
-}
-
-#input_bar_form #input_date {
-  width: 98px;
-  border: none;
-  color: var(--color-primary);
-}
-
-#input_bar_form input[type="number"]::-webkit-outer-spin-button,
-#input_bar_form input[type="number"]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-}
-
-#input_bar_form #input_checkbox,
-#input_bar_form #input_checkbox img {
-  width: 40px;
-  height: 40px;
-}
-
-#input_bar_form #input_checkbox:disabled {
-  cursor: not-allowed;
-}
-
-#input_bar_form #input_content {
-  width: 173px;
-  border: none;
-  background: none;
-  color: var(--color-primary);
-}
-
-#input_bar_form #input_price {
-  width: 78px;
-  text-align: right;
-  margin: 0 10px;
-  border: none;
-  background: none;
-
-  color: var(--color-primary);
-}
-
-#input_bar_form .active_Btn svg rect {
-  fill: var(--color-secondary-yellow);
-}
-
-#input_bar_form #price_toggle {
-  display: none;
-}
-
-#input_bar_form #price_checkbox {
-  cursor: pointer;
-  height: 0;
-  background-image: url(/App/src/icon/minus.svg);
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  background-repeat: no-repeat;
-  background-position: right center;
-  background-size: 24px 24px;
-}
-
-#input_bar_form #price_toggle:checked + #price_checkbox {
-  background-image: url(/App/src/icon/plus.svg);
-}
-
-#input_bar_form .selected_text {
-  display: none;
-}
-
-/* main */
-#main {
-  margin-bottom: 80px;
-}
 #main #main_wrapper {
   width: 848px;
   text-align: center;
-  margin: auto;
+  margin: 0 auto 80px auto;
 }
 
 #main_header {
@@ -272,81 +116,78 @@
   align-items: center;
 }
 
-#main .cancel {
+#main .remove {
+  height: 40px;
   display: none;
   margin: 0 0 0 10px;
   padding: 4px 8px;
   border: 1px solid var(--color-secondary-red);
   border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-secondary-red);
 }
 
-#main .cancel::before {
+#main .remove::before {
   display: inline-block;
   content: "\00d7";
-  font-size: 15pt;
+  font-size: 20pt;
   margin: 0 5px;
+  color: var(--color-secondary-red);
 }
 
 #main .list_tr {
   cursor: pointer;
 }
-
+#main .selected_list,
 #main .list_tr:hover {
   background-color: #ffffff;
 }
-
-#main .list_tr:hover .cancel {
-  display: initial;
+#main .selected_list .remove,
+#main .list_tr:hover .remove {
+  display: flex;
 }
 
 #main .price_text {
-  height: 35px;
+  height: 40px;
   display: flex;
   align-items: center;
 }
 
-#main .uniqueKey,
-#main .isEditing {
+#main .uniqueKey {
   display: none;
 }
 
-/* modal */
-.payment_modal {
-  width: 400px;
-  height: 188px;
-  padding: 40px;
-  border: 1px solid var(--color-primary);
-  border-radius: 8px;
-  background-color: var(--color-white);
+#main div[data-category="생활"] {
+  background-color: var(--color-category-navy);
 }
 
-.payment_modal form {
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
+#main div[data-category="의료/건강"] {
+  background-color: var(--color-category-sky);
 }
 
-.payment_modal menu {
-  display: flex;
-  justify-content: space-between;
-  height: 24px;
+#main div[data-category="쇼핑/뷰티"] {
+  background-color: var(--color-category-cyan);
 }
 
-.payment_modal .modal_tite {
-  color: var(--color-primary);
+#main div[data-category="교통"] {
+  background-color: var(--color-category-mint);
 }
 
-.payment_modal .modal_input {
-  width: 100%;
-  height: 44px;
-  border-radius: 8px;
-  border: 1px solid var(--color-primary);
-  padding: 10px 20px;
-  color: var(--color-primary);
-  background-color: var(--color-white);
+#main div[data-category="식비"] {
+  background-color: var(--color-category-blue);
 }
 
-#remove_option_modal input {
-  background-color: var(--color-primary-alt-40);
+#main div[data-category="문화/여가"] {
+  background-color: var(--color-category-pink);
+}
+
+#main div[data-category="미분류"] {
+  background-color: var(--color-category-purple);
+}
+
+#main div[data-category="월급"],
+#main div[data-category="기타수입"],
+#main div[data-category="용돈"] {
+  background-color: var(--color-category-green);
 }

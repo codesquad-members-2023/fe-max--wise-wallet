@@ -16,7 +16,6 @@ const isValidDate = (dateString) => {
 };
 
 export const checkInputDate = ({ target }) => {
-  console.log(target);
   if (!isValidDate(target.value)) {
     target.focus();
   }
