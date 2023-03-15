@@ -1,5 +1,4 @@
 import { addComma } from "../utils/addComma.js";
-import { getBgColor } from "./getBgColor.js";
 
 export const setList = (array) => {
   const group = setGroup(array);
@@ -27,9 +26,8 @@ export const setList = (array) => {
       }_tr">
             <td>
               <div
-                class="history_category ${getBgColor(
-                  obj.category_select
-                )} bold-medium"
+                class="history_category bold-medium"
+                data-category="${obj.category_select}"
               >
               ${obj.category_select}
             </div>
