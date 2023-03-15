@@ -34,27 +34,41 @@ export class Carousel extends Element {
       "aria-label": "이전달",
     });
     const nextHTML = ButtonArrowView("next", { "aria-label": "다음달" });
-    this.domNode.innerHTML = `
-    <div class="carousel-inner">
-      <div class="controls">
-        ${previousHTML}
-        ${nextHTML}
-      </div>
 
-      <div id="myCarousel-items" class="carousel-items" aria-live="off">
-        <!-- 라벨바꾸어 줄것 -->
-        <div
-          class="carousel-item active"
-          role="group"
-          tabindex="0"
-          aria-roledescription="날짜 표시"
-          aria-label="내용">
-          <p class="year">2023</p>
-          <p class="month">2</p>
-          <p class="monthName">February</p>
+    this.domNode.insertAdjacentHTML(
+      "afterbegin",
+      `
+        <div class="carousel-inner">
+          <div class="controls">
+            ${previousHTML}
+            ${nextHTML}
+          </div>
+
+          <div id="myCarousel-items" class="carousel-items" aria-live="off">
+            <!-- 라벨바꾸어 줄것 -->
+            <div
+              class="carousel-item active"
+              role="group"
+              tabindex="0"
+              aria-roledescription="날짜 표시"
+              aria-label="내용">
+              <p class="year">2023</p>
+              <p class="month">2</p>
+              <p class="monthName">February</p>
+            </div>
+            <div
+              class="carousel-item"
+              role="group"
+              tabindex="0"
+              aria-roledescription="날짜 표시"
+              aria-label="내용">
+              <p class="year">2023</p>
+              <p class="month">2</p>
+              <p class="monthName">February</p>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    `;
+      `
+    );
   }
 }

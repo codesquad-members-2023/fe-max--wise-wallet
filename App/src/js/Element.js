@@ -1,7 +1,10 @@
+import { $classNode } from "./dom.js";
+
 export class Element {
   constructor() {
     this.domNode = null;
     this.init();
+    $classNode(this.constructor.name).push(this.domNode);
   }
 
   init() {

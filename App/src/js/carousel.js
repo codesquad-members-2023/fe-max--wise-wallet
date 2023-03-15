@@ -237,6 +237,7 @@ CarouselPreviousNext.prototype.handleFocusOut = function () {
 
 /* Initialize Carousel and options */
 
+
 window.addEventListener(
   "load",
   function () {

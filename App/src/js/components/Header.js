@@ -16,15 +16,18 @@ export class Header extends Element {
       "aria-label": "날짜",
     });
     const tabs = new Tabs("tabs");
-    this.domNode.innerHTML = `
-      <div class="inner">
-        <!-- 로고 -->
-        ${logo.view()}
-        <!-- 캐러셀 -->
-        ${carousel.view()}
-        <!-- 탭 -->
-        ${tabs.view()}
-      </div>
-    `;
+    this.domNode.insertAdjacentHTML(
+      "afterbegin",
+      `
+        <div class="inner">
+          <!-- 로고 -->
+          ${logo.view()}
+          <!-- 캐러셀 -->
+          ${carousel.view()}
+          <!-- 탭 -->
+          ${tabs.view()}
+        </div>
+      `
+    );
   }
 }

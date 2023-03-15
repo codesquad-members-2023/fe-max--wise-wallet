@@ -60,11 +60,15 @@ export class Tabs extends Element {
         "statistics",
       ],
     ];
-    this.domNode.innerHTML = `
-      <h2 id="tablist-1" class="blind">날짜 캐러셀</h2>
-      <div role="tablist" aria-labelledby="tablist-1" class="manual">
-        ${tabs.map(([attrs, icon]) => TabView(attrs, icon)).join("")}
-      </div>
-    `;
+
+    this.domNode.insertAdjacentHTML(
+      "afterbegin",
+      `
+        <h2 id="tablist-1" class="blind">날짜 캐러셀</h2>
+        <div role="tablist" aria-labelledby="tablist-1" class="manual">
+          ${tabs.map(([attrs, icon]) => TabView(attrs, icon)).join("")}
+        </div>
+      `
+    );
   }
 }

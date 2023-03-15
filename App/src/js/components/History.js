@@ -181,20 +181,22 @@ export class History extends Element {
     ];
 
     const historyDetailHTML = HistoryDetailView(historyData);
-
-    this.domNode.innerHTML = `
-      <article id="history">
-        <h2 class="blind">입출금 내역</h2>
-        <div class="history__info">
-          <h3 tabindex="0">전체내역<span>13</span>건</h3>
-          <ul aria-labelledby="income">
-            ${activeList.map(ActiveItemView).join("")}
+    this.domNode.insertAdjacentHTML(
+      "afterbegin",
+      `
+        <article id="history">
+          <h2 class="blind">입출금 내역</h2>
+          <div class="history__info">
+            <h3 tabindex="0">전체내역<span>13</span>건</h3>
+            <ul aria-labelledby="income">
+              ${activeList.map(ActiveItemView).join("")}
+            </ul>
+          </div>
+          <ul class="history__detail">
+            ${historyDetailHTML}
           </ul>
-        </div>
-        <ul class="history__detail">
-          ${historyDetailHTML}
-        </ul>
-      </article>
-    `;
+        </article>
+      `
+    )
   }
 }

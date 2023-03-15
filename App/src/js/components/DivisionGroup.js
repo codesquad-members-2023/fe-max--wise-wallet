@@ -26,26 +26,29 @@ export class DivisionGroup extends Element {
       ["문화/여가", false],
       ["미분류", false],
     ];
-    this.domNode.innerHTML = `
-    <label for="menu2" aria-hidden="true">분류</label>
-    <div class="field">
-      <button
-        id="division"
-        type="button"
-        aria-haspopup="true"
-        aria-controls="menu2"
-        class="item menu-button"
-        tabindex="-1"
-        aria-label="입력하세요">
-        <span class="placeholder"> 입력하세요 </span>
-      </button>
-      <label for="division">
-        ${OPEN}
-      </label>
-    </div>
-    <ul role="menu" id="menu2" aria-label="분류">
-      ${categories.map(MenuItemRadioView).join("")}
-    </ul>
-    `;
+    this.domNode.insertAdjacentHTML(
+      "afterbegin",
+      `
+        <label for="menu2" aria-hidden="true">분류</label>
+        <div class="field">
+          <button
+            id="division"
+            type="button"
+            aria-haspopup="true"
+            aria-controls="menu2"
+            class="item menu-button"
+            tabindex="-1"
+            aria-label="입력하세요">
+            <span class="placeholder"> 입력하세요 </span>
+          </button>
+          <label for="division">
+            ${OPEN}
+          </label>
+        </div>
+        <ul role="menu" id="menu2" aria-label="분류">
+          ${categories.map(MenuItemRadioView).join("")}
+        </ul>
+      `
+    );
   }
 }

@@ -39,14 +39,16 @@ export class Inputbar extends Element {
 
     const submitGroup = new SubmitGroup();
     const submitGroupHTML = submitGroup.view();
-
-    this.domNode.innerHTML = `
-      ${dateGroupHTML}
-      ${amountGroupHTML}
-      ${detailGroupHTML}
-      ${paymentGroupHTML}
-      ${divisionGroupHTML}
-      ${submitGroupHTML}
-    `;
+    this.domNode.insertAdjacentHTML(
+      "afterbegin",
+      `
+        ${dateGroupHTML}
+        ${amountGroupHTML}
+        ${detailGroupHTML}
+        ${paymentGroupHTML}
+        ${divisionGroupHTML}
+        ${submitGroupHTML}
+      `
+    )
   }
 }

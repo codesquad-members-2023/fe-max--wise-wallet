@@ -14,23 +14,22 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap"
       rel="stylesheet" />
-    <link rel="stylesheet" href="./src/css/reset.css" />
-    <link rel="stylesheet" href="./src/css/common.css" />
-    <link rel="stylesheet" href="./src/css/carousel.css" />
-    <link rel="stylesheet" href="./src/css/tabs.css" />
-    <link rel="stylesheet" href="./src/css/toolbar.css" />
-    <link rel="stylesheet" href="./src/css/datepicker.css" />
-    <link rel="stylesheet" href="./src/css/header.css" />
-    <link rel="stylesheet" href="./src/css/main.css" />
+    <link rel="stylesheet" href="src/css/reset.css" />
+    <link rel="stylesheet" href="src/css/common.css" />
+    <link rel="stylesheet" href="src/css/carousel.css" />
+    <link rel="stylesheet" href="src/css/tabs.css" />
+    <link rel="stylesheet" href="src/css/toolbar.css" />
+    <link rel="stylesheet" href="src/css/datepicker.css" />
+    <link rel="stylesheet" href="src/css/header.css" />
+    <link rel="stylesheet" href="src/css/main.css" />
     <title>Wise wallet</title>
   </head>
   <body>
     <div id="app"></div>
     <script type="module">
-      import { App } from "./src/js/app.js";
-      import { $ } from "./src/js/dom.js";
+      import { App } from "src/js/app.js";
       (function () {
-        const $app = $("#app");
+        const $app = document.querySelector("#app");
         const app = new App($app);
         app.render();
       })();

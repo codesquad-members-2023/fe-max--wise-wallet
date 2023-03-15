@@ -13,11 +13,14 @@ export class DateGroup extends Element {
     const datePicker = new DatePicker();
     const datePickerHTML = datePicker.view();
 
-    this.domNode.innerHTML = ` 
-      <label for="id-textbox-1" aria-hidden="true">일자</label>
-      <div class="field field-date">
-        ${datePickerHTML}
-      </div>
-    `;
+    this.domNode.insertAdjacentHTML(
+      "afterbegin",
+      ` 
+        <label for="id-textbox-1" aria-hidden="true">일자</label>
+        <div class="field field-date">
+          ${datePickerHTML}
+        </div>
+      `
+    );
   }
 }
