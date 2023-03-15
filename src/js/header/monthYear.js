@@ -25,7 +25,7 @@ function btnClickEventHandler() {
 	const $nextBtnEl = document.querySelector('.next-btn');
 
 	$prevBtnEl.addEventListener('click', clickPrevBtnHandler);
-	// $nextBtnEl.addEventListener('click', clickNextBtnHandler);
+	$nextBtnEl.addEventListener('click', clickNextBtnHandler);
 }
 
 function clickPrevBtnHandler() {
@@ -49,10 +49,25 @@ function clickPrevBtnHandler() {
 	}
 }
 
-// function clickNextBtnHandler() {
-//   연월 요소 불러오기
-//   연 수정 (선택)
-//   월 +1 수정
-// }
+function clickNextBtnHandler() {
+	const $currentYearEl = document.querySelector('div.current-month-year p:nth-of-type(1)');
+	const $currentMonthEl = document.querySelector('div.current-month-year p:nth-of-type(2)');
+	const $currentMonthNameEl = document.querySelector('div.current-month-year p:nth-of-type(3)');
+
+	let year = Number($currentYearEl.innerText);
+	let month = Number($currentMonthEl.innerText);
+
+	if (month === 12) {
+		year += 1;
+		month = 1;
+		$currentYearEl.innerText = year;
+		$currentMonthEl.innerText = month;
+		$currentMonthNameEl.innerText = monthNameList[month];
+	} else {
+		month += 1;
+		$currentMonthEl.innerText = month;
+		$currentMonthNameEl.innerText = monthNameList[month];
+	}
+}
 
 initHeaderMonthYear();
