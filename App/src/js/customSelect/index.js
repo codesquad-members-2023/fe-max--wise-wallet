@@ -1,18 +1,33 @@
 import { addPaymentClickEvent } from "./addPaymentClickEvent.js";
 import { removePaymentClickEvent } from "./removePaymentClickEvent.js";
-import { selectBoxClickEvent } from "./selectBoxClickEvent.js";
+import { toggleSelectBox } from "./toggleSelectBox.js";
+import { selectOption } from "./selectOption.js";
 
 export const customSelectInit = () => {
-  const $selectbox = document.querySelectorAll(".select");
-  const $add_option = document.querySelectorAll(".add-option");
-  const $remove_option_btn = document.querySelectorAll(".remove_option_btn");
+  const $add_option = document.getElementById("add-option");
+  const $input_bar_form = document.getElementById("input_bar_form");
 
-  // selectbox 클릭
-  $selectbox.forEach(selectBoxClickEvent);
+  $input_bar_form.addEventListener("click", (e) => {
+    const $this = e.target;
 
-  // 결제수단 추가하기 버튼
-  $add_option.forEach(addPaymentClickEvent);
+    if ($this.closest(".selected")) {
+      toggleSelectBox($this);
+      return;
+    }
 
-  // 결제수단 삭제 버튼
-  $remove_option_btn.forEach(removePaymentClickEvent);
+    if ($this.closest("li.option")) {
+      const isRmoveBtn = $this.classList.contains("remove_option_btn");
+      if (isRmoveBtn) {
+        removePaymentClickEvent($this);
+        return;
+      }
+
+      if ($this.classList.contains("option")) {
+        selectOption($this);
+        return;
+      }
+    }
+  });
+
+  $add_option.addEventListener("click", addPaymentClickEvent);
 };

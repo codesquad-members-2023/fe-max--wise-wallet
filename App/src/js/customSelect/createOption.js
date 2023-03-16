@@ -7,7 +7,7 @@ export const createOption = (value) => {
   const $new_li = document.createElement("li");
 
   $new_li.innerHTML = element;
-  $new_li.classList.add("add-option");
-  $new_li.classList.add("body-regular");
+  $new_li.classList.add("option", "body-regular");
+
   return $new_li;
 };
