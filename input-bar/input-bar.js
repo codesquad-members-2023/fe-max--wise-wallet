@@ -21,20 +21,6 @@ dateInput.addEventListener("input", function () {
     }
 });
 
-//ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
-
-// const categoryPriceInput = document.getElementById("category-price");
-
-// categoryPriceInput.addEventListener("focus", function () {
-//     this.placeholder = "";
-// });
-
-// categoryPriceInput.addEventListener("blur", function () {
-//     if (this.value === "") {
-//         this.placeholder = "0";
-//     }
-// });
-
 const categoryPriceInput = document.getElementById("category-price");
 
 categoryPriceInput.addEventListener("input", function () {

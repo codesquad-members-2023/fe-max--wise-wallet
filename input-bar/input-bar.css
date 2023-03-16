@@ -28,7 +28,7 @@
 .input-bar .date::after,
 .input-bar .category::after,
 .input-bar .memo::after,
-.inputBar .payment::after {
+.input-bar .payment::after {
   content: "";
   position: absolute;
   top: 50%;
@@ -149,7 +149,7 @@
   height: 76px;
 }
 
-.input-bar .payment-text {
+.input-bar .payment__inner {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -158,17 +158,84 @@
   height: 44px;
 }
 
-.input-bar .pay-drop {
+.payment .select-box {
+  position: relative;
   display: flex;
+  width: 100px;
+  height: 24px;
+  cursor: pointer;
+  flex-direction: column;
 }
 
-.input-select {
-  background-image: url("./img/downcheck.svg");
-  background-repeat: no-repeat;
-  background-position: center center;
-  margin: auto;
+.payment .label {
+  display: flex;
+  align-items: center;
+  width: 80px;
+  height: 24px;
+  font: var(--font-body-regular);
+  cursor: pointer;
+}
+
+.payment .dropdown {
+  position: relative;
+  top: 24px;
+  left: -24px;
+  background: #fcfcfc;
+  border: 1px solid #524d90;
+  box-shadow: 0px 2px 2px rgba(82, 77, 144, 0.08),
+    0px 4px 4px rgba(82, 77, 144, 0.1);
+  border-radius: 8px;
+  /* overflow: hidden; */
+  /* transition: 0.3s ease-in; */
+  width: 148px;
+}
+
+.payment__list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 148px;
+  height: 57px;
+  font: var(--font-body-regular);
+  color: var(--color-primary);
+}
+
+.payment .list__inner {
+  display: flex;
+
+  align-items: center;
+  width: 100px;
+  height: 24px;
+}
+
+.payment .list-text {
+  width: 76px;
+  height: 24px;
+}
+.payment .list-xmark {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 24px;
+  height: 24px;
+  /* background-image: url("./img/xmark.svg");
+  background-repeat: no-repeat; */
+}
+
+.payment .xmark {
   width: 16px;
   height: 16px;
+}
+
+.input-bar .pay-check__logo {
+  display: flex;
+  margin: 0 auto;
+  width: 16px;
+  height: 16px;
+  background-repeat: no-repeat;
+  background-image: url("./img/downcheck.svg");
+  background-position: center center;
 }
 
 .input-bar .price {
