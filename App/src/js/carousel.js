@@ -16,6 +16,7 @@ var CarouselPreviousNext = function (node, options) {
 
   // a prefers-reduced-motion user setting must always override autoplay
   var hasReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
   if (hasReducedMotion.matches) {
     options.paused = true;
   }
@@ -124,7 +125,7 @@ CarouselPreviousNext.prototype.enableOrDisableAutoRotation = function (
 };
 
 /* Public function to update controls/caption styling */
-CarouselPreviousNext.prototype.setAccessibleStyling = function (accessible) {
+CarouselPreviousNext.prototype.  setAccessibleStyling = function (accessible) {
   if (accessible) {
     this.domNode.classList.add("carousel-moreaccessible");
   } else {
@@ -236,7 +237,6 @@ CarouselPreviousNext.prototype.handleFocusOut = function () {
 };
 
 /* Initialize Carousel and options */
-
 
 window.addEventListener(
   "load",

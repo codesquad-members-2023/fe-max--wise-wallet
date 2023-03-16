@@ -17,3 +17,5 @@
 - [x] Header, Logo, Carousel, Tabs 클래스 생성, init, render 구현
 - [x] Element Class 생성 및 관련 객체에 상속 Main 객체 생성 및 내부 작업 진행 중 Inputbar 작업 세분화 작업 일부 완료
 - [x] Main 첫번째 탭 작업 완료, History 세분화 작업, 프로토타입 데이터 생성 및 임시적용 후 렌더링 확인, SVG 분리
+- [x] 이벤트 핸들링 전, 시스템 객체생성 전역 데이터인 current 입력
+- [x] 캐러셀 기능구현, 애니메이션

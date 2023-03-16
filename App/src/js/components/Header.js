@@ -15,19 +15,15 @@ export class Header extends Element {
       "aria-roledescription": "캐러셀",
       "aria-label": "날짜",
     });
+
     const tabs = new Tabs("tabs");
-    this.domNode.insertAdjacentHTML(
-      "afterbegin",
-      `
-        <div class="inner">
-          <!-- 로고 -->
-          ${logo.view()}
-          <!-- 캐러셀 -->
-          ${carousel.view()}
-          <!-- 탭 -->
-          ${tabs.view()}
-        </div>
-      `
-    );
+
+    const inner = document.createElement("DIV");
+    inner.className = "inner";
+    inner.appendChild(logo.domNode);
+    inner.appendChild(carousel.domNode);
+    inner.appendChild(tabs.domNode);
+
+    this.domNode.appendChild(inner);
   }
 }

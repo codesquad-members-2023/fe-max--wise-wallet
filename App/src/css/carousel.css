@@ -18,6 +18,7 @@
   height: 96px;
   white-space: nowrap;
   overflow: hidden;
+  font-size: 0;
 }
 
 .carousel .carousel-item {
@@ -29,10 +30,8 @@
   display: none;
   flex-direction: row;
   color: var(--color-white);
-}
-
-.carousel .carousel-item.active {
   display: inline-block;
+  transition: transform 300ms;
 }
 
 .carousel .carousel-item p {

@@ -11,17 +11,9 @@ export class App {
   render() {
     $clearClassNode();
     const header = new Header();
-    const headerHTML = header.view();
-
     const main = new Main();
-    const mainHTML = main.view();
-    this.domNode.insertAdjacentHTML(
-      "afterbegin",
-      `
-        ${headerHTML}
-        ${mainHTML}
-      `
-    );
-    console.log($classNode());
+    
+    this.domNode.appendChild(header.domNode);
+    this.domNode.appendChild(main.domNode);
   }
 }
