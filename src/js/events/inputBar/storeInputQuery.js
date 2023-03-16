@@ -1,15 +1,17 @@
 import { $ } from "../../utils/dom.js";
 import { inputStore } from "../../store/inputStore.js";
 import { getCurrentTime } from "../../utils/getCurrentTime.js";
-import { render } from "../../utils/render.js";
+import { renderListTotalLength } from "../../utils/renderListTotalLength.js";
+import { validateInputValue } from "../../utils/validateInputValue.js";
+import { renderTotalIncomeExpenditure } from "../../utils/renderTotalIncomeExpenditure.js";
 
 export const storeInputQuery = () => {
-  const dateIn = document.querySelector("#date-input");
-  const priceIn = document.querySelector("#price-input");
-  const memoIn = document.querySelector("#memo-input");
-  const typeIn = document.querySelector("#plus-minus-btn");
-  const paymentIn = document.querySelector(".payment-select-head").innerText;
-  const categoryIn = document.querySelector(".category-select-head").innerText;
+  const dateIn = $("#date-input");
+  const priceIn = $("#price-input");
+  const memoIn = $("#memo-input");
+  const typeIn = $("#plus-minus-btn");
+  const paymentIn = $(".payment-select-head").innerText;
+  const categoryIn = $(".category-select-head").innerText;
 
   const storedValue = {
     creationTime: getCurrentTime(),
@@ -21,13 +23,11 @@ export const storeInputQuery = () => {
     categoryIn: categoryIn,
   };
 
-  /* && 벨리데이션 식으로..? */
-
-  if (!$("#edit-btn").checked) {
-    //
+  if (!$("#edit-btn").checked ) {
+    //&& validateInputValue(storedValue)
     inputStore.generateList(storedValue);
     console.log(inputStore.listArray);
-    render()
-
+    renderListTotalLength()
+    renderTotalIncomeExpenditure()
   }
 };

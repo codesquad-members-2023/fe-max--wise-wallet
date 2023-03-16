@@ -121,8 +121,8 @@
 
 - [] 수입 지출 내역 목록
   - [x] 총 건수 
-  - [] 랜더링
-    - [] 저장된 inputStore의 arr를 while이나 for, map, filter, reduce 로 type이 false면 지출, true면 수입으로 모아 합산한다
+  - [x] 랜더링
+    - [x] 저장된 inputStore의 arr를 while이나 for, map, filter, reduce 로 type이 false면 지출, true면 수입으로 모아 합산한다
   - [] 일별 info head
     - [] 날짜 표시 month월 day일 dayname
     - [] 하위 노드의 수입 지출 정보
@@ -343,6 +343,9 @@ true이면 핸들러는 캡처링 단계에서 동작
 keypress(deprecated), keydown, keyup   
 키보드 이벤트(Keyboard Event)는 사용자가 키를 누르거나 키를 놓을 때 발생   
 키를 누를 때는 keydown 타입의 이벤트가 발생하고, 키를 놓을 때는 keyup 타입의 이벤트가 발생
+### 
+preventDefault()는 keyup이벤트에서 발생하지 않는다 
+keyup은 디폴트 이벤트가 이미 발생한 상태에서 일어나기 때문에 디폴트 이벤트를 막는 preventDefault를 호출하기에 늦은 것이다
 
 ## BEM방식 CSS 명명규칙
 

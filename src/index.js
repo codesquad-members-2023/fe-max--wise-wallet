@@ -94,8 +94,6 @@ incomeMember.addEventListener("click", (event) => {
 //   addModalInput.value = "";
 // });
 
-// const paymentSelectHead = document.querySelector(".payment-select-head");
-
 
 const init = () => {
   initInputBarDate();
