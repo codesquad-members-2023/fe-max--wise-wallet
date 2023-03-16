@@ -195,6 +195,27 @@
     - [https://blogpack.tistory.com/811](https://blogpack.tistory.com/811) (체크박스 이미지 설정)
     - [https://velog.io/@ywoosang/addEventListener-콜백함수-제대로-이해하기](https://velog.io/@ywoosang/addEventListener-%EC%BD%9C%EB%B0%B1%ED%95%A8%EC%88%98-%EC%A0%9C%EB%8C%80%EB%A1%9C-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0) (이벤트 핸들러 콜백으로 이벤트 객체(e) 이외 인자 전달하기)
 
+### 3) 새로운 내역 입력
+
+- input, select, textarea, button 요소들은 스타일 상속(inherit)이 일어나지 않는다!!! `font: inherit`으로 설정해주거나 직접 지정해주어야 한다!
+- [https://stackoverflow.com/questions/11250259/why-are-css-styles-not-inherited-by-html-form-fields](https://stackoverflow.com/questions/11250259/why-are-css-styles-not-inherited-by-html-form-fields)
+- font 한줄 선언 → [https://stackoverflow.com/questions/4218549/one-css-declaration-for-all-css-font-properties](https://stackoverflow.com/questions/4218549/one-css-declaration-for-all-css-font-properties)
+- 기획:
+- form 에 있는 input 중 커스텀 드롭박스에 readonly로 넣어놓은 input은 change 이벤트를 인식못함
+    - readonly를 끄니 드롭다운 인풋창에 커서랑 자동완성창이 뜬다.
+        - input 속성에 `onkeydown= “return false;” style=”caret-color: transparent !important;”`
+        - input 속성에 `autocomplete: off`
+    - 필수로 입력받고 싶은 값들에는 `required` 속성을 줄 수 있다.
+- formData 객체
+
+![가계부 데이터 저장](https://user-images.githubusercontent.com/76121068/225642972-db33b125-6230-4030-be89-35685a43e24f.png)
+
+### 4) 웹 스토리지
+
+- 로컬 스토리지: 브라우저를 껐다켜도 남아있음, 같은 url이면 탭, 창이 달라도 모두 공유됨
+- 세션 스토리지: 새로고침해도 남아있지만 탭이나, 브라우저 종료시 사라짐
+- [https://ko.javascript.info/localstorage](https://ko.javascript.info/localstorage)
+
 ### 3) Month carousel
 ## ✨ 요구사항
 
@@ -214,6 +235,15 @@
       - [x]  12월 일때 내년으로 바뀌면서 1월로
   - [ ]  헤더 연월에 맞춰 인풋바 일자도 변경되도록 하는 기능
 - 새로운 내역 입력
+  - [ ]  인풋바 모든 정보 입력시 확인 버튼 활성화
+    - [ ]  각 칸에 정보가 입력되어 있는지 확인
+    - [ ]  정보가 올바른 형식인지 검사
+    - [ ]  확인버튼이 클릭 가능해지면서 색상변화
+  - [x]  확인버튼 클릭시 입력된 정보들 저장
+    - [x]  인풋바에서 입력받은 데이터를 어떤 방식으로 저장할지 고민해보기 → 객체? 로컬스토리지? 메모리?
+    - [x]  나중에 데이터를 불러와서 새로운 요소로 추가해서 렌더링하는 것도 고려해야한다
+    - [x]  후에 각 내역별로 다시 불러와 수정/삭제가 가능해야 한다
+    - [x]  FormData와 Localstorage 활용 월별, 일자별 구분 가능하게 저장
 
 ### 2주차 주요 개발 feature
 
@@ -304,11 +334,12 @@
     - e.target과 e.currentTarget에서 tagName, className, id, parentNode, nextElementSibling 등 다양하게 활용해보기
     - tagName은 값이 대문자로 리턴된다!
     - 원하는 영역 외 다른 영역을 클릭했을 경우는 어떻게 할까?
-- 죽이고 싶은 **`cannot use import statement outside a module`** 에러
+    
+- **`cannot use import statement outside a module`** 에러
     - package.json에 “type”: “module” 추가하기 → 실패
-    - script 태그에 type: “module” 추가하기 → 브라우저 에서는 이걸로 근데 그래도 index.js에서 import 해온 js 파일이 404 not found 에러
-    - 경로 설정에 문제였음 `import { initInputDate } from './initInputDate';` 여기서 ./initInputDate.js 로 확장자명 까지 경로를 확실히 명시해야 읽어올 수 있었음
-    - 근데 짜증나게 eslint에서 .js 붙이면 빨간줄 그어져서 헷갈림 eslint 짜증나
+    - script 태그에 type: “module” 추가하기 → 브라우저 에서는 이걸로 근데 그래도 index.js에서 import 해온 js 파일이 404 not found 에러 발생
+    - 경로 설정에 문제였음 `import { initInputDate } from './initInputDate';` 여기서 ./initInputDate.js 로 확장자명 까지 경로를 확실히 명시해야 읽어올 수 있었다.
+    - eslint에서 .js 붙이면 빨간줄이 그어져서 헷갈렸다.
     - [https://velog.io/@gabdol/자바스크립트-netERRABORTED-404-Not-Found-에러-해결-방법](https://velog.io/@gabdol/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-netERRABORTED-404-Not-Found-%EC%97%90%EB%9F%AC-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95)
 ## 참고자료
 1주차
