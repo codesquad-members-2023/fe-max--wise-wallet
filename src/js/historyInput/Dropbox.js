@@ -1,4 +1,5 @@
 import { $$ } from '../utils/dom.js';
+import { checkFormFilled } from './CheckForm.js';
 
 const dropdowns = $$('.dropdown__wrap');
 
@@ -12,6 +13,7 @@ const selectOption = (e) => {
     .closest('.dropdown__wrap')
     .querySelector('input');
   input.value = e.currentTarget.textContent.trim();
+  checkFormFilled();
 };
 
 const closeDropdownFromOutside = () => {
