@@ -1,10 +1,12 @@
 import { $, $$ } from '../utils/dom.js';
+import { handleAmountInput } from './AmountInput.js';
 
 export function checkForm() {
   const historyForm = $('.history__form');
   const amount = $('.history__form-amount input');
 
   historyForm.addEventListener('input', () => {
+    handleAmountInput(amount);
     checkFormFilled(amount);
   });
 }
