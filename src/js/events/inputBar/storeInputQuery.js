@@ -3,7 +3,7 @@ import { inputStore } from "../../store/inputStore.js";
 import { getCurrentTime } from "../../utils/getCurrentTime.js";
 import { render } from "../../utils/render.js";
 
-export const clickEditBtn = () => {
+export const storeInputQuery = () => {
   const dateIn = document.querySelector("#date-input");
   const priceIn = document.querySelector("#price-input");
   const memoIn = document.querySelector("#memo-input");
@@ -20,6 +20,8 @@ export const clickEditBtn = () => {
     paymentIn: paymentIn,
     categoryIn: categoryIn,
   };
+
+  /* && 벨리데이션 식으로..? */
 
   if (!$("#edit-btn").checked) {
     //

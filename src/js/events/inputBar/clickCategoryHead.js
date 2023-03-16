@@ -13,6 +13,8 @@ export const clickCategoryHead = () => {
   console.log(categorySelectHead);
   console.log(categorySelect);
 
+  /* 왜 ... null로 변하는건지... */
+
   categorySelectHead.classList.add("on");
   if (plusMinusBtn.checked) {
     categorySelect.replaceChild(incomeMember, expenditureMember);

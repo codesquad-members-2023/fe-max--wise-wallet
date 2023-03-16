@@ -2,11 +2,11 @@ import { $ } from "../../utils/dom.js";
 import { isInputFilled } from "../../utils/isInputFilled.js";
 
 export const activateEditBtn = () => {
-  const dateIn = document.querySelector("#date-input");
-  const priceIn = document.querySelector("#price-input");
-  const memoIn = document.querySelector("#memo-input");
-  const paymentIn = document.querySelector(".payment-select-head").innerText;
-  const categoryIn = document.querySelector(".category-select-head").innerText;
+  const dateIn = $("#date-input");
+  const priceIn = $("#price-input");
+  const memoIn = $("#memo-input");
+  const paymentIn = $(".payment-select-head").innerText;
+  const categoryIn = $(".category-select-head").innerText;
 
   if (
     isInputFilled(dateIn.value) &&
