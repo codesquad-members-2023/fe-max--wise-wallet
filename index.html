@@ -26,6 +26,7 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script defer src="/src/js/datePicker.js"></script>
     <script defer src="./src/js/events/input_bar/input_list.js"></script>
+    <script defer src="./src/js/events/input_bar/input_price_change.js"></script>
     <title>Wise Wallet</title>
   </head>
   <body>
@@ -70,7 +71,7 @@
         <div class="price">
           <label for="price" id="price">금액</label>
           <div id="container">
-            <button id="change_btn" type="button"><img id="minus" src="/src/svg/minus.svg" alt="change"></button>
+            <button id="change_btn" type="button"><img id="change_button" src="/src/svg/minus.svg"></button>
             <input type="text" id="price_input" placeholder="0" autocomplete="off" />
             <p id="krw">원</p>
           </div>
