@@ -1,6 +1,8 @@
 export const currentDate = new Date();
 export const year = currentDate.getFullYear();
 export const month = currentDate.getMonth();
+export const date = currentDate.getDate();
+
 export const monthNames = [
   'January',
   'February',
