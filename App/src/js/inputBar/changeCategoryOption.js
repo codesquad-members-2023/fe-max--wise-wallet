@@ -34,8 +34,9 @@ export const changeCategoryOption = () => {
   const $category_select = document.getElementById("category_select");
   const $price_toggle = document.getElementById("price_toggle").checked;
   const $drop_menu = document.getElementById("drop_menu");
-  const $selected_value = $category_select.querySelector(".selected-value");
+  const $selected_value = $category_select.querySelector(".selected_value");
   const $selected_text = $category_select.querySelector(".selected_text");
+  const $price_checkbox = document.getElementById("price_checkbox");
   const $ul = document.createElement("ul");
   $ul.id = "drop_menu";
 
@@ -48,6 +49,10 @@ export const changeCategoryOption = () => {
   }
   $category_select.appendChild($ul);
 
-  $selected_value.textContent = "선택하세요";
-  $selected_text.value = "";
+  $selected_text.textContent = "선택하세요";
+  $selected_value.value = "";
+
+  const changeEvent = new Event("keyup", { bubbles: true });
+  // selectedInput에 직접 change 이벤트를 발생
+  $price_checkbox.dispatchEvent(changeEvent);
 };

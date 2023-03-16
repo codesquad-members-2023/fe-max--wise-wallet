@@ -6,7 +6,7 @@ export const removePaymentClickEvent = ($this) => {
   const $remove_option_modal = document.getElementById("remove_option_modal");
   const $input = $remove_option_modal.querySelector("input");
   const $selectBox = $this.closest(".select");
-  const $selected_value = $selectBox.querySelector(".selected-value");
+  const $selected_value = $selectBox.querySelector(".selected_value");
   const $selected_text = $selectBox.querySelector(".selected_text");
   const $confirm_btn = $remove_option_modal.querySelector(".confirm_btn");
   const $cancel_btn = $remove_option_modal.querySelector(".cancel_btn");
@@ -17,11 +17,11 @@ export const removePaymentClickEvent = ($this) => {
   // 삭제 버튼
   $confirm_btn.addEventListener("click", () => {
     if (
-      $selected_value.textContent === $selected_text.value &&
-      $selected_text.value === text
+      $selected_value.value === $selected_text.textContent &&
+      $selected_text.textContent === text
     ) {
-      $selected_value.textContent = "선택하세요";
-      $selected_text.value = "";
+      $selected_value.value = "";
+      $selected_text.textContent = "선택하세요";
     }
     $li.remove();
   });

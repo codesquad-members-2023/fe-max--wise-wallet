@@ -10,7 +10,11 @@ ul {
   width: 100px;
 }
 
-.select .selected-value {
+.select .selected_value {
+  display: none;
+}
+
+.select .selected_text {
   color: var(--color-primary);
 }
 
@@ -20,7 +24,7 @@ ul {
   justify-content: space-between;
 }
 
-.select .selected .selected-value {
+.select .selected .selected_text {
   max-width: 90px;
 }
 
@@ -31,7 +35,7 @@ ul {
 }
 
 .select ul li,
-.select .selected .selected-value {
+.select .selected .selected_text {
   white-space: nowrap;
   /* 줄바꿈 안함 */
   overflow: hidden;

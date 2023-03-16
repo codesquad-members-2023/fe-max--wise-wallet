@@ -10,9 +10,9 @@ export const mainInit = () => {
   removeList();
   const $main_history_list = document.querySelector("#main_history_list");
   const value = getLocalStorage();
-
   const $th = setTh(value);
   const $tbody = setList(value);
+
   $tbody.prepend($th);
   $main_history_list.appendChild($tbody);
 

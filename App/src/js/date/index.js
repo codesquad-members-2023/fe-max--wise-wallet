@@ -1,7 +1,7 @@
 import { mainInit } from "../main/index.js";
 import { getDateElements } from "./getDateElements.js";
 import { setDate } from "./setDate.js";
-import { setNow } from "./setTodayDateInput.js";
+import { setTodayDateInput } from "./setTodayDateInput.js";
 
 export const dateInit = () => {
   const $monthYear = document.getElementById("monthYear");
@@ -14,8 +14,8 @@ export const dateInit = () => {
       $arrowBtn.id === "left-Arrow" ? handleArrowBtn(2) : handleArrowBtn(0);
     }
   });
-
-  setNow();
+  setDate(getDateElements(), new Date());
+  setTodayDateInput();
 };
 
 const handleArrowBtn = (num) => {

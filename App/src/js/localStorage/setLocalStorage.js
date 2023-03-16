@@ -1,8 +1,5 @@
-import { mainInit } from "../main/index.js";
-import { resetInputBar } from "../inputBar/resetInputBar.js";
-
 export const setLocalStorage = (key) => {
-  const uniqueKey = key ? key : new Date().getTime().toString();
+  const uniqueKey = key !== null ? key : new Date().getTime().toString();
   const date = document.getElementById("input_date");
   const price = document.getElementById("input_price");
   const isPositive = document.getElementById("price_toggle");
@@ -21,6 +18,4 @@ export const setLocalStorage = (key) => {
   };
 
   localStorage.setItem(uniqueKey, JSON.stringify(obj));
-  resetInputBar();
-  mainInit();
 };
