@@ -4,6 +4,7 @@ import { getCurrentTime } from "../../utils/getCurrentTime.js";
 import { renderListTotalLength } from "../../utils/renderListTotalLength.js";
 import { validateInputValue } from "../../utils/validateInputValue.js";
 import { renderTotalIncomeExpenditure } from "../../utils/renderTotalIncomeExpenditure.js";
+import { renderListByDay } from "../../utils/renderListByDay.js";
 
 export const storeInputQuery = () => {
   const dateIn = $("#date-input");
@@ -29,5 +30,6 @@ export const storeInputQuery = () => {
     console.log(inputStore.listArray);
     renderListTotalLength()
     renderTotalIncomeExpenditure()
+    renderListByDay()
   }
 };
