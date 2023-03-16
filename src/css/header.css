@@ -18,10 +18,7 @@ header .main-header-container {
 }
 /* 로고 */
 h1 {
-  font-family: var(--font-family-display);
-  font-weight: var(--font-weight-display-small);
-  font-size: var(--font-size-display-small);
-  line-height: var(--line-height-display-small);
+  font: var(--font-display-small);
 }
 
 h1.logo-area a {
@@ -49,13 +46,11 @@ header .current-month-year {
   justify-content: space-between;
   align-items: center;
   color: var(--color-white);
-  font-size: var(--font-size-bold-small);
-  font-weight: var(--font-weight-display-large);
+  font: var(--font-bold-small);
 }
 
 header .current-month-year p:nth-of-type(2) {
-  font-family: var(--font-family-display);
-  font-size: var(--font-size-display-large);
+  font: var(--font-display-large);
 }
 /* 아이콘 탭 */
 header nav {

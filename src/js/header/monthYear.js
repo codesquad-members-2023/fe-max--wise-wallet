@@ -15,19 +15,6 @@ function displayCurrentMonthYear() {
 	$currentMonthNameEl.innerText = monthNameList[currentMonth];
 }
 
-function initHeaderMonthYear() {
-	displayCurrentMonthYear();
-	btnClickEventHandler();
-}
-
-function btnClickEventHandler() {
-	const $prevBtnEl = document.querySelector('.prev-btn');
-	const $nextBtnEl = document.querySelector('.next-btn');
-
-	$prevBtnEl.addEventListener('click', clickPrevBtnHandler);
-	$nextBtnEl.addEventListener('click', clickNextBtnHandler);
-}
-
 function clickPrevBtnHandler() {
 	const $currentYearEl = document.querySelector('div.current-month-year p:nth-of-type(1)');
 	const $currentMonthEl = document.querySelector('div.current-month-year p:nth-of-type(2)');
@@ -68,6 +55,19 @@ function clickNextBtnHandler() {
 		$currentMonthEl.innerText = month;
 		$currentMonthNameEl.innerText = monthNameList[month];
 	}
+}
+
+function btnClickEventHandler() {
+	const $prevBtnEl = document.querySelector('.prev-btn');
+	const $nextBtnEl = document.querySelector('.next-btn');
+
+	$prevBtnEl.addEventListener('click', clickPrevBtnHandler);
+	$nextBtnEl.addEventListener('click', clickNextBtnHandler);
+}
+
+function initHeaderMonthYear() {
+	displayCurrentMonthYear();
+	btnClickEventHandler();
 }
 
 initHeaderMonthYear();

@@ -2,45 +2,15 @@
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/variable/pretendardvariable-dynamic-subset.css');
 
 :root {
-	/* font-family */
-	--font-family-display: 'Outfit', sans-serif;
-	--font-family-body: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto,
-		'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji',
-		'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
-	--font-family-bold: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto,
-		'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', 'Apple Color Emoji',
-		'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
-
-	/* font-size */
-	--font-size-display-small: 24px;
-	--font-size-display-large: 48px;
-
-	--font-size-body-regular: 16px;
-	--font-size-body-medium: 18px;
-	--font-size-body-large: 22px;
-
-	--font-size-bold-small: 12px;
-	--font-size-bold-medium: 14px;
-	--font-size-bold-large: 16px;
-
-	/* font-weight */
-	--font-weight-display-small: 400;
-	--font-weight-display-large: 700;
-	--font-weight-body: 500;
-	--font-weight-bold: 700;
-
-	/* line-height */
-	--line-height-display-small: 24px;
-	--line-height-display-large: 56px;
-
-	--line-height-body-regular: 24px;
-	--line-height-body-medium: 24px;
-	--line-height-body-large: 32px;
-
-	--line-height-bold-regular: 16px;
-	--line-height-bold-medium: 24px;
-	--line-height-bold-large: 24px;
-
+	/* font */
+	--font-display-small: normal 400 24px/24px 'Outfit', sans-serif;
+  --font-display-large: normal 700 48px/56px 'Outfit', sans-serif;
+  --font-body-regular: normal 500 16px/24px 'Pretendard Variable', Pretendard, sans-serif;
+  --font-body-medium: normal 500 18px/24px 'Pretendard Variable', Pretendard, sans-serif;
+  --font-body-large: normal 500 22px/32px 'Pretendard Variable', Pretendard, sans-serif;
+  --font-bold-small: normal 700 12px/16px 'Pretendard Variable', Pretendard, sans-serif;
+  --font-bold-medium: normal 700 14px/24px 'Pretendard Variable', Pretendard, sans-serif;
+  --font-bold-large: normal 700 16px/24px 'Pretendard Variable', Pretendard, sans-serif;
 	/* color */
 	--color-off-white: #f7f6f3;
 	--color-white: #fcfcfc;
