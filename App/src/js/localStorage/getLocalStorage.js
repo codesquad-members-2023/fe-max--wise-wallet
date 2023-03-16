@@ -1,7 +1,7 @@
-import { getDate } from "../date/getDate.js";
+import { getDateElements } from "../date/getDateElements.js";
 
 export const getLocalStorage = () => {
-  const [year, month] = getDate();
+  const [year, month] = getDateElements();
   const date = year.textContent + month.textContent.padStart(2, 0);
   const keys = Object.keys(localStorage);
   const values = keys

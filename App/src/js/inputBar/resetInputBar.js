@@ -1,4 +1,4 @@
-import { setNow } from "../date/setNow.js";
+import { setTodayDateInput } from "../date/setTodayDateInput.js";
 import { changeCategoryOption } from "./changeCategoryOption.js";
 
 export const resetInputBar = () => {
@@ -9,7 +9,7 @@ export const resetInputBar = () => {
   const payment = document.getElementById("payment_value");
   const category_select = document.getElementById("category_value");
 
-  setNow();
+  setTodayDateInput();
   if (isPositive.checked) {
     changeCategoryOption();
   }

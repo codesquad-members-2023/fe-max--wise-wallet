@@ -5,7 +5,6 @@ import { removeList } from "./removeList.js";
 import { setList } from "./setList.js";
 import { setTh } from "./setTh.js";
 import { setEditData } from "../inputBar/setEditData.js";
-import { getDate } from "../date/getDate.js";
 
 export const mainInit = () => {
   removeList();
