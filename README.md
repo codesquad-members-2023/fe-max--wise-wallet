@@ -319,7 +319,7 @@
 - ARIA
 - BEM
 - SPA
-- 아이콘이나 로고는 어떤 태그를 사용해야 할까? → <i> 태그를 사용하는 웹사이트들이 꽤 있었다.
+- 아이콘이나 로고는 어떤 태그를 사용해야 할까? → i 태그를 사용하는 웹사이트들이 꽤 있었다.
 
 2주차
 - html내 script 태그의 위치관련 → [https://medium.com/geekculture/where-to-put-a-script-tag-into-head-or-body-end-b5b063058e0b](https://medium.com/geekculture/where-to-put-a-script-tag-into-head-or-body-end-b5b063058e0b)
