@@ -1,6 +1,6 @@
 import { getToday } from '../../utils/getToday.js';
 
-export const initInputDate = () => {
+export const initInputBarDate = () => {
 	const $dateInput = document.querySelector('#inputDate');
 	let { year, month, date } = getToday();
 	month = `0${month}`.slice(-2);
