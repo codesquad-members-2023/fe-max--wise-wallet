@@ -5,6 +5,7 @@ import './inputbar/inputPrice.js';
 import './inputbar/switchCategory.js';
 import './header/monthYear.js';
 import './inputbar/formData.js';
+import './inputbar/activateSubmit.js';
 
 const init = () => {
 	initInputDate();
