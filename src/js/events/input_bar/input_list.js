@@ -19,6 +19,7 @@ const select = {
     const textNode = document.createTextNode(value);
     textDiv.appendChild(textNode);
     newDiv.appendChild(textDiv);
+    textDiv.id = "category_list";
   },
 
   addCategory(condition) {
