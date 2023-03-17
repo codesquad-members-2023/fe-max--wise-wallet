@@ -4,7 +4,6 @@ export const setList = (array) => {
   const group = setGroup(array);
   const keys = Object.keys(group).sort((a, b) => b - a);
   const $tbody = document.createElement("tbody");
-  const $main_history_list = document.getElementById("main_history_list");
 
   keys.forEach((key) => {
     // 수입
