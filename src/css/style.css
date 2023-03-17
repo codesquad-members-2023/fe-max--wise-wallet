@@ -5,10 +5,7 @@
 body {
   background-color: var(--color-off-white);
   color: var(--color-primary);
-  font-family: var(--font-family-body);
-  font-size: var(--font-size-body-medium);
-  font-weight: var(--font-weight-body);
-  line-height: var(--line-height-body-medium);
+  font: var(--font-body-medium);
 }
 
 a {

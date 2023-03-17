@@ -1,4 +1,4 @@
-import { getToday } from './getToday.js';
+import { getToday } from '../../utils/getToday.js';
 
 export const initInputDate = () => {
 	const $dateInput = document.querySelector('#inputDate');

@@ -195,7 +195,42 @@
     - [https://blogpack.tistory.com/811](https://blogpack.tistory.com/811) (체크박스 이미지 설정)
     - [https://velog.io/@ywoosang/addEventListener-콜백함수-제대로-이해하기](https://velog.io/@ywoosang/addEventListener-%EC%BD%9C%EB%B0%B1%ED%95%A8%EC%88%98-%EC%A0%9C%EB%8C%80%EB%A1%9C-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0) (이벤트 핸들러 콜백으로 이벤트 객체(e) 이외 인자 전달하기)
 
-### 3) Month carousel
+### 3) 새로운 내역 입력
+
+- input, select, textarea, button 요소들은 스타일 상속(inherit)이 일어나지 않는다!!!
+    
+    따라서 `font: inherit`으로 설정해주거나 직접 지정해주어야 한다! 
+    
+    → [https://stackoverflow.com/questions/11250259/why-are-css-styles-not-inherited-by-html-form-fields](https://stackoverflow.com/questions/11250259/why-are-css-styles-not-inherited-by-html-form-fields)
+    
+- form 에 있는 input들 중 커스텀 드롭박스에 readonly로 넣어놓은 input은 ‘change’ 이벤트를 인식 못하는 문제점이 발생
+    - readonly를 끄니 드롭다운 인풋창에 커서랑 자동완성창이 뜬다.
+        - input 속성에 `onkeydown= “return false;” style=”caret-color: transparent !important;”`을 적용하면 키보드를 통한 값의 입력을 막고 커서를 안 보이게 할 수 있다.
+        - input 속성에 `autocomplete: off`을 사용하면 자동완성창을 안 뜨게 만들 수 있다.
+    - 폼에서 필수로 입력받고 싶은 값들에는 `required` 속성을 줄 수 있다.
+- 그러나 모든 폼이 채워졌을 때 버튼색상을 변경해주는 함수를 만들때 새로운 문제가 발생했다.
+    - 이렇게 만든 드롭다운 부분의 input들도 change나 input 이벤트를 제대로 인식하지 못했다.
+        
+        → click 이벤트를 추가로 걸어서 드롭다운 메뉴부분이 클릭될 때마다 검사하도록 했다. 
+        
+- formData로 데이터를 객체로 만들어 로컬스토리지에 저장했다.
+
+![가계부 데이터 저장](https://user-images.githubusercontent.com/76121068/225642972-db33b125-6230-4030-be89-35685a43e24f.png)
+
+### 4) 웹 스토리지
+
+- 로컬 스토리지: 브라우저를 껐다켜도 남아있음, 같은 url이면 탭, 창이 달라도 모두 공유됨
+- 세션 스토리지: 새로고침해도 남아있지만 탭이나, 브라우저 종료시 사라짐
+- [https://ko.javascript.info/localstorage](https://ko.javascript.info/localstorage)
+- 로컬스토리지를 이용한 방식의 문제점
+    - 용량이 5MB 정도로 제한적이고 문자열로만 데이터를 저장 가능하다.
+    - JSON 형식으로 객체 데이터도 저장 가능하지만 데이터 구조가 복잡해지면 후에 원하는 값만 가져와서 수정/삭제 하는 과정이 복잡해진다…
+    - DB와 비슷한 indexedDB 라는 웹 브라우저 저장방식도 존재한다. 다만 transaction 등의 과정이 추가적으로 필요해 다루기가 어려워보인다. 과연 이번 기획에 적합한 방법일까?
+
+### 그 외 수정들
+
+- css의 :root 파일에서 font 한줄 선언 → [https://stackoverflow.com/questions/4218549/one-css-declaration-for-all-css-font-properties](https://stackoverflow.com/questions/4218549/one-css-declaration-for-all-css-font-properties)
+
 ## ✨ 요구사항
 
 ### 1주차 주요 개발 feature
@@ -214,6 +249,15 @@
       - [x]  12월 일때 내년으로 바뀌면서 1월로
   - [ ]  헤더 연월에 맞춰 인풋바 일자도 변경되도록 하는 기능
 - 새로운 내역 입력
+  - [ ]  인풋바 모든 정보 입력시 확인 버튼 활성화
+    - [x]  각 칸에 정보가 입력되어 있는지 확인
+    - [ ]  정보가 올바른 형식인지 검사
+    - [x]  확인버튼이 클릭 가능해지면서 색상변화
+  - [x]  확인버튼 클릭시 입력된 정보들 저장
+    - [x]  인풋바에서 입력받은 데이터를 어떤 방식으로 저장할지 고민해보기 → 객체? 로컬스토리지? 메모리?
+    - [x]  나중에 데이터를 불러와서 새로운 요소로 추가해서 렌더링하는 것도 고려해야한다
+    - [x]  후에 각 내역별로 다시 불러와 수정/삭제가 가능해야 한다
+    - [x]  FormData와 Localstorage 활용 월별, 일자별 구분 가능하게 저장
 
 ### 2주차 주요 개발 feature
 
@@ -275,7 +319,7 @@
 - ARIA
 - BEM
 - SPA
-- 아이콘이나 로고는 어떤 태그를 사용해야 할까? → <i> 태그를 사용하는 웹사이트들이 꽤 있었다.
+- 아이콘이나 로고는 어떤 태그를 사용해야 할까? → i 태그를 사용하는 웹사이트들이 꽤 있었다.
 
 2주차
 - html내 script 태그의 위치관련 → [https://medium.com/geekculture/where-to-put-a-script-tag-into-head-or-body-end-b5b063058e0b](https://medium.com/geekculture/where-to-put-a-script-tag-into-head-or-body-end-b5b063058e0b)
@@ -304,11 +348,12 @@
     - e.target과 e.currentTarget에서 tagName, className, id, parentNode, nextElementSibling 등 다양하게 활용해보기
     - tagName은 값이 대문자로 리턴된다!
     - 원하는 영역 외 다른 영역을 클릭했을 경우는 어떻게 할까?
-- 죽이고 싶은 **`cannot use import statement outside a module`** 에러
+    
+- **`cannot use import statement outside a module`** 에러
     - package.json에 “type”: “module” 추가하기 → 실패
-    - script 태그에 type: “module” 추가하기 → 브라우저 에서는 이걸로 근데 그래도 index.js에서 import 해온 js 파일이 404 not found 에러
-    - 경로 설정에 문제였음 `import { initInputDate } from './initInputDate';` 여기서 ./initInputDate.js 로 확장자명 까지 경로를 확실히 명시해야 읽어올 수 있었음
-    - 근데 짜증나게 eslint에서 .js 붙이면 빨간줄 그어져서 헷갈림 eslint 짜증나
+    - script 태그에 type: “module” 추가하기 → 브라우저 에서는 이걸로 근데 그래도 index.js에서 import 해온 js 파일이 404 not found 에러 발생
+    - 경로 설정에 문제였음 `import { initInputDate } from './initInputDate';` 여기서 ./initInputDate.js 로 확장자명 까지 경로를 확실히 명시해야 읽어올 수 있었다.
+    - eslint에서 .js 붙이면 빨간줄이 그어져서 헷갈렸다.
     - [https://velog.io/@gabdol/자바스크립트-netERRABORTED-404-Not-Found-에러-해결-방법](https://velog.io/@gabdol/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-netERRABORTED-404-Not-Found-%EC%97%90%EB%9F%AC-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95)
 ## 참고자료
 1주차

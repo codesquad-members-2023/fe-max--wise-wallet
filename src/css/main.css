@@ -35,8 +35,6 @@
   border-top: 1px solid var(--color-primary-alt);
   display: flex;
   justify-content: space-evenly;
-  font-size: var(--font-size-body-medium);
-  font-weight: var(--font-weight-body);
 }
 
 .daily-details-container li:last-child {
@@ -50,8 +48,7 @@
   text-align: center;
   background-color: var(--color-category-mint);
   color: var(--color-white);
-  font-size: var(--font-size-bold-medium);
-  font-weight: var(--font-weight-bold);
+  font: var(--font-bold-medium);
   flex-basis: 92px;
   border-radius: 25px;
 }

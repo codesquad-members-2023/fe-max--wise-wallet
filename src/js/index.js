@@ -1,11 +1,14 @@
-import { initInputDate } from './inputbar/initInputDate.js';
-import './inputbar/dropdown.js';
-import './inputbar/formValidation.js';
-import './inputbar/inputPrice.js';
-import './inputbar/switchCategory.js';
-import './header/monthYear.js';
+import { initInputDate } from './components/inputbar/initInputDate.js';
+import { initHeaderMonthYear } from './components/header/initHeaderMonthYear.js';
+import './components/inputbar/dropdown.js';
+import './utils/formValidation.js';
+import './components/inputbar/autoComma.js';
+import './components/inputbar/switchCategory.js';
+import './data/formData.js';
+import './utils/submitBtnHandelr.js';
 
 const init = () => {
+	initHeaderMonthYear();
 	initInputDate();
 };
 

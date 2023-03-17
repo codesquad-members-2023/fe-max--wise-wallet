@@ -4,7 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" href="./favicon.ico" type="image/x-icon" sizes="16x16">
+		<link rel="icon" href="./favicon.ico" type="image/x-icon" sizes="16x16" />
 		<link rel="stylesheet" href="./src/css/reset.css" />
 		<link rel="stylesheet" href="./src/css/root.css" />
 		<link rel="stylesheet" href="./src/css/style.css" />
@@ -106,24 +106,34 @@
 			<form class="input-bar-form" action="/somewhere">
 				<div class="input-date">
 					<label for="inputDate">일자</label>
-					<input id="inputDate" type="text" value="20230217" />
+					<input id="inputDate" type="text" name="date" autocomplete="off" required/>
 				</div>
 				<div class="input-price">
 					<label for="inputPrice">금액</label>
 					<div class="input-price-window">
 						<input class="input-price-checkbox" type="checkbox" />
-						<input id="inputPrice" type="text" placeholder="0" />
+						<input id="inputPrice" type="text" name="price" placeholder="0" autocomplete="off" required/>
 						<span>원</span>
 					</div>
 				</div>
 				<div class="input-memo">
 					<label for="inputMemo">내용</label>
-					<input id="inputMemo" type="text" placeholder="입력하세요" />
+					<input id="inputMemo" type="text" name="memo" placeholder="입력하세요" autocomplete="off" required/>
 				</div>
 				<div class="select-payment">
 					<label for="selectPayment">결제수단</label>
 					<div class="select-dropdown" id="paymentDropdown">
-						<input class="select-box" type="text" placeholder="선택하세요" readonly/>
+						<input
+							id="inputPayment"
+							class="select-box"
+							type="text"
+							name="payment"
+							placeholder="선택하세요"
+							onkeydown="return false;"
+							style="caret-color: transparent !important"
+							autocomplete="off"
+							required
+						/>
 						<ul class="option">
 							<li class="option-item">
 								<p>현금</p>
@@ -160,7 +170,17 @@
 				<div class="select-category">
 					<label for="selectCategory">분류</label>
 					<div class="select-dropdown" id="categoryDropdown">
-						<input class="select-box" type="text" placeholder="선택하세요" readonly>
+						<input
+							id="inputCategory"
+							class="select-box"
+							type="text"
+							name="category"
+							placeholder="선택하세요"
+							onkeydown="return false;"
+							style="caret-color: transparent !important"
+							autocomplete="off"
+							required
+						/>
 						<ul class="option expenditure-category-list">
 							<li class="option-item"><p>생활</p></li>
 							<li class="option-item"><p>식비</p></li>
@@ -170,7 +190,7 @@
 							<li class="option-item"><p>문화/여가</p></li>
 							<li class="option-item"><p>미분류</p></li>
 						</ul>
-						<ul class="option income-category-list" style="display: none;">
+						<ul class="option income-category-list" style="display: none">
 							<li class="option-item"><p>현금</p></li>
 							<li class="option-item"><p>신용카드</p></li>
 							<li class="option-item"><p>계좌</p></li>
@@ -230,7 +250,7 @@
 				<ul class="monthly-details-container">
 					<li class="monthly-details-element">
 						<div class="daily-info">
-							<div><strong>2월 15일</strong> 수</div>
+							<div><strong>3월 17일</strong> 수</div>
 							<div>지출 <span>27,000</span></div>
 						</div>
 						<ul class="daily-details-container">
@@ -250,7 +270,7 @@
 					</li>
 					<li class="monthly-details-element">
 						<div class="daily-info">
-							<div><strong>2월 15일</strong> 수</div>
+							<div><strong>3월 15일</strong> 수</div>
 							<div>지출 <span>1,450</span></div>
 						</div>
 						<ul class="daily-details-container">
@@ -264,7 +284,7 @@
 					</li>
 					<li class="monthly-details-element">
 						<div class="daily-info">
-							<div><strong>2월 15일</strong> 수</div>
+							<div><strong>3월 14일</strong> 수</div>
 							<div>수입 <span>500,000</span></div>
 						</div>
 						<ul class="daily-details-container">
