@@ -2,6 +2,8 @@ import { $ } from "./dom.js";
 import { inputStore } from "../store/inputStore.js";
 import { DAY_NAME } from "../constants/DAY_NAME.js";
 import { getDay } from "./getDay.js";
+import { generateListBody } from "./generateListBody.js";
+import { generateListDetail } from "./generateListDetail.js";
 // const storedValue = {
 //   creationTime: getCurrentTime(),
 //   type: typeIn.checked,
@@ -14,134 +16,150 @@ import { getDay } from "./getDay.js";
 export const renderListByDay = () => {
   // 해당 월의 수입 지출 현황
   if ($("#income-btn").checked) {
-    // 총 건수 변화하는 함수
-    // const template = inputStore.listArray.map(el=>{
-    //     return
-    // }).join("")
-    // document.querySelector(".list-by-day").innerHTML = template
-    // console.log(
-    //   inputStore.listArray
-    //     .filter((el) => el.type === true)
-    //     .map((el) => el.date.slice(-2))
-    // );
-    // let incomeList = inputStore.listArray.filter((el) => el.type === true);
-    // for (let i = 0; i < incomeList.length; i++) {
-    //   const listDetail = document.createElement("li");
-    //   document.querySelector(".list-datail-box").appendChild(listDetail);
-    //   listDetail.innerHTML = `
-    //         <div class="list-detail">
-    //             <div class="list-detail-category ">
-    //                 <span>${incomeList[i].categoryIn}</span>
-    //             </div>
-    //             <span class="list-detail-body ">${incomeList[i].memo}</span>
-    //             <span class="list-detail-payment list-detail-item">${incomeList[i].paymentIn}</span>
-    //             <span class="list-detail-price list-detail-item">+${incomeList[i].price}원</span>
-    //             <button title="삭제하기" class="delete-btn">
-    //             <img src="./src/images/delete-x.svg" alt="삭제">
-    //             <span class="delete-text">삭제하기</span>
-    //             </button>
-    //         </div>
-    //         `;
-    //   if (
-    //     incomeList[i].date !== incomeList[i + 1].date ||
-    //     incomeList[i + 1].date === undefined
-    //   ) {
-    //     return;
-    //   }
-    // }
+
   }
   if ($("#expenditure-btn").checked) {
     // 총 건수 변화하는 함수
-    const displayedMonthArray = inputStore.listArray.filter(
-      (el) => el.date.slice(4, 6) === $(".header-month").textContent.toString().padStart(2, "0")
-    );
-
-    const expenditureArray = displayedMonthArray.filter(
-      (el) => el.type === false
-    );
-    // const collectedDay = displayedMonthArray
-    //   .filter((el) => el.type === false)
-    //   .map((el) => el.date.slice(-2));
-    const collectedDay = displayedMonthArray.map((el) => el.date.slice(-2));
-
-    const setByDay = new Set(collectedDay); // [13,15,17] 등
-
-    setByDay.forEach((element, index) => {
-      const listByDay = document.createElement("li");
-      listByDay.setAttribute("class", "list-body-layout");
-      document.querySelector(".list-by-day-box").appendChild(listByDay);
-
-      const listBody = document.createElement("div");
-      listBody.setAttribute("class", "list-body");
-      document.querySelector(".list-body-layout").appendChild(listBody);
-
-      const listBodyInfo = document.createElement("div");
-      listBodyInfo.setAttribute("class", "list-body-info");
-      document.querySelector(".list-body").appendChild(listBodyInfo);
-
-      const dayArray = expenditureArray.filter(
-        (el) => el.date.slice(-2) === element
-      );
-      const unconvertedDate = dayArray.map((el) => el.date);
-
-      document.querySelector(".list-body-info").innerHTML = `
-        <div class="date-day">
-            <span class="date-day-date">${$('.header-month').textContent}월 ${element}일</span>
-            <span class="date-day-day">${
-              DAY_NAME[getDay(unconvertedDate[0])]
-            }</span>
-        </div>
-        <div class="income-expenditure">
-            <span>수입</span>
-            <span>2,010,580원</span>
-            <span>지출</span>
-            <span>9,500원</span>
-        </div>
-        `;
-
-      const listDatailBox = document.createElement("ul");
-      listDatailBox.setAttribute("class", "list-datail-box");
-      document.querySelector(".list-body").appendChild(listDatailBox);
-
-      listDatailBox.insertAdjacentHTML(
-          "beforeend",
-          `
-        <li>
+    const listArray = inputStore.listArray;
+    if (inputStore.listArray.length === 1) {
+      // generateListBody();
+      document.querySelector(".list-by-day-box").innerHTML = `
+        <li class="list-by-day">
+          <div class="list-body">
+            <div class="list-body-info">
+              <div class="date-day">
+                <span class="date-day-date">2월 10일</span>
+                <span class="date-day-day">금</span>
+              </div>
+              <div class="income-expenditure">
+                <span>수입</span>
+                <span>2,010,580원</span>
+                <span>지출</span>
+                <span>9,500원</span>
+              </div>
+            </div>
+            <ul class="list-datail-box">
+            </ul>
+          </div>
+        </li>
+      `;
+      document.querySelector(".list-datail-box").insertAdjacentHTML(
+        "beforeend",
+        `
+          <li>
             <div class="list-detail">
                 <div class="list-detail-category">
-                    <span>${dayArray[0].categoryIn}</span>
+                    <span>${
+                      listArray[listArray.length - 1].categoryIn
+                    }</span>
                 </div>
-                <span class="list-detail-body ">${dayArray[0].memo}</span>
-                <span class="list-detail-payment list-detail-item">${dayArray[0].paymentIn}</span>
-                <span class="list-detail-price list-detail-item">-${dayArray[0].price}원</span>
+                <span class="list-detail-body ">${
+                  listArray[listArray.length - 1].memo
+                }</span>
+                <span class="list-detail-payment list-detail-item">${
+                  listArray[listArray.length - 1].paymentIn
+                }</span>
+                <span class="list-detail-price list-detail-item">-${
+                  listArray[listArray.length - 1].price
+                }원</span>
                 <button title="삭제하기" class="delete-btn">
                     <img src="./src/images/delete-x.svg" alt="삭제">
                     <span class="delete-text">삭제하기</span>
                 </button>
             </div>
-        </li>
+          </li>
         `
-      )
+      );
+    } else if (
+      inputStore.listArray.length > 1 &&
+      inputStore.listArray[inputStore.listArray.length - 2].date !==
+        inputStore.listArray[inputStore.listArray.length - 1].date
+    ) {
+      // generateListBody();
+      document.querySelector(".list-by-day-box").innerHTML = `
+        <li class="list-by-day">
+          <div class="list-body">
+            <div class="list-body-info">
+              <div class="date-day">
+                <span class="date-day-date">2월 10일</span>
+                <span class="date-day-day">금</span>
+              </div>
+              <div class="income-expenditure">
+                <span>수입</span>
+                <span>2,010,580원</span>
+                <span>지출</span>
+                <span>9,500원</span>
+              </div>
+            </div>
+            <ul class="list-datail-box">
+            </ul>
+          </div>
+        </li>
+        `;
+      document.querySelector(".list-datail-box").insertAdjacentHTML(
+        "beforeend",
+        `
+          <li>
+            <div class="list-detail">
+                <div class="list-detail-category">
+                    <span>${
+                      listArray[listArray.length - 1].categoryIn
+                    }</span>
+                </div>
+                <span class="list-detail-body ">${
+                  listArray[listArray.length - 1].memo
+                }</span>
+                <span class="list-detail-payment list-detail-item">${
+                  listArray[listArray.length - 1].paymentIn
+                }</span>
+                <span class="list-detail-price list-detail-item">-${
+                  listArray[listArray.length - 1].price
+                }원</span>
+                <button title="삭제하기" class="delete-btn">
+                    <img src="./src/images/delete-x.svg" alt="삭제">
+                    <span class="delete-text">삭제하기</span>
+                </button>
+            </div>
+          </li>
+        `
+      );
+    } else {
+      // generateListDetail();
+      document.querySelector(".list-datail-box").insertAdjacentHTML(
+        "beforeend",
+        `
+          <li>
+            <div class="list-detail">
+                <div class="list-detail-category">
+                    <span>${
+                      listArray[listArray.length - 1].categoryIn
+                    }</span>
+                </div>
+                <span class="list-detail-body ">${
+                  listArray[listArray.length - 1].memo
+                }</span>
+                <span class="list-detail-payment list-detail-item">${
+                  listArray[listArray.length - 1].paymentIn
+                }</span>
+                <span class="list-detail-price list-detail-item">-${
+                  listArray[listArray.length - 1].price
+                }원</span>
+                <button title="삭제하기" class="delete-btn">
+                    <img src="./src/images/delete-x.svg" alt="삭제">
+                    <span class="delete-text">삭제하기</span>
+                </button>
+            </div>
+          </li>
+        `
+      );
+    }
 
-    //   for (let i = 0; i < dayArray.length; i++) {
-    //     // 해당 날짜의 li 반복 생성시키기
-    //     listDatailBox.innerHTML = `
-    //     <li>
-    //         <div class="list-detail">
-    //             <div class="list-detail-category">
-    //                 <span>${dayArray[i].categoryIn}</span>
-    //             </div>
-    //             <span class="list-detail-body ">${dayArray[i].memo}</span>
-    //             <span class="list-detail-payment list-detail-item">${dayArray[i].paymentIn}</span>
-    //             <span class="list-detail-price list-detail-item">-${dayArray[i].price}원</span>
-    //             <button title="삭제하기" class="delete-btn">
-    //                 <img src="./src/images/delete-x.svg" alt="삭제">
-    //                 <span class="delete-text">삭제하기</span>
-    //             </button>
-    //         </div>
-    //     </li>
-    //     `;
-    //   }
-    });
+    //         지금 상태에서 4번줄 하단에 console.dir(btn)해보세요. undefined 나온다면
+
+    // js에서 query select가 html element보다 상단에 위치하게되면 선택이 되지 않습니다.
+
+    // 스크립트를 html 아래로 위치시키시면 됩니다.
+
+    // https://oniondev.tistory.com/17
   }
 };
