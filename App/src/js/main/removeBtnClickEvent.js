@@ -3,6 +3,7 @@ import { getData } from "../localStorage/getData.js";
 import { mainInit } from "./index.js";
 
 export const removeBtn = ($this) => {
+  setRemoveListModal();
   const key = $this.nextElementSibling.value;
   const data = JSON.parse(getData(key));
   const $remove_list_modal_text = document.getElementById(
@@ -30,4 +31,27 @@ export const removeBtn = ($this) => {
   $cancel_btn.addEventListener("click", () => {
     $remove_list_modal.close();
   });
+};
+
+const setRemoveListModal = () => {
+  const $modal_wrapper = document.getElementById("modal-wrapper");
+
+  const modal = `<dialog id="remove_list_modal" class="payment_modal">
+    <form method="dialog">
+      <h2 class="modal_tite body-regular">아래 내역을 삭제하시겠습니까?</h2>
+      <div id="remove_list_modal_text"></div>
+      <menu>
+        <button class="cancel_btn reset-btn bold-large primary" value="cancel">
+          취소
+        </button>
+        <button
+          class="confirm_btn reset-btn bold-large secondary-red"
+          value="default"
+        >
+          삭제
+        </button>
+      </menu>
+    </form>
+  </dialog>`;
+  $modal_wrapper.innerHTML = modal;
 };

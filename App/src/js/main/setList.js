@@ -42,10 +42,12 @@ export const setList = (array) => {
                 </div>
             </td>
             <td>
-                <div class="history_price body-medium secondary-red">
+                <div class="history_price body-medium ${
+                  obj.isPositive ? "secondary-cyan" : "secondary-red"
+                }">
                 <div class="price_text">
                 ${addComma(obj.price)} 원</div>
-                <button class="remove reset-btn">삭제하기</button>
+                <button class="remove reset-btn secondary-red">삭제하기</button>
                 <input class="uniqueKey" value="${obj.uniqueKey}" />
                 </div>
             </td>

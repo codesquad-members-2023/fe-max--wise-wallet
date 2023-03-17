@@ -11,12 +11,12 @@ export const changeCheckBoxEvent = () => {
   if ($income_toggle !== null) {
     value = $income_toggle.checked
       ? value
-      : value.filter((e) => e.isPositive === true);
+      : value.filter((e) => e.isPositive !== true);
   }
   if ($expenditure_toggle !== null) {
     value = $expenditure_toggle.checked
       ? value
-      : value.filter((e) => e.isPositive === false);
+      : value.filter((e) => e.isPositive !== false);
   }
 
   const $th = document.querySelector("#main_history_list th");
