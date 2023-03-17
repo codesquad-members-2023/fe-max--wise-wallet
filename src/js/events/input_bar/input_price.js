@@ -10,7 +10,6 @@ changeBtn.addEventListener("click", (e) => {
     changeImg.setAttribute("src", "/src/svg/minus.svg");
     changeImg.setAttribute("isMinus", "true");
   }
-  console.log(changeImg.getAttribute("isMinus"))
 });
 
 const priceInput = document.getElementById("price_input");

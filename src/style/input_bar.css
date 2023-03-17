@@ -152,13 +152,13 @@ div#payment_div, div#category_div {
   background-color: #FCFCFC;
 }
 
-.payment > div#payment_div div, .category > div#category_div div {
+.payment > div#payment_div div, .category > div#category_div div div {
   padding: 16px 0;
   border-bottom: 1px solid #524D90;
   cursor: pointer;
 }
 
-div#payment_div div:last-child, div#category_div div:last-child {
+div#payment_div div:last-child, div#category_div div div:last-child {
   border: none;
 }
 
