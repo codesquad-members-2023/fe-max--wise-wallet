@@ -20,8 +20,9 @@
     <link rel="stylesheet" href="./src/css/reset.css" />
     <link rel="stylesheet" href="./src/css/common.css" />
     <link rel="stylesheet" href="./src/css/main.css" />
+    <script src="./src/js/index.js" type="module"></script>
     <script src="./src/js/header/HeaderDate.js" type="module"></script>
-    <script src="./src/js/script.js" defer></script>
+    <script src="./src/js/historyInput/Dropbox.js" type="module"></script>
   </head>
   <body>
     <header class="header">
@@ -93,14 +94,13 @@
               id="date"
               min="0"
               max="99999999"
-              placeholder="20230217"
             />
           </div>
 
           <div class="history__form-amount">
             <label for="amount" class="bold-small">금액</label>
             <div>
-              <button>
+              <button type="button">
                 <img
                   src="./src/assets/button_spending_minus.svg"
                   alt="마이너스 버튼"
@@ -108,7 +108,7 @@
               </button>
               <input
                 class="body-regular"
-                type="number"
+                type="text"
                 id="amount"
                 name="amount"
                 placeholder="0"
@@ -145,15 +145,15 @@
               <ul class="options hidden body-regular box">
                 <li class="option">
                   <p>현금</p>
-                  <img src="./img/icon_delete.svg" alt="" />
+                  <img src="./src/assets/icon_delete.svg" alt="" />
                 </li>
                 <li class="option">
                   <p>신용카드</p>
-                  <img src="./img/icon_delete.svg" alt="" />
+                  <img src="./src/assets/icon_delete.svg" alt="" />
                 </li>
                 <li class="option">
                   <p>체크카드</p>
-                  <img src="./img/icon_delete.svg" alt="" />
+                  <img src="./src/assets/icon_delete.svg" alt="" />
                 </li>
                 <li class="add">
                   <p>추가하기</p>
@@ -175,16 +175,19 @@
                 />
               </div>
               <ul class="options hidden body-regular box">
-                <li class="option">UI Design</li>
-                <li class="option">HTML</li>
-                <li class="option">CSS</li>
-                <li class="option">JS</li>
+                <li class="option">생활</li>
+                <li class="option">식비</li>
+                <li class="option">교통</li>
+                <li class="option">쇼핑/뷰티</li>
+                <li class="option">의료/건강</li>
+                <li class="option">문화/여가</li>
+                <li class="option">미분류</li>
               </ul>
             </div>
           </div>
 
           <!-- prettier-ignore -->
-          <button class="history__form-button" type="submit" aria-label='확인 버튼'>
+          <button class="history__form-button" type="submit" aria-label='확인 버튼' disabled>
               <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect width="40" height="40" rx="8" fill="#A79FCB" fill-opacity="0.4"/>
                 <path d="M29 14L16.625 26L11 20.5455" stroke="#FCFCFC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
