@@ -108,11 +108,15 @@ main {
   font-weight: var(--font-weight-bold);
   font-size: var(--font-size-bold-medium);
   line-height: var(--line-height-bold-medium);
-  color: var(--color-primary);
 }
 
 #history .header__date-day .date {
   margin-right: 8px;
+  color: var(--color-primary);
+}
+#history .header__date-day .day {
+
+  color: var(--color-primary-alt);
 }
 
 #history .header__income-expenditure {

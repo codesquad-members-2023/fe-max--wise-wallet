@@ -11,16 +11,16 @@ export class DateGroup extends Element {
     this.domNode.className = "group";
 
     const datePicker = new DatePicker();
-    const datePickerHTML = datePicker.view();
 
-    this.domNode.insertAdjacentHTML(
-      "afterbegin",
-      ` 
-        <label for="id-textbox-1" aria-hidden="true">일자</label>
-        <div class="field field-date">
-          ${datePickerHTML}
-        </div>
-      `
-    );
+    const label = document.createElement("LABEL");
+    label.setAttribute("for", "id-textbox-1");
+    label.setAttribute("aria-hidden", "true");
+    label.textContent = "일자";
+    this.domNode.appendChild(label);
+
+    const field = document.createElement("DIV");
+    field.className = "field field-date";
+    field.appendChild(datePicker.domNode);
+    this.domNode.appendChild(field);
   }
 }

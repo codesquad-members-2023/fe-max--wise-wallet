@@ -14,10 +14,8 @@ export class Main extends Element {
   init() {
     this.domNode = document.createElement("MAIN");
     const inputbar = new Inputbar();
-    const inputbarHTML = inputbar.view();
 
     const history = new History();
-    const historyHTML = history.view();
 
     const calender = new Calender();
     const calenderHTML = calender.view();
@@ -36,9 +34,7 @@ export class Main extends Element {
       `
         <div class="inner">
           <div id="tabpanel-1" role="tabpanel" aria-labelledby="tab-1">
-            ${inputbarHTML}
             <!-- 입출금 내역 -->
-            ${historyHTML}
           </div>
           <div
             id="tabpanel-2"
@@ -62,5 +58,8 @@ export class Main extends Element {
         </div>
       `
     );
+    const tabpanel1 = this.domNode.querySelector("#tabpanel-1");
+    tabpanel1.appendChild(inputbar.domNode)
+    tabpanel1.appendChild(history.domNode)
   }
 }

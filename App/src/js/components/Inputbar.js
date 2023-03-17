@@ -22,33 +22,19 @@ export class Inputbar extends Element {
     Object.entries(attr).forEach(([name, value]) => {
       this.domNode.setAttribute(name, value);
     });
+
     const dateGroup = new DateGroup();
-    const dateGroupHTML = dateGroup.view();
-
     const amountGroup = new AmountGroup();
-    const amountGroupHTML = amountGroup.view();
-
     const detailGroup = new DetailGroup();
-    const detailGroupHTML = detailGroup.view();
-
     const paymentGroup = new PaymentGroup();
-    const paymentGroupHTML = paymentGroup.view();
-
     const divisionGroup = new DivisionGroup();
-    const divisionGroupHTML = divisionGroup.view();
-
     const submitGroup = new SubmitGroup();
-    const submitGroupHTML = submitGroup.view();
-    this.domNode.insertAdjacentHTML(
-      "afterbegin",
-      `
-        ${dateGroupHTML}
-        ${amountGroupHTML}
-        ${detailGroupHTML}
-        ${paymentGroupHTML}
-        ${divisionGroupHTML}
-        ${submitGroupHTML}
-      `
-    )
+    
+    this.domNode.appendChild(dateGroup.domNode)
+    this.domNode.appendChild(amountGroup.domNode)
+    this.domNode.appendChild(detailGroup.domNode)
+    this.domNode.appendChild(paymentGroup.domNode)
+    this.domNode.appendChild(divisionGroup.domNode)
+    this.domNode.appendChild(submitGroup.domNode)
   }
 }

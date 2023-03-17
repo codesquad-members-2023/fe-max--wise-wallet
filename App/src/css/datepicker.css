@@ -42,7 +42,6 @@
 }
 
 .datepicker button.icon:focus {
-  outline: none;
   border-width: 2px;
 }
 
@@ -61,6 +60,11 @@
   background-color: var(--color-white);
   top: 54px;
   overflow: hidden;
+  display: none;
+}
+
+.datepicker-dialog.active {
+  display: block;
 }
 
 .datepicker-dialog .header {
@@ -72,6 +76,7 @@
   color: var(--color-white);
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 
 .datepicker-dialog h2 {
@@ -110,7 +115,6 @@
 .datepicker-dialog .next-month:focus,
 .datepicker-dialog .next-year:focus {
   border-radius: 4px;
-  outline: 0;
 }
 
 .datepicker-dialog .prev-year:hover,
@@ -133,11 +137,18 @@
   padding: 6px;
   margin-left: 1em;
   width: 5em;
-  background-color: var(--color-white);
   font-size: 0.85em;
-  color: black;
-  outline: none;
   border-radius: 5px;
+}
+
+.datepicker-dialog .dialog-ok-cancel-group [value="cancel"] {
+  background-color: var(--color-secondary-yellow);
+  color: var(--color-white);
+}
+
+.datepicker-dialog .dialog-ok-cancel-group [value="ok"] {
+  background-color: var(--color-category-green);
+  color: var(--color-white);
 }
 
 .datepicker-dialog .fa-calendar-alt {
@@ -167,7 +178,8 @@
 }
 
 .datepicker-dialog table.dates tr {
-  border: 1px solid black;
+  border-top: 1px solid var(--color-primary);
+  border-bottom: 1px solid var(--color-primary);
 }
 
 .datepicker-dialog table.dates td {
@@ -193,7 +205,7 @@
 
 .datepicker-dialog table.dates td[tabindex="0"] {
   background-color: var(--color-primary);
-  color: white;
+  color: var(--color-white);
 }
 
 .datepicker-dialog .dialog-message {

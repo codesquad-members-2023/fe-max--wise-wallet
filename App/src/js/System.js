@@ -1,14 +1,12 @@
-import { monthUnitData } from "./util.js";
+import { dateOneMonth } from "./util.js";
 
 let current = null;
 
 export class System {
-  constructor() {
-    this.init();
-  }
+  constructor() {}
 
   init() {
-    if (!current) current = monthUnitData(new Date());
+    if (!current) this.setCurrent(dateOneMonth(new Date()));
   }
 
   getCurrent() {
@@ -18,4 +16,5 @@ export class System {
   setCurrent(date) {
     current = date;
   }
+
 }
