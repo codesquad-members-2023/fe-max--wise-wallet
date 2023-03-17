@@ -197,16 +197,23 @@
 
 ### 3) 새로운 내역 입력
 
-- input, select, textarea, button 요소들은 스타일 상속(inherit)이 일어나지 않는다!!! `font: inherit`으로 설정해주거나 직접 지정해주어야 한다!
-- [https://stackoverflow.com/questions/11250259/why-are-css-styles-not-inherited-by-html-form-fields](https://stackoverflow.com/questions/11250259/why-are-css-styles-not-inherited-by-html-form-fields)
-- font 한줄 선언 → [https://stackoverflow.com/questions/4218549/one-css-declaration-for-all-css-font-properties](https://stackoverflow.com/questions/4218549/one-css-declaration-for-all-css-font-properties)
-- 기획:
-- form 에 있는 input 중 커스텀 드롭박스에 readonly로 넣어놓은 input은 change 이벤트를 인식못함
+- input, select, textarea, button 요소들은 스타일 상속(inherit)이 일어나지 않는다!!!
+    
+    따라서 `font: inherit`으로 설정해주거나 직접 지정해주어야 한다! 
+    
+    → [https://stackoverflow.com/questions/11250259/why-are-css-styles-not-inherited-by-html-form-fields](https://stackoverflow.com/questions/11250259/why-are-css-styles-not-inherited-by-html-form-fields)
+    
+- form 에 있는 input들 중 커스텀 드롭박스에 readonly로 넣어놓은 input은 ‘change’ 이벤트를 인식 못하는 문제점이 발생
     - readonly를 끄니 드롭다운 인풋창에 커서랑 자동완성창이 뜬다.
-        - input 속성에 `onkeydown= “return false;” style=”caret-color: transparent !important;”`
-        - input 속성에 `autocomplete: off`
-    - 필수로 입력받고 싶은 값들에는 `required` 속성을 줄 수 있다.
-- formData 객체
+        - input 속성에 `onkeydown= “return false;” style=”caret-color: transparent !important;”`을 적용하면 키보드를 통한 값의 입력을 막고 커서를 안 보이게 할 수 있다.
+        - input 속성에 `autocomplete: off`을 사용하면 자동완성창을 안 뜨게 만들 수 있다.
+    - 폼에서 필수로 입력받고 싶은 값들에는 `required` 속성을 줄 수 있다.
+- 그러나 모든 폼이 채워졌을 때 버튼색상을 변경해주는 함수를 만들때 새로운 문제가 발생했다.
+    - 이렇게 만든 드롭다운 부분의 input들도 change나 input 이벤트를 제대로 인식하지 못했다.
+        
+        → click 이벤트를 추가로 걸어서 드롭다운 메뉴부분이 클릭될 때마다 검사하도록 했다. 
+        
+- formData로 데이터를 객체로 만들어 로컬스토리지에 저장했다.
 
 ![가계부 데이터 저장](https://user-images.githubusercontent.com/76121068/225642972-db33b125-6230-4030-be89-35685a43e24f.png)
 
@@ -215,8 +222,15 @@
 - 로컬 스토리지: 브라우저를 껐다켜도 남아있음, 같은 url이면 탭, 창이 달라도 모두 공유됨
 - 세션 스토리지: 새로고침해도 남아있지만 탭이나, 브라우저 종료시 사라짐
 - [https://ko.javascript.info/localstorage](https://ko.javascript.info/localstorage)
+- 로컬스토리지를 이용한 방식의 문제점
+    - 용량이 5MB 정도로 제한적이고 문자열로만 데이터를 저장 가능하다.
+    - JSON 형식으로 객체 데이터도 저장 가능하지만 데이터 구조가 복잡해지면 후에 원하는 값만 가져와서 수정/삭제 하는 과정이 복잡해진다…
+    - DB와 비슷한 indexedDB 라는 웹 브라우저 저장방식도 존재한다. 다만 transaction 등의 과정이 추가적으로 필요해 다루기가 어려워보인다. 과연 이번 기획에 적합한 방법일까?
 
-### 3) Month carousel
+### 그 외 수정들
+
+- css의 :root 파일에서 font 한줄 선언 → [https://stackoverflow.com/questions/4218549/one-css-declaration-for-all-css-font-properties](https://stackoverflow.com/questions/4218549/one-css-declaration-for-all-css-font-properties)
+
 ## ✨ 요구사항
 
 ### 1주차 주요 개발 feature
@@ -236,9 +250,9 @@
   - [ ]  헤더 연월에 맞춰 인풋바 일자도 변경되도록 하는 기능
 - 새로운 내역 입력
   - [ ]  인풋바 모든 정보 입력시 확인 버튼 활성화
-    - [ ]  각 칸에 정보가 입력되어 있는지 확인
+    - [x]  각 칸에 정보가 입력되어 있는지 확인
     - [ ]  정보가 올바른 형식인지 검사
-    - [ ]  확인버튼이 클릭 가능해지면서 색상변화
+    - [x]  확인버튼이 클릭 가능해지면서 색상변화
   - [x]  확인버튼 클릭시 입력된 정보들 저장
     - [x]  인풋바에서 입력받은 데이터를 어떤 방식으로 저장할지 고민해보기 → 객체? 로컬스토리지? 메모리?
     - [x]  나중에 데이터를 불러와서 새로운 요소로 추가해서 렌더링하는 것도 고려해야한다
