@@ -4,84 +4,123 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./src/style/reset.css">
+    <link rel="stylesheet" href="./src/style/reset.css" />
+    <link rel="stylesheet" href="./src/style/root.css" />
+    <link
+      rel="stylesheet"
+      as="style"
+      crossorigin
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Outfit"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="./src/style/main.css" />
-    <link rel="stylesheet" href="./src/style/header.css">
-    <link rel="stylesheet" href="./src/style/input_bar.css">
-    <link rel="stylesheet" href="./src/style/main_section.css">
-    <link rel="stylesheet" href="./src/style/svg.css">
-    <script defer src="./src/svg/svg.js"></script>
+    <link rel="stylesheet" href="./src/style/header.css" />
+    <link rel="stylesheet" href="./src/style/input_bar.css" />
+    <link rel="stylesheet" href="./src/style/main_section.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/src/style/datepicker.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script defer src="/src/js/datePicker.js"></script>
+    <script defer src="./src/js/events/input_bar/input_list.js"></script>
+    <script defer src="./src/js/events/input_bar/input_price.js"></script>
+    <script defer src="./src/js/events/input_bar/input_date.js"></script>
     <title>Wise Wallet</title>
   </head>
   <body>
     <header class="header_container"></header>
-    
+
     <section class="main_container"></section>
 
     <section class="content_container">
-
       <div class="header_container_contents">
         <div id="header_title_logo">Wise Wallet</div>
         <div class="header_monthYear_info">
-          <nav id="chevron_left"></nav>
+          <nav id="chevron_left">
+            <img src="/src/svg/chevron_left.svg" alt="<" />
+          </nav>
           <div id="header_monthYear_text">
             <p id="monthYear_text_year">2023</p>
-            <p id="monthYear_text_month_number">2</p>
-            <p id="monthYear_text_month_char">Feburary</p>
+            <p id="monthYear_text_month_number">3</p>
+            <p id="monthYear_text_month_char">March</p>
           </div>
-          <nav id="chevron_right"></nav>
+          <nav id="chevron_right">
+            <img src="/src/svg/chevron_right.svg" alt=">" />
+          </nav>
         </div>
         <div class="header_tab">
-          <nav id="nav_doc"></nav>
-          <nav id="nav_calendar"></nav>
-          <nav id="nav_chart"></nav>
-        </div>  
+          <nav id="nav_doc">
+            <img src="/src/svg/tab_doc.svg" condition="activate" alt="doc" />
+          </nav>
+          <nav id="nav_calendar">
+            <img src="/src/svg/tab_calendar.svg" condition="disabled" alt="calendar" />
+          </nav>
+          <nav id="nav_chart">
+            <img src="/src/svg/tab_chart.svg" condition="disalbed" alt="chart" />
+          </nav>
+        </div>
       </div>
 
-      <section class="input_bar">
-        <div id="input_bar_date">
-          <p id="date_info">일자</p>
-          <p id="date_year_month_day">20230217</p>
+      <form class="input_bar">
+        <div class="date">
+          <label for="input_date" id="date">일자</label>
+          <input id="input_date" type="text" autocomplete="off"/>
         </div>
-        <div class= "separator" id="input_bar_price">
-          <p id="price_info">금액</p>
-          <button class="price_container" id="change_btn"></button>
-          <input type="text" class="price_container" id="price_input">
-          <p class="price_container" id="krw">원</p>
+        <div class="price">
+          <label for="price" id="price">금액</label>
+          <div id="container">
+            <button id="change_btn" type="button"><img id="change_button" isMinus="true" src="/src/svg/minus.svg"></button>
+            <input type="text" id="price_input" placeholder="0" autocomplete="off" />
+            <p id="krw">원</p>
+          </div>
         </div>
-        <div class= "separator" id="input_bar_memo">
-          <p id="memo_info">내용</p>
-          <input type="text" id="memo_input">
+        <div class="memo">
+          <label for="memo" id="memo">내용</label>
+          <input type="text" id="memo_input" placeholder="입력하세요" autocomplete="off" />
         </div>
-        <div class= "separator" id="input_bar_payment">
-          <p id="payment_info">결제수단</p>
-          <select name="payment" id="payment_select">
-            <option value="">선택하세요</option>
-          </select>
+        <div class="payment">
+          <label for="payment" id="payment">결제수단</label>
+          <input type="text" id="payment_input" placeholder="선택하세요" />
+          <div id="payment_div">
+            <div id="payment_list">현찰</div>
+            <div id="payment_list">체크카드</div>
+            <div id="payment_list">신용카드</div>
+          </div>
         </div>
-        <div class= "separator" id="input_bar_category">
-          <p id="category_info">분류</p>
-          <select name="category" id="category_select">
-            <option value="">선택하세요</option>
-          </select>
-          <button id="input_bar_check"></button>
+        <div class="category">
+          <label for="category" id="category">분류</label>
+          <input type="text" id="category_input" placeholder="선택하세요" />
+          <div id="category_div"></div>
         </div>
-      </section>
+        <div id="check">
+          <button id="input_bar_check" type="button"><img src="/src/svg/disabled_check.svg" alt="button"></button>
+        </div>
+      </form>
 
       <section class="main_section">
-
         <header class="main_header">
-          <p id="total_history_count">전체 내역 1건</p>
+          <span id="total_history_count">전체 내역 1건</span>
           <div class="total_history_check_total_price">
             <div class="income_history">
-              <button class="check" id="income_checkbox" checked>
-              </button>
-              <p id="income_text">수입 0</p>
+              <input
+                type="checkbox"
+                class="check"
+                id="income_checkbox"
+                checked
+              />
+              <label for="income_checkbox" id="income_text">수입 0</label>
             </div>
             <div class="expenses_history">
-              <button class="check"  id="expenses_checkbox" checked>
-              </button>
-              <p id="expenses_text">지출 10,900</p>
+              <input
+                type="checkbox"
+                class="check"
+                id="expenses_checkbox"
+                checked
+              />
+              <label for="expenses_checkbox" id="expenses_text">지출 10,900</label>
             </div>
           </div>
         </header>
@@ -90,8 +129,8 @@
           <list class="transaction_history_container">
             <div class="separator" id="transaction_history_header">
               <div class="history_date">
-                <div id="transaction_date">2월 15일</div>
-                <div id="transaction_day">수</div>
+                <div id="transaction_date">3월 14일</div>
+                <div id="transaction_day">화</div>
               </div>
               <div id="total_price">지출 10,900원</div>
             </div>
@@ -110,11 +149,8 @@
               </td>
             </table>
           </list>
-
         </section>
-        
       </section>
-
     </section>
   </body>
 </html>

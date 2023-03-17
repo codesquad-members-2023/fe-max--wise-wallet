@@ -1,0 +1,10 @@
+:root {
+  --font-display-small: normal 400 24px/24px "Outfit";
+  --font-display-large: normal 700 48px/56px "Outfit";
+  --font-body-regular: normal 500 16px/24px "Pretendard";
+  --font-body-medium: normal 500 18px/24px "Pretendard";
+  --font-body-large: normal 500 22px/32px "Pretendard";
+  --font-bold-small: normal 700 12px/16px "Pretendard";
+  --font-bold-medium: normal 700 14px/24px "Pretendard";
+  --font-bold-large: normal 700 16px/24px "Pretendard";
+}
