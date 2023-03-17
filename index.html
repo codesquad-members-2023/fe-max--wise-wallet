@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Wise Wallet</title>
+    <style>
+      body {
+        margin: 0;
+      }
+      .header-rect {
+        width: 904px;
+        height: 146px;
+
+        background: #524d90;
+        border-radius: 10px;
+      }
+      .header {
+        left: 28px;
+        top: 25px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0px;
+        gap: 199px;
+
+        position: absolute;
+        width: 846px;
+        height: 96px;
+      }
+      .logo {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 0px;
+        gap: 4px;
+
+        width: 132px;
+        height: 24px;
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+      }
+      .header .logo .text {
+        height: 24px;
+
+        /* Display Small */
+
+        font-family: "Outfit";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 24px;
+        line-height: 24px;
+        /* identical to box height, or 100% */
+
+        /* White */
+
+        color: #fcfcfc;
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+      }
+      .month-year {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 0px;
+        gap: 24px;
+
+        width: 232px;
+        height: 96px;
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 1;
+        flex-grow: 0;
+      }
+      .header .month-year .text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0px;
+        gap: 4px;
+
+        width: 120px;
+        height: 96px;
+
+        /* Inside auto layout */
+
+        flex: none;
+        flex-grow: 0;
+      }
+      .tab {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 0px;
+
+        width: 132px;
+        height: 44px;
+
+        border-radius: 10px;
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 2;
+        flex-grow: 0;
+      }
+      .icon {
+        width: 32px;
+        height: 32px;
+      }
+      .vector-left {
+        position: absolute;
+        left: 37.5%;
+        right: 37.5%;
+        top: 25%;
+        bottom: 25%;
+
+        /* White */
+
+        border: 1.5px solid #fcfcfc;
+      }
+      .header .tab .text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0px;
+        gap: 4px;
+
+        width: 120px;
+        height: 96px;
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 1;
+        flex-grow: 0;
+      }
+      .year {
+        width: 120px;
+        height: 16px;
+
+        /* Bold Small */
+
+        font-family: "Pretendard";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 16px;
+        /* identical to box height, or 133% */
+
+        text-align: center;
+
+        /* White */
+
+        color: #fcfcfc;
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+      }
+      .month {
+        height: 56px;
+
+        /* Display Large */
+
+        font-family: "Outfit";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 56px;
+        /* identical to box height, or 117% */
+
+        text-align: center;
+
+        /* White */
+
+        color: #fcfcfc;
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 1;
+        flex-grow: 0;
+      }
+      .month-en {
+        width: 120px;
+        height: 16px;
+
+        /* Bold Small */
+
+        font-family: "Pretendard";
+        font-style: normal;
+        font-weight: 700;
+        font-size: 12px;
+        line-height: 16px;
+        /* identical to box height, or 133% */
+
+        text-align: center;
+
+        /* White */
+
+        color: #fcfcfc;
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 2;
+        flex-grow: 0;
+      }
+      .vector-right {
+        position: absolute;
+        left: 37.5%;
+        right: 37.5%;
+        top: 25%;
+        bottom: 25%;
+
+        /* White */
+
+        border: 1.5px solid #fcfcfc;
+      }
+      .history {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 10px;
+        gap: 10px;
+
+        width: 44px;
+        height: 44px;
+
+        border-radius: 10px 0px 0px 10px;
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+      }
+      .statistics {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 10px;
+        gap: 10px;
+
+        width: 44px;
+        height: 44px;
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 1;
+        flex-grow: 0;
+      }
+      .calendar {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        padding: 10px;
+        gap: 10px;
+
+        width: 44px;
+        height: 44px;
+
+        border-radius: 0px 10px 10px 0px;
+
+        /* Inside auto layout */
+
+        flex: none;
+        order: 2;
+        flex-grow: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header-rect">
+      <div class="header">
+        <div class="logo">
+          <div class="text">Wise Wallet</div>
+        </div>
+        <div class="month-year">
+          <div class="icon" onclick="onLeftButtonClick()">
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 32 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20 8L12 16L20 24"
+                stroke="#FCFCFC"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <div class="text">
+            <div class="year"></div>
+            <div class="month"></div>
+            <div class="month-en"></div>
+          </div>
+          <div class="icon" onclick="onRightButtonClick()">
+            <svg
+              width="32"
+              height="32"
+              viewBox="0 0 32 32"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 8L20 16L12 24"
+                stroke="#FCFCFC"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+        </div>
+        <div class="tab">
+          <div class="history"></div>
+          <div class="statistics"></div>
+          <div class="calendar"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let date = getDateOfCurrentMonth();
+      updateMonthYearText();
+
+      function onLeftButtonClick() {
+        goToPreviousMonth();
+      }
+
+      function goToPreviousMonth() {
+        date = getDateOfPreviousMonth(date);
+        updateMonthYearText();
+      }
+
+      function updateMonthYearText() {
+        document.querySelector(".year").textContent = date.year;
+        document.querySelector(".month").textContent = date.month;
+        document.querySelector(".month-en").textContent = getMonthAsEnglish(
+          date.month
+        );
+      }
+
+      function onRightButtonClick() {
+        goToNextMonth();
+      }
+
+      function goToNextMonth() {
+        date = getDateOfNextMonth(date);
+        updateMonthYearText();
+      }
+
+      function getDateOfNextMonth(date) {
+        if (date.month === 12) {
+          return {
+            year: date.year + 1,
+            month: 1,
+          };
+        } else {
+          return {
+            year: date.year,
+            month: date.month + 1,
+          };
+        }
+      }
+
+      function getDateOfCurrentMonth() {
+        const date = new Date();
+        const year = date.getFullYear();
+        const month = date.getMonth() + 1;
+
+        return {
+          year,
+          month,
+        };
+      }
+
+      function getDateOfPreviousMonth(date) {
+        if (date.month === 1) {
+          return {
+            year: date.year - 1,
+            month: 12,
+          };
+        } else {
+          return {
+            year: date.year,
+            month: date.month - 1,
+          };
+        }
+      }
+
+      function getMonthAsEnglish(month) {
+        switch (month) {
+          case 1:
+            return "January";
+          case 2:
+            return "February";
+          case 3:
+            return "March";
+          case 4:
+            return "April";
+          case 5:
+            return "May";
+          case 6:
+            return "June";
+          case 7:
+            return "July";
+          case 8:
+            return "August";
+          case 9:
+            return "September";
+          case 10:
+            return "October";
+          case 11:
+            return "November";
+          case 12:
+            return "December";
+        }
+      }
+    </script>
+  </body>
+</html>
