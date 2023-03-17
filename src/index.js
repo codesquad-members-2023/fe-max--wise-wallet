@@ -4,7 +4,8 @@ import { initDateDisplay } from "./js/init/initDateDisplay.js";
 import { initEventHandler } from "./js/init/initEventHandler.js";
 import { inputStore } from "./js/store/inputStore.js";
 import { getCurrentTime } from "./js/utils/getCurrentTime.js";
-import { initListTotalCount } from "./js/init/initListTotalCount.js";
+import { initListTotalLength } from "./js/init/initListTotalLength.js";
+import { initList } from "./js/init/initList.js";
 
 /* 파일분리 생각해두기 */
 
@@ -28,179 +29,79 @@ const expenditureMember = document.querySelector(".category-list-member");
 const categorySelectHead = document.querySelector(".category-select-head");
 const categorySelect = document.querySelector(".category-select");
 
-// categorySelectHead.addEventListener("click", () => {
-//   categorySelectHead.classList.add("on");
-//   if (plusMinusBtn.checked) {
-//     categorySelect.replaceChild(incomeMember, expenditureMember);
-//   } else {
-//     categorySelect.replaceChild(expenditureMember, incomeMember);
-//   }
-// });
+categorySelectHead.addEventListener("click", () => {
+  categorySelectHead.classList.add("on");
+  if (plusMinusBtn.checked) {
+    categorySelect.replaceChild(incomeMember, expenditureMember);
+  } else {
+    categorySelect.replaceChild(expenditureMember, incomeMember);
+  }
+});
 
-// expenditureMember.addEventListener("click", (event) => {
-//   if (event.target.nodeName === "BUTTON") {
-//     categorySelectHead.innerText = event.target.innerText;
-//     categorySelectHead.classList.remove("on");
-//   }
-// });
-// incomeMember.addEventListener("click", (event) => {
-//   if (event.target.nodeName === "BUTTON") {
-//     categorySelectHead.innerText = event.target.innerText;
-//     categorySelectHead.classList.remove("on");
-//   }
-// });
+expenditureMember.addEventListener("click", (event) => {
+  if (event.target.nodeName === "BUTTON") {
+    categorySelectHead.innerText = event.target.innerText;
+    categorySelectHead.classList.remove("on");
+  }
+});
+incomeMember.addEventListener("click", (event) => {
+  if (event.target.nodeName === "BUTTON") {
+    categorySelectHead.innerText = event.target.innerText;
+    categorySelectHead.classList.remove("on");
+  }
+});
 /* 결제수단 추가 */
 
-/* 모달창 */
-const addPaymentBtn = document.querySelector(".add-payment-btn");
-const modal = document.querySelector(".modal-bg");
-const cancelBtn = document.querySelector(".cancel-btn");
+/* 모달창 - 추가구현 파트로 넘어가서 보류 */
+// const addPaymentBtn = document.querySelector(".add-payment-btn");
+// const modal = document.querySelector(".modal-bg");
+// const cancelBtn = document.querySelector(".cancel-btn");
 
-addPaymentBtn.addEventListener("click", function () {
-  // $("#modal-input").classList.remove("delete");
-  // $("#modal-input").disabled = false;
-  // $("#modal-input").required = true;
-  modal.classList.remove("hidden");
-});
-cancelBtn.addEventListener("click", function () {
-  modal.classList.add("hidden");
-});
-
-const addModalInput = document.querySelector("#modal-input");
-const confirmAddBtn = document.querySelector(".confirm-btn");
-const paymentLi = document.createElement("li");
-const addPaymentLi = document.querySelector(".add-payment");
-let isConfirmed = 0;
-
-confirmAddBtn.addEventListener("click", function () {
-  if (addModalInput.value === "") {
-    return;
-  }
-  if ($("#modal-input").disabled) {
-    isConfirmed = 1;
-  }
-  if (addModalInput.value !== "" && !isConfirmed) {
-    addPaymentLi.insertAdjacentHTML(
-      "beforebegin",
-      `<li>
-      <button type="button" class="select-items">
-        <span>${addModalInput.value}</span>
-        <img src="../src/images/delete-x.svg" alt="삭제">
-      </button>
-    </li>
-    `
-    );
-    modal.classList.add("hidden");
-  }
-  addModalInput.value = "";
-});
-
-const paymentSelectHead = document.querySelector(".payment-select-head");
-const paymentListMember = document.querySelector(".payment-list-member");
-// paymentSelectHead.addEventListener("click", () => {
-//   paymentSelectHead.classList.add("on");
+// addPaymentBtn.addEventListener("click", function () {
+//   // $("#modal-input").classList.remove("delete");
+//   // $("#modal-input").disabled = false;
+//   // $("#modal-input").required = true;
+//   modal.classList.remove("hidden");
+// });
+// cancelBtn.addEventListener("click", function () {
+//   modal.classList.add("hidden");
 // });
 
-// paymentListMember.addEventListener("click", (event) => {
-//   if (event.target.classList.contains("add-payment-btn")) {
-//     paymentSelectHead.innerText = "선택하세요";
+// const addModalInput = document.querySelector("#modal-input");
+// const confirmAddBtn = document.querySelector(".confirm-btn");
+// const addPaymentLi = document.querySelector(".add-payment");
+// let isConfirmed = 0;
+
+// confirmAddBtn.addEventListener("click", function () {
+//   if (addModalInput.value === "") {
 //     return;
 //   }
-//   if (event.target.nodeName === "BUTTON") {
-//     paymentSelectHead.innerText = event.target.innerText;
-//     paymentSelectHead.classList.remove("on");
+//   if ($("#modal-input").disabled) {
+//     isConfirmed = 1;
 //   }
+//   if (addModalInput.value !== "" && !isConfirmed) {
+//     addPaymentLi.insertAdjacentHTML(
+//       "beforebegin",
+//       `<li>
+//       <button type="button" class="select-items">
+//         <span>${addModalInput.value}</span>
+//         <img src="../src/images/delete-x.svg" alt="삭제">
+//       </button>
+//     </li>
+//     `
+//     );
+//     modal.classList.add("hidden");
+//   }
+//   addModalInput.value = "";
 // });
 
-/* 인풋이 모두 입력되면 확인버튼 활성화 */
-$(".input-bar-wrap").addEventListener("click", (e) => {
-  const dateIn = document.querySelector("#date-input");
-  const priceIn = document.querySelector("#price-input");
-  const memoIn = document.querySelector("#memo-input");
-  const paymentIn = paymentSelectHead.innerText;
-  const categoryIn = categorySelectHead.innerText;
-
-  if (
-    isInputFilled(dateIn.value) &&
-    isInputFilled(priceIn.value) &&
-    isInputFilled(memoIn.value) &&
-    isInputFilled(paymentIn) &&
-    isInputFilled(categoryIn)
-  ) {
-    $("#edit-btn").disabled = false;
-    $("#edit-btn").checked = true;
-  } else {
-    $("#edit-btn").disabled = true;
-  }
-});
-
-/* 리스트 추가 */
-/* 인풋바 폴더에 추가하기 */
-$("#edit-btn").addEventListener("click", (e) => {
-  const dateIn = document.querySelector("#date-input");
-  const priceIn = document.querySelector("#price-input");
-  const memoIn = document.querySelector("#memo-input");
-  const typeIn = document.querySelector("#plus-minus-btn");
-  const paymentIn = paymentSelectHead.innerText;
-  const categoryIn = categorySelectHead.innerText;
-
-  const storedValue = {
-    creationTime: getCurrentTime(),
-    type: typeIn.checked,
-    date: dateIn.value,
-    price: priceIn.value,
-    memo: memoIn.value,
-    paymentIn: paymentIn,
-    categoryIn: categoryIn,
-  };
-
-  if (!$("#edit-btn").checked) {
-    //
-    inputStore.generateList(storedValue);
-    console.log(inputStore.listArray);
-
-    render();
-  }
-});
-
-const render = () => {
-  // .innerHTML = template 식으로 추가..?
-  //일별 ul, 각 리스트 ul <두 덩어리
-
-  //이것도.. init상태가 뭔지 생각하기 // 일단 inputStore에 있는 걸로 초기상태 지정 0
-  document.querySelector(".info-total-count").innerText = countListLength() + "건";
-
-  if (inputStore.listArray.lenth !== 0) {
-    console.log(inputStore.listArray[0].paymentIn);
-  }
-
-};
-/* 전체 건수 */
-const countListLength = () => {
-  return inputStore.listArray.length;
-};
-
-/* 밸리데이터 호출<값이 유효한지 체크 
-어 비어있는지 체크하는걸 이름을 잘못지어준...
-*/
-const isInputFilled = (value) => {
-  if (value === "") {
-    return false;
-  }
-  if (value === 0) {
-    return false;
-  }
-  if (value === "선택하세요") {
-    return false;
-  }
-  return true;
-};
 
 const init = () => {
   initInputBarDate();
   initDateDisplay();
   initEventHandler();
-  initListTotalCount();
+  initListTotalLength();
+  // initList()
 };
 
 document.addEventListener("DOMContentLoaded", init);
@@ -248,13 +149,22 @@ x 파일 분리 참고(쿤디) - 1차 구조 변경 완료, 2차 js기능별로 
 x 인풋바 내용을 전부 입력하면 확인버튼 활성화, 
 x 리스트로 등록가능하게 저장
 
-해야하는거
+한거
 0315
+x 파일정리
+
+해야하는거
+0316
+x 수입 지출 총 합계 렌더링
+x 셀렉트 박스 이외 부분 클릭시 닫히도록
+리스트 렌더링
 정규표현식 손보기
 리스트에 삭제하기 이외 부분을 누르면 인풋바가 해당 내용들로 채워지면서 수정 기능 발생
 수입/지출 필터링에 따른 목록 랜더링
 날짜 넘버로 바꾸기고려(정규식으로 eE랑 +- 막아야함)
 체인지:input값 변경 감시/뮤테이션 옵저버..?(어려워보임)
+밸리데이터 호출<값이 유효한지 체크 
+
 
 * 레이아웃
 호버 옵션(기획서 다시 읽기),

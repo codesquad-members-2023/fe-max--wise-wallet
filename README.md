@@ -45,8 +45,8 @@
 - [x] +,- 전환 버튼 구역, 금액 입력 구역으로 나뉘어져 있다
 #### +- 전환버튼
 - [x] - 를 기본값으로 설정한다
-- [] + 상태에서는 분류 셀렉트 박스의 드롭다운이 "수입 카테고리"로 변경된다
-- [] - 상태에서는 분류 셀렉트 박스의 드롭다운이 "지출 카테고리"로 변경된다 
+- [x] + 상태에서는 분류 셀렉트 박스의 드롭다운이 "수입 카테고리"로 변경된다
+- [x] - 상태에서는 분류 셀렉트 박스의 드롭다운이 "지출 카테고리"로 변경된다 
 - [x] 드롭다운 패널 역시 지출이 기본값이다
 #### 금액 입력
 - [x] 금액을 입력할 땐 세자리 마다 쉼표가 찍힌다
@@ -68,7 +68,7 @@
     - [] 아무 것도 입력하지 않은 경우 인풋박스에 포커스가 된다
 
 ### 분류 셀렉트 박스
-- [] 금액의 + - 상태에 따라 수입 카테고리와 지출 카테고리로 나타난다
+- [x] 금액의 + - 상태에 따라 수입 카테고리와 지출 카테고리로 나타난다
 - [x] 수입 카테고리 : 월급, 용돈, 기타수입
 - [x] 지출 카테고리 : 식비, 생활, 쇼핑/뷰티, 교통, 의료/건강, 문화/여가, 미분류
 
@@ -82,7 +82,8 @@
 - [] 총 건수와 해당월의 수입액, 지출액이 표시된다
 - [x] 수입액 지출액 앞에는 체크박스가 있디
 - [] 체크박스는 수입액 또는 지출액 필터링 기능을 한다
-- [] 기본적으로 수입액, 지출액 둘 다 보여진다
+- [x] 기본적으로 수입액, 지출액 둘 다 보여진다
+  - [x] checked
 
 - [] 수입 지출 리스트는 '일자'를  기준으로 최신순으로 정렬한다
 - [] 같은 일자라면 생성된 '시간'을 기준으로 정렬한다
@@ -121,8 +122,8 @@
 
 - [] 수입 지출 내역 목록
   - [x] 총 건수 
-  - [] 랜더링
-    - [] 저장된 inputStore의 arr를 while이나 for, map, filter, reduce 로 type이 false면 지출, true면 수입으로 모아 합산한다
+  - [x] 랜더링
+    - [x] 저장된 inputStore의 arr를 while이나 for, map, filter, reduce 로 type이 false면 지출, true면 수입으로 모아 합산한다
   - [] 일별 info head
     - [] 날짜 표시 month월 day일 dayname
     - [] 하위 노드의 수입 지출 정보
@@ -343,6 +344,9 @@ true이면 핸들러는 캡처링 단계에서 동작
 keypress(deprecated), keydown, keyup   
 키보드 이벤트(Keyboard Event)는 사용자가 키를 누르거나 키를 놓을 때 발생   
 키를 누를 때는 keydown 타입의 이벤트가 발생하고, 키를 놓을 때는 keyup 타입의 이벤트가 발생
+### 
+preventDefault()는 keyup이벤트에서 발생하지 않는다 
+keyup은 디폴트 이벤트가 이미 발생한 상태에서 일어나기 때문에 디폴트 이벤트를 막는 preventDefault를 호출하기에 늦은 것이다
 
 ## BEM방식 CSS 명명규칙
 
@@ -351,3 +355,21 @@ keypress(deprecated), keydown, keyup
 ## classlist.add("","") 여러개 가능
 
 ## 메모리와 로컬스토리지의 차이
+
+## node리스트
+객체는 일반적으로 element.childNodes와 같은 속성(property)과 document.querySelectorAll 와 같은 메서드에 의해 반환되는 노드 (en-US)의 콜렉션
+
+-  NodeList 가 Array 는 아니지만, forEach() 를 사용하여 반복할 수 있다
+- 또한 Array.from() 을 사용하여 Array 로 변환 할 수도 있다
+
+경우에 따라, NodeList는 라이브 콜렉션으로, DOM의 변경 사항을 실시간으로 콜렉션에 반영한다
+예를 들어, Node.childNodes 는 실시간이다
+
+    var parent = document.getElementById('parent');
+    var child_nodes = parent.childNodes;
+    console.log(child_nodes.length); // let's assume "2"
+    parent.appendChild(document.createElement('div'));
+    console.log(child_nodes.length); // should output "3"
+
+- 다른 경우 NodeList는 정적 콜렉션입니다. DOM을 변경해도 콜렉션 내용에는 영향을 주지 않는다
+- document.querySelectorAll() 은 정적 NodeList를 반환
