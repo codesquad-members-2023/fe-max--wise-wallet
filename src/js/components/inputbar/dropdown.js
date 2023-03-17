@@ -31,7 +31,7 @@ const showDropdown = (e, dropdown) => {
 	}
 };
 
-export const handleDropdown = () => {
+const handleDropdown = () => {
 	// 인풋바 영역에 이벤트 위임
 	inputBar.addEventListener('click', e => {
 		// 결제수단 인풋창 or 카테고리 인풋창 선택시 showDropdown 함수 실행
