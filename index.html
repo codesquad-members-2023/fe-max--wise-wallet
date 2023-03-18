@@ -20,14 +20,18 @@
     <link rel="stylesheet" href="./src/style/header.css" />
     <link rel="stylesheet" href="./src/style/input_bar.css" />
     <link rel="stylesheet" href="./src/style/main_section.css" />
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="./src/style/datepicker.css">
+    <link
+      rel="stylesheet"
+      href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <link rel="stylesheet" href="./src/style/datepicker.css" />
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script defer src="./src/js/datePicker.js"></script>
     <script defer src="./src/js/events/input_bar/input_list.js"></script>
     <script defer src="./src/js/events/input_bar/input_price.js"></script>
     <script defer src="./src/js/events/input_bar/input_date.js"></script>
+    <script defer src="./src/js/events/header/header_tab.js"></script>
     <title>Wise Wallet</title>
   </head>
   <body>
@@ -53,13 +57,28 @@
         </div>
         <div class="header_tab">
           <nav id="nav_doc">
-            <img src="./src/svg/tab_doc.svg" condition="activate" alt="doc" />
+            <img
+              src="./src/svg/tab_activate_doc.svg"
+              id="img_doc"
+              condition="activate"
+              alt="doc"
+            />
           </nav>
           <nav id="nav_calendar">
-            <img src="./src/svg/tab_calendar.svg" condition="disabled" alt="calendar" />
+            <img
+              src="./src/svg/tab_disabled_calendar.svg"
+              id="img_calendar" 
+              condition="disabled"
+              alt="calendar"
+            />
           </nav>
           <nav id="nav_chart">
-            <img src="./src/svg/tab_chart.svg" condition="disalbed" alt="chart" />
+            <img
+              src="./src/svg/tab_disabled_chart.svg"
+              id="img_chart" 
+              condition="disalbed"
+              alt="chart"
+            />
           </nav>
         </div>
       </div>
@@ -67,19 +86,35 @@
       <form class="input_bar">
         <div class="date">
           <label for="input_date" id="date">일자</label>
-          <input id="input_date" type="text" autocomplete="off"/>
+          <input id="input_date" type="text" autocomplete="off" />
         </div>
         <div class="price">
           <label for="price" id="price">금액</label>
           <div id="container">
-            <button id="change_btn" type="button"><img id="change_button" isMinus="true" src="./src/svg/minus.svg"></button>
-            <input type="text" id="price_input" placeholder="0" autocomplete="off" />
+            <button id="change_btn" type="button">
+              <img
+                id="change_button"
+                isMinus="true"
+                src="./src/svg/minus.svg"
+              />
+            </button>
+            <input
+              type="text"
+              id="price_input"
+              placeholder="0"
+              autocomplete="off"
+            />
             <p id="krw">원</p>
           </div>
         </div>
         <div class="memo">
           <label for="memo" id="memo">내용</label>
-          <input type="text" id="memo_input" placeholder="입력하세요" autocomplete="off" />
+          <input
+            type="text"
+            id="memo_input"
+            placeholder="입력하세요"
+            autocomplete="off"
+          />
         </div>
         <div class="payment">
           <label for="payment" id="payment">결제수단</label>
@@ -92,7 +127,9 @@
           <div id="category_div"></div>
         </div>
         <div id="check">
-          <button id="input_bar_check" type="button"><img src="./src/svg/disabled_check.svg" alt="button"></button>
+          <button id="input_bar_check" type="button">
+            <img src="./src/svg/disabled_check.svg" alt="button" />
+          </button>
         </div>
       </form>
 
@@ -116,7 +153,9 @@
                 id="expenses_checkbox"
                 checked
               />
-              <label for="expenses_checkbox" id="expenses_text">지출 10,900</label>
+              <label for="expenses_checkbox" id="expenses_text"
+                >지출 10,900</label
+              >
             </div>
           </div>
         </header>
