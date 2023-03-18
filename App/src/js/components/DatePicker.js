@@ -293,8 +293,8 @@ DatePicker.prototype.dialogActiveHandler = function (e) {
 };
 
 DatePicker.prototype.tableDataKeydownHandler = function (e) {
-  e.preventDefault();
   const { target, key, shiftKey } = e;
+  e.preventDefault();
   const from = new Date(target.dataset.date);
   const dialog = this.domNode.querySelector("[role='dialog']");
   const input = this.domNode.querySelector("INPUT");

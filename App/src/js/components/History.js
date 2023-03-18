@@ -17,11 +17,11 @@ function ActiveItemView({ name, attr, title, desc }) {
         for="${name}">
         ${UNCHECKED}
         ${CHECKED}
+        <dl>
+          <dt>${title}</dt>
+          <dd>${desc.toLocaleString()}</dd>
+        </dl>
       </label>
-      <dl tabindex="0">
-        <dt>${title}</dt>
-        <dd>${desc.toLocaleString()}</dd>
-      </dl>
     </li>
   `;
 }
