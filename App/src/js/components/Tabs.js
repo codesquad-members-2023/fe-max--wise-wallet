@@ -16,7 +16,7 @@ function TabView(attrs, icon) {
       aria-label="${attrs["aria-label"]}"
       aria-selected="${attrs["aria-selected"]}"
       aria-controls="${attrs["aria-controls"]}"
-      tabindex="-1"
+      tabindex="${attrs["tabindex"]}"
     >
     ${SVG[icon]}
     </button>
@@ -38,6 +38,7 @@ export class Tabs extends Element {
           "aria-label": "문서",
           "aria-selected": "true",
           "aria-controls": "tabpanel-1",
+          tabindex: "0",
         },
         "document",
       ],
@@ -47,6 +48,7 @@ export class Tabs extends Element {
           "aria-label": "캘린더",
           "aria-selected": "false",
           "aria-controls": "tabpanel-2",
+          tabindex: "-1",
         },
         "calender",
       ],
@@ -56,6 +58,7 @@ export class Tabs extends Element {
           "aria-label": "통계",
           "aria-selected": "false",
           "aria-controls": "tabpanel-3",
+          tabindex: "-1",
         },
         "statistics",
       ],

@@ -3,7 +3,7 @@ import { DELETE, OPEN } from "./SVG.js";
 
 function MenuItemRadioView([payment, check]) {
   return `
-    <li role="menuitemradio" aria-checked="${check}">
+    <li role="menuitemradio" tabindex="-1" aria-checked="${check}">
       <span>${payment}</span>
       <button class="delete" aria-hidden="true">
         ${DELETE}
@@ -45,13 +45,13 @@ export class PaymentGroup extends Element {
         </div>
         <ul role="menu" id="menu1" aria-label="결제수단">
           ${payments.map(MenuItemRadioView).join("")}
-          <li role="menuitemradio" aria-checked="false">
+          <li role="menuitemradio" tabindex="-1" aria-checked="false">
             <button class="add">
               추가하기
             </button>
           </li>
         </ul>
       `
-    )
+    );
   }
 }

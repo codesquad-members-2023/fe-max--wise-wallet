@@ -242,7 +242,7 @@
                           value="20230222" />
                         <span class="desc blind" id="id-description-1">
                           (<span class="sr-only">날짜 형식: </span>
-                          년/월/월이름)
+                          년월일)
                         </span>
                       </div>
                     </div>
@@ -434,22 +434,46 @@
               <div class="group">
                 <label for="amount" aria-hidden="true">금액</label>
                 <div class="field field-amount">
-                  <figure>
-                    <svg
-                      width="14"
-                      height="2"
-                      viewBox="0 0 14 2"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg">
-                      <path
-                        d="M1 1H13"
-                        stroke="#524D90"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round" />
-                    </svg>
-                    <figcaption class="blind">지출</figcaption>
-                  </figure>
+                  <button class="plus">
+                    <figure>
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M6 12H18"
+                          stroke="#524D90"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round" />
+                        <path
+                          d="M12 18V6"
+                          stroke="#524D90"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round" />
+                      </svg>
+                      <figcaption class="blind">수입</figcaption>
+                    </figure>
+                    <figure>
+                      <svg
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M6 12H18"
+                          stroke="#524D90"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round" />
+                      </svg>
+                      <figcaption class="blind">지출</figcaption>
+                    </figure>
+                  </button>
                   <div class="fieldset">
                     <div class="cover">
                       <span class="alt">0</span>
@@ -561,9 +585,7 @@
                     </button>
                   </li>
                   <li role="menuitemradio" aria-checked="false">
-                    <button class="add">
-                      추가하기
-                    </button>
+                    <button class="add">추가하기</button>
                   </li>
                 </ul>
               </div>
@@ -622,18 +644,41 @@
               </div>
               <div class="group group-submit">
                 <button
-                  class="item submit active"
+                  class="item submit"
                   tabindex="-1"
                   aria-label="등록하기">
                   <figure>
                     <svg
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
+                      width="40"
+                      height="40"
+                      viewBox="0 0 40 40"
                       fill="none"
                       xmlns="http://www.w3.org/2000/svg">
+                      <rect
+                        width="40"
+                        height="40"
+                        rx="8"
+                        fill="#A79FCB"
+                        fill-opacity="0.4" />
                       <path
-                        d="M21 6L8.625 18L3 12.5455"
+                        d="M29 14L16.625 26L11 20.5455"
+                        stroke="#FCFCFC"
+                        stroke-width="1.5"
+                        stroke-linecap="round"
+                        stroke-linejoin="round" />
+                    </svg>
+                    <figcaption class="blind">정보들이 전부 입력되지 않았습니다.</figcaption>
+                  </figure>
+                  <figure>
+                    <svg
+                      width="40"
+                      height="40"
+                      viewBox="0 0 40 40"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg">
+                      <rect width="40" height="40" rx="8" fill="#F5B853" />
+                      <path
+                        d="M29 14L16.625 26L11 20.5455"
                         stroke="#FCFCFC"
                         stroke-width="1.5"
                         stroke-linecap="round"

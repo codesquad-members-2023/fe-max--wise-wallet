@@ -1,9 +1,11 @@
 import { Element } from "../Element.js";
+import { expenditureCategories, incomeCategories } from "../System.js";
+import { arrToMenuItemData } from "../util.js";
 import { OPEN } from "./SVG.js";
 
 function MenuItemRadioView([category, check]) {
   return `
-    <li role="menuitemradio" aria-checked="${check}">
+    <li role="menuitemradio" tabindex="-1" aria-checked="${check}">
       <span>${category}</span>
     </li>
   `;
@@ -17,15 +19,6 @@ export class DivisionGroup extends Element {
   init() {
     this.domNode = document.createElement("DIV");
     this.domNode.className = "menu-popup group";
-    const categories = [
-      ["생활", true],
-      ["식비", false],
-      ["교통", false],
-      ["쇼핑/뷰티", false],
-      ["의료/건강", false],
-      ["문화/여가", false],
-      ["미분류", false],
-    ];
     this.domNode.insertAdjacentHTML(
       "afterbegin",
       `
@@ -46,9 +39,25 @@ export class DivisionGroup extends Element {
           </label>
         </div>
         <ul role="menu" id="menu2" aria-label="분류">
-          ${categories.map(MenuItemRadioView).join("")}
+        ${arrToMenuItemData(expenditureCategories)
+          .map(MenuItemRadioView)
+          .join("")}
         </ul>
       `
     );
+  }
+
+  injectionCategories(isIncome) {
+    const menu = this.domNode.querySelector('[role="menu"]');
+
+    if (isIncome) {
+      menu.innerHTML = arrToMenuItemData(incomeCategories)
+        .map(MenuItemRadioView)
+        .join("");
+      return;
+    }
+    menu.innerHTML = arrToMenuItemData(expenditureCategories)
+      .map(MenuItemRadioView)
+      .join("");
   }
 }

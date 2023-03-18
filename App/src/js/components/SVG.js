@@ -1,17 +1,39 @@
-export const MINUS = `
-<svg
-  width="14"
-  height="2"
-  viewBox="0 0 14 2"
-  fill="none"
-  xmlns="http://www.w3.org/2000/svg">
+export const PLUS = `
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg">
   <path
-    d="M1 1H13"
+    d="M6 12H18"
     stroke="#524D90"
     stroke-width="1.5"
     stroke-linecap="round"
     stroke-linejoin="round" />
-</svg>
+  <path
+    d="M12 18V6"
+    stroke="#524D90"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round" />
+  </svg>
+`;
+
+export const MINUS = `
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg">
+    <path
+      d="M6 12H18"
+      stroke="#524D90"
+      stroke-width="1.5"
+      stroke-linecap="round"
+      stroke-linejoin="round" />
+  </svg>
 `;
 export const UNCHECKED = `
   <svg
@@ -211,21 +233,6 @@ export const DELETE_LARGE = `
     stroke-linejoin="round" />
 </svg>
 `;
-export const SUBMIT = `
-  <svg
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  xmlns="http://www.w3.org/2000/svg">
-  <path
-    d="M21 6L8.625 18L3 12.5455"
-    stroke="#FCFCFC"
-    stroke-width="1.5"
-    stroke-linecap="round"
-    stroke-linejoin="round" />
-  </svg>
-`;
 export const DOCUMENT = `
 <svg
   width="44"
@@ -313,4 +320,43 @@ export const STATISTICS = `
     stroke-linecap="round"
     stroke-linejoin="round" />
 </svg>
+`;
+export const UNACTIVE_SUBMIT = `
+<svg
+width="40"
+height="40"
+viewBox="0 0 40 40"
+fill="none"
+xmlns="http://www.w3.org/2000/svg">
+<rect
+  width="40"
+  height="40"
+  rx="8"
+  fill="#A79FCB"
+  fill-opacity="0.4" />
+<path
+  d="M29 14L16.625 26L11 20.5455"
+  stroke="#FCFCFC"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round" />
+</svg>
+`;
+
+export const ACTIVE_SUBMIT = `
+<svg
+  width="40"
+  height="40"
+  viewBox="0 0 40 40"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg">
+  <rect width="40" height="40" rx="8" fill="#F5B853" />
+  <path
+    d="M29 14L16.625 26L11 20.5455"
+    stroke="#FCFCFC"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round" />
+</svg>
+
 `;

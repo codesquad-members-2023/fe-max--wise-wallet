@@ -88,3 +88,11 @@ export function dateUnitDate(when = new Date()) {
   const date = when.getDate();
   return new Date(`${year}-${month}-${date}`);
 }
+export function arrToMenuItemData(arr) {
+  const menuItemDataArr = [];
+  for (let i of arr) {
+    menuItemDataArr.push([i, false]);
+  }
+  menuItemDataArr[0][1] = true;
+  return menuItemDataArr;
+}

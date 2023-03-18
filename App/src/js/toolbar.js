@@ -24,9 +24,6 @@ Toolbar.prototype.init = function () {
 
   this.domNode.addEventListener("click", this.handleContainerClick.bind(this));
 
-  this.amountInput = this.domNode.querySelector("#amount");
-  this.amountInput.addEventListener("input", this.handleAmountInput.bind(this));
-
   items = this.domNode.querySelectorAll(".item");
 
   for (i = 0; i < items.length; i++) {

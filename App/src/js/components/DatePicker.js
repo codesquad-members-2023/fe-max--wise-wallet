@@ -19,7 +19,7 @@ function DatePickerInputView(current) {
         <input
           class="item"
           type="text"
-          id="id-textbox-1"
+          id="date"
           aria-describedby="id-description-1"
           aria-label="일자 입력"
           value="${year}${month < 10 ? "0" + month : month}${
@@ -180,10 +180,13 @@ export class DatePicker extends Element {
       `
     );
 
+    const dialog = this.domNode.querySelector("[role='dialog']");
+
+    dialog.addEventListener("focusout", this.cancelDialog.bind(this));
+
     const input = this.domNode.querySelector("INPUT");
     input.addEventListener("click", this.dialogActiveHandler.bind(this));
     input.addEventListener("keydown", this.dialogActiveHandler.bind(this));
-    this.domNode.addEventListener("keydown", (e) => e.preventDefault());
 
     const prevYearButton = this.domNode.querySelector(".prev-year");
     const prevMonthButton = this.domNode.querySelector(".prev-month");
@@ -239,19 +242,24 @@ DatePicker.prototype.insertDate = function () {
   const td = this.domNode.querySelector(`td[tabindex="0"]`);
   const input = this.domNode.querySelector("INPUT");
   input.value = td.dataset.date.replace(/\-/g, "");
+  this.system.setInputDataValue("date", input.value);
   input.focus();
 };
 
-DatePicker.prototype.cancelDialog = function () {
-  const dialog = this.domNode.querySelector("[role='dialog']");
-  dialog.className = "datepicker-dialog";
-  const input = this.domNode.querySelector("INPUT");
-  input.focus();
+DatePicker.prototype.cancelDialog = function (e) {
+  setTimeout(() => {
+    if (document.activeElement.tagName === "BODY") {
+      const dialog = this.domNode.querySelector("[role='dialog']");
+      dialog.className = "datepicker-dialog";
+      const input = this.domNode.querySelector("INPUT");
+      input.focus();
+    }
+  }, 1);
 };
 
 DatePicker.prototype.dialogActiveHandler = function (e) {
   if (e.type === "keydown") {
-    if (e.key !== "Enter" && e.key !== "Space") {
+    if (e.key !== "Enter" && e.key !== " ") {
       return;
     }
   }
@@ -265,6 +273,8 @@ DatePicker.prototype.dialogActiveHandler = function (e) {
 
   const dataDateTableDatas = tableWrap.querySelectorAll("td[data-date]");
 
+  const datepicker = this;
+
   dataDateTableDatas.forEach((tableData) => {
     tableData.addEventListener(
       "keydown",
@@ -273,7 +283,7 @@ DatePicker.prototype.dialogActiveHandler = function (e) {
     tableData.addEventListener("click", (e) => {
       dialog.className = "datepicker-dialog";
       input.value = e.target.dataset.date.replace(/\-/g, "");
-      input.focus();
+      datepicker.system.setInputDataValue("date", input.value);
     });
   });
 
@@ -283,6 +293,7 @@ DatePicker.prototype.dialogActiveHandler = function (e) {
 };
 
 DatePicker.prototype.tableDataKeydownHandler = function (e) {
+  e.preventDefault();
   const { target, key, shiftKey } = e;
   const from = new Date(target.dataset.date);
   const dialog = this.domNode.querySelector("[role='dialog']");
@@ -316,6 +327,7 @@ DatePicker.prototype.tableDataKeydownHandler = function (e) {
         `td[data-date="${dateformat(from)}"]`
       );
       input.value = currentTd.dataset.date.replace(/\-/g, "");
+      this.system.setInputDataValue("date", input.value);
       input.focus();
       return;
     case "Escape":
@@ -403,7 +415,7 @@ DatePicker.prototype.toNextYear = function (e) {
     to = new Date(to.getTime() - ONE_DAY_TIME);
   }
   to = dateOneMonth(to);
-  console.log(from)
+  console.log(from);
   this.datePick(from, to);
   target.focus();
 };
@@ -525,6 +537,7 @@ DatePicker.prototype.nextYearButtonKeyDownHandler = function (e) {
 };
 
 DatePicker.prototype.cancelButtonKeyDownHandler = function (e) {
+  e.preventDefault();
   const { key, shiftKey } = e;
 
   const td = this.domNode.querySelector(`td[tabindex="0"]`);
@@ -540,7 +553,7 @@ DatePicker.prototype.cancelButtonKeyDownHandler = function (e) {
       return;
     case "Enter":
     case "Space":
-      this.insertDate.bind(this);
+      this.cancelDialog();
       return;
     case "Escape":
       this.cancelDialog();
@@ -551,7 +564,6 @@ DatePicker.prototype.okButtonKeyDownHandler = function (e) {
   const { key } = e;
 
   const cancelButton = this.domNode.querySelector('button[value="cancel"]');
-
   switch (key) {
     case "Tab":
       cancelButton.focus();
