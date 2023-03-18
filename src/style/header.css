@@ -39,9 +39,25 @@
 }
 
 .header_tab {
+  position: relative;
   width: 132px;
   height: 44px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+#img_doc:hover {
+  content: url('../svg/tab_activate_doc.svg');
+  transform: scale(1.2);
+}
+
+#img_calendar:hover {
+  content: url('../svg/tab_activate_calendar.svg');
+  transform: scale(1.2);
+}
+
+#img_chart:hover {
+  content: url('../svg/tab_activate_chart.svg');
+  transform: scale(1.2);
 }
