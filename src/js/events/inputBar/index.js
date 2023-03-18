@@ -10,7 +10,7 @@ import { storeInputQuery } from "./storeInputQuery.js";
 import { hideSelectBox } from "../../utils/hideSelectBox.js";
 
 export const inputBarEventHandler = () => {
-  $("#price-input").addEventListener("keyup", priceInput);
+  $("#price-input").addEventListener("input", priceInput);
   //   $("#date-Input").addEventListener("keydown", dateInput);
   $(".payment-select-head").addEventListener("click", clickPaymentHead);
   $(".payment-list-member").addEventListener("click", selectPaymentList);
