@@ -1,6 +1,6 @@
-# 🍀CodeSquad_Masters-FE_max
+# 🍀 CodeSquad_Masters-FE_max
 
-## **📝가계부_Wise_Wallet**
+## **📝 가계부_Wise_Wallet**
 
 키워드 : `html5 layout` `HTML,CSS 디버깅` `html` `css` `css layout`  
 `Flexbox` `시멘틱 태그` `웹접근성` `draft PR` `DOM API` `Event Listener`  
@@ -139,6 +139,42 @@
 ```
 
 #### 🔥 Week2
+
+- git stash
+```text
+* 아직 마무리하지 않은 작업을 스택에 잠시 저장할 수 있도록 하는 명령어
+  - 아직 완료하지 않은 일을 commit하지 않고 나중에 다시 꺼내와 마무리 할 수 있다
+  - 수정한 파일들만 스택에 저장한다
+
+* 순서 => 저장 - (목록 확인) - 적용 - 제거 - (되돌리기)
+  1. git stash / git stash save 
+    => stack에 새로운 stash를 만들어 임시로 저장한다
+  2. git stash list 
+    => stash를 여러 번 했다면 이 명령어를 통해 stash목록을 확인할 수 있다
+  3. git stash apply / git stash apply [stash 이름]
+    => 현재 branch에 stash를 적용한다
+      3-1. git stash apply --index 
+        => staged 상태까지 복원한다
+      3-2. git stash pop 
+        => stash를 적용과 동시에 제거한다
+  4. git stash drop / git stash drop [stash 이름] 
+    => stack에 남아있는 stash 제거한다
+  5. git stash show -p ([stash 이름]) | git apply -R
+    => 실수로 적용한 stash를 되돌린다
+```
+
+- 경로
+
+```text
+1. 절대경로
+  - 어떠한 웹페이지나 피일이 가지고 있는 고유한 경로
+
+2. 상대경로
+  - 현재 위치를 기준으로 한 상대적 위치
+  - / : 루트
+  - ./ : 현재 위치
+  - ../ : 현재 위치의 상단 폴더
+```
 
 - DOM 조작
 
