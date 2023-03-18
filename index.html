@@ -21,10 +21,10 @@
     <link rel="stylesheet" href="./src/style/input_bar.css" />
     <link rel="stylesheet" href="./src/style/main_section.css" />
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/src/style/datepicker.css">
+    <link rel="stylesheet" href="./src/style/datepicker.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script defer src="/src/js/datePicker.js"></script>
+    <script defer src="./src/js/datePicker.js"></script>
     <script defer src="./src/js/events/input_bar/input_list.js"></script>
     <script defer src="./src/js/events/input_bar/input_price.js"></script>
     <script defer src="./src/js/events/input_bar/input_date.js"></script>
@@ -40,7 +40,7 @@
         <div id="header_title_logo">Wise Wallet</div>
         <div class="header_monthYear_info">
           <nav id="chevron_left">
-            <img src="/src/svg/chevron_left.svg" alt="<" />
+            <img src="./src/svg/chevron_left.svg" alt="<" />
           </nav>
           <div id="header_monthYear_text">
             <p id="monthYear_text_year">2023</p>
@@ -48,18 +48,18 @@
             <p id="monthYear_text_month_char">March</p>
           </div>
           <nav id="chevron_right">
-            <img src="/src/svg/chevron_right.svg" alt=">" />
+            <img src="./src/svg/chevron_right.svg" alt=">" />
           </nav>
         </div>
         <div class="header_tab">
           <nav id="nav_doc">
-            <img src="/src/svg/tab_doc.svg" condition="activate" alt="doc" />
+            <img src="./src/svg/tab_doc.svg" condition="activate" alt="doc" />
           </nav>
           <nav id="nav_calendar">
-            <img src="/src/svg/tab_calendar.svg" condition="disabled" alt="calendar" />
+            <img src="./src/svg/tab_calendar.svg" condition="disabled" alt="calendar" />
           </nav>
           <nav id="nav_chart">
-            <img src="/src/svg/tab_chart.svg" condition="disalbed" alt="chart" />
+            <img src="./src/svg/tab_chart.svg" condition="disalbed" alt="chart" />
           </nav>
         </div>
       </div>
@@ -72,7 +72,7 @@
         <div class="price">
           <label for="price" id="price">금액</label>
           <div id="container">
-            <button id="change_btn" type="button"><img id="change_button" isMinus="true" src="/src/svg/minus.svg"></button>
+            <button id="change_btn" type="button"><img id="change_button" isMinus="true" src="./src/svg/minus.svg"></button>
             <input type="text" id="price_input" placeholder="0" autocomplete="off" />
             <p id="krw">원</p>
           </div>
@@ -84,11 +84,7 @@
         <div class="payment">
           <label for="payment" id="payment">결제수단</label>
           <input type="text" id="payment_input" placeholder="선택하세요" />
-          <div id="payment_div">
-            <div id="payment_list">현찰</div>
-            <div id="payment_list">체크카드</div>
-            <div id="payment_list">신용카드</div>
-          </div>
+          <div id="payment_div"></div>
         </div>
         <div class="category">
           <label for="category" id="category">분류</label>
@@ -96,7 +92,7 @@
           <div id="category_div"></div>
         </div>
         <div id="check">
-          <button id="input_bar_check" type="button"><img src="/src/svg/disabled_check.svg" alt="button"></button>
+          <button id="input_bar_check" type="button"><img src="./src/svg/disabled_check.svg" alt="button"></button>
         </div>
       </form>
 

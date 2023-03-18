@@ -3,11 +3,11 @@ const changeImg = document.getElementById("change_button");
 
 changeBtn.addEventListener("click", (e) => {
   const currentSrc = changeImg.getAttribute("src");
-  if (currentSrc === "/src/svg/minus.svg") {
-    changeImg.setAttribute("src", "/src/svg/plus.svg");
+  if (currentSrc === "./src/svg/minus.svg") {
+    changeImg.setAttribute("src", "./src/svg/plus.svg");
     changeImg.setAttribute("isMinus", "false");
   } else {
-    changeImg.setAttribute("src", "/src/svg/minus.svg");
+    changeImg.setAttribute("src", "./src/svg/minus.svg");
     changeImg.setAttribute("isMinus", "true");
   }
 });
