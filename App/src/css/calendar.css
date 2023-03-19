@@ -63,12 +63,12 @@
   font: var(--font-bold-small);
 }
 
-#calendar #calender_Text {
+#calendar #calendar_Text {
   display: flex;
   justify-content: space-between;
 }
 
-#calendar #calenderHeader {
+#calendar #calendarHeader {
   width: 846px;
   height: 48px;
   display: flex;
@@ -81,7 +81,7 @@
   border-radius: 8px;
 }
 
-#calendar #calenderHeader .dayOfWeek {
+#calendar #calendarHeader .dayOfWeek {
   width: 120px;
   height: 24px;
   display: flex;

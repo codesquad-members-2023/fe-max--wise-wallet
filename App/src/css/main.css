@@ -192,3 +192,7 @@
 #main div[data-category="용돈"] {
   background-color: var(--color-category-green);
 }
+
+/* #main {
+  display: none;
+} */

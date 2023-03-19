@@ -3,7 +3,7 @@ import { getLocalStorage } from "../localStorage/getLocalStorage.js";
 import { addComma } from "../utils/addComma.js";
 import { setText } from "./setText.js";
 
-export const setCalender = () => {
+export const setCalendar = () => {
   const $calendar = document.getElementById("calendar");
   const $table = setTable();
   const $textDiv = setText();
@@ -31,6 +31,7 @@ const setTable = () => {
   const [year, month, dayOfWeek, lastDay] = getDate();
   const $table = document.createElement("table");
   const group = setGroup(getLocalStorage());
+  console.log(getDate());
 
   let td = "";
   for (let i = 0; i < 35; i++) {
