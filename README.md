@@ -182,17 +182,34 @@
 * nodeType
   - 1 -> p나 div같은 element 노드
   - 3 -> element나 속성의 text (공백도 포함함)
+
+* innerHTML / innerTEext / textContent
+  - innerHTML : 
+    1. text/html으로 파싱한 결과를 값으로 가져온다
+    2. 성능이 느리고 보안상 취약점이 있다 (XSS 공격)
+    3. 되도록이면 쓰지 않는 것이 좋다
+  - innerText : 
+    1. text/plain으로 파싱한 결과를 값으로 가져온다
+    2. 해당 요소와 자손의 렌더링 된 텍스트 콘텐츠를 나타낸다
+    3. textContent보다 성능이 좋지 않다
+  - textContent : 
+    1. 식별자 내부 전체 콘텐츠를 text/plain으로 파싱한 결과(원시 텍스트)를 값으로 가져온다
+    2. 원시 텍스트를 파싱하기 때문에 성능이 가장 좋다
+    3. 보안에서 큰 강점을 보인다
+
+* insertAdjacentHTML / createElement / createTextNode / appendChild
+  - html의 요소나 텍스트, 자손을 추가 하고 싶을 떄는 innerHTML을 사용하기 보다는 위 4가지를 사용하는 것이 좋다
 ```
 
 - event
 
 ```text
 * event bubbling
-```
+  - 한 요소에 이벤트가 발생하면 부모를 올라가며 각각의 요소에 할당된 핸들러가 동작한다
+  - createElement 등으로 생성한 요소에 이벤트를 넣을 때 사용하면 좋다
 
-- prototype
-
-```text
+* event observer pattern
+  - input 창을 구현할 때 활용해본다
 ```
 
 ### **🤔 생각해볼 거리**
