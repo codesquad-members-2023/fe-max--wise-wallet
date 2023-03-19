@@ -65,3 +65,23 @@ memoInput.addEventListener("blur", function () {
         this.placeholder = "입력하세요";
     }
 });
+
+//ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+const paymentLabel = document.querySelector(".payment__label");
+const paymentDropdown = document.querySelectorAll(".payment__dropdown");
+
+const handleSelect = (item) => {
+    paymentLabel.parentNode.classList.remove("active");
+    paymentLabel.innerHTML = item.textContent;
+};
+
+paymentDropdown.addEventListener("click", () => handleSelect(option));
+
+paymentLabel.addEventListener("click", function () {
+    if (paymentLabel.parentNode.classList.contains("active")) {
+        paymentLabel.parentNode.classList.remove("active");
+    } else {
+        paymentLabel.parentNode.classList.add("active");
+    }
+});

@@ -22,7 +22,6 @@
 .input-bar .memo,
 .input-bar .payment {
   position: relative;
-  height: 44px;
 }
 
 .input-bar .date::after,
@@ -167,7 +166,7 @@
   flex-direction: column;
 }
 
-.payment .label {
+.payment .payment__label {
   display: flex;
   align-items: center;
   width: 80px;
@@ -176,7 +175,7 @@
   cursor: pointer;
 }
 
-.payment .dropdown {
+.payment .payment__dropdown {
   position: relative;
   top: 24px;
   left: -24px;
@@ -187,18 +186,63 @@
   border-radius: 8px;
   /* overflow: hidden; */
   /* transition: 0.3s ease-in; */
+  /* overflow: hidden;
+  max-height: 0; */
   width: 148px;
+  z-index: 9999;
+}
+
+.payment__list:first-child {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+.payment__list:last-child {
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 
 .payment__list {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto;
   width: 148px;
   height: 57px;
+  box-sizing: border-box;
   font: var(--font-body-regular);
   color: var(--color-primary);
+}
+.payment__list::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 50px);
+  width: 100px;
+  height: 1px;
+  background-color: #524d90;
+  box-sizing: border-box;
+  /* 가상 요소 ::before를 이용하여 선 추가 */
+}
+
+.payment__list:last-child::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: calc(50% - 50px);
+  width: 100px;
+  height: 2px;
+  background-color: white;
+  /* 가상 요소 ::after를 이용하여 맨 아래 블록의 선 없애기 */
+}
+
+.payment__list:hover {
+  margin: 0;
+  padding: 0;
+  border: 1px solid #524d90;
+  border-top: none;
+  border-bottom: none;
+  background: #f7f6f3;
 }
 
 .payment .list__inner {
