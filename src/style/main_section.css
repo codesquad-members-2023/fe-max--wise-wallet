@@ -48,12 +48,11 @@ input[type=checkbox] {
 input[type=checkbox] + label {
   cursor: pointer;
   padding-left: 30px;
-  background-image: url(/src/svg/unchecked.svg);
   background-repeat: no-repeat;
 }
 
 input[type=checkbox]:checked + label {
-  background-image: url(/src/svg/checked.svg);
+  background-image: url(../svg/checked.svg);
 }
 
 .main_section_container {

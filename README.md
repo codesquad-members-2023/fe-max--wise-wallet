@@ -1,6 +1,6 @@
-# 🍀CodeSquad_Masters-FE_max
+# 🍀 CodeSquad_Masters-FE_max
 
-## **📝가계부_Wise_Wallet**
+## **📝 가계부_Wise_Wallet**
 
 키워드 : `html5 layout` `HTML,CSS 디버깅` `html` `css` `css layout`  
 `Flexbox` `시멘틱 태그` `웹접근성` `draft PR` `DOM API` `Event Listener`  
@@ -9,7 +9,7 @@
 
 - [ ] 1주차
   - [ ] 메인 페이지 전체 UI
-  - [ ] '월' 이동 기능
+  - [X] '월' 이동 기능
   - [ ] 새로운 내역 입력
 - [ ] 2주차
   - [ ] 메인 영역
@@ -140,23 +140,76 @@
 
 #### 🔥 Week2
 
+- git stash
+```text
+* 아직 마무리하지 않은 작업을 스택에 잠시 저장할 수 있도록 하는 명령어
+  - 아직 완료하지 않은 일을 commit하지 않고 나중에 다시 꺼내와 마무리 할 수 있다
+  - 수정한 파일들만 스택에 저장한다
+
+* 순서 => 저장 - (목록 확인) - 적용 - 제거 - (되돌리기)
+  1. git stash / git stash save 
+    => stack에 새로운 stash를 만들어 임시로 저장한다
+  2. git stash list 
+    => stash를 여러 번 했다면 이 명령어를 통해 stash목록을 확인할 수 있다
+  3. git stash apply / git stash apply [stash 이름]
+    => 현재 branch에 stash를 적용한다
+      3-1. git stash apply --index 
+        => staged 상태까지 복원한다
+      3-2. git stash pop 
+        => stash를 적용과 동시에 제거한다
+  4. git stash drop / git stash drop [stash 이름] 
+    => stack에 남아있는 stash 제거한다
+  5. git stash show -p ([stash 이름]) | git apply -R
+    => 실수로 적용한 stash를 되돌린다
+```
+
+- 경로
+
+```text
+1. 절대경로
+  - 어떠한 웹페이지나 피일이 가지고 있는 고유한 경로
+
+2. 상대경로
+  - 현재 위치를 기준으로 한 상대적 위치
+  - / : 루트
+  - ./ : 현재 위치
+  - ../ : 현재 위치의 상단 폴더
+```
+
 - DOM 조작
 
 ```text
 * nodeType
   - 1 -> p나 div같은 element 노드
   - 3 -> element나 속성의 text (공백도 포함함)
+
+* innerHTML / innerTEext / textContent
+  - innerHTML : 
+    1. text/html으로 파싱한 결과를 값으로 가져온다
+    2. 성능이 느리고 보안상 취약점이 있다 (XSS 공격)
+    3. 되도록이면 쓰지 않는 것이 좋다
+  - innerText : 
+    1. text/plain으로 파싱한 결과를 값으로 가져온다
+    2. 해당 요소와 자손의 렌더링 된 텍스트 콘텐츠를 나타낸다
+    3. textContent보다 성능이 좋지 않다
+  - textContent : 
+    1. 식별자 내부 전체 콘텐츠를 text/plain으로 파싱한 결과(원시 텍스트)를 값으로 가져온다
+    2. 원시 텍스트를 파싱하기 때문에 성능이 가장 좋다
+    3. 보안에서 큰 강점을 보인다
+
+* insertAdjacentHTML / createElement / createTextNode / appendChild
+  - html의 요소나 텍스트, 자손을 추가 하고 싶을 떄는 innerHTML을 사용하기 보다는 위 4가지를 사용하는 것이 좋다
 ```
 
 - event
 
 ```text
 * event bubbling
-```
+  - 한 요소에 이벤트가 발생하면 부모를 올라가며 각각의 요소에 할당된 핸들러가 동작한다
+  - createElement 등으로 생성한 요소에 이벤트를 넣을 때 사용하면 좋다
 
-- prototype
-
-```text
+* event observer pattern
+  - input 창을 구현할 때 활용해본다
 ```
 
 ### **🤔 생각해볼 거리**
@@ -175,3 +228,12 @@
 ```
 
 #### 🤔 Week2
+
+- 자료형
+
+```
+* 연 / 월 이동 기능을 구현하다가 오류가 발생했다
+  - 숫자로 이루어진 string을 -= 1 을 했을 때 는 자바스크립트 엔진이 number로 판단함
+  - 반대로 += 1 을 했을 때 는 string으로 판단함
+  => 타입 스크립트의 자료형 선언의 필요성에 대해 한번 더 생각해본다
+```

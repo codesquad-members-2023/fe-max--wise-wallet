@@ -129,7 +129,7 @@ div.payment {
 #payment_input, #category_input {
   height: 24px;
   padding-right: 20px;
-  background-image: url("/src/svg/select.svg");
+  background-image: url("../svg/select.svg");
   background-position: right center;
   background-repeat: no-repeat;
   background-size: 16px;
@@ -141,24 +141,31 @@ div.payment {
 
 div#payment_div, div#category_div {
   display: none;
-  width: 100px;
   position: absolute;
   top: 84px;
   left: -24px;
-  padding: 0 24px;
   z-index: 2;
   border: 1px solid #524d90;
   border-radius: 8px;
   background-color: #FCFCFC;
 }
 
-.payment > div#payment_div div, .category > div#category_div div div {
-  padding: 16px 0;
-  border-bottom: 1px solid #524D90;
+.payment > div#payment_div div div, .category > div#category_div div div {
+  width: 100px;
+  padding: 16px 24px;
   cursor: pointer;
 }
 
-div#payment_div div:last-child, div#category_div div div:last-child {
+.payment > div#payment_div div div::before, .category > div#category_div div div::before {
+  content : "";
+  position: absolute;  
+  left: 24px;
+  width: 100px;
+  height: 56px;
+  border-bottom: 1px solid #524D90;
+}
+
+div#payment_div div div:last-child::before, div#category_div div div:last-child::before {
   border: none;
 }
 
