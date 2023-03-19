@@ -52,17 +52,18 @@
   background-size: 24px 24px;
 }
 
-#main
-  #main_income_expenditure
-  #expenditure_toggle:checked
-  + #expenditure_checkbox,
-#main #main_income_expenditure #income_toggle:checked + #income_checkbox {
+#main #expenditure_toggle:checked + #expenditure_checkbox,
+#main #income_toggle:checked + #income_checkbox {
   background-image: url(/App/src/icon/checkbox.svg);
 }
 
 #main #main_history_list {
   width: 100%;
   border-collapse: collapse;
+}
+
+#main .history_checkbox {
+  cursor: pointer;
 }
 
 #main .info_tr,

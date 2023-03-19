@@ -10,9 +10,12 @@ export const setEditData = (e) => {
   }
 
   const $target_input_bar = $this.closest("#input_bar");
+  const $target_Dialog = $this.closest("dialog");
   const $list_tr = document.querySelector(".selected_list");
+  const isCancelSelect =
+    $target_input_bar === null && $list_tr !== null && $target_Dialog === null;
 
-  if ($target_input_bar === null && $list_tr !== null) {
+  if (isCancelSelect) {
     $list_tr.classList.remove("selected_list");
     resetInputBar();
   }

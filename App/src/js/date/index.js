@@ -1,25 +1,26 @@
 import { mainInit } from "../main/index.js";
-import { getDate } from "./getDate.js";
+import { getDateElements } from "./getDateElements.js";
 import { setDate } from "./setDate.js";
-import { setNow } from "./setNow.js";
+import { setTodayDateInput } from "./setTodayDateInput.js";
 
 export const dateInit = () => {
-  const left_arrow = document.getElementById("left-Arrow");
-  const right_arrow = document.getElementById("right-Arrow");
+  const $monthYear = document.getElementById("monthYear");
 
-  left_arrow.addEventListener("click", () => {
-    const [year, month, month_en] = getDate();
-    const newDate = new Date(year.innerHTML, month.innerHTML - 2);
-    setDate([year, month, month_en], newDate);
-    mainInit();
+  $monthYear.addEventListener("click", (e) => {
+    const $this = e.target;
+    const $arrowBtn = $this.closest(".arrowBtn");
+
+    if ($arrowBtn) {
+      $arrowBtn.id === "left-Arrow" ? handleArrowBtn(2) : handleArrowBtn(0);
+    }
   });
+  setDate(getDateElements(), new Date());
+  setTodayDateInput();
+};
 
-  right_arrow.addEventListener("click", () => {
-    const [year, month, month_en] = getDate();
-    const newDate = new Date(year.innerHTML, month.innerHTML);
-    setDate([year, month, month_en], newDate);
-    mainInit();
-  });
-
-  setNow();
+const handleArrowBtn = (num) => {
+  const [year, month, month_en] = getDateElements();
+  const newDate = new Date(year.innerHTML, month.innerHTML - num);
+  setDate([year, month, month_en], newDate);
+  mainInit();
 };

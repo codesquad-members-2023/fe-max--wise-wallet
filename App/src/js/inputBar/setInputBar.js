@@ -28,8 +28,8 @@ export const setInputBar = ({
   const $payment_select = document.getElementById("payment_select");
   const $category_select = document.getElementById("category_select");
 
-  $payment_select.querySelector(".selected-value").textContent = payment;
-  $category_select.querySelector(".selected-value").textContent =
+  $payment_select.querySelector(".selected_text").textContent = payment;
+  $category_select.querySelector(".selected_text").textContent =
     category_select;
 
   const $input = document.querySelector("#input_bar input");
@@ -37,5 +37,5 @@ export const setInputBar = ({
   // 이벤트 객체를 생성
   const changeEvent = new Event("change");
   // input에 직접 change 이벤트를 발생
-  $input.dispatchEvent(changeEvent);
+  $payment_value.dispatchEvent(changeEvent);
 };

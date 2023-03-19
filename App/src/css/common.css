@@ -118,6 +118,7 @@
 /* other */
 body {
   background-color: var(--color-off-white);
+  min-height: 1024px;
 }
 
 .reset-btn {

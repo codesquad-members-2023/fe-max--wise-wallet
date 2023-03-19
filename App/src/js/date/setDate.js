@@ -1,11 +1,11 @@
-export const setDate = (date_element, date) => {
-  const [year, month, month_en] = date_element;
+export const setDate = (dateElement, date) => {
+  const [year, month, month_en] = dateElement;
 
-  const year_Text = date.getFullYear();
-  const month_Text = date.getMonth() + 1;
-  const month_en_Text = date.toLocaleString("en-US", { month: "long" });
+  const yearText = date.getFullYear();
+  const monthText = date.getMonth() + 1;
+  const monthText_EN = date.toLocaleString("en-US", { month: "long" });
 
-  year.innerHTML = year_Text;
-  month.innerHTML = month_Text;
-  month_en.innerHTML = month_en_Text;
+  year.innerHTML = yearText;
+  month.innerHTML = monthText;
+  month_en.innerHTML = monthText_EN;
 };

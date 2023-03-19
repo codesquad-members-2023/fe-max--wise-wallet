@@ -4,7 +4,6 @@ export const setList = (array) => {
   const group = setGroup(array);
   const keys = Object.keys(group).sort((a, b) => b - a);
   const $tbody = document.createElement("tbody");
-  const $main_history_list = document.getElementById("main_history_list");
 
   keys.forEach((key) => {
     // 수입
@@ -43,10 +42,12 @@ export const setList = (array) => {
                 </div>
             </td>
             <td>
-                <div class="history_price body-medium secondary-red">
+                <div class="history_price body-medium ${
+                  obj.isPositive ? "secondary-cyan" : "secondary-red"
+                }">
                 <div class="price_text">
                 ${addComma(obj.price)} 원</div>
-                <button class="remove reset-btn">삭제하기</button>
+                <button class="remove reset-btn secondary-red">삭제하기</button>
                 <input class="uniqueKey" value="${obj.uniqueKey}" />
                 </div>
             </td>
