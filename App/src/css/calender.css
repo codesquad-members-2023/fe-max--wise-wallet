@@ -1,0 +1,96 @@
+@import url(./variable.css);
+#calendar {
+  width: 846px;
+  height: 580px;
+  display: flex;
+  position: relative;
+  top: -25px;
+  margin: 0 auto;
+  border-radius: 8px;
+  flex-direction: column;
+  background: var(--color-off-white);
+}
+
+#calendar table {
+  width: 100%;
+  height: 100%;
+  margin: 16px 0 24px 0;
+  border-collapse: separate;
+  border: 1px solid var(--color-primary);
+  background: var(--color-white);
+  box-shadow: 0px 2px 2px rgba(82, 77, 144, 0.08),
+    0px 4px 4px rgba(82, 77, 144, 0.1);
+  border-radius: 8px;
+}
+
+#calendar table td {
+  width: 120px;
+  height: 115.2px;
+  border-right: 1px solid var(--color-primary-alt-40);
+  border-bottom: 1px solid var(--color-primary-alt-40);
+}
+
+#calendar table td:last-child {
+  border-right: none;
+}
+
+#calendar table tr:last-child td {
+  border-bottom: none;
+}
+
+#calendar td .info_wrapper {
+  height: 100%;
+  display: inline-block;
+}
+
+#calendar td .detalis {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 8px;
+  width: 104px;
+  height: 67.2px;
+  font: var(--font-bold-medium);
+}
+
+#calendar td .number {
+  display: inline-block;
+  width: 104px;
+  height: 16px;
+  padding: 0 8px 8px 8px;
+  text-align: right;
+  color: var(--color-primary-alt);
+  font: var(--font-bold-small);
+}
+
+#calendar #calender_Text {
+  display: flex;
+  justify-content: space-between;
+}
+
+#calendar #calenderHeader {
+  width: 846px;
+  height: 48px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: var(--color-white);
+  border: 1px solid var(--color-primary);
+  box-shadow: 0px 2px 2px rgba(82, 77, 144, 0.08),
+    0px 4px 4px rgba(82, 77, 144, 0.1);
+  border-radius: 8px;
+}
+
+#calendar #calenderHeader .dayOfWeek {
+  width: 120px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 12px 0;
+  color: var(--color-primary);
+
+  flex: none;
+  order: 0;
+  flex-grow: 1;
+}

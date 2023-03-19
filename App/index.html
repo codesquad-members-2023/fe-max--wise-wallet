@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="src/css/main.css" />
     <link rel="stylesheet" type="text/css" href="src/css/modal.css" />
     <link rel="stylesheet" type="text/css" href="src/css/custom_select.css" />
+    <link rel="stylesheet" type="text/css" href="src/css/calender.css" />
 
     <script type="module" src="./src/js/main.js"></script>
 
@@ -73,11 +74,12 @@
               <div>
                 <legend>일자</legend>
                 <input
-                  type="number"
                   id="input_date"
+                  type="number"
                   name="input_date"
                   class="body-regular"
                   autocomplete="off"
+                  max="99999999"
                 />
               </div>
             </fieldset>
@@ -223,6 +225,7 @@
         <!-- modal -->
         <div id="modal-wrapper"></div>
       </main>
+      <main id="calendar"></main>
     </div>
   </body>
 </html>
