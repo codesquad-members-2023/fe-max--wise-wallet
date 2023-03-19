@@ -1,22 +1,9 @@
 export const checkInputPrice = (event) => {
-  const allowedKeys = [
-    "0",
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-    "Backspace",
-    "Delete",
-    "ArrowLeft",
-    "ArrowRight",
-    "Tab",
-  ];
-  if (!allowedKeys.includes(event.key)) {
-    event.preventDefault();
+  const $input_price = document.getElementById("input_price");
+  var input = event.target.value;
+  var regex = /^\d+$/;
+
+  if (!regex.test(input)) {
+    $input_price.value = input.replace(/[^\d]/g, "");
   }
 };

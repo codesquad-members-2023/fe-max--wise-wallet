@@ -31,10 +31,9 @@ export const inputBarInit = () => {
   $date_input.addEventListener("blur", checkInputDate);
   // 카테고리 분류 변경
   $price_toggle.addEventListener("change", changeCategoryOption);
-  // 금액 숫자만 입력 가능
-  $input_price.addEventListener("keydown", checkInputPrice);
-  // 1000 단위 콤마 추가
-  $input_price.addEventListener("keyup", (e) => {
+  // 1000 단위 콤마 추가, 금액 숫자만 입력 가능
+  $input_price.addEventListener("input", (e) => {
+    checkInputPrice(e);
     e.target.value = addComma(e.target.value);
   });
 
