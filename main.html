@@ -62,9 +62,9 @@
       </div>
     </header>
     <main>
-      <!-- 인풋바 -->
+      <!-- input-bar -->
       <section class="input-bar">
-        <!-- 날짜 -->
+        <!-- date -->
         <div class="date">
           <div class="date-text">
             <div class="label-text">일자</div>
@@ -76,7 +76,7 @@
             />
           </div>
         </div>
-        <!-- 카테고리 -->
+        <!-- category -->
         <div class="category">
           <div class="category-text">
             <div class="label-text">금액</div>
@@ -87,36 +87,64 @@
             </div>
           </div>
         </div>
-        <!-- 메모 -->
+        <!-- memo -->
         <div class="memo">
           <div class="memo-text">
             <div class="label-text">내용</div>
             <input id="memo-input" type="text" placeholder="입력하세요" />
           </div>
         </div>
-        <!-- 페이먼트 -->
+        <!-- payment -->
         <div class="payment">
-          <div class="payment-text">
+          <div class="payment__inner">
             <div class="label-text">결제수단</div>
-            <div class="pay-drop">
-              <div>선택하세요</div>
-              <select class="input-select" name="payment"></select>
+            <div class="select-box">
+              <button class="payment__label">선택하세요</button>
+              <ul class="payment__dropdown">
+                <li class="payment__list">
+                  <div class="list__inner">
+                    <div class="list-text">현금</div>
+                    <div class="list-xmark">
+                      <img src="./input-bar/img/xmark.svg" class="xmark">
+                    </div>
+                  </div>
+                </li>
+                <li class="payment__list">
+                  <div class="list__inner">
+                    <div class="list-text">신용카드</div>
+                    <div class="list-xmark">
+                      <img src="./input-bar/img/xmark.svg" class="xmark">
+                    </div>
+                  </div>
+                </li>
+                <li class="payment__list">
+                  <div class="list__inner">
+                    <div class="list-text">추가하기</div>
+                    <div class="list-xmark">
+                      <img src="./input-bar/img/xmark.svg" class="xmark">
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              </div>
             </div>
           </div>
         </div>
-        <!-- 프라이스 -->
+        <!-- price -->
         <div class="price">
           <div class="price-text">
             <div class="label-text">분류</div>
             <div class="price-choice">
               <div>선택하세요</div>
-              <select class="input-select" name="price"></select>
+              <select class="price-select" name="price">
+                <option>good</option>
+              </select>
             </div>
           </div>
           <input id="price-check" type="checkbox" name="check" />
         </div>
       </section>
-      <!-- 입지출내역 인포 -->
+      <!-- list info -->
       <section class="info">
         <div class="info-left">
           <div class="info-total">전체 내역</div>
@@ -133,7 +161,7 @@
           </div>
         </div>
       </section>
-      <!-- 입지출내역 본문 -->
+      <!-- list body -->
       <section class="list">
         <div class="list-box">
           <div class="list-info">

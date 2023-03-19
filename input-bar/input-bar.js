@@ -21,20 +21,6 @@ dateInput.addEventListener("input", function () {
     }
 });
 
-//ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
-
-// const categoryPriceInput = document.getElementById("category-price");
-
-// categoryPriceInput.addEventListener("focus", function () {
-//     this.placeholder = "";
-// });
-
-// categoryPriceInput.addEventListener("blur", function () {
-//     if (this.value === "") {
-//         this.placeholder = "0";
-//     }
-// });
-
 const categoryPriceInput = document.getElementById("category-price");
 
 categoryPriceInput.addEventListener("input", function () {
@@ -77,5 +63,25 @@ memoInput.addEventListener("focus", function () {
 memoInput.addEventListener("blur", function () {
     if (this.value === "") {
         this.placeholder = "입력하세요";
+    }
+});
+
+//ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
+const paymentLabel = document.querySelector(".payment__label");
+const paymentDropdown = document.querySelectorAll(".payment__dropdown");
+
+const handleSelect = (item) => {
+    paymentLabel.parentNode.classList.remove("active");
+    paymentLabel.innerHTML = item.textContent;
+};
+
+paymentDropdown.addEventListener("click", () => handleSelect(option));
+
+paymentLabel.addEventListener("click", function () {
+    if (paymentLabel.parentNode.classList.contains("active")) {
+        paymentLabel.parentNode.classList.remove("active");
+    } else {
+        paymentLabel.parentNode.classList.add("active");
     }
 });
