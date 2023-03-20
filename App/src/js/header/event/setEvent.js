@@ -1,7 +1,7 @@
 import { calendarInit } from "../../calendar/index.js";
 import { getDateElements } from "../../date/getDateElements.js";
 import { setDate } from "../../date/setDate.js";
-import { setListMain } from "../../main/display/setListMain.js";
+import { setMainDisplay } from "../../main/display/setMainDisplay.js";
 import { mainInit } from "../../main/index.js";
 
 export const setEvent = () => {
@@ -31,6 +31,7 @@ export const setEvent = () => {
     // 현재 화면 이 어떤 화면인지 확인 필요..
     // 그 확인에 따른 화살표 버튼 맞게 실행ㄴ
     if (targetId === "tab_doc") {
+      inputBarInit();
       mainInit();
     }
     if (targetId === "tab_calendar") {
@@ -44,5 +45,5 @@ const handleArrowBtn = (command) => {
   const [year, month, month_en] = getDateElements();
   const newDate = new Date(year.innerHTML, month.innerHTML - num);
   setDate([year, month, month_en], newDate);
-  setListMain();
+  setMainDisplay();
 };
