@@ -9,7 +9,8 @@
   color: #fcfcfc;
 }
 
-#chevron_left:hover, #chevron_right:hover {
+#chevron_left:hover,
+#chevron_right:hover {
   cursor: pointer;
   transform: scale(1.2);
 }
@@ -55,16 +56,16 @@
 }
 
 #img_doc:hover {
-  content: url('../svg/tab_activate_doc.svg');
+  content: url("../svg/tab_activate_doc.svg");
   transform: scale(1.2);
 }
 
 #img_calendar:hover {
-  content: url('../svg/tab_activate_calendar.svg');
+  content: url("../svg/tab_activate_calendar.svg");
   transform: scale(1.2);
 }
 
 #img_chart:hover {
-  content: url('../svg/tab_activate_chart.svg');
+  content: url("../svg/tab_activate_chart.svg");
   transform: scale(1.2);
 }

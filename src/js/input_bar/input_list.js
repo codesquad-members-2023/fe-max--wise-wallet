@@ -1,8 +1,16 @@
 const select = {
-  minusCategories : ['생활', '식비', '교통', '쇼핑/뷰티', '의료/건강', '문화/여가', '미분류'],
-  plusCategories : ['월급', '용돈', '기타수입'],
-  paymentList: ['현찰', '체크카드', '신용카드'],
-  paymentInput : document.getElementById("payment_input"),
+  minusCategories: [
+    "생활",
+    "식비",
+    "교통",
+    "쇼핑/뷰티",
+    "의료/건강",
+    "문화/여가",
+    "미분류",
+  ],
+  plusCategories: ["월급", "용돈", "기타수입"],
+  paymentList: ["현찰", "체크카드", "신용카드"],
+  paymentInput: document.getElementById("payment_input"),
   paymentDiv: document.getElementById("payment_div"),
   categoryInput: document.getElementById("category_input"),
   categoryDiv: document.getElementById("category_div"),
@@ -22,7 +30,7 @@ const select = {
       const paymentTextNode = document.createTextNode(value);
       textPaymentDiv.appendChild(paymentTextNode);
       newPaymentDiv.appendChild(textPaymentDiv);
-    })
+    });
     this.paymentDiv.appendChild(newPaymentDiv);
   },
 
@@ -35,20 +43,22 @@ const select = {
   },
 
   addCategory(condition) {
-    condition = document.getElementById("change_button").getAttribute("isMinus");
+    condition = document
+      .getElementById("change_button")
+      .getAttribute("isMinus");
     const newDiv = document.createElement("div");
     if (condition === "true") {
       this.minusCategories.forEach((value) => {
         this.addList(value, newDiv);
       });
-     } else {
+    } else {
       this.plusCategories.forEach((value) => {
         this.addList(value, newDiv);
       });
     }
     this.categoryDiv.appendChild(newDiv);
-  }
-}
+  },
+};
 
 document.addEventListener("click", (e) => {
   if (e.target === select.paymentInput) {

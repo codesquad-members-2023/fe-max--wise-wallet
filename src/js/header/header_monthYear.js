@@ -1,30 +1,30 @@
 const monthYear = {
-  year : new Date().getFullYear(),
-  month : new Date().getMonth() + 1,
-  monthChar : [
+  year: new Date().getFullYear(),
+  month: new Date().getMonth() + 1,
+  monthChar: [
     "January",
     "February",
     "March",
     "April",
     "May",
     "June",
-    "July", 
+    "July",
     "August",
     "September",
     "October",
     "November",
-    "December"
+    "December",
   ],
-  yearText : document.getElementById("monthYear_text_year"),
-  monthText : document.getElementById("monthYear_text_month_number"),
-  monthCharText : document.getElementById("monthYear_text_month_char"),
-  leftNav : document.getElementById("chevron_left"),
-  rightNav : document.getElementById("chevron_right"),
+  yearText: document.getElementById("monthYear_text_year"),
+  monthText: document.getElementById("monthYear_text_month_number"),
+  monthCharText: document.getElementById("monthYear_text_month_char"),
+  leftNav: document.getElementById("chevron_left"),
+  rightNav: document.getElementById("chevron_right"),
 
   init() {
     this.yearText.textContent = this.year;
     this.monthText.textContent = this.month;
-    this.monthCharText.textContent = this.monthChar[this.month - 1]
+    this.monthCharText.textContent = this.monthChar[this.month - 1];
   },
 
   getPreviousYear() {
@@ -36,7 +36,8 @@ const monthYear = {
   },
 
   getMonthChar() {
-    this.monthCharText.textContent = this.monthChar[this.monthText.textContent - 1];
+    this.monthCharText.textContent =
+      this.monthChar[this.monthText.textContent - 1];
   },
 
   getNextYear() {
@@ -46,8 +47,7 @@ const monthYear = {
   getNextMonth() {
     this.monthText.textContent = +this.monthText.textContent + 1;
   },
-
-}
+};
 
 monthYear.init();
 
@@ -60,7 +60,7 @@ monthYear.leftNav.addEventListener("click", (e) => {
     monthYear.getPreviousMonth();
     monthYear.getMonthChar();
   }
-})
+});
 
 monthYear.rightNav.addEventListener("click", (e) => {
   if (monthYear.monthText.textContent === "12") {
@@ -71,4 +71,4 @@ monthYear.rightNav.addEventListener("click", (e) => {
     monthYear.getNextMonth();
     monthYear.getMonthChar();
   }
-})
+});

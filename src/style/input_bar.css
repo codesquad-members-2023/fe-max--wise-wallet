@@ -19,7 +19,7 @@
 }
 
 .input_bar label {
-  color: #A79FCB;
+  color: #a79fcb;
   font: var(--font-bold-small);
   margin-bottom: 4px;
 }
@@ -51,7 +51,7 @@
 
 .input_bar input::placeholder {
   font: var(--font-body-regular);
-  color: #A79FCB;
+  color: #a79fcb;
 }
 
 .input_bar #input_bar_check {
@@ -66,16 +66,17 @@
   height: 76px;
 }
 
-.input_bar > div::before  {
-  content : "";
+.input_bar > div::before {
+  content: "";
   position: absolute;
   left: 24px;
   height: 44px;
   width: 100%;
-  border-right:1px solid #524D90;
+  border-right: 1px solid #524d90;
 }
 
-.input_bar > .category::before, .input_bar div:last-child::before {
+.input_bar > .category::before,
+.input_bar div:last-child::before {
   border: none;
 }
 
@@ -122,7 +123,8 @@ div.payment {
   width: 100px;
 }
 
-#payment_input, #category_input {
+#payment_input,
+#category_input {
   height: 24px;
   padding-right: 20px;
   background-image: url("../svg/select.svg");
@@ -135,11 +137,15 @@ div.payment {
   transform: scale(1.2);
 }
 
-#payment_input:hover, #category_input:hover, #input_date:hover, .input_bar button:hover {
+#payment_input:hover,
+#category_input:hover,
+#input_date:hover,
+.input_bar button:hover {
   cursor: pointer;
 }
 
-div#payment_div, div#category_div {
+div#payment_div,
+div#category_div {
   display: none;
   position: absolute;
   top: 84px;
@@ -147,25 +153,28 @@ div#payment_div, div#category_div {
   z-index: 2;
   border: 1px solid #524d90;
   border-radius: 8px;
-  background-color: #FCFCFC;
+  background-color: #fcfcfc;
 }
 
-.payment > div#payment_div div div, .category > div#category_div div div {
+.payment > div#payment_div div div,
+.category > div#category_div div div {
   width: 100px;
   padding: 16px 24px;
   cursor: pointer;
 }
 
-.payment > div#payment_div div div::before, .category > div#category_div div div::before {
-  content : "";
-  position: absolute;  
+.payment > div#payment_div div div::before,
+.category > div#category_div div div::before {
+  content: "";
+  position: absolute;
   left: 24px;
   width: 100px;
   height: 56px;
-  border-bottom: 1px solid #524D90;
+  border-bottom: 1px solid #524d90;
 }
 
-div#payment_div div div:last-child::before, div#category_div div div:last-child::before {
+div#payment_div div div:last-child::before,
+div#category_div div div:last-child::before {
   border: none;
 }
 

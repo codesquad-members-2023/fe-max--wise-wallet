@@ -1,9 +1,9 @@
 #ui-datepicker-div {
   display: none;
   background-color: #fcfcfc;
-  box-shadow: 0 .125rem .5rem rgba(0, 0, 0, 0.1);
-  border-radius: .5rem;
-  padding: .5rem;
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
 }
 
 table {
@@ -16,7 +16,7 @@ table {
   text-align: center;
   font-size: 0.75rem;
   font-weight: 500;
-  color: #524D90;
+  color: #524d90;
 }
 
 .ui-datepicker-calendar tbody td {
@@ -30,19 +30,19 @@ table {
   border-radius: 0.25rem;
   line-height: 2rem;
   transition: 0.3s all;
-  color: #524D90;
+  color: #524d90;
   font-size: 0.875rem;
   text-decoration: none;
   text-align: center;
 }
 
 .ui-datepicker-calendar tbody td a:hover {
-  background-color: #A79FCB;
+  background-color: #a79fcb;
   color: #fcfcfc;
 }
 
 .ui-datepicker-calendar tbody td a.ui-state-active {
-  background-color: #524D90;
+  background-color: #524d90;
   color: #fcfcfc;
 }
 
@@ -88,7 +88,7 @@ table {
   margin-bottom: 0.25rem;
   font-size: 0.875rem;
   font-weight: 700;
-  color: #524D90;
+  color: #524d90;
   padding-bottom: 0.25rem;
 }
 
@@ -98,7 +98,9 @@ table {
   font-size: 0.75rem;
 }
 
-.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+.ui-state-highlight,
+.ui-widget-content .ui-state-highlight,
+.ui-widget-header .ui-state-highlight {
   border: 1px solid #c5c5c5;
   background-color: #f6f6f6;
   color: #454545;
