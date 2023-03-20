@@ -1,39 +1,17 @@
 export let currDate = new Date();
 
-// class Store {
-//   #state;
-//   #subscriberCbs = new Set();
+export let isExpense = true;
 
-//   constructor(state) {
-//     this.#state = state;
-//   }
+export let paymentMethods = ["현금", "신용카드"];
 
-//   getState() {
-//     return this.#state;
-//   }
+export let expenseCategories = [
+  "생활",
+  "식비",
+  "교통",
+  "쇼핑/뷰티",
+  "의료/건강",
+  "문화/여가",
+  "미분류",
+];
 
-//   setState(newState) {
-//     this.#state = { ...this.#state, ...newState };
-//     this.notifySubscribers();
-//   }
-
-//   addSubscriber(subscriberCb) {
-//     this.#subscriberCbs.add(subscriberCb);
-//   }
-
-//   notifySubscribers() {
-//     this.#subscriberCbs.forEach((cb) => cb());
-//   }
-// }
-
-// class Subscriber {
-//   #cb;
-
-//   constructor(cb) {
-//     this.#cb = cb;
-//   }
-
-//   subscribeTo(publisher) {
-//     publisher.addSubscriber(this.#cb);
-//   }
-// }
+export let incomeCategories = ["월급", "용돈", "기타수입"];
