@@ -3,9 +3,9 @@ import { initInputBarDate } from "./js/init/initInputBarDate.js";
 import { initDateDisplay } from "./js/init/initDateDisplay.js";
 import { initEventHandler } from "./js/init/initEventHandler.js";
 import { inputStore } from "./js/store/inputStore.js";
-import { getCurrentTime } from "./js/utils/getCurrentTime.js";
 import { initListTotalLength } from "./js/init/initListTotalLength.js";
 import { initList } from "./js/init/initList.js";
+import { initTotalIncomeExpenditure } from "./js/init/initTotalIncomeExpenditure.js";
 
 /* 파일분리 생각해두기 */
 
@@ -101,6 +101,7 @@ const init = () => {
   initDateDisplay();
   initEventHandler();
   initListTotalLength();
+  initTotalIncomeExpenditure();
   // initList()
 };
 

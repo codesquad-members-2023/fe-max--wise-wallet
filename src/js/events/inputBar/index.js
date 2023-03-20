@@ -6,7 +6,7 @@ import { clickPaymentHead } from "./clickPaymentHead.js";
 import { selectCategoryList } from "./selectCategoryList.js";
 import { clickCategoryHead } from "./clickCategoryHead.js";
 import { activateEditBtn } from "./activateEditBtn.js";
-import { storeInputQuery } from "./storeInputQuery.js";
+import { storeInputQuery } from "../../store/storeInputQuery.js";
 import { hideSelectBox } from "../../utils/hideSelectBox.js";
 
 export const inputBarEventHandler = () => {
@@ -22,5 +22,5 @@ export const inputBarEventHandler = () => {
 
   $(".input-bar-wrap").addEventListener("click", activateEditBtn);
   $("#edit-btn").addEventListener("click", storeInputQuery);
-  // editbtn클릭시/ 렌더
+  //로컬스토리지에 저장
 };

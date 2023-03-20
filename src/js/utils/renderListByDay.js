@@ -4,16 +4,11 @@ import { DAY_NAME } from "../constants/DAY_NAME.js";
 import { getDay } from "./getDay.js";
 import { generateListBody } from "./generateListBody.js";
 import { generateListDetail } from "./generateListDetail.js";
-// const storedValue = {
-//   creationTime: getCurrentTime(),
-//   type: typeIn.checked,
-//   date: dateIn.value,
-//   price: priceIn.value,
-//   memo: memoIn.value,
-//   paymentIn: paymentIn,
-//   categoryIn: categoryIn,
-// };
-export const renderListByDay = () => {
+import { getLocalStorage } from "../store/getLocalStorage.js";
+
+
+export const renderListByDay = (storedValue) => {
+  getLocalStorage(storedValue.key[뭐])
   const listArray = inputStore.listArray;
 
   // 해당 월의 수입 지출 현황

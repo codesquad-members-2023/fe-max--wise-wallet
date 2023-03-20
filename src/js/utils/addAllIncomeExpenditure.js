@@ -1,14 +1,15 @@
-import { inputStore } from "../store/inputStore.js";
-
 const addAllIncome = () => {
-  return inputStore.listArray
+
+  return Object.keys(localStorage)
+    .map((el) => JSON.parse(localStorage.getItem(el)))
     .filter((el) => el.type === true)
     .reduce((acc, cur) => {
       return acc + Number(cur.price.replaceAll(",", ""));
     }, 0);
 };
 const addAllExpenditure = () => {
-  return inputStore.listArray
+  return Object.keys(localStorage)
+    .map((el) => JSON.parse(localStorage.getItem(el)))
     .filter((el) => el.type === false)
     .reduce((acc, cur) => {
       return acc + Number(cur.price.replaceAll(",", ""));

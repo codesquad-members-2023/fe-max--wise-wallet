@@ -33,13 +33,13 @@ export const generateListDetail = () => {
                 <li>
                   <div class="list-detail">
                       <div class="list-detail-category">
-                          <span>${listArray[listArray.length - 1].categoryIn}</span>
+                          <span>${listArray[listArray.length - 1].category}</span>
                       </div>
                       <span class="list-detail-body ">${
                         listArray[listArray.length - 1].memo
                       }</span>
                       <span class="list-detail-payment list-detail-item">${
-                        listArray[listArray.length - 1].paymentIn
+                        listArray[listArray.length - 1].payment
                       }</span>
                       <span class="list-detail-price list-detail-item">-${
                         listArray[listArray.length - 1].price
@@ -59,13 +59,13 @@ export const generateListDetail = () => {
                 <li>
                   <div class="list-detail">
                       <div class="list-detail-category">
-                          <span>${listArray[listArray.length - 1].categoryIn}</span>
+                          <span>${listArray[listArray.length - 1].category}</span>
                       </div>
                       <span class="list-detail-body ">${
                         listArray[listArray.length - 1].memo
                       }</span>
                       <span class="list-detail-payment list-detail-item">${
-                        listArray[listArray.length - 1].paymentIn
+                        listArray[listArray.length - 1].payment
                       }</span>
                       <span class="list-detail-price list-detail-item">-${
                         listArray[listArray.length - 1].price
