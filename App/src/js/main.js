@@ -1,16 +1,15 @@
-import { calendarInit } from "./calendar/index.js";
 import { customSelectInit } from "./customSelect/index.js";
-import { dateInit } from "./date/index.js";
+import { setTodayDateInput } from "./date/setTodayDateInput.js";
+import { headerInit } from "./header/index.js";
 import { inputBarInit } from "./inputBar/index.js";
-import { draw } from "./main/draw.js";
 import { mainInit } from "./main/index.js";
 
 const init = () => {
-  draw();
-  dateInit();
+  headerInit();
   inputBarInit();
-  customSelectInit();
   mainInit();
+  setTodayDateInput();
+  customSelectInit();
 };
 
 window.addEventListener("DOMContentLoaded", init);
