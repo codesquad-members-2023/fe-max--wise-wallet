@@ -33,6 +33,16 @@ main {
   color: #524d90;
 }
 
+.info-label {
+  width: 82px;
+  height: 32px;
+}
+
+.info-out-text {
+  width: 43px;
+  height: 32px;
+}
+
 .info .info-right {
   display: flex;
   /* align-items: center; */

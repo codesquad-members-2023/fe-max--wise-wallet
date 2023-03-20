@@ -68,20 +68,25 @@ memoInput.addEventListener("blur", function () {
 
 //ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 
-const paymentLabel = document.querySelector(".payment__label");
-const paymentDropdown = document.querySelectorAll(".payment__dropdown");
+const paymentSelect = document.querySelector(".select-box");
+const paymentDropdown = document.querySelector(".payment__dropdown");
 
-const handleSelect = (item) => {
-    paymentLabel.parentNode.classList.remove("active");
-    paymentLabel.innerHTML = item.textContent;
-};
+// paymentSelect.addEventListener("click", function () {
+//     paymentDropdown.classList.toggle("display-none");
+// });
 
-paymentDropdown.addEventListener("click", () => handleSelect(option));
+const input = document.getElementById("input");
 
-paymentLabel.addEventListener("click", function () {
-    if (paymentLabel.parentNode.classList.contains("active")) {
-        paymentLabel.parentNode.classList.remove("active");
-    } else {
-        paymentLabel.parentNode.classList.add("active");
+input.addEventListener("click", function (e) {
+    console.log(e.target.closest(".select-box"));
+    const _this = e.target;
+    const selectBox = _this.closest(".select-box");
+    if (selectBox) {
+        const dropdown = _this
+            .closest(".payment")
+            .querySelector(".payment__dropdown");
+
+        console.log(dropdown);
+        dropdown.classList.toggle("display-none");
     }
 });
