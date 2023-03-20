@@ -1,10 +1,7 @@
 import { removeData } from "../../localStorage/removeData.js";
 import { getData } from "../../localStorage/getData.js";
 import { createNode } from "../../utils/createNode.js";
-import { getLocalStorage } from "../../localStorage/getLocalStorage.js";
-import { setTh } from "../display/setTh.js";
-import { setList } from "../display/setList.js";
-import { setListMain } from "../display/setListMain.js";
+import { setMainDisplay } from "../display/setMainDisplay.js";
 
 export const removeBtn = ($this) => {
   setRemoveListModal();
@@ -28,10 +25,7 @@ export const removeBtn = ($this) => {
   // 삭제 버튼
   $confirm_btn.addEventListener("click", () => {
     removeData(key);
-    const value = getLocalStorage();
-    const th = setTh(value);
-    const list = setList(value);
-    setListMain({ th, list });
+    setMainDisplay();
   });
 
   // 취소 버튼

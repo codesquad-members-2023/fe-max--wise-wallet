@@ -1,6 +1,6 @@
 import { changeCheckBoxEvent } from "./changeCheckBoxEvent.js";
 import { removeBtn } from "./removeBtnClickEvent.js";
-import { setEditData } from "../../inputBar/setEditData.js";
+import { setEditData } from "../../inputBar/display/setEditData.js";
 
 export const setEvent = () => {
   const $main_history_list = document.getElementById("main_history_list");
@@ -23,6 +23,5 @@ export const setEvent = () => {
   // 수입/지출 필터링
   $main_income_expenditure.addEventListener("change", () => {
     changeCheckBoxEvent();
-    console.log(1);
   });
 };

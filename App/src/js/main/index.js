@@ -1,7 +1,7 @@
-import { setDisplay } from "./display/setDisplay.js";
+import { setMainDisplay } from "./display/setMainDisplay.js";
 import { setEvent } from "./event/setEvent.js";
 
 export const mainInit = () => {
-  setDisplay();
+  setMainDisplay();
   setEvent();
 };
