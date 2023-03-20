@@ -22,5 +22,4 @@ export const inputBarEventHandler = () => {
 
   $(".input-bar-wrap").addEventListener("click", activateEditBtn);
   $("#edit-btn").addEventListener("click", storeInputQuery);
-  //로컬스토리지에 저장
 };

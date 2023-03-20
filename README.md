@@ -373,3 +373,7 @@ keyup은 디폴트 이벤트가 이미 발생한 상태에서 일어나기 때�
 
 - 다른 경우 NodeList는 정적 콜렉션입니다. DOM을 변경해도 콜렉션 내용에는 영향을 주지 않는다
 - document.querySelectorAll() 은 정적 NodeList를 반환
+
+
+## 숫자로 지정한 클래스는 invalid
+CSS3 선택자는 숫자로 시작하는 selector를 지원하지 않는다

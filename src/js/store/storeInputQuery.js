@@ -31,9 +31,8 @@ export const storeInputQuery = (key) => {
     localStorage.setItem(uniqueKey, JSON.stringify(storedValue))
     //&& validateInputValue(storedValue)
     inputStore.generateList(storedValue);
-    console.log(inputStore.listArray);
     renderListTotalLength();
-    renderTotalIncomeExpenditure(storedValue.key);
+    renderTotalIncomeExpenditure();
     renderListByDay(storedValue);
   }
 };
