@@ -91,10 +91,6 @@ div.date {
   height: 24px;
 }
 
-#input_date:hover {
-  cursor: pointer;
-}
-
 div.price {
   width: 134px;
 }
@@ -135,7 +131,11 @@ div.payment {
   background-size: 16px;
 }
 
-#payment_input:hover, #category_input:hover {
+#change_button:hover {
+  transform: scale(1.2);
+}
+
+#payment_input:hover, #category_input:hover, #input_date:hover, .input_bar button:hover {
   cursor: pointer;
 }
 
@@ -182,8 +182,4 @@ div.category {
 
 div#check {
   margin: 0 18px 0 0;
-}
-
-.input_bar button:hover {
-  cursor: pointer;
 }
