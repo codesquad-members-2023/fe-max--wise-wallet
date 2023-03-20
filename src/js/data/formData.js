@@ -16,18 +16,22 @@ function submitEventHandler() {
 }
 
 function processFormDate(data) {
-	const currentLocalStorage = JSON.parse(localStorage.getItem('monthList'));
-	const monthList = currentLocalStorage || {};
-	const dailyList = monthList[data.date] ? monthList[data.date] : [];
+	const yearMonthId = data.date.slice(0, 6);
+	if (!localStorage.getItem(yearMonthId)) {
+		localStorage.setItem(yearMonthId, JSON.stringify({}));
+	}
 
-	storeFormDate(monthList, dailyList, data);
+	const monthlyList = JSON.parse(localStorage.getItem(yearMonthId));
+	const dailyList = monthlyList[data.date] ? monthlyList[data.date] : [];
+
+	storeFormDate(monthlyList, yearMonthId, dailyList, data);
 }
 
-function storeFormDate(monthList, dailyList, data) {
+function storeFormDate(monthlyList, yearMonthId, dailyList, data) {
 	dailyList.push(data);
-	monthList[data.date] = dailyList;
+	monthlyList[data.date] = dailyList;
 
-	localStorage.setItem('monthList', JSON.stringify(monthList));
+	localStorage.setItem(yearMonthId, JSON.stringify(monthlyList));
 }
 
 submitEventHandler();
