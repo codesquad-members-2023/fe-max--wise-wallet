@@ -38,6 +38,7 @@ table {
 
 .ui-datepicker-calendar tbody td a:hover {
   background-color: #A79FCB;
+  color: #fcfcfc;
 }
 
 .ui-datepicker-calendar tbody td a.ui-state-active {
