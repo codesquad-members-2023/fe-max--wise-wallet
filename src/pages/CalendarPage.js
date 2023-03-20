@@ -1,19 +1,13 @@
+const template = document.createElement("template");
+template.innerHTML = `
+  <h1>Calendar Page!</h1>
+`;
+
 class CalendarPage extends HTMLElement {
   constructor() {
     super();
-  }
-
-  connectedCallback() {
-    this.render();
-  }
-
-  disconnectedCallback() {}
-
-  render() {
-    this.innerHTML = `
-      <top-header></top-header>
-      <h1>Calendar Page!</h1>
-    `;
+    const shadowRoot = this.attachShadow({ mode: "open" });
+    shadowRoot.append(template.content.cloneNode(true));
   }
 }
 

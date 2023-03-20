@@ -1,7 +1,4 @@
 @import "./design-system.css";
-@import "./top-header.css";
-@import "./input-bar.css";
-@import "./common-components/modal.css";
 
 *,
 *::before,
@@ -22,13 +19,4 @@ body {
 
 #root {
   width: 100%;
-}
-
-main {
-  width: 100%;
-  padding-top: 92px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
 }
