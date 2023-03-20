@@ -1,3 +1,3 @@
 import "./top-header/index.js";
-import "./InputBar.js";
+import "./input-bar/index.js";
 import "./common/index.js";
