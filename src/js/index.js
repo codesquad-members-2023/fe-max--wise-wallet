@@ -1,9 +1,9 @@
-import { initInputBarDate } from './components/inputbar/initInputBarDate.js';
-import { initHeaderMonthYear } from './components/header/initHeaderMonthYear.js';
-import { initFormEventChecker } from './components/inputbar/initFormChecker.js';
-import './components/inputbar/dropdown.js';
-import './components/inputbar/autoComma.js';
-import './components/inputbar/switchCategory.js';
+import { initInputBarDate } from './inputbar/initInputBarDate.js';
+import { initHeaderMonthYear } from './header/initHeaderMonthYear.js';
+import { initFormEventChecker } from './inputbar/initFormChecker.js';
+import './inputbar/dropdown.js';
+import './inputbar/autoComma.js';
+import './inputbar/switchCategory.js';
 import './utils/formValidation.js';
 import './data/formData.js';
 

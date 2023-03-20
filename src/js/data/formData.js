@@ -10,7 +10,7 @@ function submitEventHandler() {
 		for (const item of formData) {
 			inputData[item[0]] = item[1];
 		}
-
+		console.log(inputData);
 		processFormDate(inputData);
 	});
 }

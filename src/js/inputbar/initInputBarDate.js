@@ -1,4 +1,4 @@
-import { getToday } from '../../utils/getToday.js';
+import { getToday } from '../utils/getToday.js';
 
 export const initInputBarDate = () => {
 	const dateInput = document.querySelector('#inputDate');
