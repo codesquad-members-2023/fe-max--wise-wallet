@@ -9,7 +9,7 @@
   color: #fcfcfc;
 }
 
-.header .header-box {
+.header__inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -18,11 +18,11 @@
   margin: 0 auto;
 }
 
-.header .logo {
+.header__logo {
   font: var(--font-display-small);
 }
 
-.header .month-year {
+.header__month-year {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -30,7 +30,11 @@
   height: 96;
 }
 
-.month-year .date {
+.header__month-year img {
+  cursor: pointer;
+}
+
+.month-year__date {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -40,7 +44,7 @@
   font: var(--font-bold-small);
 }
 
-#month {
+.month-number {
   font: var(--font-display-large);
 }
 .header .tab {
@@ -48,6 +52,10 @@
   align-items: center;
   width: 132px;
   height: 44px;
+}
+
+.tab img {
+  cursor: pointer;
 }
 
 .tab .tab-box {

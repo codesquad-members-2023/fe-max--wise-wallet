@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="./list/list.css" />
     <!-- Javascript -->
     <script defer src="./header/month-move.js"></script>
+    <script defer src="./header/header.js"></script>
     <script defer src="./input-bar/input-bar.js"></script>
     <script defer src="./info/info.js"></script>
     <!-- 웹 타이틀 -->
@@ -35,25 +36,21 @@
   <body>
     <!-- 헤더 -->
     <header class="header">
-      <div class="header-box">
-        <div class="logo">
+      <div class="header__inner">
+        <div class="header__logo">
           <div>Wise Wallet</div>
         </div>
-        <div class="month-year">
+        <div class="header__month-year">
           <div>
-            <img src="./img/name=chevron-left.svg" alt="왼쪽" id="prev-month" />
+            <img src="./img/name=chevron-left.svg" class="prev-month" />
           </div>
-          <div class="date">
-            <div id="year">2023</div>
-            <div id="month"></div>
-            <div id="month-name"></div>
+          <div class="month-year__date">
+            <div class="header__year"></div>
+            <div class="month-number"></div>
+            <div class="month-name"></div>
           </div>
           <div>
-            <img
-              src="./img/name=chevron-right.svg"
-              alt="오른쪽"
-              id="next-month"
-            />
+            <img src="./img/name=chevron-right.svg" class="next-month" />
           </div>
         </div>
         <div class="tab">
@@ -268,4 +265,5 @@
     </main>
     <footer></footer>
   </body>
+  
 </html>
