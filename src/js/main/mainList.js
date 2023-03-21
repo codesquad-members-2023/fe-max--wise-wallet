@@ -1,7 +1,8 @@
 export function renderMainList(data) {
-	if (isNewDate) {
-		addDailyList();
-	}
+	// if (isNewDate) {
+	// 	addDailyList();
+	// }
+	addDailyList();
 	addDailyDetailList(data);
 }
 
@@ -26,16 +27,22 @@ function addDailyList() {
 
 function addDailyDetailList(data) {
 	const newList = document.createElement('li');
+	const details = ['category', 'memo', 'payment', 'price'];
 	const Detail_Template = key => `<div class="daily-detail-${key}">${data[key]}</div>`;
 
-	newList.classList.add('expenditure');
-	newList.appendChild(Detail_Template('category'));
-	newList.appendChild(Detail_Template('memo'));
-	newList.appendChild(Detail_Template('payment'));
-	newList.appendChild(Detail_Template('price'));
+	newList.classList.add('daily-detail-list');
+	if (!data.hasOwnProperty('income')) {
+		newList.classList.add('expenditure');
+	} else {
+		newList.classList.add('income');
+	}
 
-	const dailyDetailLists = document.querySelector('ul.daily-datail-lists-container');
-	dailyDetailLists.insertAdjacentElement('beforeend', newList);
+	details.forEach(el => {
+		newList.insertAdjacentHTML('beforeend', Detail_Template(el));
+	});
+
+	const dailyDetailLists = document.querySelector('ul.daily-detail-lists-container');
+	dailyDetailLists.insertAdjacentElement('afterbegin', newList);
 }
 
 function updateDailyInfo() {
