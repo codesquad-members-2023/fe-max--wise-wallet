@@ -1,4 +1,3 @@
-import { setTodayDateInput } from "../../date/setTodayDateInput.js";
 import { createNode } from "../../utils/createNode.js";
 
 export const setHeader = () => {

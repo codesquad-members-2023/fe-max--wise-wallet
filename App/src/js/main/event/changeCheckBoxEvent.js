@@ -1,7 +1,6 @@
 import { getLocalStorage } from "../../localStorage/getLocalStorage.js";
 import { createNode } from "../../utils/createNode.js";
 import { setList } from "../display/setList.js";
-import { setListMain } from "../display/setListMain.js";
 
 export const changeCheckBoxEvent = () => {
   const $income_toggle = document.getElementById("income_toggle");

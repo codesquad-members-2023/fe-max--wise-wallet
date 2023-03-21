@@ -1,6 +1,3 @@
-import { getDateElements } from "./getDateElements.js";
-import { setDate } from "./setDate.js";
-
 export const setTodayDateInput = () => {
   const date = new Date();
   const yearText = date.getFullYear();
