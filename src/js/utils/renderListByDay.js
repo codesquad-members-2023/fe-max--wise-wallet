@@ -17,25 +17,9 @@ export const renderListByDay = (storedValue) => {
     .sort((a, b) => a.key - b.key);
   // console.log(sortedObjDate);
 
-  const expenditureList = sortedObjDate.filter((el) => el.type === false);
-  const incomeList = sortedObjDate.filter((el) => el.type === true);
-  const sameDayExArray = expenditureList.filter(
-    (el) => el.date.slice(-2) === $("#date-input").value.slice(-2)
-  );
-  const sameDayInArray = incomeList.filter(
-    (el) => el.date.slice(-2) === $("#date-input").value.slice(-2)
-  );
-
   const sameDayArray = sortedObjDate.filter(
     (el) => el.date.slice(-2) === $("#date-input").value.slice(-2)
   );
-
-  // if (!$("#plus-minus-btn").checked) {
-  //   // if ($("#expenditure-btn").checked) {
-
-  // }else{
-
-  // }
 
   if (sameDayArray.length === 1) {
     generateListBody(sameDayArray);
@@ -45,43 +29,4 @@ export const renderListByDay = (storedValue) => {
     generateListDetail(sameDayArray);
   }
 
-  // if (!$("#plus-minus-btn").checked) {
-  //   // if ($("#expenditure-btn").checked) {
-  //   //총 건수도 변해야하는가?
-  //   const expenditureList = sortedObjDate.filter((el) => el.type === false);
-
-  //   const sameDayArray = expenditureList.filter(
-  //     (el) => el.date.slice(-2) === $("#date-input").value.slice(-2)
-  //   );
-  //   console.log(sameDayArray);
-  //   if (sameDayArray.length === 1) {
-  //     generateListBody(sameDayArray);
-  //     generateListDetail(sameDayArray);
-  //   }
-  //   if (sameDayArray.length > 1) {
-  //     generateListDetail(sameDayArray);
-  //   }
-
-  //   return;
-  // }
-  // if ($("#plus-minus-btn").checked) {
-  //   // if ($("#expenditure-btn").checked) {
-  //   //총 건수도 변해야하는가?
-  //   const incomeList = sortedObjDate.filter((el) => el.type === true);
-
-  //   const sameDayArray = incomeList.filter(
-  //     (el) => el.date.slice(-2) === $("#date-input").value.slice(-2)
-  //   );
-  //   console.log(sameDayArray);
-
-  //   if (sameDayArray.length === 1) {
-  //     generateListBody(sameDayArray);
-  //     generateListDetail(sameDayArray);
-  //   }
-  //   if (sameDayArray.length > 1) {
-  //     generateListDetail(sameDayArray);
-  //   }
-
-  //   return;
-  // }
 };
