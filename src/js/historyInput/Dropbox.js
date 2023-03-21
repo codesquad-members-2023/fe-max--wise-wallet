@@ -35,9 +35,11 @@ const setDropdownListeners = () => {
 };
 
 const changeCategoryList = () => {
-  const buttonImg = $('.history__form-amount button img');
+  const incomeOrExpenditureButton = $('.history__form-amount button img');
   const optionsList = $('.history__form-category ul');
   const categoryInput = $('.history__form-category input');
+  const isExpenditure =
+    incomeOrExpenditureButton.getAttribute('data-value') === 'expenditure';
   const incomeCategoryList = optionsList.innerHTML;
   const expenditureCategoryList = `
   <li class="option">월급</li>
@@ -47,14 +49,22 @@ const changeCategoryList = () => {
 
   categoryInput.value = '';
 
-  if (
-    buttonImg.attributes.src.value === './src/assets/button_spending_minus.svg'
-  ) {
+  if (isExpenditure) {
     optionsList.innerHTML = expenditureCategoryList;
-    buttonImg.attributes.src.value = './src/assets/button_spending_plus.svg';
+    incomeOrExpenditureButton.setAttribute(
+      'src',
+      './src/assets/button_spending_plus.svg',
+    );
+    incomeOrExpenditureButton.setAttribute('alt', '수입 버튼');
+    incomeOrExpenditureButton.setAttribute('data-value', 'income');
   } else {
     optionsList.innerHTML = incomeCategoryList;
-    buttonImg.attributes.src.value = './src/assets/button_spending_minus.svg';
+    incomeOrExpenditureButton.setAttribute(
+      'src',
+      './src/assets/button_spending_minus.svg',
+    );
+    incomeOrExpenditureButton.setAttribute('alt', '지출 버튼');
+    incomeOrExpenditureButton.setAttribute('data-value', 'expenditure');
   }
   setDropdownListeners();
 };
