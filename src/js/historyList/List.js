@@ -53,3 +53,11 @@ function makeGroupDate(list) {
 
   return groupedData;
 }
+
+function formatDate(dateValue) {
+  const year = String(dateValue).slice(0, 4);
+  const month = String(dateValue).slice(4, 6);
+  const day = String(dateValue).slice(6, 8);
+
+  return `${year}-${month}-${day}`;
+}
