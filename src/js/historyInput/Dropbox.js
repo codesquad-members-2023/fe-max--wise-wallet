@@ -1,4 +1,4 @@
-import { $, $$ } from '../utils/dom.js';
+import { $, $$ } from '../utils/utils.js';
 import { checkFormFilled } from './CheckForm.js';
 
 const dropdowns = $$('.dropdown__wrap');
