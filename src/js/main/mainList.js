@@ -4,6 +4,8 @@ export function renderMainList(data) {
 	// }
 	addDailyList();
 	addDailyDetailList(data);
+	updateDailyInfo();
+	updateInfoFilter();
 }
 
 function isNewDate() {
@@ -46,7 +48,11 @@ function addDailyDetailList(data) {
 }
 
 function updateDailyInfo() {
-	// 윗 부분 일별 수입지출 내역 요약부분 수정
+	// 날짜별 상단에 수입지출 요약부분 내용 업데이트
+}
+
+function updateInfoFilter() {
+	// 메인화면 상단 전체내역 요약부분 업데이트
 }
 
 // 메인영역렌더링함수
