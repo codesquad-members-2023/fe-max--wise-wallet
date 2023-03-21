@@ -54,6 +54,71 @@ function makeGroupDate(list) {
   return groupedData;
 }
 
+function addList(groupedData) {
+  const listWrap = document.querySelector('.history-lists__wrap');
+  listWrap.innerHTML = '';
+
+  Object.entries(groupedData).forEach(([dateData, listData]) => {
+    const dateMonth = Number(dateData.substring(4, 6));
+    const dateDay = dateData.substring(6, 8);
+    const dayOfWeek = getDayOfWeek(formatDate(dateData));
+
+    let expenses = 0;
+    let incomes = 0;
+
+    const templateContentWrap = document.createElement('ul');
+    templateContentWrap.className = 'history-list__item body-medium';
+
+    listData.forEach((item) => {
+      const isIncome = item.incomeOrExpenditure === 'income';
+      const isExpenditure = item.incomeOrExpenditure === 'expenditure';
+
+      if (isIncome) incomes += Number(item.amount);
+      if (isExpenditure) expenses -= Number(item.amount);
+
+      const listItem = document.createElement('li');
+      listItem.innerHTML = `
+        <div class="tag tag--life bold-medium">${item.category}</div>
+        <div class="history-list__item-content">
+          ${item.description}
+        </div>
+        <div class="history-list__item-payment-method">${
+          item.paymentMethod
+        }</div>
+        <div class="history-list__item-amount plus-color">
+          ${getFormattedNumber(item.amount)}원
+        </div>
+      `;
+
+      templateContentWrap.appendChild(listItem);
+    });
+
+    const templateListTop = `
+      <div class="history-list__top">
+        <div class="history-list__info bold-medium">
+          <div class="history-list__info-dateday">
+            <span class="history-list__info-date">${dateMonth}월 ${dateDay}일</span>
+            <span class="history-list__info-day">${dayOfWeek}</span>
+          </div>
+          <div class="history-list-info__total">
+            <div class="history-list-info__expense">
+              수입 <span>${getFormattedNumber(String(incomes))}원</span>
+            </div>
+            <div class="history-list-info__income">
+              지출 <span>${getFormattedNumber(String(expenses))}원</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+
+    const listTop = document.createElement('div');
+    listTop.innerHTML = templateListTop + templateContentWrap.outerHTML;
+
+    listWrap.appendChild(listTop);
+  });
+}
+
 function getDayOfWeek(dateValue) {
   const date = new Date(dateValue);
   const dayOfWeek = date.getDay();
