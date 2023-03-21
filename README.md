@@ -5,6 +5,8 @@
 ## ⭐️ 2주차 학습키워드: `#DOM APIs` `#Event` `#Event delegation`
 ## ⭐️ 3주차 학습키워드: `#canvas` `#svg` `#데이터 시각화` `#애니메이션`
 
+## 미리보기
+![wise-wallet](https://user-images.githubusercontent.com/76121068/226588110-3b4075f0-dc4a-4a5e-b0f9-26eeda71274b.gif)
 ## 🎯 학습 목표
 1주차
 - HTML 태그 활용
