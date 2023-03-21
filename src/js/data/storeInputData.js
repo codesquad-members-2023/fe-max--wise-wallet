@@ -1,3 +1,5 @@
+import { renderMainList } from '../main/mainList.js';
+
 const form = document.querySelector('form');
 
 function submitEventHandler() {
@@ -12,6 +14,7 @@ function submitEventHandler() {
 		}
 
 		processFormDate(inputData);
+		renderMainList(inputData);
 	});
 }
 
