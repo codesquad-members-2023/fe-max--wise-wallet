@@ -19,7 +19,7 @@ price.priceInput.addEventListener("keyup", (e) => {
   const price = e.target.value.replace(/[^0-9]/g, "");
 
   if (e.target.value === "") {
-    e.target.value = 0;
+    e.target.value = "";
   } else {
     e.target.value = parseInt(price).toLocaleString("ko-KR");
   }
