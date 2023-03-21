@@ -54,6 +54,14 @@ function makeGroupDate(list) {
   return groupedData;
 }
 
+function getDayOfWeek(dateValue) {
+  const date = new Date(dateValue);
+  const dayOfWeek = date.getDay();
+  const days = ['일', '월', '화', '수', '목', '금', '토'];
+
+  return days[dayOfWeek];
+}
+
 function formatDate(dateValue) {
   const year = String(dateValue).slice(0, 4);
   const month = String(dateValue).slice(4, 6);
