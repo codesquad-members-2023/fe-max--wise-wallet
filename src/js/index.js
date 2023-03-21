@@ -5,7 +5,7 @@ import './inputbar/dropdown.js';
 import './inputbar/autoComma.js';
 import './inputbar/switchCategory.js';
 import './utils/formValidation.js';
-import './data/formData.js';
+import './data/storeInputData.js';
 
 const init = () => {
 	initHeaderMonthYear();
