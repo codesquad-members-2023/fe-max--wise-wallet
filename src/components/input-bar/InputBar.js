@@ -93,7 +93,7 @@ template.innerHTML = `
       transform: translateX(-50%);
     }
     
-    .input-bar > form {
+    form {
       height: 76px;
       padding: 16px 24px;
       display: flex;
@@ -156,15 +156,15 @@ template.innerHTML = `
       width: 120px;
     }
 
-    .input-bar__item-input#date-input {
+    #date-input {
       position: relative;
     }
 
-    .input-bar__item-input#date-input::-webkit-inner-spin-button {
+    #date-input::-webkit-inner-spin-button {
       display: none;
     }
 
-    .input-bar__item-input#date-input::-webkit-calendar-picker-indicator {
+    #date-input::-webkit-calendar-picker-indicator {
       width: 100%;
       height: 100%;
       position: absolute;
@@ -196,17 +196,17 @@ template.innerHTML = `
       cursor: pointer;
     }
 
-    .input-bar__item-input#amount-input {
+    #amount-input {
       width: 78px;
       text-align: right;
     }
 
-    .input-bar__item-input#amount-input::-webkit-inner-spin-button,
-    .input-bar__item-input#amount-input::-webkit-outer-spin-button {
+    #amount-input::-webkit-inner-spin-button,
+    t#amount-input::-webkit-outer-spin-button {
       display: none;
     }
 
-    .input-bar__item-input#amount-input::after {
+    #amount-input::after {
       content: "원";
       width: 20px;
       height: 20px;
@@ -222,7 +222,7 @@ template.innerHTML = `
       width: 148px;
     }
 
-    .input-bar > form > button {
+    .entry-submit-btn {
       width: 40px;
       height: 40px;
       background-color: var(--color-primary-alt-40);
@@ -231,12 +231,12 @@ template.innerHTML = `
       cursor: not-allowed;
     }
     
-    .input-bar > form > button:not(button:disabled) {
+    .entry-submit-btn:not(button:disabled) {
       background-color: var(--color-secondary-yellow);
       cursor: pointer;
     }
     
-    .input-bar > form > button > img {
+    .entry-submit-btn > img {
       width: 24px;
       height: 24px;
       filter: var(--filter-white);
@@ -284,9 +284,9 @@ class InputBar extends HTMLElement {
       amountInput.value = this.separateByThousands(amountInput.value);
     });
 
-    newEntryForm.addEventListener("change", () =>
-      this.enableOrDisableSubmitBtn(allInputs, submitBtn)
-    );
+    newEntryForm.addEventListener("change", () => {
+      this.enableOrDisableSubmitBtn(allInputs, submitBtn);
+    });
 
     newEntryForm.addEventListener("submit", (evt) => {
       evt.preventDefault();
@@ -300,11 +300,7 @@ class InputBar extends HTMLElement {
   }
 
   enableOrDisableSubmitBtn(allInputs, submitBtn) {
-    if ([...allInputs].every((x) => x.value)) {
-      submitBtn.disabled = false;
-    } else {
-      submitBtn.disabled = true;
-    }
+    submitBtn.disabled = ![...allInputs].every((x) => x.value);
   }
 
   submitNewEntry(allInputs, submitBtn) {
