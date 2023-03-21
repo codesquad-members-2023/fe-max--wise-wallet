@@ -102,7 +102,7 @@ const init = () => {
   initEventHandler();
   initListTotalLength();
   initTotalIncomeExpenditure();
-  // initList()
+  initList()
 };
 
 document.addEventListener("DOMContentLoaded", init);

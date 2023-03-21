@@ -1,5 +1,4 @@
 import { $ } from "./dom.js";
-import { inputStore } from "../store/inputStore.js";
 
 export const generateListDetail = (sameDayArray) => {
   console.log(sameDayArray[0].date);
@@ -23,7 +22,7 @@ export const generateListDetail = (sameDayArray) => {
         <span class="list-detail-payment list-detail-item">${
           expenditureList[expenditureList.length - 1].payment
         }</span>
-        <span class="list-detail-price list-detail-item style="color:${
+        <span class="list-detail-price list-detail-item" style="color: ${
           $("#plus-minus-btn").checked ? "blue" : "red"
         }">${$("#plus-minus-btn").checked ? "" : "-"}${
         expenditureList[expenditureList.length - 1].price
