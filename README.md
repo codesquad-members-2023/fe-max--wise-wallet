@@ -281,10 +281,19 @@
 
 - [ ]  메인 영역
     - [ ]  로컬스토리지에 입력한 내역 데이터 저장하기
-        - [ ]  데이터 저장 형식 정하기
-        - [ ]  각 데이터 구분방식 생각하기
-        - [ ]  클래스, 객체?
+        - [x]  데이터 저장 형식 정하기
+        - [x]  각 데이터 구분방식 생각하기
     - [ ]  입력한 날짜별 내역 화면에 렌더링하기
+        - [x]  새로운 submit 이벤트 발생할 때마다 새로운 항목을 추가하고 렌더링한다.
+        - [ ]  기존에 저장된 날짜가 아닌 새로운 날짜의 내역이 입력되면 새로운 daily-list 생성
+            - [ ]  기존에 있던 날짜인지 확인하기
+            - [x]  새로운 daily-list 생성하기
+        - [ ]  해당하는 날짜의 daily-list에 daily-detail-list를 추가
+            - [x]  새로운 리스트를 만들고 클래스를 추가한다.
+            - [x]  카테고리, 메모, 결제수단, 가격 데이터를 template literal을 사용해서 insertAdjacentHTML로 삽입한다.
+            - [x]  해당 날짜의 daily-list에 새로 만든 daily-detail-list를 insertAdjacentElement로 삽입한다.
+            - [ ]  daily-info 내용을 업데이트 한다.
+        - [ ]  전체내역 info-filter 내용 업데이트
     - [ ]  선택한 내역 수정 / 삭제 기능
     - [ ]  전체내역 수입/지출 필터링 기능
     - [ ]  결제수단 추가/삭제 (선택기능. 필수 아님)
@@ -382,6 +391,11 @@
     - 경로 설정에 문제였음 `import { initInputDate } from './initInputDate';` 여기서 ./initInputDate.js 로 확장자명 까지 경로를 확실히 명시해야 읽어올 수 있었다.
     - eslint에서 .js 붙이면 빨간줄이 그어져서 헷갈렸다.
     - [https://velog.io/@gabdol/자바스크립트-netERRABORTED-404-Not-Found-에러-해결-방법](https://velog.io/@gabdol/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-netERRABORTED-404-Not-Found-%EC%97%90%EB%9F%AC-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95)
+
+3주차
+- 한번에 너무 많은 것을 고민하려 하지 말자.
+    - 월요일 하루를 쓸데없는 주말과 똑같은 고민만 하다가 시간을 날린 것 같다. 아직 메인화면 렌더링 하는 것도 못한 상태에서 후에 항목들을 수정/삭제 할 것 까지 생각하다보니 코드로 구현은 한 줄도 못하고 멈춰있었다.
+    - 큰 문제를 작은 문제로 쪼개고 후에 수정하거나 하면 될 문제를 가지고 너무 어렵게 생각한 것 같다. 일단 입력받은 데이터를 로컬 스토리지에 저장하는 것은 성공했으니 그걸 메인 화면에 렌더링하고 난 후에 수정/삭제를 고민해보려 한다.
 ## 참고자료
 1주차
 - [https://velog.io/@\_jouz_ryul/ESLint-Prettier-Airbnb-Style-Guide로-설정하기](https://velog.io/@_jouz_ryul/ESLint-Prettier-Airbnb-Style-Guide%EB%A1%9C-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0)
