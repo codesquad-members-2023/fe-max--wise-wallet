@@ -1,6 +1,6 @@
 export function renderMainList(data) {
 	if (isNewDate(data)) {
-		addDailyList();
+		addDailyList(data);
 	}
 	// addDailyList();
 	addDailyDetailList(data);
@@ -14,7 +14,7 @@ function isNewDate({ date }) {
 	return monthlyList[date].length === 1;
 }
 
-function addDailyList() {
+function addDailyList({ date }) {
 	const newLi = document.createElement('li');
 	const newDiv = document.createElement('div');
 	const newUl = document.createElement('ul');
@@ -22,6 +22,7 @@ function addDailyList() {
 	newLi.classList.add('daily-list');
 	newDiv.classList.add('daily-info');
 	newUl.classList.add('daily-detail-lists-container');
+	newUl.setAttribute('id', `list-${date}`);
 	newLi.appendChild(newDiv);
 	newLi.appendChild(newUl);
 
@@ -45,7 +46,7 @@ function addDailyDetailList(data) {
 		newList.insertAdjacentHTML('beforeend', detailTemplate(el));
 	});
 
-	const dailyDetailLists = document.querySelector('ul.daily-detail-lists-container');
+	const dailyDetailLists = document.getElementById(`list-${data.date}`);
 	dailyDetailLists.insertAdjacentElement('afterbegin', newList);
 }
 
