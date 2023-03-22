@@ -86,7 +86,7 @@ body {
 }
 .header__date-wrap .year,
 .header__date-wrap .month,
-.header__date-wrap .month-word {
+.header__date-wrap .month-text {
   color: white;
 }
 

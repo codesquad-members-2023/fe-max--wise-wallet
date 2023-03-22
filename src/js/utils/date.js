@@ -1,9 +1,9 @@
 export const currentDate = new Date();
 export const year = currentDate.getFullYear();
-export const month = currentDate.getMonth();
+export const month = currentDate.getMonth() + 1;
 export const date = currentDate.getDate();
 
-export const monthNames = [
+export const monthTexts = [
   'January',
   'February',
   'March',
@@ -17,4 +17,5 @@ export const monthNames = [
   'November',
   'December',
 ];
-export const monthName = monthNames[month];
+
+export const monthText = monthTexts[month - 1];
