@@ -2,8 +2,6 @@
 <html lang="ko">
 	<head>
 		<meta charset="UTF-8" />
-		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" href="./favicon.ico" type="image/x-icon" sizes="16x16" />
 		<link rel="stylesheet" href="./src/css/reset.css" />
 		<link rel="stylesheet" href="./src/css/root.css" />
@@ -111,7 +109,7 @@
 				<div class="input-price">
 					<label for="inputPrice">금액</label>
 					<div class="input-price-window">
-						<input class="input-price-checkbox" type="checkbox" />
+						<input class="input-price-checkbox" name="income" type="checkbox" />
 						<input id="inputPrice" type="text" name="price" placeholder="0" autocomplete="off" required/>
 						<span>원</span>
 					</div>
@@ -247,55 +245,55 @@
 				</div>
 			</header>
 			<section class="main-list">
-				<ul class="monthly-details-container">
-					<li class="monthly-details-element">
+				<ul class="daily-lists-container">
+					<li class="daily-list">
 						<div class="daily-info">
-							<div><strong>3월 17일</strong> 수</div>
-							<div>지출 <span>27,000</span></div>
+							<div><span>3월 17일</span> <span>수</span></div>
+							<div><span>지출</span> <span>27,000</span></div>
 						</div>
-						<ul class="daily-details-container">
-							<li class="daily-details expenditure">
-								<div class="daily-details-category">문화/여가</div>
-								<div class="daily-details-content">넷플릭스 결제</div>
-								<div class="daily-details-payment">체크카드</div>
-								<div class="daily-details-price">-17,000원</div>
+						<ul class="daily-detail-lists-container">
+							<li class="daily-detail-list expenditure">
+								<div class="daily-detail-category">문화/여가</div>
+								<div class="daily-detail-memo">넷플릭스 결제</div>
+								<div class="daily-detail-payment">체크카드</div>
+								<div class="daily-detail-price">-17,000원</div>
 							</li>
-							<li class="daily-details expenditure">
-								<div class="daily-details-category">식비</div>
-								<div class="daily-details-content">맥도날드</div>
-								<div class="daily-details-payment">체크카드</div>
-								<div class="daily-details-price">-10,000원</div>
+							<li class="daily-detail-list expenditure">
+								<div class="daily-detail-category">식비</div>
+								<div class="daily-detail-memo">맥도날드</div>
+								<div class="daily-detail-payment">체크카드</div>
+								<div class="daily-detail-price">-10,000원</div>
 							</li>
 						</ul>
 					</li>
-					<li class="monthly-details-element">
+					<!-- <li class="daily-list">
 						<div class="daily-info">
 							<div><strong>3월 15일</strong> 수</div>
 							<div>지출 <span>1,450</span></div>
 						</div>
-						<ul class="daily-details-container">
-							<li class="daily-details expenditure">
-								<div class="daily-details-category">교통</div>
-								<div class="daily-details-content">지하철 요금</div>
-								<div class="daily-details-payment">체크카드</div>
-								<div class="daily-details-price">-1,450원</div>
+						<ul class="daily-detail-lists-container">
+							<li class="daily-detail-list expenditure">
+								<div class="daily-detail-category">교통</div>
+								<div class="daily-detail-memo">지하철 요금</div>
+								<div class="daily-detail-payment">체크카드</div>
+								<div class="daily-detail-price">-1,450원</div>
 							</li>
 						</ul>
 					</li>
-					<li class="monthly-details-element">
+					<li class="daily-list">
 						<div class="daily-info">
 							<div><strong>3월 14일</strong> 수</div>
 							<div>수입 <span>500,000</span></div>
 						</div>
-						<ul class="daily-details-container">
-							<li class="daily-details income">
-								<div class="daily-details-category">용돈</div>
-								<div class="daily-details-content">2월달 용돈</div>
-								<div class="daily-details-payment">계좌</div>
-								<div class="daily-details-price">+500,000원</div>
+						<ul class="daily-detail-lists-container">
+							<li class="daily-detail-list income">
+								<div class="daily-detail-category">용돈</div>
+								<div class="daily-detail-memo">2월달 용돈</div>
+								<div class="daily-detail-payment">계좌</div>
+								<div class="daily-detail-price">+500,000원</div>
 							</li>
 						</ul>
-					</li>
+					</li> -->
 				</ul>
 			</section>
 		</main>

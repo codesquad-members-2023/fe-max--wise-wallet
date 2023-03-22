@@ -1,8 +1,12 @@
 # 가계부 미션
 
 ## ⭐️ 1주차 학습키워드: `#html5 layout` `#HTML,CSS 디버깅` `#html` `#css` `#css layout` `#SPA`
-## ⭐️ 2주차 학습키워드: `#DOM APIs` `#Event` `#Event delegation`
 
+## ⭐️ 2주차 학습키워드: `#DOM APIs` `#Event` `#Event delegation`
+## ⭐️ 3주차 학습키워드: `#canvas` `#svg` `#데이터 시각화` `#애니메이션`
+
+## 미리보기
+![wise-wallet](https://user-images.githubusercontent.com/76121068/226588110-3b4075f0-dc4a-4a5e-b0f9-26eeda71274b.gif)
 ## 🎯 학습 목표
 1주차
 - HTML 태그 활용
@@ -16,6 +20,11 @@
 - Event delegation(이벤트 위임)을 이해한다.
 - Event 객체를 잘 활용한다.
 
+3주차
+- 데이터 시각화를 이해하고 이를 표현할 수 있다.
+- 애니메이션 원리를 이해하고 이를 구현할 수 있다.
+- JavaScript 특징을 이해한다 (Scope, Closure)
+
 ## ⏰ 학습 계획
 1주차
 - 루카스에 올라온 학습 자료들은 차근차근 살펴보며 학습한다.
@@ -28,11 +37,11 @@
   - HTML, CSS로 메인 페이지 UI 만들기
     - HTML ✅
     - CSS ✅
-  - '월' 이동 기능 구현
+  - '월' 이동 기능 구현 ✅
   - 새로운 내역 입력 기능 구현
 - HTML 시맨틱(semantic) 태그에 대해서 공부한다. ✅
 - 웹 접근성(Web Accessibility)에 대해서 알아본다. ✅
-- SPA에 대해서 조사해본다.
+- SPA에 대해서 조사해본다. ✅
 - 깔끔한 코드 작성을 위해서 ESLint, Prettier에 대해서 알아보고 설정한다. ✅
 - Figma로 만들어진 기획서를 읽어보고 이해해본다. ✅
 
@@ -49,7 +58,7 @@
     - 금액은 3자리 수마다 ‘ , ’가 찍히게 한다. ✅
     - 금액에 +,-로 수입/지출 분류가 바뀐다. ✅ 
     - 모든 항목이 입력되었을 때 버튼 활성화
-        - 버튼 아이콘 색상은 어떻게 변하게 할까?
+        - 버튼 아이콘 색상은 어떻게 변하게 할까? ✅ 
 - 메인 리스트에 항목을 어떻게 추가할지 고민한다.
     - 최근에 등록한 내역이 위에 오도록
     - 수입/지출에 따라 필터링이 될 수 있게
@@ -58,6 +67,15 @@
 - 캘린더 영역 구현
     - 탭으로 아이콘 이동가능하게
     - html, css로 UI 만들기
+
+3주차
+이번 가계부 미션은 크게 메인, 캘린더, 차트 영역으로 나뉘어져 있지만, 지금 진행 속도로 캘린더와 차트까지 구현하기에는 쉽지 않을 듯 하다. 메인 영역이라도 제대로 작동하도록 이번주까지 구현하는 것이 목표이다. 여유가 있다면 나머지 영역까지 구현해 보고싶다.
+
+- 입력한 내역을 데이터로 저장하는 방식에 대해서 생각한다.
+- 로컬스토리지에 들어가 있는 객체를 꺼내올 때 어떻게 구분할 수 있을지 생각한다.
+- 로컬스토리지에 저장된 내역 데이터를 메인 화면에 렌더링 하는 기능을 구현한다.
+- 수입/지출 필터링 할 수 있는 기능을 구현한다.
+- 각 내역을 수정/삭제 할 수 있는 기능을 구현한다.
 
 ## 📚 1주차 학습 정리
 
@@ -231,12 +249,71 @@
 
 - css의 :root 파일에서 font 한줄 선언 → [https://stackoverflow.com/questions/4218549/one-css-declaration-for-all-css-font-properties](https://stackoverflow.com/questions/4218549/one-css-declaration-for-all-css-font-properties)
 
+## 📚 3주차 학습 정리
+
+### 1) MVC 패턴
+백엔드 애플리케이션에 주로 적용되고 있는 전통적인 아키텍쳐로, 구조를 **데이터**와 로직을 관리하는 모델(model), 보여지는 **화면**을 처리하는 뷰(view), 모델과 뷰 중간에서 중재하는 컨트롤러(controller)로 이렇게 세 부분으로 나눈다.
+
+그런데 FE에서도 MVC 패턴을 그대로 적용할 수 있을까?
+
+- view가 많고 여기서 수많은 이벤트가 발생한다.
+- view와 model 간 양방향 처리가 필요하다.
+- 이를 중재하기 위한 슈퍼 울트라 컨트롤러가 생기게 된다.
+- 리렌더링을 최소화하기 위해서 view 간의 계층 처리가 필요하다.
+
+→ 복잡한 view와 model 관계를 단순화하고, 쉽고 효율적인 DOM 처리가 중요하다! MVC…?
+
+요즘 FE에서 사용되는 기술들
+
+- 데이터 바인딩
+    - view ↔ model 자동 변경
+    - Svelte 등
+- MVVM 패턴
+    - Model과 View 사이에 binder 역할을 하는 VM(ViewModel) 존재
+    - Vue.js 등 다수의 프레임워크
+    - 양방향 데이터 바인딩
+- Flux 아키텍쳐 (React)
+    - 한 방향으로 흐름을 제어하며 동작
+    - 상태관리 라이브러리 (Redux, Recoil 등)
+
+지금은 직접 적용하기에는 너무 어렵고 복잡한 개념인 것 같다. 일단 하던 구현이나 마저 하자…
+### 2) Destructuring (비구조화 할당)
+
+### 3) Nullish coalescing operator (널 병합 연산자)
+
+**Syntax: `leftExpr ?? rightExpr`**
+
+널 병합 연산자(`??`)는 왼쪽 피연산자가 null 또는 undefined 일 때 오른쪽 피연산자를 반환하고, 그렇지 않으면 왼쪽 피연산자를 반환하는 논리 연산자이다.
+
+```json
+const foo = undefined ?? "default string";
+console.log(foo); // default string
+
+const bar = 0 ?? 777;
+console.log(bar); // 0
+```
+
+이는 논리 연산자 OR(`||`)과 비슷해 보이지만, OR은 왼쪽 피연산자가 null, undefined 이외에 falsy 값일 경우에도 오른쪽 피연산자를 반환한다는 점에서 차이가 있다. 
+
+어떤 변수에 falsy값(`’’` , `0`, `NaN` 등)도 유효한 기본값으로 할당하고 싶을 때는 OR 연산자를 사용했을 때 예기치 못한 동작(왼쪽 피연산자가 boolean으로 강제 변환됨)이 발생할 수 있으므로, 널 병합 연산자를 사용하는게 더 나을 수 있다.
+
+```json
+let myText = '';
+
+let notFalsyText = myText || "I am default!";
+let preservingFalsy = myText ?? "I am default!";
+
+console.log(notFalsyText); // I am default!
+console.log(preservingFalsy); // ''
+```
+
+### 4) Array.prototype.every(), Array.prototype.some()
 ## ✨ 요구사항
 
 ### 1주차 주요 개발 feature
 
 - ~~메인 페이지 전체 UI (HTML,CSS)~~
-- '월' 이동 기능
+- ~~'월' 이동 기능~~
   - [x]  처음에 오늘 날짜를 기준으로 연월 표시
       - [x]  기존 getToday 함수 활용해서 현재 날짜 구하기
       - [x]  연월 표시
@@ -247,7 +324,6 @@
   - [x]  오른쪽 버튼 클릭시 다음달로 이동
       - [x]  현재달 +1
       - [x]  12월 일때 내년으로 바뀌면서 1월로
-  - [ ]  헤더 연월에 맞춰 인풋바 일자도 변경되도록 하는 기능
 - 새로운 내역 입력
   - [ ]  인풋바 모든 정보 입력시 확인 버튼 활성화
     - [x]  각 칸에 정보가 입력되어 있는지 확인
@@ -259,13 +335,30 @@
     - [x]  후에 각 내역별로 다시 불러와 수정/삭제가 가능해야 한다
     - [x]  FormData와 Localstorage 활용 월별, 일자별 구분 가능하게 저장
 
-### 2주차 주요 개발 feature
+### 2 & 3주차 주요 개발 feature
 
-- 메인 영역
-    - 항목 수정 / 삭제
-    - 수입/지출 필터링에 따른 목록 랜더링
-    - 결제수단 추가/삭제 (선택기능. 필수 아님)
+### 3주차 주요 개발 feature
+
+- [ ]  메인 영역
+    - [x]  로컬스토리지에 입력한 내역 데이터 저장하기
+        - [x]  데이터 저장 형식 정하기
+        - [x]  각 데이터 구분방식 생각하기
+    - [ ]  입력한 날짜별 내역 화면에 렌더링하기
+        - [x]  새로운 submit 이벤트 발생할 때마다 새로운 항목을 추가하고 렌더링한다.
+        - [ ]  기존에 저장된 날짜가 아닌 새로운 날짜의 내역이 입력되면 새로운 daily-list 생성
+            - [ ]  기존에 있던 날짜인지 확인하기
+            - [x]  새로운 daily-list 생성하기
+        - [ ]  해당하는 날짜의 daily-list에 daily-detail-list를 추가
+            - [x]  새로운 리스트를 만들고 클래스를 추가한다.
+            - [x]  카테고리, 메모, 결제수단, 가격 데이터를 template literal을 사용해서 insertAdjacentHTML로 삽입한다.
+            - [x]  해당 날짜의 daily-list에 새로 만든 daily-detail-list를 insertAdjacentElement로 삽입한다.
+            - [ ]  daily-info 내용을 업데이트 한다.
+        - [ ]  전체내역 info-filter 내용 업데이트
+    - [ ]  선택한 내역 수정 / 삭제 기능
+    - [ ]  전체내역 수입/지출 필터링 기능
+    - [ ]  결제수단 추가/삭제 (선택기능. 필수 아님)
 - 캘린더 영역
+- 차트 영역
 
 ### HTML
 
@@ -308,6 +401,9 @@
 
 - native 객체(Array, Function, Number, String)에서 prototype을 어떻게 활용하고 있는지 찾아보고 정리한다.
 - 정리한 내용을 자유로운 형식으로 PR 보낼때 함께 보낸다.
+- 함수가 실행될때 scope가 어떻게 형성되고, 변수를 찾는 과정인 scope chain이 무엇인지 공부한다.
+- 그 과정에서 일어나는 Closure 라는 개념도 학습한다.
+- 정리한 내용은 PR 보낼때 같이 보낸다(정리링크, 직접입력 등 자유롭게)
 
 ### Debugging
 
@@ -326,6 +422,8 @@
 - attribute vs property → [https://medium.com/hexlant/attribute-와-property-의-차이-c6f1c91ba91](https://medium.com/hexlant/attribute-%EC%99%80-property-%EC%9D%98-%EC%B0%A8%EC%9D%B4-c6f1c91ba91)
 - 웹 컴포넌트 shadow DOM → [https://ui.toast.com/posts/ko_20170721](https://ui.toast.com/posts/ko_20170721)
 
+3주차
+- MVC
 ## 😵‍💫 삽질 기록
 1주차
 - position absolute 시 요소의 가운데 정렬 → [https://velog.io/@sklove96/css-absolute-일-때-가운데-정렬-방법](https://velog.io/@sklove96/css-absolute-%EC%9D%BC-%EB%95%8C-%EA%B0%80%EC%9A%B4%EB%8D%B0-%EC%A0%95%EB%A0%AC-%EB%B0%A9%EB%B2%95)
@@ -355,6 +453,11 @@
     - 경로 설정에 문제였음 `import { initInputDate } from './initInputDate';` 여기서 ./initInputDate.js 로 확장자명 까지 경로를 확실히 명시해야 읽어올 수 있었다.
     - eslint에서 .js 붙이면 빨간줄이 그어져서 헷갈렸다.
     - [https://velog.io/@gabdol/자바스크립트-netERRABORTED-404-Not-Found-에러-해결-방법](https://velog.io/@gabdol/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-netERRABORTED-404-Not-Found-%EC%97%90%EB%9F%AC-%ED%95%B4%EA%B2%B0-%EB%B0%A9%EB%B2%95)
+
+3주차
+- 한번에 너무 많은 것을 고민하려 하지 말자.
+    - 월요일 하루를 쓸데없는 주말과 똑같은 고민만 하다가 시간을 날린 것 같다. 아직 메인화면 렌더링 하는 것도 못한 상태에서 후에 항목들을 수정/삭제 할 것 까지 생각하다보니 코드로 구현은 한 줄도 못하고 멈춰있었다.
+    - 큰 문제를 작은 문제로 쪼개고 후에 수정하거나 하면 될 문제를 가지고 너무 어렵게 생각한 것 같다. 일단 입력받은 데이터를 로컬 스토리지에 저장하는 것은 성공했으니 그걸 메인 화면에 렌더링하고 난 후에 수정/삭제를 고민해보려 한다.
 ## 참고자료
 1주차
 - [https://velog.io/@\_jouz_ryul/ESLint-Prettier-Airbnb-Style-Guide로-설정하기](https://velog.io/@_jouz_ryul/ESLint-Prettier-Airbnb-Style-Guide%EB%A1%9C-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0)
@@ -371,3 +474,8 @@
 - [https://ko.javascript.info/events](https://ko.javascript.info/events)
 - [https://dom.spec.whatwg.org/](https://dom.spec.whatwg.org/)
 - [https://developer.mozilla.org/en-US/docs/Web/API/Element/tagName](https://developer.mozilla.org/en-US/docs/Web/API/Element/tagName)
+
+3주차
+- [https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing)
+- [https://www.youtube.com/watch?v=Y5vOfv67h8A](https://www.youtube.com/watch?v=Y5vOfv67h8A) (MVC)
+- [https://velog.io/@teo/프론트엔드에서-MV-아키텍쳐란-무엇인가요](https://velog.io/@teo/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%EC%97%90%EC%84%9C-MV-%EC%95%84%ED%82%A4%ED%85%8D%EC%B3%90%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80%EC%9A%94) (MVC)

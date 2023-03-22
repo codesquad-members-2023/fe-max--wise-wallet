@@ -1,6 +1,6 @@
-const $switchBtn = document.querySelector('.input-price-checkbox');
+const switchBtn = document.querySelector('.input-price-checkbox');
 
-$switchBtn.addEventListener('input', e => {
+switchBtn.addEventListener('input', e => {
 	const expenditureList = document.querySelector('.expenditure-category-list');
 	const incomeList = document.querySelector('.income-category-list');
 	if (e.target.checked) {
