@@ -7,15 +7,11 @@ export const changeCheckBoxEvent = () => {
   const $expenditure_toggle = document.getElementById("expenditure_toggle");
   let value = getLocalStorage();
 
-  if ($income_toggle !== null) {
-    value = $income_toggle.checked
-      ? value
-      : value.filter((e) => e.isPositive !== true);
+  if ($income_toggle !== null && !$income_toggle.checked) {
+    value = value.filter((e) => e.isPositive !== true);
   }
-  if ($expenditure_toggle !== null) {
-    value = $expenditure_toggle.checked
-      ? value
-      : value.filter((e) => e.isPositive !== false);
+  if ($expenditure_toggle !== null && !$expenditure_toggle.checked) {
+    value = value.filter((e) => e.isPositive !== false);
   }
 
   const $td = document.querySelectorAll("#main_history_list td");
