@@ -248,6 +248,40 @@
 - css의 :root 파일에서 font 한줄 선언 → [https://stackoverflow.com/questions/4218549/one-css-declaration-for-all-css-font-properties](https://stackoverflow.com/questions/4218549/one-css-declaration-for-all-css-font-properties)
 
 ## 📚 3주차 학습 정리
+
+### 1) MVC 패턴
+
+### 2) Destructuring (비구조화 할당)
+
+### 3) **Nullish coalescing operator (널 병합 연산자)**
+
+**Syntax: `leftExpr ?? rightExpr`**
+
+널 병합 연산자(`??`)는 왼쪽 피연산자가 null 또는 undefined 일 때 오른쪽 피연산자를 반환하고, 그렇지 않으면 왼쪽 피연산자를 반환하는 논리 연산자이다.
+
+```json
+const foo = undefined ?? "default string";
+console.log(foo); // default string
+
+const bar = 0 ?? 777;
+console.log(bar); // 0
+```
+
+이는 논리 연산자 OR(`||`)과 비슷해 보이지만, OR은 왼쪽 피연산자가 null, undefined 이외에 falsy 값일 경우에도 오른쪽 피연산자를 반환한다는 점에서 차이가 있다. 
+
+어떤 변수에 falsy값(`’’` , `0`, `NaN` 등)도 유효한 기본값으로 할당하고 싶을 때는 OR 연산자를 사용했을 때 예기치 못한 동작(왼쪽 피연산자가 boolean으로 강제 변환됨)이 발생할 수 있으므로, 널 병합 연산자를 사용하는게 더 나을 수 있다.
+
+```json
+let myText = '';
+
+let notFalsyText = myText || "I am default!";
+let preservingFalsy = myText ?? "I am default!";
+
+console.log(notFalsyText); // I am default!
+console.log(preservingFalsy); // ''
+```
+
+### 4) Array.prototype.every(), Array.prototype.some()
 ## ✨ 요구사항
 
 ### 1주차 주요 개발 feature
@@ -412,3 +446,7 @@
 - [https://ko.javascript.info/events](https://ko.javascript.info/events)
 - [https://dom.spec.whatwg.org/](https://dom.spec.whatwg.org/)
 - [https://developer.mozilla.org/en-US/docs/Web/API/Element/tagName](https://developer.mozilla.org/en-US/docs/Web/API/Element/tagName)
+
+3주차
+- [https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing)
+- 
