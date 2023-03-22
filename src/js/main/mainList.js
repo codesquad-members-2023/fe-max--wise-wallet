@@ -1,8 +1,8 @@
 export function renderMainList(data) {
 	if (isNewDate(data)) {
 		addDailyList(data);
+		addDailyInfo(data);
 	}
-	// addDailyList();
 	addDailyDetailList(data);
 	// updateDailyInfo();
 	// updateInfoFilter();
@@ -23,11 +23,24 @@ function addDailyList({ date }) {
 	newDiv.classList.add('daily-info');
 	newUl.classList.add('daily-detail-lists-container');
 	newUl.setAttribute('id', `list-${date}`);
-	newLi.appendChild(newDiv);
-	newLi.appendChild(newUl);
+	newLi.append(newDiv, newUl);
 
 	const currentPosition = document.querySelector('ul.daily-lists-container');
 	currentPosition.insertAdjacentElement('afterbegin', newLi);
+}
+
+function addDailyInfo({ date, price, income }) {
+	const targetDate = new Date(`${date.slice(0, 4)}-${date.slice(4, 6)}-${date.slice(6, 8)}`);
+	const days = ['일', '월', '화', '수', '목', '금', '토'];
+	const monthInfo = targetDate.getMonth() + 1;
+	const dateInfo = targetDate.getDate();
+	const dayInfo = days[targetDate.getDay()];
+	const inOrOut = !income ? '지출' : '수입';
+	const priceInfo = price;
+	const dailyInfoTemplate = `<div><span>${monthInfo}월 ${dateInfo}일</span> <span>${dayInfo}</span></div>
+  <div><span>${inOrOut}</span> <span>${priceInfo}원</span></div>`;
+	const dailyInfo = document.querySelector('.daily-info');
+	dailyInfo.insertAdjacentHTML('afterbegin', dailyInfoTemplate);
 }
 
 function addDailyDetailList(data) {
