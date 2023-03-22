@@ -1,6 +1,7 @@
-import { removeData } from "../localStorage/removeData.js";
-import { getData } from "../localStorage/getData.js";
-import { mainInit } from "./index.js";
+import { removeData } from "../../localStorage/removeData.js";
+import { getData } from "../../localStorage/getData.js";
+import { createNode } from "../../utils/createNode.js";
+import { setMainDisplay } from "../display/setMainDisplay.js";
 
 export const removeBtn = ($this) => {
   setRemoveListModal();
@@ -24,12 +25,13 @@ export const removeBtn = ($this) => {
   // 삭제 버튼
   $confirm_btn.addEventListener("click", () => {
     removeData(key);
-    mainInit();
+    setMainDisplay();
   });
 
   // 취소 버튼
   $cancel_btn.addEventListener("click", () => {
     $remove_list_modal.close();
+    $remove_list_modal.remove();
   });
 };
 
@@ -53,5 +55,8 @@ const setRemoveListModal = () => {
       </menu>
     </form>
   </dialog>`;
-  $modal_wrapper.innerHTML = modal;
+  const nodeList = createNode(modal);
+  nodeList.forEach((e) => {
+    $modal_wrapper.appendChild(e);
+  });
 };

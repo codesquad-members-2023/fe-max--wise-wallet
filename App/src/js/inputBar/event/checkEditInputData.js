@@ -1,4 +1,4 @@
-import { getData } from "../localStorage/getData.js";
+import { getData } from "../../localStorage/getData.js";
 
 export const checkEditInputData = () => {
   const $input_checkbox = document.querySelector("#input_bar #input_checkbox");

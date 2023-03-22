@@ -1,4 +1,4 @@
-import { addComma } from "../utils/addComma.js";
+import { addComma } from "../../utils/addComma.js";
 
 export const setTh = (array) => {
   // 수입
@@ -10,7 +10,6 @@ export const setTh = (array) => {
     obj.isPositive ? (income += obj.price) : (expenditure += obj.price);
   });
 
-  const $tr = document.createElement("tr");
   const th = `<th colspan="4">
       <div id="main_header">
         <h3 id="main_total_history" class="body-large">
@@ -50,7 +49,5 @@ export const setTh = (array) => {
       </div>
     </th>`;
 
-  $tr.innerHTML = th;
-
-  return $tr;
+  return th;
 };

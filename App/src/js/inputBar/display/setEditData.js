@@ -1,4 +1,4 @@
-import { getData } from "../localStorage/getData.js";
+import { getData } from "../../localStorage/getData.js";
 import { resetInputBar } from "./resetInputBar.js";
 import { setInputBar } from "./setInputBar.js";
 
@@ -22,6 +22,7 @@ export const setEditData = (e) => {
 
   const $target_list_tr = $this.closest(".list_tr");
   if ($target_list_tr !== null) {
+    resetInputBar();
     $target_list_tr.classList.add("selected_list");
     const key = $target_list_tr.querySelector(".uniqueKey").value;
     const data = JSON.parse(getData(key));

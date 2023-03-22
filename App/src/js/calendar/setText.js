@@ -23,7 +23,7 @@ export const setText = () => {
   $leftText.textContent = `${incomeText} ${expenditureText}`;
   $leftText.classList.add("primary-alt", "bold-medium");
   const $textDiv = document.createElement("div");
-  $textDiv.id = "calender_Text";
+  $textDiv.id = "calendar_Text";
   $textDiv.appendChild($leftText);
   $textDiv.appendChild($rigtText);
 

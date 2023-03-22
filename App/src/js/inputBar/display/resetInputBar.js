@@ -1,5 +1,5 @@
-import { setTodayDateInput } from "../date/setTodayDateInput.js";
-import { changeCategoryOption } from "./changeCategoryOption.js";
+import { setTodayDateInput } from "../../date/setTodayDateInput.js";
+import { changeCategoryOption } from "../event/changeCategoryOption.js";
 
 export const resetInputBar = () => {
   const $input_price = document.getElementById("input_price");
@@ -20,14 +20,12 @@ export const resetInputBar = () => {
   $price_toggle.checked = false;
 
   const $selected_text = document.querySelectorAll(".selected_text");
-  // const $input = document.querySelector("#input_bar input");
-
   $selected_text.forEach(($selected) => {
     $selected.textContent = "선택하세요";
   });
 
   // 이벤트 객체를 생성
   const changeEvent = new Event("keyup", { bubbles: true });
-  // input에 직접 change 이벤트를 발생
+  // 직접 이벤트를 발생
   $input_price.dispatchEvent(changeEvent);
 };

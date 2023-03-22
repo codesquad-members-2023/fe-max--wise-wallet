@@ -1,5 +1,5 @@
-import { addComma } from "../utils/addComma.js";
-import { changeCategoryOption } from "./changeCategoryOption.js";
+import { addComma } from "../../utils/addComma.js";
+import { changeCategoryOption } from "../event/changeCategoryOption.js";
 
 export const setInputBar = ({
   date,

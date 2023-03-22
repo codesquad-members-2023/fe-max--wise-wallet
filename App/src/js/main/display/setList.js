@@ -1,9 +1,9 @@
-import { addComma } from "../utils/addComma.js";
+import { addComma } from "../../utils/addComma.js";
 
 export const setList = (array) => {
   const group = setGroup(array);
   const keys = Object.keys(group).sort((a, b) => b - a);
-  const $tbody = document.createElement("tbody");
+  let htmlString = "";
 
   keys.forEach((key) => {
     // 수입
@@ -19,7 +19,6 @@ export const setList = (array) => {
         expenditure += obj.price;
         obj.price = obj.price * -1;
       }
-
       list_tr += `<tr class="list_tr ${
         obj.isPositive ? `income` : `expenditure`
       }_tr">
@@ -53,7 +52,6 @@ export const setList = (array) => {
             </td>
           </tr>`;
     });
-
     const date = key;
     const year = date.slice(0, 4);
     const month = date.slice(4, 6);
@@ -62,7 +60,6 @@ export const setList = (array) => {
     const dayOfWeek = ["일", "월", "화", "수", "목", "금", "토"][
       dateObj.getDay()
     ];
-
     let info_tr = `<tr class="info_tr">
           <td colspan="4">
             <div class="histoory_info">
@@ -86,17 +83,15 @@ export const setList = (array) => {
                   ? "&nbsp;&nbsp;지출&nbsp;" + addComma(expenditure) + " 원"
                   : ``
               }
-
               </div>
             </div>
           </td>
         </tr>`;
-
-    $tbody.innerHTML += info_tr;
-    $tbody.innerHTML += list_tr;
+    htmlString += info_tr;
+    htmlString += list_tr;
   });
 
-  return $tbody;
+  return htmlString;
 };
 
 const setGroup = (array) => {

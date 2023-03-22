@@ -3,7 +3,7 @@ import { getLocalStorage } from "../localStorage/getLocalStorage.js";
 import { addComma } from "../utils/addComma.js";
 import { setText } from "./setText.js";
 
-export const setCalender = () => {
+export const setCalendar = () => {
   const $calendar = document.getElementById("calendar");
   const $table = setTable();
   const $textDiv = setText();

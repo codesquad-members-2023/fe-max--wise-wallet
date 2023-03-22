@@ -53,6 +53,6 @@ export const changeCategoryOption = () => {
   $selected_value.value = "";
 
   const changeEvent = new Event("keyup", { bubbles: true });
-  // selectedInput에 직접 change 이벤트를 발생
+  // 직접 이벤트를 발생
   $price_checkbox.dispatchEvent(changeEvent);
 };
