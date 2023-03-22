@@ -29,29 +29,31 @@
   color: #524d90;
 }
 
-.income_history, .expenses_history {
+.income_history,
+.expenses_history {
   display: flex;
   text-align: right;
   margin-left: 14px;
   font: var(--font-body-medium);
 }
 
-#income_text, #expenses_text {
+#income_text,
+#expenses_text {
   width: auto;
   height: 24px;
 }
 
-input[type=checkbox] {
+input[type="checkbox"] {
   display: none;
 }
 
-input[type=checkbox] + label {
+input[type="checkbox"] + label {
   cursor: pointer;
   padding-left: 30px;
   background-repeat: no-repeat;
 }
 
-input[type=checkbox]:checked + label {
+input[type="checkbox"]:checked + label {
   background-image: url(../svg/checked.svg);
 }
 
@@ -67,7 +69,7 @@ input[type=checkbox]:checked + label {
 }
 
 #transaction_history_header {
-  margin-top : 28px;
+  margin-top: 28px;
   padding-bottom: 21px;
   display: flex;
   justify-content: space-between;
@@ -81,12 +83,12 @@ input[type=checkbox]:checked + label {
 
 #transaction_day {
   margin-left: 8px;
-  color: #A79FCB;
+  color: #a79fcb;
 }
 
 #total_price {
   text-align: right;
-  color: #A79FCB;
+  color: #a79fcb;
 }
 
 #main_details {

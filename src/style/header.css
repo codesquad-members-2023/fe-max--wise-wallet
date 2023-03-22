@@ -9,14 +9,18 @@
   color: #fcfcfc;
 }
 
-.content_container nav:hover {
+#chevron_left:hover,
+#chevron_right:hover {
   cursor: pointer;
+  transform: scale(1.2);
 }
 
 #header_title_logo {
   width: 132px;
   height: 24px;
   font: var(--font-display-small);
+  text-align: center;
+  cursor: pointer;
 }
 
 .header_monthYear_info {
@@ -47,17 +51,21 @@
   align-items: center;
 }
 
+.header_tab img:hover {
+  cursor: pointer;
+}
+
 #img_doc:hover {
-  content: url('../svg/tab_activate_doc.svg');
+  content: url("../svg/tab_activate_doc.svg");
   transform: scale(1.2);
 }
 
 #img_calendar:hover {
-  content: url('../svg/tab_activate_calendar.svg');
+  content: url("../svg/tab_activate_calendar.svg");
   transform: scale(1.2);
 }
 
 #img_chart:hover {
-  content: url('../svg/tab_activate_chart.svg');
+  content: url("../svg/tab_activate_chart.svg");
   transform: scale(1.2);
 }

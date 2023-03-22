@@ -27,12 +27,13 @@
     <link rel="stylesheet" href="./src/style/datepicker.css" />
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script defer src="./src/js/datePicker.js"></script>
-    <script defer src="./src/js/events/input_bar/input_list.js"></script>
-    <script defer src="./src/js/events/input_bar/input_price.js"></script>
-    <script defer src="./src/js/events/input_bar/input_date.js"></script>
-    <script defer src="./src/js/events/header/header_monthYear.js"></script>
-    <script defer src="./src/js/events/header/header_tab.js"></script>
+    <script defer src="./src/js/input_bar/datePicker.js"></script>
+    <script defer src="./src/js/input_bar/input_list.js"></script>
+    <script defer src="./src/js/input_bar/input_price.js"></script>
+    <script defer src="./src/js/input_bar/input_date.js"></script>
+    <script defer src="./src/js/header/header_monthYear.js"></script>
+    <script defer src="./src/js/header/header_tab.js"></script>
+    <script defer src="./src/js/input_bar/input_bar_btn.js"></script>
     <title>Wise Wallet</title>
   </head>
   <body>
@@ -68,7 +69,7 @@
           <nav id="nav_calendar">
             <img
               src="./src/svg/tab_disabled_calendar.svg"
-              id="img_calendar" 
+              id="img_calendar"
               condition="disabled"
               alt="calendar"
             />
@@ -76,7 +77,7 @@
           <nav id="nav_chart">
             <img
               src="./src/svg/tab_disabled_chart.svg"
-              id="img_chart" 
+              id="img_chart"
               condition="disalbed"
               alt="chart"
             />
@@ -119,17 +120,32 @@
         </div>
         <div class="payment">
           <label for="payment" id="payment">결제수단</label>
-          <input type="text" id="payment_input" placeholder="선택하세요" />
+          <input
+            type="text"
+            id="payment_input"
+            placeholder="선택하세요"
+            autocomplete="off"
+          />
           <div id="payment_div"></div>
         </div>
         <div class="category">
           <label for="category" id="category">분류</label>
-          <input type="text" id="category_input" placeholder="선택하세요" />
+          <input
+            type="text"
+            id="category_input"
+            placeholder="선택하세요"
+            autocomplete="off"
+          />
           <div id="category_div"></div>
         </div>
         <div id="check">
           <button id="input_bar_check" type="button">
-            <img src="./src/svg/disabled_check.svg" alt="button" />
+            <img
+              id="check_btn"
+              condition="disabled"
+              src="./src/svg/disabled_check.svg"
+              alt="button"
+            />
           </button>
         </div>
       </form>
