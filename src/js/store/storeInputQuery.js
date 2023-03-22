@@ -32,10 +32,10 @@ export const storeInputQuery = (key) => {
   }
   if (!$("#edit-btn").checked) {
     localStorage.setItem(uniqueKey, JSON.stringify(storedValue));
-    inputStore.generateList(storedValue);
+    // inputStore.generateList(storedValue);
     renderListTotalLength();
     renderTotalIncomeExpenditure();
-    renderListByDay(storedValue);
+    renderListByDay();
   }
   // if (!$("#edit-btn").checked) {
   //   localStorage.setItem(uniqueKey, JSON.stringify(storedValue))

@@ -2,12 +2,18 @@ import { $ } from "./dom.js";
 
 export const generateListDetail = (sameDayArray) => {
   console.log(sameDayArray[0].date);
+  console.log(sameDayArray[0]);
   const ListDetailBox = document.querySelector(
     `.list-date-${sameDayArray[0].date}`
   );
 
   if (!$("#plus-minus-btn").checked) {
     const expenditureList = sameDayArray.filter((el) => el.type === false);
+    console.log(expenditureList);
+    // 크리에이션 타임 순으로 정렬하기
+    // 애초에 둘로 나뉘어져야하나? 생각해보기
+    //  - type 삼항식으로 나누기
+    // 붙여주는게 beforeend여야하는지 고려하기
     ListDetailBox.insertAdjacentHTML(
       "beforeend",
       `
