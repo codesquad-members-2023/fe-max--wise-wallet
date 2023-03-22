@@ -1,13 +1,11 @@
-import { $ } from "./dom.js";
+export const getDayOfWeek = (listDate) => {
 
-export const getDayOfWeek = () => {
-  const year = $("#date-input").value.slice(0, 4);
-  const month = $("#date-input").value.slice(4, 6);
-  const day = $("#date-input").value.slice(-2);
-  const makeDate = new Date(`${year}-${month}-${day}`);
-  const dayOfWeek = ["일", "월", "화", "수", "목", "금", "토"][
-    makeDate.getDay()
-  ];
-
-  return dayOfWeek
+    const year = listDate.slice(0, 4);
+    const month = listDate.slice(4, 6);
+    const day = listDate.slice(-2);
+    const formatedDate = new Date(`${year}-${month}-${day}`);
+    const dayOfWeek = ["일", "월", "화", "수", "목", "금", "토"][
+      formatedDate.getDay()
+    ];
+    return dayOfWeek;
 };

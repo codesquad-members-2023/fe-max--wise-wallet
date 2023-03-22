@@ -44,7 +44,7 @@ export const renderMonthlyList = () => {
                 4,
                 6
               )}월 ${element.date.slice(-2)}일</span>
-              <span class="date-day-day">${getDayOfWeek()}</span>
+              <span class="date-day-day">${getDayOfWeek(element.date)}</span>
               </div>
               <div class="income-expenditure">
               <span>수입</span>
