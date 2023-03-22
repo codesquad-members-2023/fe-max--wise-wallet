@@ -1,4 +1,4 @@
-import { $ } from '../utils/dom.js';
+import { $ } from '../utils/utils.js';
 import { year, month, monthName } from '../utils/date.js';
 
 const headerDateWrap = document.createElement('div');

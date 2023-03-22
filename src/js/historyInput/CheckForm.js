@@ -1,4 +1,4 @@
-import { $, $$ } from '../utils/dom.js';
+import { $ } from '../utils/utils.js';
 import { handleAmountInput } from './AmountInput.js';
 
 export function checkForm() {

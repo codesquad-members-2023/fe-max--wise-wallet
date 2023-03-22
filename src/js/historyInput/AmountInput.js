@@ -1,3 +1,5 @@
+import { getFormattedNumber } from '../utils/utils.js';
+
 export function handleAmountInput(amount) {
   preventMinusInput(amount);
   formatNumberInput(amount);
@@ -12,12 +14,10 @@ function preventMinusInput(amount) {
 }
 
 function formatNumberInput(amount) {
-  amount.addEventListener('input', () => {
-    const amountValue = amount.value.replace(/[^\d.-]/g, '');
-
-    if (!Number.isNaN(amountValue)) {
-      const formatThousandsComma = Number(amountValue).toLocaleString('ko-KR');
-      amount.value = formatThousandsComma;
+  const amountInput = amount;
+  amountInput.addEventListener('input', () => {
+    if (!Number.isNaN(amountInput.value)) {
+      amountInput.value = getFormattedNumber(amountInput.value);
     }
   });
 }

@@ -1,4 +1,4 @@
-import { $ } from '../utils/dom.js';
+import { $ } from '../utils/utils.js';
 import { year, month, date } from '../utils/date.js';
 
 export function initDateInput() {
