@@ -19,3 +19,5 @@ export const monthTexts = [
 ];
 
 export const monthText = monthTexts[month - 1];
+
+export const getMonthText = (mon) => monthTexts[mon - 1];
