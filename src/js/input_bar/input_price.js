@@ -1,26 +1,51 @@
-const price = {
-  changeBtn: document.getElementById("change_btn"),
-  changeImg: document.getElementById("change_button"),
-  priceInput: document.getElementById("price_input"),
+const changeButton = document.getElementById("change_btn");
+const changeImage = document.getElementById("change_button");
+const priceInputField = document.getElementById("price_input");
+const memoInputField = document.getElementById("memo_input");
+const paymentInputField = document.getElementById("payment_input");
+const categoryInputField = document.getElementById("category_input");
+const minusSvgPath = "./src/svg/minus.svg";
+const plusSvgPath = "./src/svg/plus.svg";
+const resetField = [
+  priceInputField,
+  memoInputField,
+  paymentInputField,
+  categoryInputField,
+];
+
+function setSVG(svg, path, isMinus) {
+  svg.setAttribute("src", path);
+  svg.setAttribute("isMinus", isMinus);
+}
+
+const addComma = (price) => {
+  return parseInt(price).toLocaleString("ko-KR");
 };
 
-price.changeBtn.addEventListener("click", (e) => {
-  const currentSrc = price.changeImg.getAttribute("src");
-  if (currentSrc === "./src/svg/minus.svg") {
-    price.changeImg.setAttribute("src", "./src/svg/plus.svg");
-    price.changeImg.setAttribute("isMinus", "false");
+function resetInputBar() {
+  resetField.forEach((inputFieldText) => {
+    inputFieldText.value = "";
+  })
+};
+
+changeButton.addEventListener("click", (e) => {
+  resetInputBar();
+  const currentSrc = changeImage.getAttribute("isMinus");
+  const isMinus = currentSrc === "true";
+  if (isMinus) {
+    setSVG(changeImage, plusSvgPath, "false");
   } else {
-    price.changeImg.setAttribute("src", "./src/svg/minus.svg");
-    price.changeImg.setAttribute("isMinus", "true");
+    setSVG(changeImage, minusSvgPath, "true");
   }
 });
 
-price.priceInput.addEventListener("keyup", (e) => {
-  const price = e.target.value.replace(/[^0-9]/g, "");
+priceInputField.addEventListener("keyup", (e) => {
+  const sanitizedValue = e.target.value.replace(/[^0-9]/g, "");
+  const isEmpty = e.target.value === "";
 
-  if (e.target.value === "") {
+  if (isEmpty) {
     e.target.value = "";
   } else {
-    e.target.value = parseInt(price).toLocaleString("ko-KR");
+    e.target.value = addComma(sanitizedValue);
   }
 });
