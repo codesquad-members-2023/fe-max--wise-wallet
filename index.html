@@ -1,42 +1,261 @@
 <!DOCTYPE html>
-<html lang="KO">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>가계부</title>
-</head>
-<body>
-    <!--header영역-->
-    <header class = "header">
-        <div id = "logo">
-            <a href="#" class = "display_small">Wise Wallet</a>
+    <link rel="stylesheet" href="./main.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-box">
+        <div class="display-small" id="logo"><a href="#">Wise Wallet</a></div>
+        <div class="month-year">
+          <div class="icon">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15 6L9 12L15 18"
+                stroke="#FCFCFC"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <div class="month-year-text">
+            <div class="bold-regular" id="header-year">2023</div>
+            <div class="display-large" id="header-month">2</div>
+            <div class="bold-regular" id="header-month-en">Februry</div>
+          </div>
+          <div class="icon">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9 6L15 12L9 18"
+                stroke="#FCFCFC"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
         </div>
-        <div id = "monthYear">
-            <button id = "left" clas s ="arrow_button">
-                <img src = "./icon/name=chevron-left.svg" alt = "왼쪽화살표">
-            </button>  
-             <div id = "date">  
-                <div id = "Year" class = "bold_small"></div>
-                <div id = "month" class = "display_large"></div>
-                <div id = "month_en" class = "bold_small"></div>
-            </div>
-            <button id = "right" class = "arrow_button">
-                <img src = "./icon/name=chevron-right.svg" alt = "오른쪽화살표">
-            </button>
+        <div class="tap">
+          <div class="tap-icon" id="history">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M14 2H6C5.46957 2 4.96086 2.21071 4.58579 2.58579C4.21071 2.96086 4 3.46957 4 4V20C4 20.5304 4.21071 21.0391 4.58579 21.4142C4.96086 21.7893 5.46957 22 6 22H18C18.5304 22 19.0391 21.7893 19.4142 21.4142C19.7893 21.0391 20 20.5304 20 20V8L14 2Z"
+                stroke="#a79fcb"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M14 2V8H20"
+                stroke="#a79fcb"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M16 13H8"
+                stroke="#a79fcb"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M16 17H8"
+                stroke="#a79fcb"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M10 9H9H8"
+                stroke="#a79fcb"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <div class="tap-icon" id="calendar">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M19 4H5C3.89543 4 3 4.89543 3 6V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V6C21 4.89543 20.1046 4 19 4Z"
+                stroke="#a79fcb"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M16 2V6"
+                stroke="#a79fcb"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M8 2V6"
+                stroke="#a79fcb"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M3 10H21"
+                stroke="#a79fcb"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
+          <div class="tap-icon" id="chart">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M18 20V10"
+                stroke="#a79fcb"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M12 20V4"
+                stroke="#a79fcb"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <path
+                d="M6 20V14"
+                stroke="#a79fcb"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </div>
         </div>
-        
-        <div id = "tap">
-            <button class = "tap_icon">
-                <img src ="./icon/name=doc.svg" alt = "내역 아이콘">
-            </button>
-            <button class = "tap_icon">
-                <img src = "./icon/name=calendar.svg" alt = "달력 아이콘">
-            </button>
-            <button class = "tap_icon">
-                <img src = "./icon/name=chart.svg" alt = "통계 아이콘">
-            </button>
-        </div>
+      </div>
     </header>
-</body>
+    <main>
+      <div class="input-bar">
+        <form class="input-bar-form" action="">
+          <div class="input-bar-date">
+            <fieldset class="input-date-text">
+              <legend class="bold-small" id="input-date-lable">일자</legend>
+              <input
+                type="number"
+                name="input-date-input"
+                id="input-date-input"
+                class="body-regular"
+              />
+            </fieldset>
+          </div>
+          <div class="input-bar-price">
+            <fieldset class="input-price-text">
+              <legend class="bold-regular" id="input-price-lable">금액</legend>
+              <button class="input-price-button">
+                <svg
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M6 12H18"
+                    stroke="#524D90"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </button>
+              <input
+                type="text"
+                class="body-regular"
+                id="input-price-input"
+                placeholder="0"
+              />
+              <span class="body-regular" id="price-span">원</span>
+            </fieldset>
+          </div>
+          <div class="input-bar-memo">
+            <fieldset class="input-memo-text">
+              <legend class="bold-regular" id="input-memo-label">내용</legend>
+              <input
+                type="text"
+                placeholder="입력하세요"
+                class="body-regular"
+                id="input-memo-input"
+              />
+            </fieldset>
+          </div>
+          <div class="input-bar-payment">
+            <fieldset class="input-payment-text">
+              <legend class="bold-regular" id="input-payment-label">
+                결제수단
+              </legend>
+              <select class="body-regular" id="input-payment-select">
+                <option value="">선택하세요</option>
+                <option value="">현금</option>
+                <option value="">신용카드</option>
+                <option value="">추가하기</option>
+              </select>
+            </fieldset>
+          </div>
+          <div class="input-bar-category">
+            <fieldset class="input-category-text">
+              <legend class="bold-regular" id="input-category-label">
+                분류
+              </legend>
+              <select class="body-regular" name="" id="input-category-select">
+                <option value="">생활</option>
+                <option value="">식비</option>
+                <option value="">교통</option>
+                <option value="">쇼핑/뷰티</option>
+                <option value="">의료/건강</option>
+                <option value="">문화/여가</option>
+                <option value="">미분류</option>
+              </select>
+              <input type="checkbox" name="" id="category_checkbox" />
+            </fieldset>
+          </div>
+        </form>
+      </div>
+    </main>
+  </body>
 </html>
