@@ -1,5 +1,5 @@
-const select = {
-  minusCategories: [
+const dropdownMenu = {
+  expenseCategories: [
     "생활",
     "식비",
     "교통",
@@ -8,82 +8,112 @@ const select = {
     "문화/여가",
     "미분류",
   ],
-  plusCategories: ["월급", "용돈", "기타수입"],
-  paymentList: ["현찰", "체크카드", "신용카드"],
-  paymentInput: document.getElementById("payment_input"),
-  paymentDiv: document.getElementById("payment_div"),
-  categoryInput: document.getElementById("category_input"),
-  categoryDiv: document.getElementById("category_div"),
+  incomeCategories: ["월급", "용돈", "기타수입"],
+  paymentMethods: ["현찰", "체크카드", "신용카드"],
+  income: "수입",
+  paymentInputField: document.getElementById("payment_input"),
+  paymentDropdownMenu: document.getElementById("payment_div"),
+  categoryInputField: document.getElementById("category_input"),
+  categoryDropdownMenu: document.getElementById("category_div"),
 
-  showList(list) {
-    list.style.display = "block";
+  showDropdownMenu(menu) {
+    menu.style.display = "block";
   },
 
-  hideList(list) {
-    list.style.display = "none";
+  hideDropdownMenu(menu) {
+    menu.style.display = "none";
   },
 
-  addPayment() {
-    const newPaymentDiv = document.createElement("div");
-    this.paymentList.forEach((value) => {
-      const textPaymentDiv = document.createElement("div");
-      const paymentTextNode = document.createTextNode(value);
-      textPaymentDiv.appendChild(paymentTextNode);
-      newPaymentDiv.appendChild(textPaymentDiv);
-    });
-    this.paymentDiv.appendChild(newPaymentDiv);
+  clearDropdownMenu(menu) {
+    menu.textContent = "";
   },
 
-  addList(value, newDiv) {
-    const textDiv = document.createElement("div");
-    const textNode = document.createTextNode(value);
-    textDiv.appendChild(textNode);
-    newDiv.appendChild(textDiv);
-    textDiv.id = "category_list";
+  clearDropdowninputField(inputField) {
+    inputField.textContent = "";
   },
 
-  addCategory(condition) {
-    condition = document
-      .getElementById("change_button")
-      .getAttribute("isMinus");
-    const newDiv = document.createElement("div");
-    if (condition === "true") {
-      this.minusCategories.forEach((value) => {
-        this.addList(value, newDiv);
+  addItem(item, newDropdown) {
+    const itemDiv = document.createElement("div");
+    const itemText = document.createTextNode(item);
+    itemDiv.appendChild(itemText);
+    newDropdown.appendChild(itemDiv);
+  },
+
+  addPaymentDropdownMenu() {
+    const isMinus =
+      document.getElementById("change_button").getAttribute("isMinus") ===
+      "true";
+    const newDropdown = document.createElement("div");
+    if (isMinus) {
+      this.paymentMethods.forEach((payment) => {
+        this.addItem(payment, newDropdown);
       });
     } else {
-      this.plusCategories.forEach((value) => {
-        this.addList(value, newDiv);
+      this.addItem(this.income, newDropdown);
+    }
+    this.paymentDropdownMenu.appendChild(newDropdown);
+  },
+
+  addCategoryDropdownMenu() {
+    const isMinus =
+      document.getElementById("change_button").getAttribute("isMinus") ===
+      "true";
+    const newDropdown = document.createElement("div");
+    if (isMinus) {
+      this.expenseCategories.forEach((category) => {
+        this.addItem(category, newDropdown);
+      });
+    } else {
+      this.incomeCategories.forEach((category) => {
+        this.addItem(category, newDropdown);
       });
     }
-    this.categoryDiv.appendChild(newDiv);
+    this.categoryDropdownMenu.appendChild(newDropdown);
+  },
+
+  showPaymentDropdownMenu() {
+    this.clearDropdownMenu(this.paymentDropdownMenu);
+    this.addPaymentDropdownMenu();
+    this.showDropdownMenu(this.paymentDropdownMenu);
+  },
+
+  showCategoryDropdownMenu() {
+    this.clearDropdownMenu(this.categoryDropdownMenu);
+    this.addCategoryDropdownMenu();
+    this.showDropdownMenu(this.categoryDropdownMenu);
+  },
+
+  handlePaymentDropdownMenuClick() {
+    this.paymentDropdownMenu.addEventListener("click", (e) => {
+      this.paymentInputField.value = "";
+      this.paymentInputField.value = e.target.textContent;
+    });
+  },
+
+  handleCategoryDropdownMenuClick() {
+    this.categoryDropdownMenu.addEventListener("click", (e) => {
+      this.categoryInputField.value = "";
+      this.categoryInputField.value = e.target.textContent;
+    });
   },
 };
 
 document.addEventListener("click", (e) => {
-  if (e.target === select.paymentInput) {
-    select.paymentDiv.textContent = "";
-    select.addPayment();
-    select.showList(select.paymentDiv);
-    select.paymentDiv.addEventListener("click", (e) => {
-      select.paymentInput.value = "";
-      select.paymentInput.value = e.target.textContent;
-    });
+  const isPaymentInputField = e.target === dropdownMenu.paymentInputField;
+  if (isPaymentInputField) {
+    dropdownMenu.showPaymentDropdownMenu();
+    dropdownMenu.handlePaymentDropdownMenuClick();
   } else {
-    select.hideList(select.paymentDiv);
+    dropdownMenu.hideDropdownMenu(dropdownMenu.paymentDropdownMenu);
   }
 });
 
 document.addEventListener("click", (e) => {
-  if (e.target === select.categoryInput) {
-    select.categoryDiv.textContent = "";
-    select.addCategory();
-    select.showList(select.categoryDiv);
-    select.categoryDiv.addEventListener("click", (e) => {
-      select.categoryInput.value = "";
-      select.categoryInput.value = e.target.textContent;
-    });
+  const isCategoryInputField = e.target === dropdownMenu.categoryInputField;
+  if (isCategoryInputField) {
+    dropdownMenu.showCategoryDropdownMenu();
+    dropdownMenu.handleCategoryDropdownMenuClick();
   } else {
-    select.hideList(select.categoryDiv);
+    dropdownMenu.hideDropdownMenu(dropdownMenu.categoryDropdownMenu);
   }
 });

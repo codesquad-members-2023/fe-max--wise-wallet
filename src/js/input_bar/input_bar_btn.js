@@ -1,3 +1,4 @@
+const inputBar = document.querySelector(".input_bar");
 const inputBarInput = document.querySelectorAll(".input_bar input");
 const checkBtn = document.getElementById("check_btn");
 
@@ -15,7 +16,8 @@ function isAllActivate() {
   let activateCount = 0;
 
   inputBarInput.forEach((input) => {
-    if (input.value.length > 0) {
+    const isfilled = input.value.length > 0;
+    if (isfilled) {
       activateCount += 1;
     } else {
       activateCount;
@@ -26,8 +28,8 @@ function isAllActivate() {
 
 inputBarInput.forEach((element) =>
   element.addEventListener("input", () => {
-    const isActavate = isAllActivate() === 5;
-    if (isActavate) {
+    const isActivate = isAllActivate() === 5;
+    if (isActivate) {
       setActivate();
     } else {
       setDisabled();
@@ -35,9 +37,9 @@ inputBarInput.forEach((element) =>
   })
 );
 
-document.addEventListener("click", (e) => {
-  const isActavate = isAllActivate() === 5;
-  if (isActavate) {
+inputBar.addEventListener("click", (e) => {
+  const isActivate = isAllActivate() === 5;
+  if (isActivate) {
     setActivate();
   } else {
     setDisabled();

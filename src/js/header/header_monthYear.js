@@ -18,8 +18,8 @@ const monthYear = {
   yearText: document.getElementById("monthYear_text_year"),
   monthText: document.getElementById("monthYear_text_month_number"),
   monthCharText: document.getElementById("monthYear_text_month_char"),
-  leftNav: document.getElementById("chevron_left"),
-  rightNav: document.getElementById("chevron_right"),
+  leftChevron: document.getElementById("chevron_left"),
+  rightChevron: document.getElementById("chevron_right"),
 
   init() {
     this.yearText.textContent = this.year;
@@ -47,28 +47,46 @@ const monthYear = {
   getNextMonth() {
     this.monthText.textContent = +this.monthText.textContent + 1;
   },
+
+  setPreviousYear() {
+    this.getPreviousYear();
+    this.monthText.textContent = "12";
+    this.getMonthChar();
+  },
+
+  setPreviousMonth() {
+    this.getPreviousMonth();
+    this.getMonthChar();
+  },
+
+  setNextYear() {
+    this.getNextYear();
+    this.monthText.textContent = "1";
+    this.getMonthChar();
+  },
+
+  setNextMonth() {
+    this.getNextMonth();
+    this.getMonthChar();
+  }
 };
 
 monthYear.init();
 
-monthYear.leftNav.addEventListener("click", (e) => {
-  if (monthYear.monthText.textContent === "1") {
-    monthYear.getPreviousYear();
-    monthYear.monthText.textContent = "12";
-    monthYear.getMonthChar();
+monthYear.leftChevron.addEventListener("click", (e) => {
+  const isJanuary = monthYear.monthText.textContent === "1";
+  if (isJanuary) {
+    monthYear.setPreviousYear();
   } else {
-    monthYear.getPreviousMonth();
-    monthYear.getMonthChar();
+    monthYear.setPreviousMonth();
   }
 });
 
-monthYear.rightNav.addEventListener("click", (e) => {
-  if (monthYear.monthText.textContent === "12") {
-    monthYear.getNextYear();
-    monthYear.monthText.textContent = "1";
-    monthYear.getMonthChar();
+monthYear.rightChevron.addEventListener("click", (e) => {
+  const isDecember = monthYear.monthText.textContent === "12";
+  if (isDecember) {
+    monthYear.setNextYear();
   } else {
-    monthYear.getNextMonth();
-    monthYear.getMonthChar();
+    monthYear.setNextMonth();
   }
 });
