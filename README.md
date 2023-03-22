@@ -239,7 +239,7 @@
 
 - JSON
 
-```md
+```markdown
 - JSON은 객체, 배열, 숫자, 문자열, 블리언과 null을 직렬화하기 위한 구문이다
   - Object / Array
     1. 속성의 이름은 반드시 큰따옴표로 표시된 문자열이어야 한다
@@ -259,7 +259,7 @@
 
 - localStorage
 
-```md
+```markdown
 - localStorage의 읽기 전용 속성을 사용하면 Document 출처의 Storage 객체에 접근할 수 있다
 - 저장한 데이터는 브라우저 세션 간에 공유된다
 - sessionStorage는 페이지 세션이 끝날 때, 즉 페이지를 닫을 때 사라지지만 localStorage는 만료되지 않는다
