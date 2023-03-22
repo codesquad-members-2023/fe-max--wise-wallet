@@ -1,4 +1,5 @@
 import { calendarInit } from "../../calendar/index.js";
+import { chartInit } from "../../chart/index.js";
 import { getDateElements } from "../../date/getDateElements.js";
 import { setDate } from "../../date/setDate.js";
 import { mainInit } from "../../main/index.js";
@@ -30,13 +31,20 @@ export const setEvent = () => {
       $main.removeChild($main.firstChild);
     }
 
-    if (targetId === "tab_doc") {
-      mainInit();
-    }
-    if (targetId === "tab_calendar") {
-      calendarInit();
-    }
-    if (targetId === "chart") {
+    switch (targetId) {
+      case "tab_doc":
+        mainInit();
+        break;
+
+      case "tab_calendar":
+        calendarInit();
+        break;
+
+      case "tab_chart":
+        chartInit();
+        break;
+
+      default:
     }
 
     $main.setAttribute("data-page", targetId.replace("tab_", ""));
@@ -46,13 +54,21 @@ export const setEvent = () => {
 const handleArrowBtn = (targetId, currentPage) => {
   const $main = document.getElementById("main");
   editDate(targetId);
-  if (currentPage === "doc") {
-    mainInit();
-  }
-  if (currentPage === "calendar") {
-    calendarInit();
-  }
-  if (currentPage === "chart") {
+
+  switch (currentPage) {
+    case "doc":
+      mainInit();
+      break;
+
+    case "calendar":
+      calendarInit();
+      break;
+
+    case "chart":
+      chartInit();
+      break;
+
+    default:
   }
 };
 
