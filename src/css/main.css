@@ -59,8 +59,22 @@ body {
   position: relative;
   transform: translate(-50%, -50%);
 }
-.gnb__list-item.active svg path {
+
+/* 탭 영역 */
+.gnb__list-item.tab--active svg path {
   stroke: var(--color-white);
+}
+.tab-content {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease-out;
+  height: 0;
+}
+.tab-content.active {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.35s ease-out;
+  height: auto;
 }
 
 .header__date {
@@ -383,8 +397,8 @@ input[type='checkbox'] {
   text-align: right;
 }
 .history-list__item-amount.plus-color {
-  color: var(--color-secondary-red);
+  color: var(--color-secondary-cyan);
 }
 .history-list__item-amount.minus-color {
-  color: var(--color-secondary-cyan);
+  color: var(--color-secondary-red);
 }

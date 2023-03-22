@@ -10,3 +10,7 @@ export const headerDateBtnElement = {
   $prevBtn: $('.header__date__button--prev'),
   $nextBtn: $('.header__date__button--next'),
 };
+export const gnbElements = {
+  $$tabButtons: $$('.gnb__list-item'),
+  $$tabContents: $$('.tab-content'),
+};
