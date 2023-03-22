@@ -196,23 +196,20 @@
   z-index: 9999;
 }
 
-.payment .payment__dropdown.display-none,
 .payment .payment__dropdown.display-none {
   display: none;
 }
 
-.payment__list:first-child,
 .payment__list:first-child {
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
 }
-.payment__list:last-child,
+
 .payment__list:last-child {
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
 }
 
-.payment__list,
 .payment__list {
   position: relative;
   display: flex;
@@ -225,7 +222,7 @@
   font: var(--font-body-regular);
   color: var(--color-primary);
 }
-.payment__list::before,
+
 .payment__list::before {
   content: "";
   position: absolute;
@@ -238,7 +235,6 @@
   /* 가상 요소 ::before를 이용하여 선 추가 */
 }
 
-.payment__list:last-child::after,
 .payment__list:last-child::after {
   content: "";
   position: absolute;
@@ -250,7 +246,6 @@
   /* 가상 요소 ::after를 이용하여 맨 아래 블록의 선 없애기 */
 }
 
-.payment__list:hover,
 .payment__list:hover {
   margin: 0;
   padding: 0;
@@ -260,7 +255,6 @@
   background: #f7f6f3;
 }
 
-.payment .list__inner,
 .payment .list__inner {
   display: flex;
 
@@ -270,11 +264,12 @@
 }
 
 .payment .list-text,
-.payment .list-text {
+.payment .list-add {
   width: 76px;
   height: 24px;
+  cursor: pointer;
 }
-.payment .list-xmark,
+
 .payment .list-xmark {
   display: flex;
   align-items: center;
@@ -285,7 +280,6 @@
   background-repeat: no-repeat; */
 }
 
-.payment .xmark,
 .payment .xmark {
   width: 16px;
   height: 16px;

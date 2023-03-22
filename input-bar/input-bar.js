@@ -21,21 +21,37 @@ dateInput.addEventListener("input", function () {
     }
 });
 
+//ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
 const categoryPriceInput = document.getElementById("category-price");
 
-categoryPriceInput.addEventListener("input", function () {
-    const inputValue = this.value;
-    if (inputValue && !/^[0-9]*$/.test(inputValue)) {
-        this.value = inputValue.replace(/[^0-9]/g, "");
-    } else if (this.value.length > 7) {
-        this.value = this.value.slice(0, 7);
-    } else {
-        this.value = Number(inputValue.replace(/[^0-9]/g, "")).toLocaleString();
+// categoryPriceInput.addEventListener("input", function () {
+//     const inputValue = this.value;
+//     if (inputValue && !/^[0-9]*$/.test(inputValue)) {
+//         this.value = inputValue.replace(/[^0-9]/g, "");
+//     } else if (this.value.length > 7) {
+//         this.value = this.value.slice(0, 7);
+//     } else {
+//         this.value = Number(inputValue.replace(/[^0-9]/g, "")).toLocaleString();
+//     }
+// });
+
+categoryPriceInput.addEventListener("input", function (event) {
+    const currentValue = event.target.value;
+    const valueLength = currentValue.length;
+    if (currentValue === "") {
+        this.placeholder = "";
+    }
+    const valueNumber = parseInt(currentValue.replace(/,/g, ""));
+    const newValue = valueNumber.toLocaleString();
+    event.target.value = newValue;
+    if (isNaN(valueNumber)) {
+        event.target.value = "";
     }
 });
 
 categoryPriceInput.addEventListener("keydown", function (event) {
-    if (event.keyCode === 9 || event.keyCode === 13) {
+    if (event.key === "Tab" || event.key === "Enter") {
         event.preventDefault();
     }
 });
@@ -77,16 +93,32 @@ const paymentDropdown = document.querySelector(".payment__dropdown");
 
 const input = document.getElementById("input");
 
-input.addEventListener("click", function (e) {
-    console.log(e.target.closest(".select-box"));
-    const _this = e.target;
-    const selectBox = _this.closest(".select-box");
-    if (selectBox) {
-        const dropdown = _this
-            .closest(".payment")
-            .querySelector(".payment__dropdown");
+input.addEventListener("click", function (event) {
+    const target = event.target;
+    const IsSelectBox = target.closest(".select-box");
 
-        console.log(dropdown);
-        dropdown.classList.toggle("display-none");
+    if (IsSelectBox) {
+        toggleDropdown(target);
+        return;
+    }
+    const IsPaymentList = target.closest(".payment__list");
+    if (IsPaymentList) {
+        const payment = target.closest(".payment");
+        const selectedValue = payment.querySelector(".payment__label");
+        console.log(selectedValue);
+        selectedValue.textContent =
+            IsPaymentList.querySelector(".list-text").textContent;
+        toggleDropdown(target);
     }
 });
+
+function toggleDropdown(target) {
+    // const selectBox = target.closest(".select-box");
+    // if (selectBox) {
+    const dropdown = target
+        .closest(".payment")
+        .querySelector(".payment__dropdown");
+
+    dropdown.classList.toggle("display-none");
+    // }
+}

@@ -22,13 +22,22 @@ setDate(getDateEl(), new Date());
 // 안에서 클래스 prev next를 조건으로 걸어서 줄이고 늘리고 가능한지?
 // 챗지피티로 확인
 
-function monthIncrease(command) {
-    const num = command === "prev" ? 2 : 0;
-    const [yearNumber, monthNumber, monthName] = getDateEl();
+// function changeMonth(command) {
+//     const num = command === "prev" ? 2 : 0;
+//     const [yearNumber, monthNumber, monthName] = getDateEl();
 
+//     const newDate = new Date(
+//         yearNumber.textContent,
+//         monthNumber.textContent - num
+//     );
+//     setDate([yearNumber, monthNumber, monthName], newDate);
+// }
+function changeMonth(command) {
+    const numMonthToChange = command === "prev" ? 2 : 0;
+    const [yearNumber, monthNumber, monthName] = getDateElements();
     const newDate = new Date(
-        yearNumber.textContent,
-        monthNumber.textContent - num
+        year.innerHTML,
+        month.innerHTML - numMonthToChange
     );
     setDate([yearNumber, monthNumber, monthName], newDate);
 }
@@ -38,9 +47,8 @@ const headerDate = document.querySelector(".header__month-year");
 headerDate.addEventListener("click", (e) => {
     const $this = e.target;
     if ($this.tagName === "IMG") {
-        $this.classList.contains("prev-month")
-            ? monthIncrease("prev")
-            : monthIncrease("next");
+        let button = $this.classList.contains("prev-month") ? "prev" : "next";
+        changeMonth(button);
     }
 });
 
