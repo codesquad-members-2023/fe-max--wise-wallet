@@ -252,10 +252,34 @@
 ## 📚 3주차 학습 정리
 
 ### 1) MVC 패턴
+백엔드 애플리케이션에 주로 적용되고 있는 전통적인 아키텍쳐로, 구조를 **데이터**와 로직을 관리하는 모델(model), 보여지는 **화면**을 처리하는 뷰(view), 모델과 뷰 중간에서 중재하는 컨트롤러(controller)로 이렇게 세 부분으로 나눈다.
 
+그런데 FE에서도 MVC 패턴을 그대로 적용할 수 있을까?
+
+- view가 많고 여기서 수많은 이벤트가 발생한다.
+- view와 model 간 양방향 처리가 필요하다.
+- 이를 중재하기 위한 슈퍼 울트라 컨트롤러가 생기게 된다.
+- 리렌더링을 최소화하기 위해서 view 간의 계층 처리가 필요하다.
+
+→ 복잡한 view와 model 관계를 단순화하고, 쉽고 효율적인 DOM 처리가 중요하다! MVC…?
+
+요즘 FE에서 사용되는 기술들
+
+- 데이터 바인딩
+    - view ↔ model 자동 변경
+    - Svelte 등
+- MVVM 패턴
+    - Model과 View 사이에 binder 역할을 하는 VM(ViewModel) 존재
+    - Vue.js 등 다수의 프레임워크
+    - 양방향 데이터 바인딩
+- Flux 아키텍쳐 (React)
+    - 한 방향으로 흐름을 제어하며 동작
+    - 상태관리 라이브러리 (Redux, Recoil 등)
+
+지금은 직접 적용하기에는 너무 어렵고 복잡한 개념인 것 같다. 일단 하던 구현이나 마저 하자…
 ### 2) Destructuring (비구조화 할당)
 
-### 3) **Nullish coalescing operator (널 병합 연산자)**
+### 3) Nullish coalescing operator (널 병합 연산자)
 
 **Syntax: `leftExpr ?? rightExpr`**
 
@@ -316,7 +340,7 @@ console.log(preservingFalsy); // ''
 ### 3주차 주요 개발 feature
 
 - [ ]  메인 영역
-    - [ ]  로컬스토리지에 입력한 내역 데이터 저장하기
+    - [x]  로컬스토리지에 입력한 내역 데이터 저장하기
         - [x]  데이터 저장 형식 정하기
         - [x]  각 데이터 구분방식 생각하기
     - [ ]  입력한 날짜별 내역 화면에 렌더링하기
@@ -398,6 +422,8 @@ console.log(preservingFalsy); // ''
 - attribute vs property → [https://medium.com/hexlant/attribute-와-property-의-차이-c6f1c91ba91](https://medium.com/hexlant/attribute-%EC%99%80-property-%EC%9D%98-%EC%B0%A8%EC%9D%B4-c6f1c91ba91)
 - 웹 컴포넌트 shadow DOM → [https://ui.toast.com/posts/ko_20170721](https://ui.toast.com/posts/ko_20170721)
 
+3주차
+- MVC
 ## 😵‍💫 삽질 기록
 1주차
 - position absolute 시 요소의 가운데 정렬 → [https://velog.io/@sklove96/css-absolute-일-때-가운데-정렬-방법](https://velog.io/@sklove96/css-absolute-%EC%9D%BC-%EB%95%8C-%EA%B0%80%EC%9A%B4%EB%8D%B0-%EC%A0%95%EB%A0%AC-%EB%B0%A9%EB%B2%95)
@@ -451,4 +477,5 @@ console.log(preservingFalsy); // ''
 
 3주차
 - [https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing](https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing)
-- 
+- [https://www.youtube.com/watch?v=Y5vOfv67h8A](https://www.youtube.com/watch?v=Y5vOfv67h8A) (MVC)
+- [https://velog.io/@teo/프론트엔드에서-MV-아키텍쳐란-무엇인가요](https://velog.io/@teo/%ED%94%84%EB%A1%A0%ED%8A%B8%EC%97%94%EB%93%9C%EC%97%90%EC%84%9C-MV-%EC%95%84%ED%82%A4%ED%85%8D%EC%B3%90%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80%EC%9A%94) (MVC)
