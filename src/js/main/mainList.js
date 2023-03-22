@@ -1,15 +1,17 @@
 export function renderMainList(data) {
-	// if (isNewDate) {
-	// 	addDailyList();
-	// }
-	addDailyList();
+	if (isNewDate(data)) {
+		addDailyList();
+	}
+	// addDailyList();
 	addDailyDetailList(data);
-	updateDailyInfo();
-	updateInfoFilter();
+	// updateDailyInfo();
+	// updateInfoFilter();
 }
 
-function isNewDate() {
-	// 이미 저장된 내역이 있는 날짜인지 확인
+function isNewDate({ date }) {
+	const yearMonthKey = date.slice(0, 6);
+	const monthlyList = JSON.parse(localStorage.getItem(yearMonthKey));
+	return monthlyList[date].length === 1;
 }
 
 function addDailyList() {
@@ -30,7 +32,7 @@ function addDailyList() {
 function addDailyDetailList(data) {
 	const newList = document.createElement('li');
 	const details = ['category', 'memo', 'payment', 'price'];
-	const Detail_Template = key => `<div class="daily-detail-${key}">${data[key]}</div>`;
+	const detailTemplate = key => `<div class="daily-detail-${key}">${data[key]}</div>`;
 
 	newList.classList.add('daily-detail-list');
 	if (!data.hasOwnProperty('income')) {
@@ -40,7 +42,7 @@ function addDailyDetailList(data) {
 	}
 
 	details.forEach(el => {
-		newList.insertAdjacentHTML('beforeend', Detail_Template(el));
+		newList.insertAdjacentHTML('beforeend', detailTemplate(el));
 	});
 
 	const dailyDetailLists = document.querySelector('ul.daily-detail-lists-container');
