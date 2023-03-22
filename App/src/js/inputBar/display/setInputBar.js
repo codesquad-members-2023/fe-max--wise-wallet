@@ -34,8 +34,6 @@ export const setInputBar = ({
 
   const $input = document.querySelector("#input_bar input");
 
-  // 이벤트 객체를 생성
   const changeEvent = new Event("change");
-  // input에 직접 change 이벤트를 발생
   $payment_value.dispatchEvent(changeEvent);
 };

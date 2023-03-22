@@ -8,9 +8,7 @@ export const selectOption = ($this) => {
   $selected_value.value = $this.textContent.trim();
   $selected_text.textContent = $this.textContent.trim();
 
-  // 이벤트 객체를 생성
-  const changeEvent = new Event("keyup", { bubbles: true });
-  // // selectedInput에 직접 change 이벤트를 발생
-  $selected_value.dispatchEvent(changeEvent);
+  const keyupEvent = new Event("keyup", { bubbles: true });
+  $selected_value.dispatchEvent(keyupEvent);
   toggleSelectBox($this);
 };

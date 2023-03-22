@@ -24,8 +24,6 @@ export const resetInputBar = () => {
     $selected.textContent = "선택하세요";
   });
 
-  // 이벤트 객체를 생성
-  const changeEvent = new Event("keyup", { bubbles: true });
-  // 직접 이벤트를 발생
-  $input_price.dispatchEvent(changeEvent);
+  const keyupEvent = new Event("keyup", { bubbles: true });
+  $input_price.dispatchEvent(keyupEvent);
 };
