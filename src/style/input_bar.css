@@ -133,7 +133,8 @@ div.payment {
   background-size: 16px;
 }
 
-#change_button:hover {
+#change_button:hover,
+#check_btn[condition="activate"]:hover {
   transform: scale(1.2);
 }
 
