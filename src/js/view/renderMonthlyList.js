@@ -5,7 +5,7 @@ export const renderMonthlyList = () => {
   const obj = Object.keys(localStorage).map((el) =>
     JSON.parse(localStorage.getItem(el))
   );
-  console.log(obj)
+  console.log(obj);
 
   const displayedYear = $(".header-year").textContent;
   const displayedMonth = $(".header-month").textContent.padStart(2, "0");
@@ -13,7 +13,7 @@ export const renderMonthlyList = () => {
   const objByDisplayedDate = obj.filter(
     (el) => el.date.slice(0, 6) === displayedYearMonth
   );
-  console.log(objByDisplayedDate)
+  console.log(objByDisplayedDate);
 
   const groupValues = objByDisplayedDate.reduce((acc, cur) => {
     acc[cur.date] = acc[cur.date] || [];
@@ -25,20 +25,17 @@ export const renderMonthlyList = () => {
   const groups = Object.keys(groupValues).map((key) => {
     return { date: key, values: groupValues[key] };
   });
-  console.log(groups)
+  console.log(groups);
 
   // 디스플레이된 연월 기준으로 리스트를 필터한다
   // 날짜 단위로 데이터를 묶어준다
   // 새로 렌더링을 위해 싹 지운다..?
   // 날짜 안에서 반복 돌며 리스트를 더해준다
 
-
-
-
   let htmlString = "";
-  groups.forEach(element => {
-      console.log(element.date)
-      htmlString += `
+  groups.forEach((element) => {
+    console.log(element.date);
+    htmlString += `
       <li class="list-by-day">
           <div class="list-body">
           <div class="list-body-info">
@@ -60,8 +57,48 @@ export const renderMonthlyList = () => {
           </ul>
           </div>
       </li>
-      `
+      `;
   });
-  document.querySelector('.list-by-day-box').innerHTML = htmlString
-  
+  document.querySelector(".list-by-day-box").innerHTML = htmlString;
+
+  groups.forEach((element) => {
+    renderEachList(element);
+    console.log(element);
+  });
+};
+
+export const renderEachList = (listByDay) => {
+  console.log(listByDay.values);
+  listByDay.values.forEach((list) => {
+    const ListDetailBox = document.querySelector(`.list-date-${list.date}`);
+    console.log(list);
+    console.log(ListDetailBox);
+
+    ListDetailBox.insertAdjacentHTML(
+      "beforeend",
+      `
+      <li>
+      <div class="list-detail">
+          <div class="list-detail-category">
+              <span>${list.category}</span>
+          </div>
+          <span class="list-detail-body ">${list.memo}</span>
+          <span class="list-detail-payment list-detail-item">${
+            list.payment
+          }</span>
+          <span class="list-detail-price list-detail-item" style="color: ${
+            list.type ? "#4cb8b8;" : "#e75b3f;"
+          }">${list.type ? "" : "-"}${
+        list.price
+      }원</span>
+          <button title="삭제하기" class="delete-btn">
+              <img src="./src/images/delete-x.svg" alt="삭제">
+              <span class="delete-text">삭제하기</span>
+          </button>
+      </div>
+    </li>
+      `
+    );
+   
+  });
 };

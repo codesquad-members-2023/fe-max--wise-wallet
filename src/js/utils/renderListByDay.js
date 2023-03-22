@@ -2,7 +2,7 @@ import { $ } from "./dom.js";
 import { generateListBody } from "./generateListBody.js";
 import { generateListDetail } from "./generateListDetail.js";
 
-export const renderListByDay = (storedValue) => {
+export const renderListByDay = () => {
   const obj = Object.keys(localStorage).map((el) =>
     JSON.parse(localStorage.getItem(el))
   );

@@ -26,12 +26,22 @@ export const storeInputQuery = (key) => {
     payment: payment.innerText,
     category: category.innerText,
   };
-
+  
+  if ($("#edit-btn").checked) {
+    return;
+  }
   if (!$("#edit-btn").checked) {
-    localStorage.setItem(uniqueKey, JSON.stringify(storedValue))
+    localStorage.setItem(uniqueKey, JSON.stringify(storedValue));
     inputStore.generateList(storedValue);
     renderListTotalLength();
     renderTotalIncomeExpenditure();
     renderListByDay(storedValue);
   }
+  // if (!$("#edit-btn").checked) {
+  //   localStorage.setItem(uniqueKey, JSON.stringify(storedValue))
+  //   inputStore.generateList(storedValue);
+  //   renderListTotalLength();
+  //   renderTotalIncomeExpenditure();
+  //   renderListByDay(storedValue);
+  // }
 };
