@@ -1,5 +1,5 @@
 import { Element } from "../Element.js";
-import { MINUS, PLUS } from "./SVG.js";
+import { MINUS, PLUS } from "../SVG.js";
 
 export class AmountGroup extends Element {
   constructor() {

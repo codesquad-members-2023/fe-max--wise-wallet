@@ -1,7 +1,7 @@
 import { Element } from "../Element.js";
 import { expenditureCategories, incomeCategories } from "../System.js";
-import { arrToMenuItemData } from "../util.js";
-import { OPEN } from "./SVG.js";
+import { arrToMenuItemData } from "../utils.js";
+import { OPEN } from "../SVG.js";
 
 function MenuItemRadioView([category, check]) {
   return `

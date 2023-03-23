@@ -1,16 +1,24 @@
 import { Element } from "../Element.js";
-import { get12Month, getCategoryString } from "../util.js";
-import { CHECKED, DELETE_LARGE, UNCHECKED } from "./SVG.js";
+import { getCategoryString, dateFormat } from "../utils.js";
+import { CHECKED, DELETE_LARGE, UNCHECKED } from "../SVG.js";
+import { $classElement } from "../dom.js";
+
+function ActiveCheckBoxView({ name }) {
+  return ` 
+    <input
+    type="checkbox"
+    class="blind"
+    name="${name}"
+    id="${name}"
+    aria-hidden="true"
+    tabindex="-1"
+    checked />
+  `;
+}
 
 function ActiveItemView({ name, attr, title, desc }) {
   return `
     <li>
-      <input
-        type="checkbox"
-        class="blind"
-        name="${name}"
-        id="${name}"
-        checked />
       <label
         tabindex="0"
         aria-label="${attr["aria-label"]}"
@@ -26,10 +34,14 @@ function ActiveItemView({ name, attr, title, desc }) {
   `;
 }
 
-function HistoryDateBodyItemView({ category, body, payment, price }) {
+function HistoryDateBodyItemView({ category, body, payment, price }, index) {
   const categoryString = getCategoryString(category);
+  const { dateTime } = this;
+
   return `
-  <li tabindex="0" class="list__item">
+  <li tabindex="0" class="list__item" data-type="${
+    price > 0 ? "expenditure" : "income"
+  }" data-date="${dateTime}"  data-index="${index}" >
     <span
       class="category"
       data-category="${category}"
@@ -38,22 +50,22 @@ function HistoryDateBodyItemView({ category, body, payment, price }) {
     >
     <span
       class="body"
-      aria-describedby="거래내용 ${body}"
+      aria-label="거래내용 ${body}"
       >${body}</span
     >
     <span
       class="payment"
-      aria-describedby="결제수단 ${payment}"
+      aria-label="결제수단 ${payment}"
       >${payment}</span
     >
     <span
       class="price"
-      aria-describedby="${price > 0 ? "수입" : "지출"} 금액 ${Math.abs(
+      aria-label="${price > 0 ? "수입" : "지출"} 금액 ${Math.abs(
     price
   ).toLocaleString()}원"
       >${price.toLocaleString()}원</span
     >
-    <button class="delete">
+    <button class="delete" tabindex="-1">
       ${DELETE_LARGE}
       삭제하기
     </button>
@@ -64,18 +76,13 @@ function HistoryDateBodyItemView({ category, body, payment, price }) {
 function HistoryDetailItemView([dateTime, record]) {
   const date = new Date(parseInt(dateTime));
   const year = date.getFullYear();
-  const month = get12Month.bind(date)();
+  const month = date.getMonth() + 1;
   const day = date.getDate();
   const dayName = date.toLocaleDateString("ko-KR", {
     weekday: "long",
   });
 
-  let income = 0;
-  let expenditure = 0;
-
-  record.forEach(({ price }) => {
-    price > 0 ? (income += price) : (expenditure += price);
-  });
+  const { totalIncome, totalExpenditure, data } = record;
 
   return `
     <li class="detail-item">
@@ -90,20 +97,23 @@ function HistoryDetailItemView([dateTime, record]) {
           </h4>
           <dl tabindex="0" class="header__income-expenditure">
             ${
-              income != 0
-                ? `<dt>수입</dt><dd>${income.toLocaleString()}원</dd>`
+              totalIncome != 0
+                ? `<dt data-type="expenditure">수입</dt><dd data-type="expenditure">${totalIncome.toLocaleString()}원</dd>`
                 : ""
             }
             ${
-              expenditure != 0
-                ? `<dt>지출</dt><dd>${expenditure.toLocaleString()}원</dd>`
+              totalExpenditure != 0
+                ? `<dt data-type="income">지출</dt><dd data-type="income">${totalExpenditure.toLocaleString()}원</dd>`
                 : ""
             }
           </dl>
         </div>
         <div class="date__body">
           <ul class="body__list">
-            ${record.map(HistoryDateBodyItemView).join("")}
+            ${[...data]
+              .sort((a, b) => b.id - a.id)
+              .map(HistoryDateBodyItemView.bind({ dateTime }))
+              .join("")}
           </ul>
         </div>
       </article>
@@ -111,10 +121,13 @@ function HistoryDetailItemView([dateTime, record]) {
   `;
 }
 
-function HistoryDetailView(historyData) {
+function HistoryDetailView({ date }) {
   return `
     <ul class="history__detail">
-      ${Object.entries(historyData).map(HistoryDetailItemView).join("")}
+      ${Object.entries(date)
+        .sort((a, b) => b[0] - a[0])
+        .map(HistoryDetailItemView)
+        .join("")}
     </ul>
   `;
 }
@@ -124,77 +137,54 @@ export class History extends Element {
     super();
   }
   init() {
-    this.domNode = document.createElement("ARTICLE");
-    this.domNode.id = "history";
+    if (!this.domNode) {
+      this.domNode = document.createElement("ARTICLE");
+      this.domNode.id = "history";
+    }
 
-    let totalIncome = 0;
-    let totalExpenditure = 0;
-
+    const historyData = this.system.getHistory();
     const activeList = [
       {
-        name: "income",
+        name: "expenditure",
         attr: { "aria-label": "수입내역 활성화" },
         title: "수입",
-        desc: totalIncome,
+        desc: historyData["totalExpenditure"],
       },
       {
-        name: "expenditure",
+        name: "income",
         attr: { "aria-label": "지출내역 활성화" },
         title: "지출",
-        desc: totalExpenditure,
-      },
-    ];
-
-    const historyData = {};
-    historyData[new Date("2023-2-17").getTime()] = [
-      {
-        id: 1,
-        category: 0,
-        body: "칫솔 6개 세트, 치약 3개 세트",
-        payment: "비씨카드",
-        price: -36450,
-      },
-      {
-        id: 2,
-        category: 1,
-        body: "잔치국수와 김밥",
-        payment: "비씨카드",
-        price: -36450,
-      },
-    ];
-
-    historyData[new Date("2023-2-18").getTime()] = [
-      {
-        id: 1,
-        category: 0,
-        body: "칫솔 6개 세트, 치약 3개 세트",
-        payment: "비씨카드",
-        price: -36450,
-      },
-      {
-        id: 2,
-        category: 1,
-        body: "잔치국수와 김밥",
-        payment: "비씨카드",
-        price: -36450,
+        desc: historyData["totalIncome"],
       },
     ];
 
     const historyDetailHTML = HistoryDetailView(historyData);
-    this.domNode.insertAdjacentHTML(
-      "afterbegin",
-      `
-        <h2 class="blind">입출금 내역</h2>
-        <div class="history__info">
-          <h3 tabindex="0">전체내역<span>13</span>건</h3>
-          <ul aria-labelledby="income">
-            ${activeList.map(ActiveItemView).join("")}
-          </ul>
-        </div>
-        <ul class="history__detail">
-          ${historyDetailHTML}
+    this.domNode.innerHTML = `
+      <h2 class="blind">입출금 내역</h2>
+      ${activeList.map(ActiveCheckBoxView).join("")}
+      <div class="history__info">
+        <h3 tabindex="0">전체내역<span>13</span>건</h3>
+        <ul class="active-list">
+          ${activeList.map(ActiveItemView).join("")}
         </ul>
-      `
-    );
+      </div>
+      <ul class="history__detail">
+        ${historyDetailHTML}
+      </ul>
+    `;
+
+    const bodyListItems = this.domNode.querySelectorAll(".list__item");
+
+    bodyListItems.forEach((item) => {
+      item.addEventListener("click", this.setUpdate);
+    });
   }
 }
+
+History.prototype.setUpdate = function (e) {
+  const $inputbar = $classElement("Inputbar").domNode;
+  const listItem = e.currentTarget;
+  const current = new Date(parseInt(listItem.dataset.date));
+  const dateValue = dateFormat(current).replaceAll("-", "");
+
+};

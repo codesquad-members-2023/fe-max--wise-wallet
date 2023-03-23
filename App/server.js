@@ -4,8 +4,8 @@ import { renderFile } from "ejs";
 
 const __dirname = path.resolve();
 const app = express();
-app.use("/", express.static(__dirname + "/"));
 
+app.use("/", express.static(__dirname + "/"));
 app.set("view engine", "ejs");
 app.engine("html", renderFile);
 

@@ -1,13 +1,18 @@
 import { Element } from "../Element.js";
 import {
-  dateformat,
+  dateFormat,
   dateOneMonth,
   monthDateToDateArr,
   nextMonth,
   ONE_DAY_TIME,
   previousMonth,
-} from "../util.js";
-import { NEXT_MONTH, NEXT_YEAR, PREVIOUS_MONTH, PREVIOUS_YEAR } from "./SVG.js";
+} from "../utils.js";
+import {
+  NEXT_MONTH,
+  NEXT_YEAR,
+  PREVIOUS_MONTH,
+  PREVIOUS_YEAR,
+} from "../SVG.js";
 
 function DatePickerInputView(current) {
   const year = current.getFullYear();
@@ -287,7 +292,7 @@ DatePicker.prototype.dialogActiveHandler = function (e) {
     });
   });
 
-  const td = tableWrap.querySelector(`td[data-date="${dateformat(current)}"]`);
+  const td = tableWrap.querySelector(`td[data-date="${dateFormat(current)}"]`);
   td.setAttribute("tabindex", "0");
   td.focus();
 };
@@ -324,7 +329,7 @@ DatePicker.prototype.tableDataKeydownHandler = function (e) {
     case "Space":
       dialog.className = "datepicker-dialog";
       const currentTd = dialog.querySelector(
-        `td[data-date="${dateformat(from)}"]`
+        `td[data-date="${dateFormat(from)}"]`
       );
       input.value = currentTd.dataset.date.replace(/\-/g, "");
       this.system.setInputDataValue("date", input.value);
@@ -337,7 +342,7 @@ DatePicker.prototype.tableDataKeydownHandler = function (e) {
 
 DatePicker.prototype.datePick = function (from, to) {
   const currentTd = this.domNode.querySelector(
-    `td[data-date="${dateformat(from)}"]`
+    `td[data-date="${dateFormat(from)}"]`
   );
   currentTd.setAttribute("tabindex", "-1");
   if (
@@ -345,7 +350,7 @@ DatePicker.prototype.datePick = function (from, to) {
     from.getMonth() === to.getMonth()
   ) {
     const nextTd = this.domNode.querySelector(
-      `td[data-date="${dateformat(to)}"]`
+      `td[data-date="${dateFormat(to)}"]`
     );
     nextTd.setAttribute("tabindex", "0");
     nextTd.focus();
@@ -370,7 +375,7 @@ DatePicker.prototype.datePick = function (from, to) {
     tableData.addEventListener("click", this.insertDate.bind(this));
   });
 
-  const nextTd = tableWrap.querySelector(`td[data-date="${dateformat(to)}"]`);
+  const nextTd = tableWrap.querySelector(`td[data-date="${dateFormat(to)}"]`);
   nextTd.setAttribute("tabindex", "0");
   nextTd.focus();
 };

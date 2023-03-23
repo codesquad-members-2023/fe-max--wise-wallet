@@ -1,5 +1,5 @@
 import { Element } from "../Element.js";
-import { CALENDER, DOCUMENT, STATISTICS } from "./SVG.js";
+import { CALENDER, DOCUMENT, STATISTICS } from "../SVG.js";
 
 const SVG = {
   document: DOCUMENT,

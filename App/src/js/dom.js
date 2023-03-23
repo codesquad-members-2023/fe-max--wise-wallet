@@ -1,16 +1,17 @@
-let classNode = {};
+let classElement = {};
 
 export const $ = document.querySelector.bind(document);
 
-export function $classNode(className) {
-  if (!className) return classNode;
-  if (!(className in classNode)) {
-    classNode[className] = [];
+export function $classElement(className, all) {
+  if (!className) return classElement;
+  if (!(className in classElement)) {
+    classElement[className] = [];
   }
-  if (classNode[className].length === 1) return classNode[className][0];
-  return classNode[className];
+
+  if (!all && classElement[className].length === 1) return classElement[className][0];
+  return classElement[className];
 }
 
-export function $clearClassNode() {
-  classNode = {};
+export function $clearclassElement() {
+  classElement = {};
 }

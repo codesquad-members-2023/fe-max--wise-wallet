@@ -1,4 +1,4 @@
-import { $classNode } from "./dom.js";
+import { $classElement } from "./dom.js";
 import { System } from "./System.js";
 
 export class Element {
@@ -6,7 +6,7 @@ export class Element {
     this.domNode = null;
     this.system = new System();
     this.init();
-    $classNode(this.constructor.name).push(this.domNode);
+    $classElement(this.constructor.name, true).push(this);
   }
 
   init() {

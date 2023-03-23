@@ -1,6 +1,6 @@
 import { Element } from "../Element.js";
-import { nextMonth, previousMonth } from "../util.js";
-import { NEXT, PREVIOUS } from "./SVG.js";
+import { nextMonth, previousMonth } from "../utils.js";
+import { NEXT, PREVIOUS } from "../SVG.js";
 
 const SVG = {
   previous: PREVIOUS,

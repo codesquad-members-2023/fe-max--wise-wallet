@@ -1,5 +1,5 @@
 import { Element } from "../Element.js";
-import { DELETE, OPEN } from "./SVG.js";
+import { DELETE, OPEN } from "../SVG.js";
 
 function MenuItemRadioView([payment, check]) {
   return `

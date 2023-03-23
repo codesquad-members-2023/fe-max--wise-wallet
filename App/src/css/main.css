@@ -42,27 +42,47 @@ main {
   display: flex;
 }
 
-#history .history__info ul li input + label svg {
+#income ~ .history__info .active-list label[for="income"] svg:nth-child(1) {
+  display: inline-block;
+}
+
+#income ~ .history__info .active-list label[for="income"] svg:nth-child(2) {
+  display: none;
+}
+
+#income:checked ~ .history__info .active-list label[for="income"] svg:nth-child(1) {
+  display: none;
+}
+
+#income:checked ~ .history__info .active-list label[for="income"] svg:nth-child(2) {
+  display: inline-block;
+}
+
+
+#expenditure ~ .history__info .active-list label[for="expenditure"] svg:nth-child(1) {
+  display: inline-block;
+}
+
+#expenditure ~ .history__info .active-list label[for="expenditure"] svg:nth-child(2) {
+  display: none;
+}
+
+#expenditure:checked ~ .history__info .active-list label[for="expenditure"] svg:nth-child(1) {
+  display: none;
+}
+
+#expenditure:checked ~ .history__info .active-list label[for="expenditure"] svg:nth-child(2) {
+  display: inline-block;
+}
+
+
+#history .history__info .active-list svg {
   margin-right: 10px;
-}
-
-#history .history__info ul li input + label svg:nth-child(1) {
-  display: inline-block;
-}
-#history .history__info ul li input + label svg:nth-child(2) {
-  display: none;
-}
-
-#history .history__info ul li input:checked + label svg:nth-child(1) {
-  display: none;
-}
-#history .history__info ul li input:checked + label svg:nth-child(2) {
-  display: inline-block;
 }
 
 #history .history__info ul li dl {
   display: flex;
-  gap: 14px;
+  gap: 4px;
 }
 
 #history .history__info ul li dl dt,
@@ -120,6 +140,11 @@ main {
   margin-top: 21px;
 }
 
+
+#history .body__list {
+  border-top: 1px solid var(--color-primary-alt);
+}
+
 #history .list__item {
   padding: 16px;
   display: flex;
@@ -134,10 +159,6 @@ main {
 #history .list__item:focus,
 #history .list__item:hover {
   background-color: white;
-}
-
-#history .list__item:first-child {
-  border-top: 1px solid var(--color-primary-alt);
 }
 
 #history .list__item span {
@@ -168,12 +189,44 @@ main {
   max-width: 320px;
 }
 
+
+#history .list__item[data-type="expenditure"] .payment {
+  display: none;
+}
+
+#history .list__item[data-type="expenditure"] .price {
+  color: var(--color-category-cyan);
+}
+
 #history .list__item .category[data-category="0"] {
   background-color: var(--color-category-navy);
 }
-
 #history .list__item .category[data-category="1"] {
   background-color: var(--color-category-blue);
+}
+#history .list__item .category[data-category="2"] {
+  background-color: var(--color-category-mint);
+}
+#history .list__item .category[data-category="3"] {
+  background-color: var(--color-category-cyan);
+}
+#history .list__item .category[data-category="4"] {
+  background-color: var(--color-category-sky);
+}
+#history .list__item .category[data-category="5"] {
+  background-color: var(--color-category-pink);
+}
+#history .list__item .category[data-category="6"] {
+  background-color: var(--color-category-purple);
+}
+#history .list__item .category[data-category="7"] {
+  background-color: var(--color-category-green);
+}
+#history .list__item .category[data-category="8"] {
+  background-color: var(--color-category-yellow);
+}
+#history .list__item .category[data-category="9"] {
+  background-color: var(--color-category-orange);
 }
 
 #history .list__item .payment {
@@ -204,9 +257,9 @@ main {
   line-height: var(--line-height-bold-medium);
 }
 
-#history .list__item .delete:active,
-#history .list__item .delete:focus,
-#history .list__item .delete:hover {
+#history .list__item:active .delete,
+#history .list__item:focus .delete,
+#history .list__item:hover .delete {
   display: flex;
   color: var(--color-secondary-red);
   animation: 500ms delete;
@@ -224,6 +277,22 @@ main {
   100% {
     color: var(--color-secondary-red);
   }
+}
+
+#income ~ .history__detail [data-type="income"] {
+  display: none;
+}
+
+#income:checked ~ .history__detail [data-type="income"] {
+  display: flex;
+}
+
+#expenditure ~ .history__detail [data-type="expenditure"] {
+  display: none;
+}
+
+#expenditure:checked ~ .history__detail [data-type="expenditure"] {
+  display: flex;
 }
 
 #calender {

@@ -17,7 +17,7 @@ export class Inputbar extends Element {
     const attr = {
       role: "toolbar",
       "aria-label": "입력공간",
-      "aria-controls": "textarea1",
+      "aria-controls": "history",
     };
     Object.entries(attr).forEach(([name, value]) => {
       this.domNode.setAttribute(name, value);
@@ -133,10 +133,18 @@ export class Inputbar extends Element {
     const detailInput = $detailGroup.querySelector("input");
     detailInput.addEventListener("focusin", () => {
       detailInput.value = "";
+      this.system.setInputDataValue("detail", null);
     });
     detailInput.addEventListener(
       "input",
       this.detailInputHandler.bind({ system: this.system })
+    );
+
+    const submitButton = $submitGroup.querySelector("button");
+    submitButton.addEventListener("click", this.submitButtonHandler.bind(this));
+    submitButton.addEventListener(
+      "keydown",
+      this.submitButtonHandler.bind(this)
     );
   }
 }
@@ -155,6 +163,7 @@ Inputbar.prototype.signButtonHandler = function (e) {
     $paymentGroup.className = "menu-popup group group-payment";
     divisionGroup.injectionCategories(false);
     system.setInputDataValue("sign", "minus");
+
     const button = $paymentGroup.querySelector("button");
     const paymentText = button.textContent.trim();
     system.setInputDataValue("payment", paymentText);
@@ -167,7 +176,7 @@ Inputbar.prototype.signButtonHandler = function (e) {
   $paymentGroup.className = "menu-popup group group-payment is-hidden";
   divisionGroup.injectionCategories(true);
   system.setInputDataValue("sign", "plus");
-  system.setInputDataValue("payment", "is-income");
+  system.setInputDataValue("payment", "is-expenditure");
 };
 
 Inputbar.prototype.amountInputHandler = function (e) {
@@ -177,7 +186,7 @@ Inputbar.prototype.amountInputHandler = function (e) {
     value = 99999990;
     amountInput.value = 99999990;
   }
-  system.setInputDataValue("amount", value);
+  system.setInputDataValue("amount", parseInt(value));
   if (value != "") {
     amountCoverSpan.className = "";
     amountCoverSpan.textContent = parseInt(value).toLocaleString();
@@ -278,4 +287,36 @@ Inputbar.prototype.menuPopUpHandler = function (e) {
 Inputbar.prototype.detailInputHandler = function (e) {
   const { system } = this;
   system.setInputDataValue("detail", e.target.value);
+};
+
+Inputbar.prototype.submitButtonHandler = function (e) {
+  const submitButton = this.domNode.querySelector("#submit");
+  if (submitButton.className !== "item submit active") {
+    return;
+  }
+  this.system.post();
+  this.clearInputbar();
+};
+
+Inputbar.prototype.clearInputbar = function () {
+  const coverSpan = this.domNode.querySelector(".field-amount .cover span");
+  coverSpan.className = "alt";
+  coverSpan.textContent = "0";
+
+  const amountInput = this.domNode.querySelector("#amount");
+  amountInput.value = "";
+
+  const detail = this.domNode.querySelector("#detail");
+  detail.value = "";
+
+  const paymentButton = this.domNode.querySelector("#payment");
+  paymentButton.innerHTML = `<span class="placeholder">입력하세요</span>`;
+
+  const divisionButton = this.domNode.querySelector("#division");
+  divisionButton.innerHTML = `<span class="placeholder">입력하세요</span>`;
+
+  const submitButton = this.domNode.querySelector("#submit");
+  submitButton.setAttribute("data-move", "put")
+
+  this.system.resetInputDataValue();
 };

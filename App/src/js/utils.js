@@ -1,6 +1,8 @@
+import { categories, categoryNumbers } from "./System.js";
+
 export const ONE_DAY_TIME = 1000 * 60 * 60 * 24;
 
-export function dateformat(current) {
+export function dateFormat(current) {
   const year = current.getFullYear();
   const month = current.getMonth() + 1;
   const date = current.getDate();
@@ -9,9 +11,10 @@ export function dateformat(current) {
   }`;
 }
 
-export function dateOneMonth(date) {
-  let current = date;
-  return new Date(`${current.getFullYear()}-${current.getMonth() + 1}-1`);
+export function dateOneMonth(current) {
+  const year = current.getFullYear();
+  const month = current.getMonth() + 1;
+  return new Date(`${year}-${month < 10 ? "0" + month : month}-01`);
 }
 
 export function monthDateToDateArr(monthDate) {
@@ -60,34 +63,14 @@ export function nextMonth(date) {
   return dateOneMonth(current);
 }
 
-export function get12Month() {
-  return [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12][this.getMonth()];
-}
-
 export function getCategoryString(index) {
-  return [
-    "생활",
-    "식비",
-    "교통",
-    "쇼핑/뷰티",
-    "의료/건강",
-    "문화/여가",
-    "미분류",
-  ][index];
+  return categories[index];
 }
 
-export function monthUnitData(when = new Date()) {
-  const year = when.getFullYear();
-  const month = when.getMonth() + 1;
-  return new Date(`${year}-${month}-1`);
+export function getCategoryNumber(category) {
+  return categoryNumbers[category];
 }
 
-export function dateUnitDate(when = new Date()) {
-  const year = when.getFullYear();
-  const month = when.getMonth() + 1;
-  const date = when.getDate();
-  return new Date(`${year}-${month}-${date}`);
-}
 export function arrToMenuItemData(arr) {
   const menuItemDataArr = [];
   for (let i of arr) {
