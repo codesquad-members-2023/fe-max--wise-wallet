@@ -4,8 +4,9 @@ const priceInputField = document.getElementById("price_input");
 const memoInputField = document.getElementById("memo_input");
 const paymentInputField = document.getElementById("payment_input");
 const categoryInputField = document.getElementById("category_input");
-const minusSvgPath = "./src/svg/minus.svg";
-const plusSvgPath = "./src/svg/plus.svg";
+const checkButton = document.getElementById("check_btn");
+const expenseSvgPath = "./src/svg/expense.svg";
+const incomeSvgPath = "./src/svg/income.svg";
 const resetField = [
   priceInputField,
   memoInputField,
@@ -13,9 +14,9 @@ const resetField = [
   categoryInputField,
 ];
 
-function setSVG(svg, path, isMinus) {
+function setSVG(svg, path, isExpense) {
   svg.setAttribute("src", path);
-  svg.setAttribute("isMinus", isMinus);
+  svg.setAttribute("isExpense", isExpense);
 }
 
 const addComma = (price) => {
@@ -25,17 +26,17 @@ const addComma = (price) => {
 function resetInputBar() {
   resetField.forEach((inputFieldText) => {
     inputFieldText.value = "";
-  })
-};
+  });
+}
 
 changeButton.addEventListener("click", (e) => {
   resetInputBar();
-  const currentSrc = changeImage.getAttribute("isMinus");
-  const isMinus = currentSrc === "true";
-  if (isMinus) {
-    setSVG(changeImage, plusSvgPath, "false");
+  const currentSrc = changeImage.getAttribute("isExpense");
+  const isExpense = currentSrc === "true";
+  if (isExpense) {
+    setSVG(changeImage, incomeSvgPath, "false");
   } else {
-    setSVG(changeImage, minusSvgPath, "true");
+    setSVG(changeImage, expenseSvgPath, "true");
   }
 });
 
@@ -48,4 +49,34 @@ priceInputField.addEventListener("keyup", (e) => {
   } else {
     e.target.value = addComma(sanitizedValue);
   }
+});
+
+checkButton.addEventListener("click", function () {
+  const isExpense = changeImage.getAttribute("isExpense");
+  const date = document.getElementById("input_date").value;
+  const price = document.getElementById("price_input").value;
+  const memo = document.getElementById("memo_input").value;
+  const payment = document.getElementById("payment_input").value;
+  const category = document.getElementById("category_input").value;
+
+  const history = {
+    isExpense: isExpense,
+    date: date,
+    price: price,
+    memo: memo,
+    payment: payment,
+    category: category,
+  };
+
+  let histories = JSON.parse(localStorage.getItem("histories")) || [];
+
+  histories.push(history);
+  localStorage.setItem("histories", JSON.stringify(histories));
+});
+
+const histories = JSON.parse(localStorage.getItem('histories')) || [];
+
+histories.forEach(function(history) {
+  // expense 객체의 정보를 화면에 출력
+  
 });
