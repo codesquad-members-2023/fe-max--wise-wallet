@@ -22,7 +22,7 @@ function addDailyList({ date }) {
 	newLi.classList.add('daily-list');
 	newDiv.classList.add('daily-info');
 	newUl.classList.add('daily-detail-lists-container');
-	newUl.setAttribute('id', `list-${date}`);
+	newLi.setAttribute('id', `list-${date}`);
 	newLi.append(newDiv, newUl);
 
 	const currentPosition = document.querySelector('ul.daily-lists-container');
@@ -37,8 +37,9 @@ function addDailyInfo({ date, price, income }) {
 	const dayInfo = days[targetDate.getDay()];
 	const inOrOut = !income ? '지출' : '수입';
 	const priceInfo = price;
+
 	const dailyInfoTemplate = `<div><span>${monthInfo}월 ${dateInfo}일</span> <span>${dayInfo}</span></div>
-  <div><span>${inOrOut}</span> <span>${priceInfo}원</span></div>`;
+  <div><span>${inOrOut} ${priceInfo}원</span></div>`;
 	const dailyInfo = document.querySelector('.daily-info');
 	dailyInfo.insertAdjacentHTML('afterbegin', dailyInfoTemplate);
 }
@@ -58,11 +59,11 @@ function addDailyDetailList(data) {
 	}
 
 	newList.insertAdjacentHTML('beforeend', detailTemplate);
-	const dailyDetailLists = document.getElementById(`list-${data.date}`);
+	const dailyDetailLists = document.querySelector(`#list-${data.date} ul`);
 	dailyDetailLists.insertAdjacentElement('afterbegin', newList);
 }
 
-function updateDailyInfo() {
+function updateDailyInfo(data) {
 	// 날짜별 상단에 수입지출 요약부분 내용 업데이트
 }
 
