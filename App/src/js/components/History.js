@@ -34,7 +34,12 @@ function ActiveItemView({ name, attr, title, desc }) {
   `;
 }
 
-function HistoryDateBodyItemView({ category, body, payment, price }, index) {
+function HistoryDateBodyItemView(
+  { category, body, payment, price },
+  index,
+  arr
+) {
+  index = arr.length - 1 - index;
   const categoryString = getCategoryString(category);
   const { dateTime } = this;
 
@@ -97,13 +102,13 @@ function HistoryDetailItemView([dateTime, record]) {
           </h4>
           <dl tabindex="0" class="header__income-expenditure">
             ${
-              totalIncome != 0
-                ? `<dt data-type="expenditure">수입</dt><dd data-type="expenditure">${totalIncome.toLocaleString()}원</dd>`
+              totalExpenditure != 0
+                ? `<dt data-type="income">수입</dt><dd data-type="expenditure">${totalExpenditure.toLocaleString()}원</dd>`
                 : ""
             }
             ${
-              totalExpenditure != 0
-                ? `<dt data-type="income">지출</dt><dd data-type="income">${totalExpenditure.toLocaleString()}원</dd>`
+              totalIncome != 0
+                ? `<dt data-type="expenditure">지출</dt><dd data-type="income">${totalIncome.toLocaleString()}원</dd>`
                 : ""
             }
           </dl>
@@ -163,7 +168,9 @@ export class History extends Element {
       <h2 class="blind">입출금 내역</h2>
       ${activeList.map(ActiveCheckBoxView).join("")}
       <div class="history__info">
-        <h3 tabindex="0">전체내역<span>13</span>건</h3>
+        <h3 tabindex="0">전체 내역<span class="count">${
+          historyData["totalCount"]
+        }</span>건</h3>
         <ul class="active-list">
           ${activeList.map(ActiveItemView).join("")}
         </ul>
@@ -177,14 +184,37 @@ export class History extends Element {
 
     bodyListItems.forEach((item) => {
       item.addEventListener("click", this.setUpdate);
+      const deleteButton = item.querySelector(".delete");
+      deleteButton.addEventListener("click", this.delete.bind(this));
     });
   }
 }
 
 History.prototype.setUpdate = function (e) {
-  const $inputbar = $classElement("Inputbar").domNode;
+  const inputbar = $classElement("Inputbar");
   const listItem = e.currentTarget;
+  let [categoryValue, bodyValue, paymentValue, priceValue] = [
+    ...listItem.querySelectorAll("span"),
+  ].map((span) => span.textContent);
+  priceValue = parseInt(priceValue);
+  const amountValue = Math.abs(priceValue);
   const current = new Date(parseInt(listItem.dataset.date));
   const dateValue = dateFormat(current).replaceAll("-", "");
+  const sign = priceValue > 0 ? "plus" : "minus";
+  const currentData = [
+    dateValue,
+    sign,
+    amountValue,
+    bodyValue,
+    paymentValue,
+    categoryValue,
+  ];
+  inputbar.setData(currentData, listItem.dataset.index);
+};
 
+History.prototype.delete = function (e) {
+  e.stopPropagation();
+  const listItem = e.currentTarget.closest("li");
+  const { date, index } = listItem.dataset;
+  this.system.delete(date, index);
 };

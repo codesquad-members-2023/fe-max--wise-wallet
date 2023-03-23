@@ -19,7 +19,7 @@ export class PaymentGroup extends Element {
 
   init() {
     this.domNode = document.createElement("DIV");
-    this.domNode.className = "menu-popup group";
+    this.domNode.className = "menu-popup group group-payment";
     const payments = [
       ["현금", true],
       ["신용카드", false],

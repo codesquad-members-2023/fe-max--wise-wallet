@@ -1,7 +1,7 @@
 import { $classElement } from "./dom.js";
 import { dateFormat, dateOneMonth } from "./utils.js";
 
-export const expenditureCategories = [
+export const incomeCategories = [
   "생활",
   "식비",
   "교통",
@@ -20,14 +20,14 @@ let inputData = {
   division: null,
 };
 
-export const incomeCategories = ["월급", "용돈", "기타수입"];
+export const expenditureCategories = ["월급", "용돈", "기타수입"];
 
 export const categories = expenditureCategories.concat(incomeCategories);
 
-export const categoryNumbers = {};
+export const categoryNumber = {};
 
 for (let i = 0; i < categories.length; i++) {
-  categoryNumbers[categories[i]] = i;
+  categoryNumber[categories[i]] = i;
 }
 
 let current = null;
@@ -74,21 +74,83 @@ export class System {
     history[monthTime]["date"][dateTime]["totalCount"]++;
 
     if (price > 0) {
+      history[monthTime]["totalExpenditure"] += amount;
+      history[monthTime]["date"][dateTime]["totalExpenditure"] += amount;
+    } else {
+      history[monthTime]["totalIncome"] += amount;
+      history[monthTime]["date"][dateTime]["totalIncome"] += amount;
+    }
+    const data = history[monthTime]["date"][dateTime]["data"];
+    const insertData = {
+      id: data.length ? data[data.length - 1].id + 1 : 1,
+      category: categoryNumber[division],
+      body: detail,
+      payment: payment,
+      price,
+    };
+    data.push(insertData);
+
+    localStorage.setItem("History", JSON.stringify(history));
+    this.refreshHistory();
+  }
+
+  put(index) {
+    const { sign, amount, detail, payment, division } = inputData;
+    const [year, month, date] = inputData["date"].match(/(20\d\d)|(\d\d)/g);
+    const monthTime = new Date(`${year}-${month}-01`).getTime();
+    const dateTime = new Date(`${year}-${month}-${date}`).getTime();
+    const data = history[monthTime]["date"][dateTime]["data"][index];
+    const beforePrice = data.price;
+    const beforeAmount = Math.abs(beforePrice);
+    if (data.price < 0) {
+      history[monthTime]["totalIncome"] -= beforeAmount;
+      history[monthTime]["date"][dateTime]["totalIncome"] -= beforeAmount;
+    } else {
+      history[monthTime]["totalExpenditure"] -= beforeAmount;
+      history[monthTime]["date"][dateTime]["totalExpenditure"] -= beforeAmount;
+    }
+    data.category = categoryNumber[division];
+    data.body = detail;
+    data.payment = payment;
+    data.price = sign === "plus" ? amount : -amount;
+
+    if (data.price < 0) {
       history[monthTime]["totalIncome"] += amount;
       history[monthTime]["date"][dateTime]["totalIncome"] += amount;
     } else {
       history[monthTime]["totalExpenditure"] += amount;
       history[monthTime]["date"][dateTime]["totalExpenditure"] += amount;
     }
+
+    localStorage.setItem("History", JSON.stringify(history));
+    this.refreshHistory();
+  }
+
+  delete(dateTime, index) {
+    const temp = new Date(parseInt(dateTime));
+    const [year, month, date] = dateFormat(temp).split("-");
+    const monthTime = new Date(`${year}-${month}-01`).getTime();
     const data = history[monthTime]["date"][dateTime]["data"];
-    const insertData = {
-      id: data.length ? data[data.length - 1].id + 1 : 1,
-      category: categoryNumbers[division],
-      body: detail,
-      payment: payment,
-      price,
-    };
-    data.push(insertData);
+    const nextData = [];
+    for (let i in data) {
+      if (i !== index) nextData.push(data[i]);
+    }
+    const deleteData = data[index];
+    const amount = Math.abs(deleteData.price);
+    if (deleteData.price < 0) {
+      history[monthTime]["totalIncome"] -= amount;
+      history[monthTime]["date"][dateTime]["totalIncome"] -= amount;
+    } else {
+      history[monthTime]["totalExpenditure"] -= amount;
+      history[monthTime]["date"][dateTime]["totalExpenditure"] -= amount;
+    }
+    history[monthTime]["totalCount"]--;
+    history[monthTime]["date"][dateTime]["totalCount"]--;
+
+    history[monthTime]["date"][dateTime]["data"] = nextData;
+    if (nextData.length === 0) {
+      delete history[monthTime]["date"][dateTime];
+    }
 
     localStorage.setItem("History", JSON.stringify(history));
     this.refreshHistory();

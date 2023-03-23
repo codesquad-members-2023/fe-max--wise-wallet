@@ -1,3 +1,4 @@
+import { $classElement } from "../dom.js";
 import { Element } from "../Element.js";
 import { AmountGroup } from "./AmountGroup.js";
 import { DateGroup } from "./DateGroup.js";
@@ -46,36 +47,12 @@ export class Inputbar extends Element {
 
     const signButton = $amountGroup.querySelector("button");
 
-    signButton.addEventListener(
-      "click",
-      this.signButtonHandler.bind({
-        $paymentGroup,
-        system: this.system,
-        signButton,
-        divisionGroup,
-      })
-    );
-    signButton.addEventListener(
-      "keydown",
-      this.signButtonHandler.bind({
-        $paymentGroup,
-        system: this.system,
-        signButton,
-        divisionGroup,
-      })
-    );
+    signButton.addEventListener("click", this.signButtonHandler.bind(this));
+    signButton.addEventListener("keydown", this.signButtonHandler.bind(this));
 
-    const amountCoverSpan = $amountGroup.querySelector(".cover span");
     const amountInput = $amountGroup.querySelector("input");
 
-    amountInput.addEventListener(
-      "input",
-      this.amountInputHandler.bind({
-        system: this.system,
-        amountCoverSpan,
-        amountInput,
-      })
-    );
+    amountInput.addEventListener("input", this.amountInputHandler.bind(this));
 
     const menuPopUps = this.domNode.querySelectorAll(".menu-popup");
     menuPopUps.forEach((menuPopUp) => {
@@ -152,7 +129,13 @@ export class Inputbar extends Element {
 Inputbar.prototype.signButtonHandler = function (e) {
   e.preventDefault();
   const { type, code } = e;
-  const { $paymentGroup, system, signButton, divisionGroup } = this;
+  const $paymentGroup = this.domNode.querySelector(".group-payment");
+  const signButton = this.domNode.querySelector("#sign");
+  const divisionGroup = $classElement("DivisionGroup");
+  const divisionButton = divisionGroup.domNode.querySelector("#division");
+  divisionButton.innerHTML = `<span class="placeholder">입력하세요</span>`;
+  this.system.setInputDataValue("division", null);
+
   if (type === "keydown") {
     if (code !== "Enter" && code !== "Space") {
       return;
@@ -161,32 +144,34 @@ Inputbar.prototype.signButtonHandler = function (e) {
   if (signButton.className === "plus") {
     signButton.className = "minus";
     $paymentGroup.className = "menu-popup group group-payment";
-    divisionGroup.injectionCategories(false);
-    system.setInputDataValue("sign", "minus");
+    divisionGroup.injectionCategories();
+    this.system.setInputDataValue("sign", "minus");
 
     const button = $paymentGroup.querySelector("button");
     const paymentText = button.textContent.trim();
-    system.setInputDataValue("payment", paymentText);
+    this.system.setInputDataValue("payment", paymentText);
     if (paymentText === "입력하세요") {
-      system.setInputDataValue("payment", null);
+      this.system.setInputDataValue("payment", null);
     }
     return;
   }
   signButton.className = "plus";
   $paymentGroup.className = "menu-popup group group-payment is-hidden";
   divisionGroup.injectionCategories(true);
-  system.setInputDataValue("sign", "plus");
-  system.setInputDataValue("payment", "is-expenditure");
+  this.system.setInputDataValue("sign", "plus");
+  this.system.setInputDataValue("payment", "is-expenditure");
 };
 
 Inputbar.prototype.amountInputHandler = function (e) {
-  const { system, amountCoverSpan, amountInput } = this;
+  const $amountField = this.domNode.querySelector(".field-amount");
+  const amountCoverSpan = $amountField.querySelector(".cover span");
+  const amountInput = $amountField.querySelector("#amount");
   let { value } = amountInput;
   if (value > 99999990) {
     value = 99999990;
     amountInput.value = 99999990;
   }
-  system.setInputDataValue("amount", parseInt(value));
+  this.system.setInputDataValue("amount", parseInt(value));
   if (value != "") {
     amountCoverSpan.className = "";
     amountCoverSpan.textContent = parseInt(value).toLocaleString();
@@ -298,11 +283,25 @@ Inputbar.prototype.submitButtonHandler = function (e) {
   if (submitButton.className !== "item submit active") {
     return;
   }
-  this.system.post();
-  this.clearInputbar();
+
+  const { move, index } = submitButton.dataset;
+
+  switch (move) {
+    case "POST":
+      this.system.post();
+      break;
+    case "PUT": {
+      this.system.put(index);
+      break;
+    }
+  }
+  this.clear();
 };
 
-Inputbar.prototype.clearInputbar = function () {
+Inputbar.prototype.clear = function () {
+  const sign = this.domNode.querySelector("#sign");
+  sign.className = "minus";
+
   const coverSpan = this.domNode.querySelector(".field-amount .cover span");
   coverSpan.className = "alt";
   coverSpan.textContent = "0";
@@ -316,11 +315,63 @@ Inputbar.prototype.clearInputbar = function () {
   const paymentButton = this.domNode.querySelector("#payment");
   paymentButton.innerHTML = `<span class="placeholder">입력하세요</span>`;
 
+  const $paymentGroup = this.domNode.querySelector(".group-payment");
+  $paymentGroup.className = "menu-popup group group-payment";
+
   const divisionButton = this.domNode.querySelector("#division");
   divisionButton.innerHTML = `<span class="placeholder">입력하세요</span>`;
 
   const submitButton = this.domNode.querySelector("#submit");
-  submitButton.setAttribute("data-move", "put");
-
+  submitButton.setAttribute("data-move", "POST");
+  if (submitButton.hasAttribute("data-index")) {
+    submitButton.removeAttribute("data-index");
+  }
   this.system.resetInputDataValue();
+};
+
+Inputbar.prototype.setData = function (data, index) {
+  this.clear();
+  const [dateInput, amountInput, detailInput] =
+    this.domNode.querySelectorAll("input[id]");
+  const [signButton, paymentButton, divisionButton, submitButton] =
+    this.domNode.querySelectorAll("button[id]");
+  const fields = [
+    dateInput,
+    signButton,
+    amountInput,
+    detailInput,
+    paymentButton,
+    divisionButton,
+  ];
+  const inputbar = this;
+  fields.forEach((field, i) => {
+    this.system.setInputDataValue(field.id, data[i]);
+    if (field.id === "sign") {
+      return;
+    }
+    switch (field.tagName) {
+      case "INPUT":
+        field.value = data[i];
+        return;
+      case "BUTTON":
+        field.textContent = data[i];
+    }
+  });
+  if (data[1] === "plus") {
+    signButton.className = "plus";
+    const $paymentGroup = inputbar.domNode.querySelector(".group-payment");
+    $paymentGroup.className = "menu-popup group group-payment is-hidden";
+    paymentButton.innerHTML = `<span class="placeholder">입력하세요</span>`;
+    console.log($classElement("DivisionGroup").injectionCategories);
+    $classElement("DivisionGroup").injectionCategories(true);
+  } else {
+    signButton.className = "minus";
+    $classElement("DivisionGroup").injectionCategories();
+  }
+  const coverSpan = this.domNode.querySelector(".field-amount .cover span");
+  coverSpan.className = "";
+  coverSpan.textContent = parseInt(amountInput.value).toLocaleString();
+
+  submitButton.setAttribute("data-move", "PUT");
+  submitButton.setAttribute("data-index", index);
 };

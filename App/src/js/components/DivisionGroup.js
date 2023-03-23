@@ -39,9 +39,7 @@ export class DivisionGroup extends Element {
           </label>
         </div>
         <ul role="menu" id="menu2" aria-label="분류">
-        ${arrToMenuItemData(expenditureCategories)
-          .map(MenuItemRadioView)
-          .join("")}
+        ${arrToMenuItemData(incomeCategories).map(MenuItemRadioView).join("")}
         </ul>
       `
     );
@@ -51,12 +49,12 @@ export class DivisionGroup extends Element {
     const menu = this.domNode.querySelector('[role="menu"]');
 
     if (isIncome) {
-      menu.innerHTML = arrToMenuItemData(incomeCategories)
+      menu.innerHTML = arrToMenuItemData(expenditureCategories)
         .map(MenuItemRadioView)
         .join("");
       return;
     }
-    menu.innerHTML = arrToMenuItemData(expenditureCategories)
+    menu.innerHTML = arrToMenuItemData(incomeCategories)
       .map(MenuItemRadioView)
       .join("");
   }

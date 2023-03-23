@@ -17,6 +17,8 @@ main {
   color: var(--color-primary);
 }
 
+
+
 #history .history__info ul {
   display: flex;
   gap: 14px;
@@ -32,6 +34,10 @@ main {
   font-size: var(--font-size-body-large);
   font-weight: var(--font-weight-body);
   line-height: var(--line-height-body-large);
+}
+
+#history .history__info h3 .count{
+  margin-left: 8px;
 }
 
 #history .history__info ul li input {

@@ -1,4 +1,4 @@
-import { categories, categoryNumbers } from "./System.js";
+import { categories, categoryNumber } from "./System.js";
 
 export const ONE_DAY_TIME = 1000 * 60 * 60 * 24;
 
@@ -68,7 +68,7 @@ export function getCategoryString(index) {
 }
 
 export function getCategoryNumber(category) {
-  return categoryNumbers[category];
+  return categoryNumber[category];
 }
 
 export function arrToMenuItemData(arr) {
