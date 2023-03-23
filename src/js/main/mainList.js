@@ -45,8 +45,10 @@ function addDailyInfo({ date, price, income }) {
 
 function addDailyDetailList(data) {
 	const newList = document.createElement('li');
-	const details = ['category', 'memo', 'payment', 'price'];
-	const detailTemplate = key => `<div class="daily-detail-${key}">${data[key]}</div>`;
+	const detailTemplate = `<div class="daily-detail-category">${data.category}</div>
+  <div class="daily-detail-memo">${data.memo}</div>
+  <div class="daily-detail-payment">${data.payment}</div>
+  <div class="daily-detail-price">${!data.hasOwnProperty('income') ? '-' : '+'}${data.price}원</div>`;
 
 	newList.classList.add('daily-detail-list');
 	if (!data.hasOwnProperty('income')) {
@@ -55,10 +57,7 @@ function addDailyDetailList(data) {
 		newList.classList.add('income');
 	}
 
-	details.forEach(el => {
-		newList.insertAdjacentHTML('beforeend', detailTemplate(el));
-	});
-
+	newList.insertAdjacentHTML('beforeend', detailTemplate);
 	const dailyDetailLists = document.getElementById(`list-${data.date}`);
 	dailyDetailLists.insertAdjacentElement('afterbegin', newList);
 }
