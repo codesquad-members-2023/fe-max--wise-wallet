@@ -67,13 +67,13 @@ body {
 .tab-content {
   opacity: 0;
   visibility: hidden;
-  transition: opacity 0.35s ease-out;
+  transition: opacity 0.6s ease-out;
   height: 0;
 }
 .tab-content.active {
   opacity: 1;
   visibility: visible;
-  transition: opacity 0.35s ease-out;
+  transition: opacity 0.6s ease-out;
   height: auto;
 }
 
@@ -362,7 +362,8 @@ input[type='checkbox'] {
 }
 .history-list__info-day,
 .history-list-info__income,
-.history-list-info__expense {
+.history-list-info__expense,
+.calender-statistics__total {
   color: var(--color-primary-alt);
 }
 .history-list-info__income,
@@ -401,4 +402,63 @@ input[type='checkbox'] {
 }
 .history-list__item-amount.minus-color {
   color: var(--color-secondary-red);
+}
+
+/* 달력 */
+
+#calender {
+  position: relative;
+  bottom: 26px;
+}
+.calendar-wrap,
+.calendar-dates {
+  width: 846px;
+  margin: 0 auto;
+}
+.calendar-days,
+.calendar-dates,
+.graph-wrap {
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-radius-sqaure);
+  border: 1px solid var(--color-primary);
+  background-color: var(--color-white);
+}
+.calendar-days {
+  width: 100%;
+  display: flex;
+  text-align: center;
+}
+.day {
+  padding: 12px 0;
+  width: 120px;
+}
+.calendar-dates {
+  margin-top: 16px;
+  height: 580px;
+}
+.calender-statistics {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+.calender-statistics span {
+  margin-left: 8px;
+}
+.calender-statistics__total {
+  display: flex;
+  gap: 8px;
+}
+.calender-statistics__sum {
+  color: var(--color-primary);
+}
+
+#graph {
+  position: relative;
+  width: 846px;
+  margin: 0 auto;
+  bottom: 26px;
+}
+.graph-wrap {
+  width: 100%;
+  height: 593px;
 }
