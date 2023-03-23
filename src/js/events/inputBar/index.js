@@ -11,10 +11,10 @@ import { hideSelectBox } from "../../utils/hideSelectBox.js";
 
 export const inputBarEventHandler = () => {
   $("#price-input").addEventListener("input", priceInput);
-  //   $("#date-Input").addEventListener("keydown", dateInput);
+  $("#date-input").addEventListener("input", dateInput);
   $(".payment-select-head").addEventListener("click", clickPaymentHead);
   $(".payment-list-member").addEventListener("click", selectPaymentList);
-  document.addEventListener("click", hideSelectBox)
+  document.addEventListener("click", hideSelectBox);
 
   // $(".category-select-head").addEventListener("click", clickCategoryHead);
   // $(".category-list-member").addEventListener("click", selectCategoryList);

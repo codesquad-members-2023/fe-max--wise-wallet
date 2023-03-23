@@ -1,12 +1,12 @@
 import { $ } from "./dom.js";
-import { addAllIncome, addAllExpenditure } from "./addAllIncomeExpenditure.js";
+import { addUpAllIncome, addUpAllExpenditure } from "./addUpAllIncomeExpenditure.js";
 export const renderTotalIncomeExpenditure = () => {
   if ($('label[for="income-btn"]')) {
     $('label[for="income-btn"]').textContent =
-      "수입 " + addAllIncome().toLocaleString("ko-KR");
+      "수입 " + addUpAllIncome().toLocaleString("ko-KR");
   }
   if ($('label[for="expenditure-btn"]')) {
     $('label[for="expenditure-btn"]').textContent =
-      "지출 " + addAllExpenditure().toLocaleString("ko-KR");
+      "지출 " + addUpAllExpenditure().toLocaleString("ko-KR");
   }
 };

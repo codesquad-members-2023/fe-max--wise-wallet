@@ -1,6 +1,6 @@
 import { $ } from "../utils/dom.js";
 import { inputStore } from "./inputStore.js";
-import { renderListTotalLength } from "../utils/renderListTotalLength.js";
+import { renderListTotalLength } from "../view/renderListTotalLength.js";
 import { validateInputValue } from "../utils/validateInputValue.js";
 import { renderTotalIncomeExpenditure } from "../utils/renderTotalIncomeExpenditure.js";
 import { addListByDay } from "../utils/addListByDay.js";

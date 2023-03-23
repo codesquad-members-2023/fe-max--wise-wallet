@@ -2,10 +2,8 @@ import { $, $All } from "./js/utils/dom.js";
 import { initInputBarDate } from "./js/init/initInputBarDate.js";
 import { initDateDisplay } from "./js/init/initDateDisplay.js";
 import { initEventHandler } from "./js/init/initEventHandler.js";
-import { inputStore } from "./js/store/inputStore.js";
-import { initListTotalLength } from "./js/init/initListTotalLength.js";
+import { initListTotalInfo } from "./js/init/initListTotalInfo.js";
 import { initList } from "./js/init/initList.js";
-import { initTotalIncomeExpenditure } from "./js/init/initTotalIncomeExpenditure.js";
 
 /* 파일분리 생각해두기 */
 
@@ -100,8 +98,7 @@ const init = () => {
   initInputBarDate();
   initDateDisplay();
   initEventHandler();
-  initListTotalLength();
-  initTotalIncomeExpenditure();
+  initListTotalInfo();
   initList()
 };
 
