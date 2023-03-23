@@ -240,13 +240,12 @@ Inputbar.prototype.menuPopUpHandler = function (e) {
     button.focus();
   }
 
-  function itemKeyDownHandler(e) {
-    const { key } = e;
-    const index = items.indexOf(e.target);
-    let nextIndex = null;
+  function itemKeyDownHandler({ key, target }) {
+    const index = items.indexOf(target);
 
     switch (key) {
-      case "ArrowUp":
+      case "ArrowUp": {
+        let nextIndex = null;
         items[index].setAttribute("aria-checked", "false");
         nextIndex = (items.length + index - 1) % items.length;
         items[nextIndex].setAttribute("aria-checked", "true");
@@ -254,7 +253,9 @@ Inputbar.prototype.menuPopUpHandler = function (e) {
         items[nextIndex].focus();
         flag = false;
         return;
-      case "ArrowDown":
+      }
+      case "ArrowDown": {
+        let nextIndex = null;
         items[index].setAttribute("aria-checked", "false");
         nextIndex = (index + 1) % items.length;
         items[nextIndex].setAttribute("aria-checked", "true");
@@ -262,11 +263,13 @@ Inputbar.prototype.menuPopUpHandler = function (e) {
         items[nextIndex].focus();
         flag = false;
         return;
+      }
       case "Enter":
-      case "Space":
+      case "Space": {
         button.textContent = items[index].textContent.trim();
         system.setInputDataValue(button.id, button.textContent);
         menufocusOutHandler();
+      }
     }
   }
 
@@ -316,7 +319,7 @@ Inputbar.prototype.clearInputbar = function () {
   divisionButton.innerHTML = `<span class="placeholder">입력하세요</span>`;
 
   const submitButton = this.domNode.querySelector("#submit");
-  submitButton.setAttribute("data-move", "put")
+  submitButton.setAttribute("data-move", "put");
 
   this.system.resetInputDataValue();
 };

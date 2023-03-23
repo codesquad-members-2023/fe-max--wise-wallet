@@ -80,7 +80,6 @@ export class System {
       history[monthTime]["totalExpenditure"] += amount;
       history[monthTime]["date"][dateTime]["totalExpenditure"] += amount;
     }
-    console.log(history)
     const data = history[monthTime]["date"][dateTime]["data"];
     const insertData = {
       id: data.length ? data[data.length - 1].id + 1 : 1,
@@ -89,7 +88,6 @@ export class System {
       payment: payment,
       price,
     };
-    console.log(data);
     data.push(insertData);
 
     localStorage.setItem("History", JSON.stringify(history));
