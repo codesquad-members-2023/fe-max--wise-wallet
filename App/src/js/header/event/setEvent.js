@@ -53,7 +53,8 @@ export const setEvent = () => {
 
 const handleArrowBtn = (targetId, currentPage) => {
   const $main = document.getElementById("main");
-  editDate(targetId);
+  const monthOffset = targetId === "left-Arrow" ? -2 : 0;
+  editDate(monthOffset);
 
   switch (currentPage) {
     case "doc":
@@ -72,9 +73,9 @@ const handleArrowBtn = (targetId, currentPage) => {
   }
 };
 
-const editDate = (targetId) => {
-  const num = targetId === "left-Arrow" ? 2 : 0;
+const editDate = (monthOffset) => {
   const [year, month, month_en] = getDateElements();
-  const newDate = new Date(year.innerHTML, month.innerHTML - num);
+  const monthIndex = Number(month.textContent) + monthOffset;
+  const newDate = new Date(year.textContent, monthIndex);
   setDate([year, month, month_en], newDate);
 };
