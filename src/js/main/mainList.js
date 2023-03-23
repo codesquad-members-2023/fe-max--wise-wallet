@@ -11,7 +11,7 @@ export function renderMainList(data) {
 function isNewDate({ date }) {
 	const yearMonthKey = date.slice(0, 6);
 	const monthlyList = JSON.parse(localStorage.getItem(yearMonthKey));
-	return monthlyList[date].length === 1;
+	return monthlyList[date].details.length === 1;
 }
 
 function addDailyList({ date }) {
