@@ -1,8 +1,5 @@
-import {
-  paymentMethods,
-  expenseCategories,
-  incomeCategories,
-} from "../../store/index.js";
+import { paymentMethods } from "../../store/index.js";
+import { expenseCategories, incomeCategories } from "../../constants/index.js";
 
 const template = document.createElement("template");
 template.innerHTML = `
@@ -65,7 +62,7 @@ template.innerHTML = `
         id="input-bar-category" 
         for="category" 
         name="category"
-        data-options=${JSON.stringify(expenseCategories)}>
+        data-options=${JSON.stringify(Object.keys(expenseCategories))}>
       </drop-down>
 
       <button type="submit" class="entry-submit-btn" disabled>
@@ -273,8 +270,8 @@ class InputBar extends HTMLElement {
         (d) => d.getAttribute("name") === "category"
       );
       categoryDropdown.dataset.options = isExpenseInput.checked
-        ? JSON.stringify(expenseCategories)
-        : JSON.stringify(incomeCategories);
+        ? JSON.stringify(Object.keys(expenseCategories))
+        : JSON.stringify(Object.keys(incomeCategories));
       categoryDropdown.shadowRoot.querySelector(
         ".input-bar__item-input"
       ).value = "";
