@@ -160,6 +160,9 @@ header {
   text-decoration: none;
   color: var(--color-white);
 }
+.icon {
+  cursor: pointer;
+}
 .month-year {
   display: flex;
   flex-direction: row;
@@ -207,12 +210,13 @@ header {
   flex: none;
   order: 0;
   flex-grow: 0;
+  cursor: pointer;
 }
-/* 메인 */
+/* main */
 main {
   justify-content: center;
 }
-/* 인풋바 */
+/* input-bar */
 .input-bar-form {
   display: flex;
   flex-direction: row;
@@ -229,7 +233,7 @@ main {
     0px 4px 4px rgba(82, 77, 144, 0.1);
   border-radius: 8px;
 }
-/* 일자 */
+/* date */
 .input-bar-date {
   display: flex;
   flex-direction: row;
@@ -242,7 +246,7 @@ main {
   order: 0;
   flex-grow: 0;
 }
-.input-date-text {
+.date-text {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -258,22 +262,22 @@ main {
   flex: none;
   flex-grow: 0;
 }
-#input-date-lable {
+#date-lable {
   width: 88px;
   height: 16px;
-  color: #a79fcb;
+  color: var(--color-primary-alt);
   flex: none;
   order: 0;
   align-self: stretch;
   flex-grow: 0;
 }
-#input-date-input {
+#date-input {
   width: 88px;
   height: 24px;
   color: #524d90;
   padding: 0px;
   border: none;
-  margin-top: 0px;
+  margin-top: 4px;
   flex: none;
   align-self: stretch;
   flex-grow: 0;
@@ -284,7 +288,7 @@ input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-/* 금액 */
+/* price */
 .input-bar-price {
   display: flex;
   align-items: center;
@@ -295,7 +299,7 @@ input[type="number"]::-webkit-inner-spin-button {
   flex: none;
   flex-grow: 0;
 }
-.input-price-text {
+.price-text {
   display: flex;
   padding: 0px;
   margin: 0px;
@@ -306,16 +310,16 @@ input[type="number"]::-webkit-inner-spin-button {
   width: 134px;
   height: 44px;
 }
-#input-price-lable {
+#price-lable {
   width: 134px;
   height: 16px;
-  color: #a79fcb;
+  color: var(--color-primary-alt);
   flex: none;
   align-self: stretch;
   margin: 0px 24px 0px 24px;
   padding: 0px;
 }
-.input-price-button {
+.price-button {
   width: 24px;
   height: 24px;
   padding: 0px;
@@ -323,11 +327,11 @@ input[type="number"]::-webkit-inner-spin-button {
   margin-left: 24px;
   background-color: white;
 }
-#input-price-input {
+#price-input {
   width: 78px;
   height: 24px;
   text-align: right;
-  color: #a79fcb;
+  color: var(--color-primary-alt);
   flex: none;
   border: none;
   padding: 0px 8px 0px 8px;
@@ -340,4 +344,146 @@ input[type="number"]::-webkit-inner-spin-button {
   color: #524d90;
   padding: 0px;
   margin-right: 24px;
+}
+/* memo */
+.input-bar-memo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 24px;
+  width: 213px;
+  height: 76px;
+  flex: none;
+  flex-grow: 0;
+}
+.memo-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 24px 0px 24px;
+  margin: 0px;
+  gap: 4px;
+  width: 164px;
+  height: 44px;
+  flex: none;
+  border-top: none;
+  border-bottom: none;
+  border-left: none;
+  border-right: 1px solid var(--color-primary);
+}
+#memo-label {
+  width: 164px;
+  height: 16px;
+  padding: 0px;
+  color: var(--color-primary-alt);
+  flex: none;
+  align-self: stretch;
+}
+#memo-input {
+  width: 164px;
+  height: 24px;
+  color: var(--color-primary-alt);
+  padding: 0px;
+  border: none;
+  margin: 4px 0px 0px 0px;
+  flex: none;
+  align-self: stretch;
+  flex-grow: 0;
+  background-color: var(--color-white);
+}
+/* payment */
+.input-bar-payment {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  margin: 0px;
+  width: 149px;
+  height: 76px;
+  flex: none;
+  flex-grow: 0;
+}
+.payment-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px 24px 0px 24px;
+  gap: 4px;
+  border-top: none;
+  border-bottom: none;
+  border-left: none;
+  border-right: 1px solid var(--color-primary);
+  width: 100px;
+  height: 44px;
+  flex: none;
+  flex-grow: 1;
+}
+#payment-label {
+  width: 100px;
+  height: 16px;
+  padding: 0px;
+  margin: 0px;
+  color: var(--color-primary-alt);
+  flex: none;
+  align-self: stretc;
+}
+#payment_select {
+}
+.payment-dropdown {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  margin-top: 4px;
+  width: 100px;
+  height: 24px;
+  cursor: pointer;
+}
+#payment_input {
+  width: 80px;
+  height: 24px;
+  padding: 0px;
+  border: none;
+  background-color: var(--color-white);
+  color: var(--color-primary-alt);
+  flex: none;
+  cursor: pointer;
+  outline: none;
+}
+.arrow {
+  width: 16px;
+  height: 16px;
+  margin-left: 4px;
+  flex: none;
+  background-image: url(./icon/chevron-down.svg);
+}
+#payment-dropdown {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 4px 0px 0px 0px;
+  width: 108px;
+  height: 24px;
+  border: none;
+  background-color: var(--color-white);
+  cursor: pointer;
+  background: url(./icon/chevron-down.svg) no-repeat 100% 50%;
+  appearance: none;
+}
+select option[value=""][disabled] {
+  display: none;
+}
+#payment-dropdown {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+}
+#payment_select ul {
+  display: none;
+}
+#payment_select ul.test {
+  display: block;
 }
