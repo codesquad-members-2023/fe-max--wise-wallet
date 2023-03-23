@@ -1,6 +1,4 @@
-import { inputStore } from "../store/inputStore.js";
-
 export const countListTotalLength = () => {
+  // 월별 개수를 구하는 것으로 바꿔야함
   return localStorage.length
-  // return inputStore.listArray.length;
 };

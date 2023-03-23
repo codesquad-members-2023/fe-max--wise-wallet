@@ -1,5 +1,4 @@
 export const getDayOfWeek = (listDate) => {
-
     const year = listDate.slice(0, 4);
     const month = listDate.slice(4, 6);
     const day = listDate.slice(-2);

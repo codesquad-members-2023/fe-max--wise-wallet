@@ -3,11 +3,9 @@ import { inputStore } from "./inputStore.js";
 import { renderListTotalLength } from "../utils/renderListTotalLength.js";
 import { validateInputValue } from "../utils/validateInputValue.js";
 import { renderTotalIncomeExpenditure } from "../utils/renderTotalIncomeExpenditure.js";
-import { renderListByDay } from "../utils/renderListByDay.js";
+import { addListByDay } from "../utils/addListByDay.js";
 
-export const storeInputQuery = (key) => {
-  //키는 무엇이 되는가..
-  // const uniqueKey = key !== null ? key : new Date().getTime().toString();
+export const storeInputQuery = () => {
 
   const uniqueKey = new Date().getTime().toString();
   const date = $("#date-input");
@@ -35,13 +33,13 @@ export const storeInputQuery = (key) => {
     // inputStore.generateList(storedValue);
     renderListTotalLength();
     renderTotalIncomeExpenditure();
-    renderListByDay();
+    addListByDay();
   }
   // if (!$("#edit-btn").checked) {
   //   localStorage.setItem(uniqueKey, JSON.stringify(storedValue))
   //   inputStore.generateList(storedValue);
   //   renderListTotalLength();
   //   renderTotalIncomeExpenditure();
-  //   renderListByDay(storedValue);
+  //   addListByDay(storedValue);
   // }
 };
