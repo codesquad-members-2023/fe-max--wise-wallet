@@ -29,11 +29,13 @@ const getDate = () => {
 
 const setTable = () => {
   const [year, month, dayOfWeek, lastDay] = getDate();
+  const is6Week = dayOfWeek + lastDay >= 36;
+  const totalTdLength = is6Week ? 42 : 35;
   const $table = document.createElement("table");
   const group = setGroup(getLocalStorage());
 
   let td = "";
-  for (let i = 0; i < 35; i++) {
+  for (let i = 0; i < totalTdLength; i++) {
     let dayText = "";
     const day = i - dayOfWeek + 1;
     let [$income, $expenditure, $total] = [];
