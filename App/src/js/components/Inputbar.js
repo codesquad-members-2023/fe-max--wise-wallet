@@ -197,6 +197,7 @@ Inputbar.prototype.amountInputHandler = function (e) {
 };
 
 Inputbar.prototype.menuPopUpHandler = function (e) {
+  e.preventDefault();
   const { type, key } = e;
   if (type === "keydown") {
     if (key === "tab") {
