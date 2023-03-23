@@ -1,5 +1,6 @@
 {
   "singleQuote": false,
+  "quoteProps": "consistent",
   "printWidth": 80,
   "tabWidth": 2,
   "bracketSameLine": true,

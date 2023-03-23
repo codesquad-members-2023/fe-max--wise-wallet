@@ -118,7 +118,7 @@ class DropDown extends HTMLElement {
     shadowRoot.append(template.content.cloneNode(true));
     this.dropdownTypes = {
       "payment-method": "결제방법",
-      category: "분류",
+      "category": "분류",
     };
   }
 
