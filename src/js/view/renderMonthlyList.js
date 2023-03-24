@@ -16,7 +16,6 @@ export const renderMonthlyList = () => {
     acc[cur.date].push(cur);
     return acc;
   }, {});
-  console.log(groupByDay);
 
   // 위에서 만든 객체를 key로 돌려서 새로운 객체 return
   const groupByDayArray = Object.keys(groupByDay)
@@ -24,7 +23,6 @@ export const renderMonthlyList = () => {
       return { date: key, values: groupByDay[key] };
     })
     .sort((a, b) => b.date - a.date);
-  console.log(groupByDayArray);
 
   // 디스플레이된 연월 기준으로 리스트를 필터한다
   // 날짜 단위로 데이터를 묶어준다
@@ -33,7 +31,6 @@ export const renderMonthlyList = () => {
 
   let htmlString = "";
   groupByDayArray.forEach((element) => {
-    console.log(element.date);
     htmlString += `
       <li class="list-by-day">
           <div class="list-body">
@@ -59,7 +56,6 @@ export const renderMonthlyList = () => {
       `;
   });
   document.querySelector(".list-by-day-box").innerHTML = htmlString;
-  console.log(document.querySelector(".list-by-day-box").innerHTML);
 
   groupByDayArray.forEach((element) => {
     renderEachList(element);
@@ -67,11 +63,8 @@ export const renderMonthlyList = () => {
 };
 
 export const renderEachList = (listByDay) => {
-  console.log(listByDay.values);
   listByDay.values.forEach((list) => {
     const ListDetailBox = document.querySelector(`.list-date-${list.date}`);
-    console.log(list);
-    console.log(ListDetailBox);
 
     ListDetailBox.insertAdjacentHTML(
       "beforeend",

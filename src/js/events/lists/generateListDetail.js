@@ -1,6 +1,4 @@
 export const generateListDetail = (addedList) => {
-  console.log(addedList.date);
-  console.log(addedList);
   const ListDetailBox = document.querySelector(`.list-date-${addedList.date}`);
 
   ListDetailBox.insertAdjacentHTML(
