@@ -83,8 +83,12 @@
     </header>
 
     <div>
-      <main id="history" class="main tab-content active">
-        <section class="history__wrap" aria-label="새 내역 입력">
+      <main class="main">
+        <section
+          id="history"
+          class="history__wrap tab-content active"
+          aria-label="새 내역 입력"
+        >
           <!-- 새 내역 입력 -->
           <form class="history__form box">
             <div class="history__form-date">
@@ -263,42 +267,41 @@
             </div>
           </div>
         </section>
-      </main>
-
-      <!-- 달력 페이지 -->
-      <section id="calender" class="tab-content">
-        <div class="calendar-wrap">
-          <div class="calendar-days body-regular">
-            <div class="day">일</div>
-            <div class="day">월</div>
-            <div class="day">화</div>
-            <div class="day">수</div>
-            <div class="day">목</div>
-            <div class="day">금</div>
-            <div class="day">토</div>
-          </div>
-          <div class="calendar-dates"></div>
-          <div class="calender-statistics">
-            <ul class="calender-statistics__total bold-medium">
-              <li>총 수입<span>2,010,580</span>원</li>
-              <li>총 지출<span>834,640</span>원</li>
-            </ul>
-            <div class="calender-statistics__sum bold-medium">
-              총합<span>834,640</span>원
+        <!-- 달력 페이지 -->
+        <section id="calender" class="tab-content">
+          <div class="calendar-wrap">
+            <div class="calendar-days body-regular">
+              <div class="day">일</div>
+              <div class="day">월</div>
+              <div class="day">화</div>
+              <div class="day">수</div>
+              <div class="day">목</div>
+              <div class="day">금</div>
+              <div class="day">토</div>
+            </div>
+            <div class="calendar-dates"></div>
+            <div class="calender-statistics">
+              <ul class="calender-statistics__total bold-medium">
+                <li>총 수입<span>2,010,580</span>원</li>
+                <li>총 지출<span>834,640</span>원</li>
+              </ul>
+              <div class="calender-statistics__sum bold-medium">
+                총합<span>834,640</span>원
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section id="graph" class="tab-content">
-        <div class="graph-wrap">
-          <div></div>
-          <div>
+        <section id="graph" class="tab-content">
+          <div class="graph-wrap">
             <div></div>
-            <div></div>
+            <div>
+              <div></div>
+              <div></div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </main>
     </div>
   </body>
 </html>

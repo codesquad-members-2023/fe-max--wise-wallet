@@ -406,10 +406,7 @@ input[type='checkbox'] {
 
 /* 달력 */
 
-#calender {
-  position: relative;
-  bottom: 26px;
-}
+#calender {}
 .calendar-wrap,
 .calendar-dates {
   width: 846px;
@@ -453,10 +450,8 @@ input[type='checkbox'] {
 }
 
 #graph {
-  position: relative;
   width: 846px;
   margin: 0 auto;
-  bottom: 26px;
 }
 .graph-wrap {
   width: 100%;
