@@ -1,9 +1,7 @@
 import { $ } from "../utils/dom.js";
-import { inputStore } from "./inputStore.js";
 import { renderListTotalLength } from "../view/renderListTotalLength.js";
-import { validateInputValue } from "../utils/validateInputValue.js";
-import { renderTotalIncomeExpenditure } from "../utils/renderTotalIncomeExpenditure.js";
-import { addListByDay } from "../utils/addListByDay.js";
+import { renderTotalIncomeExpenditure } from "../view/renderTotalIncomeExpenditure.js";
+import { addListByDay } from "../events/lists/addListByDay.js";
 
 export const storeInputQuery = () => {
 
@@ -30,16 +28,8 @@ export const storeInputQuery = () => {
   }
   if (!$("#edit-btn").checked) {
     localStorage.setItem(uniqueKey, JSON.stringify(storedValue));
-    // inputStore.generateList(storedValue);
     renderListTotalLength();
     renderTotalIncomeExpenditure();
     addListByDay();
   }
-  // if (!$("#edit-btn").checked) {
-  //   localStorage.setItem(uniqueKey, JSON.stringify(storedValue))
-  //   inputStore.generateList(storedValue);
-  //   renderListTotalLength();
-  //   renderTotalIncomeExpenditure();
-  //   addListByDay(storedValue);
-  // }
 };

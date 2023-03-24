@@ -102,6 +102,5 @@ const init = () => {
   initList()
 };
 
-document.addEventListener("DOMContentLoaded", init);
-
+init()
 

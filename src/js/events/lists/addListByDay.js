@@ -1,4 +1,4 @@
-import { $ } from "./dom.js";
+import { $ } from "../../utils/dom.js";
 import { generateListBody } from "./generateListBody.js";
 import { generateListDetail } from "./generateListDetail.js";
 
@@ -6,9 +6,7 @@ export const addListByDay = () => {
   const obj = Object.keys(localStorage).map((el) =>
     JSON.parse(localStorage.getItem(el))
   );
-
   const sortedObj = obj.sort((a, b) => b.key - a.key);
-  console.log(sortedObj);
 
   const [addedList, ...restLists] = sortedObj;
 
@@ -18,8 +16,6 @@ export const addListByDay = () => {
   const objByDisplayedDate = sortedObj.filter(
     (el) => el.date.slice(0, 6) === displayedYearMonth
   );
-
-  console.log(objByDisplayedDate);
 
   if (addedList.date.slice(0, 6) !== displayedYearMonth) {
     //방금 추가한 리스트의 날짜가 현재 화면의 연월과 다르면

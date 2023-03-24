@@ -21,5 +21,4 @@ export const inputBarEventHandler = () => {
   // $(".category-income-member").addEventListener("click", selectCategoryList);
 
   $(".input-bar-wrap").addEventListener("click", activateEditBtn);
-  $("#edit-btn").addEventListener("click", storeInputQuery);
 };

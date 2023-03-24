@@ -1,5 +1,5 @@
-import { $ } from "./dom.js";
-import { addUpAllIncome, addUpAllExpenditure } from "./addUpAllIncomeExpenditure.js";
+import { $ } from "../utils/dom.js";
+import { addUpAllIncome, addUpAllExpenditure } from "../events/lists/addUpAllIncomeExpenditure.js";
 export const renderTotalIncomeExpenditure = () => {
   if ($('label[for="income-btn"]')) {
     $('label[for="income-btn"]').textContent =

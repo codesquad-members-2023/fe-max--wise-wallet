@@ -1,5 +1,5 @@
-import { $ } from "./dom.js";
-import { getDayOfWeek } from "./getDayOfWeek.js";
+import { $ } from "../../utils/dom.js";
+import { getDayOfWeek } from "../../utils/getDayOfWeek.js";
 
 export const generateListBody = (addedList) => {
   $(".list-by-day-box").insertAdjacentHTML(
