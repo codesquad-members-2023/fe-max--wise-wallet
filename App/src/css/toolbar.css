@@ -14,13 +14,19 @@
 
 [role="toolbar"] > .group {
   display: block;
-  flex-grow: 1;
+  flex-grow: 0;
   border-left: 1px solid var(--color-primary);
   padding: 0 24px;
 }
 
+
+
+[role="toolbar"] > .group-payment.is-hidden {
+  display: none;
+}
+
 [role="toolbar"] > .group.group-detail {
-  flex-grow: 2;
+  flex-grow: 1;
 }
 
 [role="toolbar"] > .group:first-child,
@@ -28,15 +34,14 @@
   border: 0;
 }
 
+
+
 [role="toolbar"] button,
 [role="toolbar"] [role="radio"],
 [role="toolbar"] label,
 [role="toolbar"] a,
 [role="toolbar"] .input {
-  font-family: var(--font-family-bold);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-bold-regular);
-  line-height: var(--line-height-bold-regular);
+  font: var(--font-bold-regular);
   color: var(--color-primary-alt);
   margin-bottom: 4px;
   display: inline-block;
@@ -44,21 +49,12 @@
   max-width: 80px;
 }
 
-[role="toolbar"] #amount {
-  width: 78px;
-  border: 0;
-  text-align: right;
-}
-
 [role="toolbar"] .field {
   height: 24px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-family: var(--font-family-bold);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-bold-large);
-  line-height: var(--line-height-bold-large);
+  font: var(--font-bold-large);
   color: var(--color-primary);
 }
 
@@ -75,12 +71,11 @@
 }
 
 [role="toolbar"] .field > input,
-[role="toolbar"] .field > button {
+[role="toolbar"] .field > button,
+[role="toolbar"] .field-amount .fieldset input,
+[role="toolbar"] .field-amount .cover span {
   width: 100%;
-  font-family: var(--font-family-bold);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-bold-large);
-  line-height: var(--line-height-bold-large);
+  font: var(--font-bold-large);
   color: var(--color-primary);
   flex-grow: 1;
   background-color: var(--color-white);
@@ -91,14 +86,70 @@
   padding: 0;
   display: flex;
   justify-content: start;
+  margin: 0;
+}
+
+[role="toolbar"] .field-amount button.plus figure:first-child {
+  display: flex;
+}
+
+[role="toolbar"] .field-amount button.plus figure:last-child {
+  display: none;
+}
+
+[role="toolbar"] .field-amount button.minus figure:first-child {
+  display: none;
+}
+
+[role="toolbar"] .field-amount button.minus figure:last-child {
+  display: flex;
 }
 
 [role="toolbar"] .field input::placeholder {
+  font: var(--font-bold-large);
+  color: var(--color-primary-alt-40);
+}
+
+[role="toolbar"] .field-amount figure {
+  display: flex;
+}
+
+[role="toolbar"] .field-amount .cover {
+  min-width: 74px;
+  text-align: right;
+  background-color: var(--color-white);
+  padding: 0px 15px 0px 4px;
+}
+
+[role="toolbar"] .field-amount .cover span.alt {
+  color: var(--color-primary-alt-40);
+}
+
+[role="toolbar"] .field-amount .fieldset {
+  position: relative;
+  height: 100%;
+}
+
+[role="toolbar"] #amount {
+  width: 100%;
+  padding: 0;
+  border: 0;
+  top: 0;
+  position: absolute;
+  text-align: right;
+  opacity: 0;
+  background-color: var(--color-white);
+}
+
+[role="toolbar"] #amount:active,
+[role="toolbar"] #amount:hover,
+[role="toolbar"] #amount:focus {
+  opacity: 1;
   font-family: var(--font-family-bold);
   font-weight: var(--font-weight-bold);
   font-size: var(--font-size-bold-large);
   line-height: var(--line-height-bold-large);
-  color: var(--color-primary-alt-40);
+  color: var(--color-primary);
 }
 
 [role="toolbar"] .field.field-amount figure {
@@ -106,10 +157,8 @@
 }
 
 [role="toolbar"] .field.field-amount .cover {
-  width: 74px;
   height: 24px;
-  position: absolute;
-  margin-left: 20px;
+  margin-left: 14px;
   background-color: var(--color-white);
 }
 
@@ -189,16 +238,6 @@
   float: right;
 }
 
-textarea {
-  margin-top: 200px;
-  width: 990px;
-  padding: 0.25em;
-  border: 2px solid black;
-  height: 400px;
-  font-size: 14pt;
-  font-family: sans-serif;
-  border-radius: 5px;
-}
 
 [role="toolbar"] .menu-popup {
   position: relative;
@@ -233,6 +272,11 @@ textarea {
   border: 1px solid var(--color-primary);
   padding: 0 24px;
   box-sizing: border-box;
+  left: 0;
+}
+
+[role="toolbar"] .menu-popup [role="menu"].active {
+  display: block;
 }
 
 [role="toolbar"] .menu-popup [role="menu"] li {
@@ -250,10 +294,7 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  font-family: var(--font-family-body);
-  font-weight: var(--font-weight-body);
-  font-size: var(--font-size-body-regular);
-  line-height: var(--line-height-body-regular);
+  font: var(--font-body-regular);
   color: var(--color-primary);
 }
 
@@ -261,7 +302,7 @@ textarea {
   display: block;
 }
 
-[role="toolbar"] .menu-popup [role="menu"] [role="menuitemradio"] button {
+[role="toolbar"] .menu-popup [role="menu"] [role="menuitemradio"] .delete {
   width: 16px;
   height: 16px;
   padding: 0;
@@ -274,19 +315,24 @@ textarea {
   background-color: transparent;
 }
 
-[role="toolbar"] .menu-popup [role="menu"] [role="menuitemradio"]:last-child {
+[role="toolbar"] .menu-popup [role="menu"] [role="menuitemradio"] .add {
+  font: var(--font-body-regular);
+  background-color: transparent;
   border: 0;
+  color: var(--color-primary);
+  text-align: left;
+  padding: 0;
 }
 
-[role="toolbar"] .menu-popup [role="menu"] [role="menuitemradio"]:focus,
-[role="toolbar"] .menu-popup [role="menu"] [role="menuitemradio"]:hover {
-  background: var(--color-primary-alt-40);
+[role="toolbar"] .menu-popup [role="menu"] [role="menuitemradio"]:last-child {
+  border: 0;
 }
 
 [role="toolbar"] > .group-submit {
   display: flex;
   align-items: center;
   flex-grow: 0;
+  padding-left: 0;
 }
 
 [role="toolbar"] > .group .submit {
@@ -302,8 +348,27 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: center;
+  pointer-events: none;
 }
 
 [role="toolbar"] > .group .submit.active {
-  background-color: var(--color-secondary-yellow);
+  pointer-events: all;
+}
+
+[role="toolbar"] > .group .submit figure {
+  line-height: 0;
+}
+
+[role="toolbar"] > .group .submit figure:first-child {
+  display: block;
+}
+[role="toolbar"] > .group .submit figure:last-child {
+  display: none;
+}
+
+[role="toolbar"] > .group .submit.active figure:first-child {
+  display: none;
+}
+[role="toolbar"] > .group .submit.active figure:last-child {
+  display: block;
 }

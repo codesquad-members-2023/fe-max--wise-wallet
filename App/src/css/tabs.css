@@ -32,10 +32,6 @@
   stroke: var(--color-primary-alt);
 }
 
-[role="tabpanel"] {
-  overflow: hidden;
-}
-
 [role="tabpanel"].is-hidden {
   display: none;
 }

@@ -1,4 +1,14 @@
 :root {
+  /* font */
+  --font-display-regular: normal 400 24px/24px "Outfit";
+  --font-display-large: normal 700 48px/56px "Outfit";
+  --font-body-regular: normal 500 16px/24px "Pretendard";
+  --font-body-medium: normal 500 18px/24px "Pretendard";
+  --font-body-large: normal 500 22px/32px "Pretendard";
+  --font-bold-regular: normal 700 12px/16px "Pretendard";
+  --font-bold-medium: normal 700 14px/24px "Pretendard";
+  --font-bold-large: normal 700 16px/24px "Pretendard";
+
   /* font-family */
   --font-family-display: "Outfit";
   --font-family-body: "Pretendard";
@@ -122,7 +132,9 @@
 }
 
 .inner {
-  width: 894px;
+  max-width: 894px;
+  min-width: 800px;
+  width: 100%;
   margin: auto;
   position: relative;
   box-sizing: border-box;
@@ -136,3 +148,8 @@
   height: 1px;
   margin: -1px;
 }
+.cover {
+  height: 100%;
+  overflow: hidden;
+}
+
