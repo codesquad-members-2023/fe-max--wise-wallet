@@ -736,7 +736,7 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 .list-detail > span:nth-of-type(3) {
   text-align: right;
-  color: #e75b3f;
+  /* color: #e75b3f; */
 }
 .delete-btn {
   display: none;

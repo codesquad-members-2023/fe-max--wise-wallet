@@ -1,5 +1,8 @@
 import { $ } from "../../utils/dom.js";
 import { MONTHS } from "../../constants/MONTHS.js";
+import { renderMonthlyList } from "../../view/renderMonthlyList.js";
+import { renderTotalIncomeExpenditure } from "../../view/renderTotalIncomeExpenditure.js";
+import { renderListTotalLength } from "../../view/renderListTotalLength.js";
 
 export const nextMonth = () => {
   $(".header-month").textContent = parseInt($(".header-month").textContent) + 1;
@@ -9,5 +12,9 @@ export const nextMonth = () => {
     $(".header-month").textContent = 1;
   }
   $(".header-month-name").textContent =
-    MONTHS[$(".header-month").textContent - 1];
+    MONTHS[parseInt($(".header-month").textContent) - 1];
+
+  renderMonthlyList();
+  renderTotalIncomeExpenditure();
+  renderListTotalLength();
 };
