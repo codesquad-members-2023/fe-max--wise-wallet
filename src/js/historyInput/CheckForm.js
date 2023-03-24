@@ -1,30 +1,40 @@
-import { $ } from '../utils/utils.js';
-import { handleAmountInput } from './AmountInput.js';
+import { getFormattedNumber } from '../utils/utils.js';
+import { formInput } from '../utils/elements.js';
 
 export function checkForm() {
-  const historyForm = $('.history__form');
-  const amount = $('.history__form-amount input');
+  const { $historyForm, $amount } = formInput;
 
-  historyForm.addEventListener('input', () => {
-    handleAmountInput(amount);
-    checkFormFilled(amount);
+  $historyForm.addEventListener('input', (e) => {
+    if (e.target.id === 'amount' && !Number.isNaN($amount.value)) {
+      preventAmountInput($amount);
+      $amount.value = getFormattedNumber($amount.value);
+    }
+
+    checkFormFilled();
   });
 }
 
 export function checkFormFilled() {
-  const date = $('.history__form-date input').value;
-  const amount = $('.history__form-amount input').value;
-  const description = $('.history__form-description input').value;
-  const paymentMethod = $('.history__form-payment-method input').value;
-  const category = $('.history__form-category input').value;
-
-  const isFilled = date && amount && description && paymentMethod && category;
+  const isFilled =
+    formInput.$date.value &&
+    formInput.$amount.value &&
+    formInput.$description.value &&
+    formInput.$paymentMethod.value &&
+    formInput.$category.value;
 
   if (isFilled) {
-    $('.history__form-button').disabled = false;
-    $('.history__form-button').classList.add('active');
+    formInput.$submitBtn.disabled = false;
+    formInput.$submitBtn.classList.add('active');
   } else {
-    $('.history__form-button').disabled = true;
-    $('.history__form-button').classList.remove('active');
+    formInput.$submitBtn.disabled = true;
+    formInput.$submitBtn.classList.remove('active');
   }
+}
+
+function preventAmountInput(amount) {
+  amount.addEventListener('keydown', (e) => {
+    if (e.keyCode === 189) {
+      e.preventDefault();
+    }
+  });
 }

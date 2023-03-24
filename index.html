@@ -21,8 +21,8 @@
     <link rel="stylesheet" href="./src/css/common.css" />
     <link rel="stylesheet" href="./src/css/main.css" />
     <script src="./src/js/index.js" type="module"></script>
-    <script src="./src/js/header/HeaderDate.js" type="module"></script>
     <script src="./src/js/historyInput/Dropbox.js" type="module"></script>
+    <script src="./src/js/historyList/List.js" type="module"></script>
   </head>
   <body>
     <header class="header">
@@ -40,20 +40,20 @@
         <!-- 메뉴 탭 -->
         <!-- prettier-ignore -->
         <nav class="gnb">
-          <ul class='gnb__list'>
-            <li class='gnb__list-item active'>
+          <ul class='gnb__list '>
+            <li class='gnb__list-item tab--active' data-tab='history'>
               <a href="#">
                 <span class="sr-only">내역</span>
                 <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6Z" stroke="#A79FCB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" stroke="#A79FCB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </a>
             </li>
-            <li class='gnb__list-item'>
+            <li class='gnb__list-item' data-tab='calender'>
               <span class="sr-only">달력</span>
               <a href="#">
                 <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M19 4H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2ZM16 2v4M8 2v4M3 10h18" stroke="#A79FCB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </a>
             </li>
-            <li class='gnb__list-item'>
+            <li class='gnb__list-item' data-tab='graph'>
               <span class="sr-only">통계</span>
               <a href="#">
                 <svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 20V10M12 20V4M6 20v-6" stroke="#A79FCB" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -64,11 +64,11 @@
 
         <!-- 연월 이동 -->
         <div class="header__date">
-          <!-- <div class="header__date-wrap">
+          <div class="header__date-wrap">
             <div class="bold-small year">2023</div>
             <div class="display-large month">2</div>
-            <div class="bold-small month-word">February</div>
-          </div> -->
+            <div class="bold-small month-text">February</div>
+          </div>
           <button class="header__date__button--prev" type="button">
             <img
               src="./src/assets/icon_arrow_previous.svg"
@@ -82,142 +82,153 @@
       </div>
     </header>
 
-    <main class="main">
-      <section class="history__wrap" aria-label="새 내역 입력">
-        <!-- 새 내역 입력 -->
-        <form class="history__form box">
-          <div class="history__form-date">
-            <label for="date" class="bold-small">일자</label>
-            <input
-              class="body-regular"
-              type="number"
-              id="date"
-              min="0"
-              max="99999999"
-            />
-          </div>
+    <div>
+      <main class="main">
+        <section
+          id="history"
+          class="history__wrap tab-content active"
+          aria-label="새 내역 입력"
+        >
+          <!-- 새 내역 입력 -->
+          <form class="history__form box">
+            <div class="history__form-date">
+              <label for="date" class="bold-small">일자</label>
+              <input
+                class="body-regular"
+                type="number"
+                id="date"
+                min="0"
+                max="99999999"
+              />
+            </div>
 
-          <div class="history__form-amount">
-            <label for="amount" class="bold-small">금액</label>
-            <div>
-              <button type="button">
-                <img
-                  src="./src/assets/button_spending_minus.svg"
-                  alt="마이너스 버튼"
+            <div class="history__form-amount">
+              <label for="amount" class="bold-small">금액</label>
+              <div>
+                <button type="button">
+                  <img
+                    src="./src/assets/button_spending_minus.svg"
+                    alt="지출 버튼"
+                    data-value="expenditure"
+                  />
+                </button>
+                <input
+                  class="body-regular"
+                  type="text"
+                  id="amount"
+                  name="amount"
+                  placeholder="0"
+                  required
                 />
-              </button>
+                <span class="body-regular">원</span>
+              </div>
+            </div>
+
+            <div class="history__form-description">
+              <label for="history-description" class="bold-small">내용</label>
               <input
                 class="body-regular"
                 type="text"
-                id="amount"
-                name="amount"
-                placeholder="0"
+                id="history-description"
+                name="text"
+                placeholder="입력하세요"
                 required
               />
-              <span class="body-regular">원</span>
             </div>
-          </div>
 
-          <div class="history__form-description">
-            <label for="history-description" class="bold-small">내용</label>
-            <input
-              class="body-regular"
-              type="text"
-              id="history-description"
-              name="text"
-              placeholder="입력하세요"
-              required
-            />
-          </div>
-
-          <div class="history__form-payment-method">
-            <div class="dropdown__wrap">
-              <div class="dropdown__selector">
-                <label for="payment" class="payment bold-small">결제수단</label>
-                <input
-                  class="dropdown__icon body-regular"
-                  type="text"
-                  placeholder="선택하세요"
-                  readonly
-                  id="payment"
-                />
-              </div>
-              <ul class="options hidden body-regular box">
-                <li class="option">
-                  <p>현금</p>
-                  <img src="./src/assets/icon_delete.svg" alt="" />
-                </li>
-                <li class="option">
-                  <p>신용카드</p>
-                  <img src="./src/assets/icon_delete.svg" alt="" />
-                </li>
-                <li class="option">
-                  <p>체크카드</p>
-                  <img src="./src/assets/icon_delete.svg" alt="" />
-                </li>
-                <li class="add">
-                  <p>추가하기</p>
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="history__form-category">
-            <div class="dropdown__wrap">
-              <div class="dropdown__selector">
-                <label for="category" class="payment bold-small">분류</label>
-                <input
-                  class="dropdown__icon body-regular"
-                  type="text"
-                  placeholder="선택하세요"
-                  readonly
-                  id="category"
-                />
-              </div>
-              <ul class="options hidden body-regular box">
-                <li class="option">생활</li>
-                <li class="option">식비</li>
-                <li class="option">교통</li>
-                <li class="option">쇼핑/뷰티</li>
-                <li class="option">의료/건강</li>
-                <li class="option">문화/여가</li>
-                <li class="option">미분류</li>
-              </ul>
-            </div>
-          </div>
-
-          <!-- prettier-ignore -->
-          <button class="history__form-button" type="submit" aria-label='확인 버튼' disabled>
-              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="40" height="40" rx="8" fill="#A79FCB" fill-opacity="0.4"/>
-                <path d="M29 14L16.625 26L11 20.5455" stroke="#FCFCFC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </button>
-        </form>
-
-        <div class="history-lists-top__wrap" aria-labelledby="history__title">
-          <h1 id="history-lists__title" class="sr-only" aria-label="전체 내역">
-            전체 내역
-          </h1>
-          <div class="history__lists-top body-large">
-            <p>전체 내역 <span>14</span>건</p>
-
-            <div class="history__lists-top__total body-medium">
-              <div class="history__lists-top__total-income">
-                <input type="checkbox" id="total-income" />
-                <label for="total-income">수입 <span>2,010,580</span></label>
-              </div>
-              <div class="history__lists-top__total-expense">
-                <input type="checkbox" id="total-expense" />
-                <label for="total-expense">지출 <span>834,640</span></label>
+            <div class="history__form-payment-method">
+              <div class="dropdown__wrap">
+                <div class="dropdown__selector">
+                  <label for="payment" class="payment bold-small"
+                    >결제수단</label
+                  >
+                  <input
+                    class="dropdown__icon body-regular"
+                    type="text"
+                    placeholder="선택하세요"
+                    readonly
+                    id="payment"
+                  />
+                </div>
+                <ul class="options hidden body-regular box">
+                  <li class="option">
+                    <p>현금</p>
+                    <img src="./src/assets/icon_delete.svg" alt="" />
+                  </li>
+                  <li class="option">
+                    <p>신용카드</p>
+                    <img src="./src/assets/icon_delete.svg" alt="" />
+                  </li>
+                  <li class="option">
+                    <p>체크카드</p>
+                    <img src="./src/assets/icon_delete.svg" alt="" />
+                  </li>
+                  <li class="add">
+                    <p>추가하기</p>
+                  </li>
+                </ul>
               </div>
             </div>
-          </div>
 
-          <!-- 내역 리스트 -->
-          <div class="history-lists__wrap">
-            <ul>
-              <li>
+            <div class="history__form-category">
+              <div class="dropdown__wrap">
+                <div class="dropdown__selector">
+                  <label for="category" class="payment bold-small">분류</label>
+                  <input
+                    class="dropdown__icon body-regular"
+                    type="text"
+                    placeholder="선택하세요"
+                    readonly
+                    id="category"
+                  />
+                </div>
+                <ul class="options hidden body-regular box">
+                  <li class="option">생활</li>
+                  <li class="option">식비</li>
+                  <li class="option">교통</li>
+                  <li class="option">쇼핑/뷰티</li>
+                  <li class="option">의료/건강</li>
+                  <li class="option">문화/여가</li>
+                  <li class="option">미분류</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- prettier-ignore -->
+            <button class="history__form-button" type="submit" aria-label='확인 버튼' disabled>
+                <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect width="40" height="40" rx="8" fill="#A79FCB" fill-opacity="0.4"/>
+                  <path d="M29 14L16.625 26L11 20.5455" stroke="#FCFCFC" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </button>
+          </form>
+
+          <div class="history-lists-top__wrap" aria-labelledby="history__title">
+            <h1
+              id="history-lists__title"
+              class="sr-only"
+              aria-label="전체 내역"
+            >
+              전체 내역
+            </h1>
+            <div class="history__lists-top body-large">
+              <p>전체 내역 <span>14</span>건</p>
+
+              <div class="history__lists-top__total body-medium">
+                <div class="history__lists-top__total-income">
+                  <input type="checkbox" id="total-income" />
+                  <label for="total-income">수입 <span>2,010,580</span></label>
+                </div>
+                <div class="history__lists-top__total-expense">
+                  <input type="checkbox" id="total-expense" />
+                  <label for="total-expense">지출 <span>834,640</span></label>
+                </div>
+              </div>
+            </div>
+
+            <!-- 내역 리스트 -->
+            <div class="history-lists__wrap">
+              <!-- <div class="history-list__top">
                 <div class="history-list__info bold-medium">
                   <div class="history-list__info-dateday">
                     <span class="history-list__info-date">2월 17일</span>
@@ -232,77 +243,65 @@
                     </div>
                   </div>
                 </div>
-                <ul class="history-list__item body-medium">
-                  <li>
-                    <div class="tag tag--life bold-medium">생활</div>
-                    <div class="history-list__item-content">
-                      스트리밍 서비스 정기 결제
-                    </div>
-                    <div class="history-list__item-payment-method">
-                      결제수단
-                    </div>
-                    <div class="history-list__item-amount plus-color">
-                      2,101,000원
-                    </div>
-                  </li>
-                  <li>
-                    <div class="tag tag--unclassified bold-medium">미분류</div>
-                    <div class="history-list__item-content">내용</div>
-                    <div class="history-list__item-payment-method">
-                      결제수단
-                    </div>
-                    <div class="history-list__item-amount minus-color">
-                      -9,500원
-                    </div>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-            <ul>
-              <li>
-                <div class="history-list__info bold-medium">
-                  <div class="history-list__info-dateday">
-                    <span class="history-list__info-date">2월 17일</span>
-                    <span class="history-list__info-day">금</span>
+              </div>
+              <ul class="history-list__item body-medium">
+                <li>
+                  <div class="tag tag--life bold-medium">생활</div>
+                  <div class="history-list__item-content">
+                    스트리밍 서비스 정기 결제
                   </div>
-                  <div class="history-list-info__total">
-                    <div class="history-list-info__expense">
-                      수입 <span>50,000원</span>
-                    </div>
-                    <div class="history-list-info__income">
-                      지출 <span>50,000원</span>
-                    </div>
+                  <div class="history-list__item-payment-method">결제수단</div>
+                  <div class="history-list__item-amount plus-color">
+                    2,101,000원
                   </div>
-                </div>
-                <ul class="history-list__item body-medium">
-                  <li>
-                    <div class="tag tag--life bold-medium">생활</div>
-                    <div class="history-list__item-content">
-                      스트리밍 서비스 정기 결제
-                    </div>
-                    <div class="history-list__item-payment-method">
-                      결제수단
-                    </div>
-                    <div class="history-list__item-amount plus-color">
-                      2,101,000원
-                    </div>
-                  </li>
-                  <li>
-                    <div class="tag tag--unclassified bold-medium">미분류</div>
-                    <div class="history-list__item-content">내용</div>
-                    <div class="history-list__item-payment-method">
-                      결제수단
-                    </div>
-                    <div class="history-list__item-amount minus-color">
-                      -9,500원
-                    </div>
-                  </li>
-                </ul>
-              </li>
-            </ul>
+                </li>
+                <li>
+                  <div class="tag tag--unclassified bold-medium">미분류</div>
+                  <div class="history-list__item-content">내용</div>
+                  <div class="history-list__item-payment-method">결제수단</div>
+                  <div class="history-list__item-amount minus-color">
+                    -9,500원
+                  </div>
+                </li>
+              </ul> -->
+            </div>
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
+        <!-- 달력 페이지 -->
+        <section id="calender" class="tab-content">
+          <div class="calendar-wrap">
+            <div class="calendar-days body-regular">
+              <div class="day">일</div>
+              <div class="day">월</div>
+              <div class="day">화</div>
+              <div class="day">수</div>
+              <div class="day">목</div>
+              <div class="day">금</div>
+              <div class="day">토</div>
+            </div>
+            <div class="calendar-dates"></div>
+            <div class="calender-statistics">
+              <ul class="calender-statistics__total bold-medium">
+                <li>총 수입<span>2,010,580</span>원</li>
+                <li>총 지출<span>834,640</span>원</li>
+              </ul>
+              <div class="calender-statistics__sum bold-medium">
+                총합<span>834,640</span>원
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="graph" class="tab-content">
+          <div class="graph-wrap">
+            <div></div>
+            <div>
+              <div></div>
+              <div></div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
   </body>
 </html>

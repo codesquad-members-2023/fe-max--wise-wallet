@@ -67,6 +67,7 @@ const changeCategoryList = () => {
     incomeOrExpenditureButton.setAttribute('data-value', 'expenditure');
   }
   setDropdownListeners();
+  checkFormFilled();
 };
 
 setDropdownListeners();
