@@ -21,21 +21,37 @@ dateInput.addEventListener("input", function () {
     }
 });
 
+//ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
 const categoryPriceInput = document.getElementById("category-price");
 
-categoryPriceInput.addEventListener("input", function () {
-    const inputValue = this.value;
-    if (inputValue && !/^[0-9]*$/.test(inputValue)) {
-        this.value = inputValue.replace(/[^0-9]/g, "");
-    } else if (this.value.length > 7) {
-        this.value = this.value.slice(0, 7);
-    } else {
-        this.value = Number(inputValue.replace(/[^0-9]/g, "")).toLocaleString();
+// categoryPriceInput.addEventListener("input", function () {
+//     const inputValue = this.value;
+//     if (inputValue && !/^[0-9]*$/.test(inputValue)) {
+//         this.value = inputValue.replace(/[^0-9]/g, "");
+//     } else if (this.value.length > 7) {
+//         this.value = this.value.slice(0, 7);
+//     } else {
+//         this.value = Number(inputValue.replace(/[^0-9]/g, "")).toLocaleString();
+//     }
+// });
+
+categoryPriceInput.addEventListener("input", function (event) {
+    const currentValue = event.target.value;
+    const valueLength = currentValue.length;
+    if (currentValue === "") {
+        this.placeholder = "";
+    }
+    const valueNumber = parseInt(currentValue.replace(/,/g, ""));
+    const newValue = valueNumber.toLocaleString();
+    event.target.value = newValue;
+    if (isNaN(valueNumber)) {
+        event.target.value = "";
     }
 });
 
 categoryPriceInput.addEventListener("keydown", function (event) {
-    if (event.keyCode === 9 || event.keyCode === 13) {
+    if (event.key === "Tab" || event.key === "Enter") {
         event.preventDefault();
     }
 });
@@ -68,20 +84,41 @@ memoInput.addEventListener("blur", function () {
 
 //ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 
-const paymentLabel = document.querySelector(".payment__label");
-const paymentDropdown = document.querySelectorAll(".payment__dropdown");
+const paymentSelect = document.querySelector(".select-box");
+const paymentDropdown = document.querySelector(".payment__dropdown");
 
-const handleSelect = (item) => {
-    paymentLabel.parentNode.classList.remove("active");
-    paymentLabel.innerHTML = item.textContent;
-};
+// paymentSelect.addEventListener("click", function () {
+//     paymentDropdown.classList.toggle("display-none");
+// });
 
-paymentDropdown.addEventListener("click", () => handleSelect(option));
+const input = document.getElementById("input");
 
-paymentLabel.addEventListener("click", function () {
-    if (paymentLabel.parentNode.classList.contains("active")) {
-        paymentLabel.parentNode.classList.remove("active");
-    } else {
-        paymentLabel.parentNode.classList.add("active");
+input.addEventListener("click", function (event) {
+    const target = event.target;
+    const IsSelectBox = target.closest(".select-box");
+
+    if (IsSelectBox) {
+        toggleDropdown(target);
+        return;
+    }
+    const IsPaymentList = target.closest(".payment__list");
+    if (IsPaymentList) {
+        const payment = target.closest(".payment");
+        const selectedValue = payment.querySelector(".payment__label");
+        console.log(selectedValue);
+        selectedValue.textContent =
+            IsPaymentList.querySelector(".list-text").textContent;
+        toggleDropdown(target);
     }
 });
+
+function toggleDropdown(target) {
+    // const selectBox = target.closest(".select-box");
+    // if (selectBox) {
+    const dropdown = target
+        .closest(".payment")
+        .querySelector(".payment__dropdown");
+
+    dropdown.classList.toggle("display-none");
+    // }
+}
