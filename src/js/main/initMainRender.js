@@ -8,20 +8,17 @@ export function initMainRender() {
 
 	if (!localStorage.getItem(yearMonthKey)) return;
 	const monthlyData = JSON.parse(localStorage.getItem(yearMonthKey));
-	const dataList = readLocalStorage(monthlyData);
-	renderMain(dataList);
+	const detailsList = readLocalStorage(monthlyData);
+	renderMain(detailsList);
 }
 
 function readLocalStorage(monthlyData) {
-	const dataList = [];
-	for (const [key, value] of Object.entries(monthlyData)) {
-		dataList.push(value);
-	}
-	return dataList;
+	const dataList = Object.values(monthlyData);
+	const detailsList = dataList.map(el => el.details);
+	return detailsList;
 }
 
-function renderMain(dataList) {
-	const detailsList = dataList.map(el => el.details);
+function renderMain(detailsList) {
 	for (const dailyDetails of detailsList) {
 		for (const dailyDetail of dailyDetails) {
 			renderMainList(dailyDetail);

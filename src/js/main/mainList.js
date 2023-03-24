@@ -5,7 +5,7 @@ export function renderMainList(data) {
 	}
 	addDailyDetailList(data);
 	updateDailyInfo(data);
-	// updateInfoFilter();
+	updateInfoFilter(data);
 }
 
 function isNewDate({ date }) {
@@ -34,7 +34,7 @@ function addDailyInfo({ date, price, income }) {
 	const monthInfo = targetDate.getMonth() + 1;
 	const dateInfo = targetDate.getDate();
 	const dayInfo = days[targetDate.getDay()];
-	const inOrOut = !income ? '지출' : '수입';
+	const inOrOut = income ? '수입' : '지출';
 	const priceInfo = price;
 
 	const dailyInfoTemplate = `<div><span>${monthInfo}월 ${dateInfo}일</span> <span>${dayInfo}</span></div>
@@ -97,6 +97,39 @@ function updateIncomeInfo(dailyInfo, storage) {
 	}
 }
 
-function updateInfoFilter() {
-	// 메인화면 상단 전체내역 요약부분 업데이트
+function updateInfoFilter({ date }) {
+	const monthYearKey = date.slice(0, 6);
+	const storage = JSON.parse(localStorage.getItem(monthYearKey));
+	const totalCount = calculateCount(storage);
+	const totalIncome = calculateIncome(storage);
+	const totalExpenditure = calculateExpenditure(storage);
+	const infoFilter = document.querySelector('.info-filter');
+
+	infoFilter.firstElementChild.textContent = `전체 내역 ${totalCount}건`;
+	infoFilter.lastElementChild.children[1].textContent = `수입 ${totalIncome}`;
+	infoFilter.lastElementChild.children[3].textContent = `지출 ${totalExpenditure}`;
+}
+
+function calculateCount(storage) {
+	let totalCount = 0;
+	for (const dailyData of Object.values(storage)) {
+		totalCount += dailyData.count;
+	}
+	return totalCount;
+}
+
+function calculateIncome(storage) {
+	let totalIncome = 0;
+	for (const dailyData of Object.values(storage)) {
+		totalIncome += dailyData.totalIncome;
+	}
+	return totalIncome.toLocaleString();
+}
+
+function calculateExpenditure(storage) {
+	let totalExpenditure = 0;
+	for (const dailyData of Object.values(storage)) {
+		totalExpenditure += dailyData.totalExpenditure;
+	}
+	return totalExpenditure.toLocaleString();
 }

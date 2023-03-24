@@ -6,10 +6,10 @@ const showDropdown = (e, dropdown) => {
 		// 각 옵션 클릭시 클릭한 옵션값 인풋밸류로 할당 후 active 제거
 		e.target.nextElementSibling.addEventListener('click', opt => {
 			if (opt.target.tagName === 'P') {
-				e.target.value = opt.target.innerText;
+				e.target.value = opt.target.textContent;
 				dropdown.classList.remove('active');
 			} else if (opt.target.tagName === 'LI') {
-				e.target.value = opt.target.firstElementChild.innerText;
+				e.target.value = opt.target.firstElementChild.textContent;
 				dropdown.classList.remove('active');
 			}
 		});
@@ -20,10 +20,10 @@ const showDropdown = (e, dropdown) => {
 		optionLists.forEach(el => {
 			el.addEventListener('click', opt => {
 				if (opt.target.tagName === 'P') {
-					e.target.value = opt.target.innerText;
+					e.target.value = opt.target.textContent;
 					dropdown.classList.remove('active');
 				} else if (opt.target.tagName === 'LI') {
-					e.target.value = opt.target.firstElementChild.innerText;
+					e.target.value = opt.target.firstElementChild.textContent;
 					dropdown.classList.remove('active');
 				}
 			});
