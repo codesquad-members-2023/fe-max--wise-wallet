@@ -1,7 +1,4 @@
 @import "./design-system.css";
-@import "./top-header.css";
-@import "./input-bar.css";
-@import "./common-components/modal.css";
 
 *,
 *::before,
@@ -20,10 +17,6 @@ body {
   font-family: var(--ff-body);
 }
 
-main {
+#root {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  position: relative;
 }
