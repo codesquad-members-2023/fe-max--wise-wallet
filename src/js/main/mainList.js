@@ -37,10 +37,11 @@ function addDailyInfo({ date, price, income }) {
 	const dateInfo = targetDate.getDate();
 	const dayInfo = days[targetDate.getDay()];
 	const inOrOut = income ? '수입' : '지출';
+	const className = income ? 'total-income' : 'total-expenditure';
 	const priceInfo = price;
 
 	const dailyInfoTemplate = `<div><span>${monthInfo}월 ${dateInfo}일</span> <span>${dayInfo}</span></div>
-  <div> <span>${inOrOut} ${priceInfo}원</span></div>`;
+  <div> <span class="${className}">${inOrOut} ${priceInfo}원</span></div>`;
 	const dailyInfo = document.querySelector('.daily-info');
 	dailyInfo.insertAdjacentHTML('afterbegin', dailyInfoTemplate);
 }
@@ -83,7 +84,7 @@ function updateExpenditureInfo(dailyInfo, storage) {
 	if (dailyTotalPrice.textContent.includes('지출')) {
 		dailyTotalPrice.textContent = `지출 ${updatedExpenditure}원`;
 	} else {
-		const expenditureInfoTemplate = ` <span>지출 ${updatedExpenditure}원</span>`;
+		const expenditureInfoTemplate = ` <span class="total-expenditure">지출 ${updatedExpenditure}원</span>`;
 		dailyInfo.lastElementChild.insertAdjacentHTML('beforeend', expenditureInfoTemplate);
 	}
 }
@@ -95,7 +96,7 @@ function updateIncomeInfo(dailyInfo, storage) {
 	if (dailyTotalPrice.textContent.includes('수입')) {
 		dailyTotalPrice.textContent = `수입 ${updatedIncome}원`;
 	} else {
-		const incomeInfoTemplate = ` <span>수입 ${updatedIncome}원</span>`;
+		const incomeInfoTemplate = ` <span class="total-income">수입 ${updatedIncome}원</span>`;
 		dailyInfo.lastElementChild.insertAdjacentHTML('afterbegin', incomeInfoTemplate);
 	}
 }
