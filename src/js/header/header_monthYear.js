@@ -1,92 +1,70 @@
-const monthYear = {
-  year: new Date().getFullYear(),
-  month: new Date().getMonth() + 1,
-  monthChar: [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ],
-  yearText: document.getElementById("monthYear_text_year"),
-  monthText: document.getElementById("monthYear_text_month_number"),
-  monthCharText: document.getElementById("monthYear_text_month_char"),
-  leftChevron: document.getElementById("chevron_left"),
-  rightChevron: document.getElementById("chevron_right"),
+import { common } from "./header_common.js";
 
-  init() {
-    this.yearText.textContent = this.year;
-    this.monthText.textContent = this.month;
-    this.monthCharText.textContent = this.monthChar[this.month - 1];
-  },
+function yearMonthInit() {
+  common.yearText.textContent = common.year;
+  common.monthText.textContent = common.month;
+  common.monthCharText.textContent = common.monthChar[common.month - 1];
+}
 
-  getPreviousYear() {
-    this.yearText.textContent = +this.yearText.textContent - 1;
-  },
+function getPreviousYear() {
+  common.yearText.textContent = +common.yearText.textContent - 1;
+}
 
-  getPreviousMonth() {
-    this.monthText.textContent = +this.monthText.textContent - 1;
-  },
+function getPreviousMonth() {
+  common.monthText.textContent = +common.monthText.textContent - 1;
+}
 
-  getMonthChar() {
-    this.monthCharText.textContent =
-      this.monthChar[this.monthText.textContent - 1];
-  },
+function getMonthChar() {
+  common.monthCharText.textContent =
+    common.monthChar[common.monthText.textContent - 1];
+}
 
-  getNextYear() {
-    this.yearText.textContent = +this.yearText.textContent + 1;
-  },
+function getNextYear() {
+  common.yearText.textContent = +common.yearText.textContent + 1;
+}
 
-  getNextMonth() {
-    this.monthText.textContent = +this.monthText.textContent + 1;
-  },
+function getNextMonth() {
+  common.monthText.textContent = +common.monthText.textContent + 1;
+}
 
-  setPreviousYear() {
-    this.getPreviousYear();
-    this.monthText.textContent = "12";
-    this.getMonthChar();
-  },
+function setPreviousYear() {
+  getPreviousYear();
+  common.monthText.textContent = "12";
+  getMonthChar();
+}
 
-  setPreviousMonth() {
-    this.getPreviousMonth();
-    this.getMonthChar();
-  },
+function setPreviousMonth() {
+  getPreviousMonth();
+  getMonthChar();
+}
 
-  setNextYear() {
-    this.getNextYear();
-    this.monthText.textContent = "1";
-    this.getMonthChar();
-  },
+function setNextYear() {
+  getNextYear();
+  common.monthText.textContent = "1";
+  getMonthChar();
+}
 
-  setNextMonth() {
-    this.getNextMonth();
-    this.getMonthChar();
-  }
-};
+function setNextMonth() {
+  getNextMonth();
+  getMonthChar();
+}
 
-monthYear.init();
+document.addEventListener("DOMContentLoaded", yearMonthInit());
 
-monthYear.leftChevron.addEventListener("click", (e) => {
-  const isJanuary = monthYear.monthText.textContent === "1";
+common.leftChevron.addEventListener("click", () => {
+  const isJanuary = common.monthText.textContent === "1";
   if (isJanuary) {
-    monthYear.setPreviousYear();
+    setPreviousYear();
   } else {
-    monthYear.setPreviousMonth();
+    setPreviousMonth();
   }
 });
 
-monthYear.rightChevron.addEventListener("click", (e) => {
-  const isDecember = monthYear.monthText.textContent === "12";
+common.rightChevron.addEventListener("click", () => {
+  const isDecember = common.monthText.textContent === "12";
   if (isDecember) {
-    monthYear.setNextYear();
+    setNextYear();
   } else {
-    monthYear.setNextMonth();
+    setNextMonth();
   }
 });
