@@ -1,5 +1,5 @@
 import { getToday } from '../utils/getToday.js';
-import { renderMainList, addDailyList, addDailyDetailList } from './mainList.js';
+import { renderMainList } from './mainList.js';
 
 export function initMainRender() {
 	let { year, month } = getToday();

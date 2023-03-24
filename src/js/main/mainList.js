@@ -13,7 +13,7 @@ function isNewDate({ date }) {
 	return targetDateList === null;
 }
 
-export function addDailyList({ date }) {
+function addDailyList({ date }) {
 	const newLi = document.createElement('li');
 	const newDiv = document.createElement('div');
 	const newUl = document.createElement('ul');
@@ -28,7 +28,7 @@ export function addDailyList({ date }) {
 	currentPosition.insertAdjacentElement('afterbegin', newLi);
 }
 
-export function addDailyInfo({ date, price, income }) {
+function addDailyInfo({ date, price, income }) {
 	const targetDate = new Date(`${date.slice(0, 4)}-${date.slice(4, 6)}-${date.slice(6, 8)}`);
 	const days = ['일', '월', '화', '수', '목', '금', '토'];
 	const monthInfo = targetDate.getMonth() + 1;
@@ -43,7 +43,7 @@ export function addDailyInfo({ date, price, income }) {
 	dailyInfo.insertAdjacentHTML('afterbegin', dailyInfoTemplate);
 }
 
-export function addDailyDetailList(data) {
+function addDailyDetailList(data) {
 	const newList = document.createElement('li');
 	const detailTemplate = `<div class="daily-detail-category">${data.category}</div>
   <div class="daily-detail-memo">${data.memo}</div>
