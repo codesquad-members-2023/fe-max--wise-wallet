@@ -7,7 +7,8 @@
 ## 계획
 - [1주차] 레이아웃 작업
 - [2주차] 기능구현
-
+### 1주차
+HTML, CSS
 ### 2주차
 - 전체 페이지 렌더링 구현(App, HeaderView, MainView render...);
 - inputbar 입력기능 구현
@@ -24,7 +25,7 @@
 - [x] 메인페이지 작업 완료
 
 ## 3주차 데이터 시각화
-다른것보다 README 작성과 pull request 그리고 commit 단위에 신경을 써서 이번주는 진행하기로 했다 
+다른것보다 README 작성과 pull request 그리고 commit 단위에 신경을 써서 이번주는 진행하기로 했다.
 ### 체크리스트
 - [ ] Calender에 innerHTML 없애기
   - [ ] tableView
@@ -35,3 +36,4 @@
   - [ ] board__detail 의 요소들을 탭으로 구성하여 하단에 Graph와 detail 연결해주기
   - [ ] graph 다음 detail에 해당 카테고리에 정보들 넣어주기
 - [ ] 차트 개발하기
+
