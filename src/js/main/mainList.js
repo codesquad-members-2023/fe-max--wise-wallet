@@ -9,12 +9,11 @@ export function renderMainList(data) {
 }
 
 function isNewDate({ date }) {
-	const yearMonthKey = date.slice(0, 6);
-	const monthlyList = JSON.parse(localStorage.getItem(yearMonthKey));
-	return monthlyList[date].details.length === 1;
+	const targetDateList = document.querySelector(`#list-${date}`);
+	return targetDateList === null;
 }
 
-function addDailyList({ date }) {
+export function addDailyList({ date }) {
 	const newLi = document.createElement('li');
 	const newDiv = document.createElement('div');
 	const newUl = document.createElement('ul');
@@ -29,7 +28,7 @@ function addDailyList({ date }) {
 	currentPosition.insertAdjacentElement('afterbegin', newLi);
 }
 
-function addDailyInfo({ date, price, income }) {
+export function addDailyInfo({ date, price, income }) {
 	const targetDate = new Date(`${date.slice(0, 4)}-${date.slice(4, 6)}-${date.slice(6, 8)}`);
 	const days = ['일', '월', '화', '수', '목', '금', '토'];
 	const monthInfo = targetDate.getMonth() + 1;
@@ -44,7 +43,7 @@ function addDailyInfo({ date, price, income }) {
 	dailyInfo.insertAdjacentHTML('afterbegin', dailyInfoTemplate);
 }
 
-function addDailyDetailList(data) {
+export function addDailyDetailList(data) {
 	const newList = document.createElement('li');
 	const detailTemplate = `<div class="daily-detail-category">${data.category}</div>
   <div class="daily-detail-memo">${data.memo}</div>
@@ -72,10 +71,6 @@ function updateDailyInfo(data) {
 	} else {
 		updateIncomeInfo(dailyInfo, storage);
 	}
-	// 수입이냐 지출이냐 이미 한칸은 적혀있음
-	// 지출일때 -> 기존 지출칸 있으면 지출액 업데이트, 없으면 지출란 추가
-	// 수입칸만 있으면 추가
-	// 수입일때 -> 기존 수입칸 있을때 수입액 업데이트, 없으면 수입란 추가
 }
 
 function updateExpenditureInfo(dailyInfo, storage) {
