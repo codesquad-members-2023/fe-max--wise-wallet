@@ -1,6 +1,6 @@
 import { PAYMENT_TYPES } from "../../constants/paymentTypes.js";
 import { getCategories } from "../../constants/categories.js";
-import { getNumberWithoutComma } from "../../utils/utils.js";
+import { getNumberWithoutComma } from "../../utils/numbers.js";
 import { initDefaultDate } from "./dateInput.js";
 import { initDefaultPrice } from "./priceInput.js";
 import { deactivateSelectBox } from "./dropdown.js";

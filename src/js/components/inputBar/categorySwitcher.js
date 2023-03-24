@@ -3,9 +3,27 @@ import { deactivateSelectBox, updateSelectBox } from "./dropdown.js";
 
 const INITIAL_SELECT_BOX_CONTENT = "선택하세요";
 
-const initCategorySwitcher = () => {
-  const switcher = document.querySelector("#sign-switcher");
-  switcher.addEventListener("change", switchCategory);
+const createItem = (category) => {
+  const item = document.createElement("li");
+  const content = document.createElement("div");
+  const text = document.createElement("p");
+
+  item.className = "dropdown-item";
+  content.className = "dropdown-item__content";
+  text.textContent = category;
+
+  content.appendChild(text);
+  item.appendChild(content);
+
+  return item;
+};
+
+const createCategoryElements = (categories) => {
+  const list = document.createElement("ul");
+  categories.foreach((c) => {
+    list.appendChild(createItem(c));
+  });
+  return list;
 };
 
 const switchCategory = (e) => {
@@ -20,27 +38,9 @@ const switchCategory = (e) => {
   dropdown.replaceChild(categoryElements, originCategories);
 };
 
-const createCategoryElements = (categories) => {
-  const list = document.createElement("ul");
-  for (const c of categories) {
-    list.appendChild(createItem(c));
-  }
-  return list;
-};
-
-const createItem = (category) => {
-  const item = document.createElement("li");
-  const content = document.createElement("div");
-  const text = document.createElement("p");
-  
-  item.className = "dropdown-item";
-  content.className = "dropdown-item__content";
-  text.textContent = category;
-  
-  content.appendChild(text);
-  item.appendChild(content);
-
-  return item;
+const initCategorySwitcher = () => {
+  const switcher = document.querySelector("#sign-switcher");
+  switcher.addEventListener("change", switchCategory);
 };
 
 export { initCategorySwitcher };
