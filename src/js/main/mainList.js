@@ -4,7 +4,7 @@ export function renderMainList(data) {
 		addDailyInfo(data);
 	}
 	addDailyDetailList(data);
-	// updateDailyInfo();
+	updateDailyInfo(data);
 	// updateInfoFilter();
 }
 
@@ -39,7 +39,7 @@ function addDailyInfo({ date, price, income }) {
 	const priceInfo = price;
 
 	const dailyInfoTemplate = `<div><span>${monthInfo}월 ${dateInfo}일</span> <span>${dayInfo}</span></div>
-  <div><span>${inOrOut} ${priceInfo}원</span></div>`;
+  <div> <span>${inOrOut} ${priceInfo}원</span></div>`;
 	const dailyInfo = document.querySelector('.daily-info');
 	dailyInfo.insertAdjacentHTML('afterbegin', dailyInfoTemplate);
 }
@@ -64,7 +64,42 @@ function addDailyDetailList(data) {
 }
 
 function updateDailyInfo(data) {
-	// 날짜별 상단에 수입지출 요약부분 내용 업데이트
+	const dailyInfo = document.querySelector(`#list-${data.date} div`);
+	const monthYearKey = data.date.slice(0, 6);
+	const storage = JSON.parse(localStorage.getItem(monthYearKey))[data.date];
+	if (!data.hasOwnProperty('income')) {
+		updateExpenditureInfo(dailyInfo, storage);
+	} else {
+		updateIncomeInfo(dailyInfo, storage);
+	}
+	// 수입이냐 지출이냐 이미 한칸은 적혀있음
+	// 지출일때 -> 기존 지출칸 있으면 지출액 업데이트, 없으면 지출란 추가
+	// 수입칸만 있으면 추가
+	// 수입일때 -> 기존 수입칸 있을때 수입액 업데이트, 없으면 수입란 추가
+}
+
+function updateExpenditureInfo(dailyInfo, storage) {
+	const updatedExpenditure = storage.totalExpenditure.toLocaleString();
+	const dailyTotalPrice = dailyInfo.lastElementChild.lastElementChild;
+
+	if (dailyTotalPrice.textContent.includes('지출')) {
+		dailyTotalPrice.textContent = `지출 ${updatedExpenditure}원`;
+	} else {
+		const expenditureInfoTemplate = ` <span>지출 ${updatedExpenditure}원</span>`;
+		dailyInfo.lastElementChild.insertAdjacentHTML('beforeend', expenditureInfoTemplate);
+	}
+}
+
+function updateIncomeInfo(dailyInfo, storage) {
+	const updatedIncome = storage.totalIncome.toLocaleString();
+	const dailyTotalPrice = dailyInfo.lastElementChild.firstElementChild;
+
+	if (dailyTotalPrice.textContent.includes('수입')) {
+		dailyTotalPrice.textContent = `수입 ${updatedIncome}원`;
+	} else {
+		const incomeInfoTemplate = ` <span>수입 ${updatedIncome}원</span>`;
+		dailyInfo.lastElementChild.insertAdjacentHTML('afterbegin', incomeInfoTemplate);
+	}
 }
 
 function updateInfoFilter() {
