@@ -1,5 +1,5 @@
 import { getToday } from '../utils/getToday.js';
-import { monthNameList } from '../constants/monthNameList.js';
+import { monthNameList } from '../constants/constants.js';
 
 export function displayCurrentMonthYear() {
 	const { year, month } = getToday();

@@ -1,3 +1,5 @@
+import { bcColorList } from '../constants/constants.js';
+
 export function renderMainList(data) {
 	if (isNewDate(data)) {
 		addDailyList(data);
@@ -45,7 +47,8 @@ function addDailyInfo({ date, price, income }) {
 
 function addDailyDetailList(data) {
 	const newList = document.createElement('li');
-	const detailTemplate = `<div class="daily-detail-category">${data.category}</div>
+	const bcColor = bcColorList[data.category];
+	const detailTemplate = `<div class="daily-detail-category ${bcColor}">${data.category}</div>
   <div class="daily-detail-memo">${data.memo}</div>
   <div class="daily-detail-payment">${data.payment}</div>
   <div class="daily-detail-price">${!data.hasOwnProperty('income') ? '-' : '+'}${data.price}원</div>`;

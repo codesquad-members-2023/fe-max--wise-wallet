@@ -1,4 +1,4 @@
-import { monthNameList } from '../constants/monthNameList.js';
+import { monthNameList } from '../constants/constants.js';
 
 export function nextBtnHandler() {
 	const currentYearEl = document.querySelector('div.current-month-year p:nth-of-type(1)');
