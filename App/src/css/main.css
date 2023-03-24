@@ -371,7 +371,7 @@ main {
   width: calc(100% - 30px);
 }
 
-#PieChartBoard {
+#board {
   border: 1px solid var(--color-primary);
   display: flex;
   border-radius: 8px;
@@ -379,14 +379,14 @@ main {
   background-color: var(--color-white);
 }
 
-#PieChartBoard .PieChartBoard__chart {
+#board .board__chart {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-grow: 1;
 }
 
-#PieChartBoard .PieChartBoard__chart .chart {
+#board .board__chart .chart {
   width: 254px;
   height: 254px;
   border-radius: 50%;
@@ -409,7 +409,7 @@ main {
   position: relative;
 }
 
-#PieChartBoard .PieChartBoard__chart .chart .center {
+#board .board__chart .chart .center {
   position: absolute;
   left: 50%;
   top: 50%;
@@ -420,33 +420,33 @@ main {
   transform: translate(-50%, -50%);
 }
 
-#PieChartBoard .PieChartBoard__board {
+#board .board__detail {
   padding: 40px 38px;
   width: 372px;
 }
 
-#PieChartBoard .PieChartBoard__board dl {
+#board .board__detail dl {
   text-align: center;
 }
 
-#PieChartBoard .PieChartBoard__board dl dt,
-#PieChartBoard .PieChartBoard__board dl dd {
+#board .board__detail dl dt,
+#board .board__detail dl dd {
   display: inline-block;
   font: var(--font-body-large);
   color: var(--color-primary);
 }
 
-#PieChartBoard .PieChartBoard__board dl dd {
+#board .board__detail dl dd {
   margin-left: 8px;
   min-width: 182px;
   text-align: right;
 }
 
-#PieChartBoard .PieChartBoard__board .board__info {
+#board .board__detail .board__info {
   margin-top: 26px;
 }
 
-#PieChartBoard .board__info .info__item {
+#board .board__info .info__item {
   display: flex;
   align-items: center;
   padding: 16px;
@@ -454,11 +454,11 @@ main {
   justify-content: space-between;
 }
 
-#PieChartBoard .board__info .info__item span {
+#board .board__info .info__item span {
   font: var(--font-body-medium);
 }
 
-#PieChartBoard .info__item .category {
+#board .info__item .category {
   width: 92px;
   height: 32px;
   display: flex;
@@ -469,34 +469,34 @@ main {
   font: var(--font-bold-medium);
 }
 
-#PieChartBoard .info__item .category[data-category="0"] {
+#board .info__item .category[data-category="0"] {
   background-color: var(--color-category-navy);
 }
 
-#PieChartBoard .info__item .category[data-category="1"] {
+#board .info__item .category[data-category="1"] {
   background-color: var(--color-category-blue);
 }
-#PieChartBoard .info__item .category[data-category="2"] {
+#board .info__item .category[data-category="2"] {
   background-color: var(--color-category-mint);
 }
-#PieChartBoard .info__item .category[data-category="3"] {
+#board .info__item .category[data-category="3"] {
   background-color: var(--color-category-cyan);
 }
-#PieChartBoard .info__item .category[data-category="4"] {
+#board .info__item .category[data-category="4"] {
   background-color: var(--color-category-sky);
 }
-#PieChartBoard .info__item .category[data-category="5"] {
+#board .info__item .category[data-category="5"] {
   background-color: var(--color-category-pink);
 }
-#PieChartBoard .info__item .category[data-category="6"] {
+#board .info__item .category[data-category="6"] {
   background-color: var(--color-category-purple);
 }
 
-#PieChartBoard .info__item .percent {
+#board .info__item .percent {
   width: 40px;
 }
 
-#PieChartBoard .info__item .price {
+#board .info__item .price {
   width: 160px;
   text-align: right;
 }

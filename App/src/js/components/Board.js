@@ -1,19 +1,19 @@
 import { Element } from "../Element.js";
 
-export class PieChartBoard extends Element {
+export class Board extends Element {
   constructor() {
     super();
   }
 
   init() {
     this.domNode = document.createElement("ARTICLE");
-    this.domNode.id = "PieChartBoard";
+    this.domNode.id = "board";
     
     this.domNode.insertAdjacentHTML(
       "afterbegin",
       ` 
         <h2 class="blind">파이차트</h2>
-        <figure class="PieChartBoard__chart">
+        <figure class="board__chart">
           <div
             class="chart"
             style="
@@ -29,7 +29,7 @@ export class PieChartBoard extends Element {
           </div>
           <figcaption class="blind">차트 영역</figcaption>
         </figure>
-        <article class="PieChartBoard__board">
+        <article class="board__detail">
           <h3 class="blind">보드 영역</h3>
           <dl>
             <dt>이번 달 지출 금액</dt>
