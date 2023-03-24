@@ -1,53 +1,49 @@
-const tab = {
-  doc: document.getElementById("img_doc"),
-  calendar: document.getElementById("img_calendar"),
-  chart: document.getElementById("img_chart"),
+import { common } from "./header_common.js";
 
-  activateDoc() {
-    this.doc.setAttribute("condition", "activate");
-    this.doc.setAttribute("src", "./src/svg/tab_activate_doc.svg");
-  },
+function activateDoc() {
+  common.doc.setAttribute("condition", "activate");
+  common.doc.setAttribute("src", "./src/svg/tab_activate_doc.svg");
+}
 
-  disabledDoc() {
-    this.doc.setAttribute("condition", "disabled");
-    this.doc.setAttribute("src", "./src/svg/tab_disabled_doc.svg");
-  },
+function disabledDoc() {
+  common.doc.setAttribute("condition", "disabled");
+  common.doc.setAttribute("src", "./src/svg/tab_disabled_doc.svg");
+}
 
-  activateCalendar() {
-    this.calendar.setAttribute("condition", "activate");
-    this.calendar.setAttribute("src", "./src/svg/tab_activate_calendar.svg");
-  },
+function activateCalendar() {
+  common.calendar.setAttribute("condition", "activate");
+  common.calendar.setAttribute("src", "./src/svg/tab_activate_calendar.svg");
+}
 
-  disabledCalendar() {
-    this.calendar.setAttribute("condition", "disabled");
-    this.calendar.setAttribute("src", "./src/svg/tab_disabled_calendar.svg");
-  },
+function disabledCalendar() {
+  common.calendar.setAttribute("condition", "disabled");
+  common.calendar.setAttribute("src", "./src/svg/tab_disabled_calendar.svg");
+}
 
-  activateChart() {
-    this.chart.setAttribute("condition", "activate");
-    this.chart.setAttribute("src", "./src/svg/tab_activate_chart.svg");
-  },
+function activateChart() {
+  common.chart.setAttribute("condition", "activate");
+  common.chart.setAttribute("src", "./src/svg/tab_activate_chart.svg");
+}
 
-  disabledChart() {
-    this.chart.setAttribute("condition", "disabled");
-    this.chart.setAttribute("src", "./src/svg/tab_disabled_chart.svg");
-  },
-};
+function disabledChart() {
+  common.chart.setAttribute("condition", "disabled");
+  common.chart.setAttribute("src", "./src/svg/tab_disabled_chart.svg");
+}
 
-tab.doc.addEventListener("click", (e) => {
-  tab.activateDoc();
-  tab.disabledCalendar();
-  tab.disabledChart();
+common.doc.addEventListener("click", () => {
+  activateDoc();
+  disabledCalendar();
+  disabledChart();
 });
 
-tab.calendar.addEventListener("click", (e) => {
-  tab.disabledDoc();
-  tab.activateCalendar();
-  tab.disabledChart();
+common.calendar.addEventListener("click", () => {
+  disabledDoc();
+  activateCalendar();
+  disabledChart();
 });
 
-tab.chart.addEventListener("click", (e) => {
-  tab.disabledDoc();
-  tab.disabledCalendar();
-  tab.activateChart();
+common.chart.addEventListener("click", () => {
+  disabledDoc();
+  disabledCalendar();
+  activateChart();
 });

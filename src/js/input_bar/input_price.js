@@ -1,47 +1,40 @@
-const changeButton = document.getElementById("change_btn");
-const changeImage = document.getElementById("change_button");
-const priceInputField = document.getElementById("price_input");
-const memoInputField = document.getElementById("memo_input");
-const paymentInputField = document.getElementById("payment_input");
-const categoryInputField = document.getElementById("category_input");
-const minusSvgPath = "./src/svg/minus.svg";
-const plusSvgPath = "./src/svg/plus.svg";
-const resetField = [
-  priceInputField,
-  memoInputField,
-  paymentInputField,
-  categoryInputField,
-];
+import { common } from "./input_bar_common.js";
 
-function setSVG(svg, path, isMinus) {
+function setSVG(svg, path, isExpense) {
   svg.setAttribute("src", path);
-  svg.setAttribute("isMinus", isMinus);
+  svg.setAttribute("isExpense", isExpense);
 }
 
-const addComma = (price) => {
+function addComma(price) {
   return parseInt(price).toLocaleString("ko-KR");
-};
+}
 
-function resetInputBar() {
+export function resetInputBar() {
+  const resetField = [
+    common.price,
+    common.memo,
+    common.payment,
+    common.category,
+  ];
   resetField.forEach((inputFieldText) => {
     inputFieldText.value = "";
-  })
-};
+  });
+}
 
-changeButton.addEventListener("click", (e) => {
+common.changeButton.addEventListener("click", () => {
   resetInputBar();
-  const currentSrc = changeImage.getAttribute("isMinus");
-  const isMinus = currentSrc === "true";
-  if (isMinus) {
-    setSVG(changeImage, plusSvgPath, "false");
+  const currentState = common.changeImage.getAttribute("isExpense");
+  const isExpense = currentState === "true";
+  if (isExpense) {
+    setSVG(common.changeImage, common.incomeSvgPath, "false");
   } else {
-    setSVG(changeImage, minusSvgPath, "true");
+    setSVG(common.changeImage, common.expenseSvgPath, "true");
   }
 });
 
-priceInputField.addEventListener("keyup", (e) => {
+common.price.addEventListener("keyup", (e) => {
   const sanitizedValue = e.target.value.replace(/[^0-9]/g, "");
-  const isEmpty = e.target.value === "";
+  const isEmpty = sanitizedValue === "";
 
   if (isEmpty) {
     e.target.value = "";
