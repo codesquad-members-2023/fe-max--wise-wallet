@@ -12,18 +12,18 @@
         <div class="header-contents">
             <a class="header-logo" href="index.html"><h1 class="display_small">Wise Wallet</h1></a>
             <div class="header-selector">
-                <button class="select-btn" type="button"><img src="src/assets/icon/arrowleft_icon.svg" alt=""></button>
+                <button class="select-btn prev-month" type="button"><img src="src/assets/icon/arrowleft_icon.svg" alt=""></button>
                 <div class="selector">
                     <span class="selector-year bold_small"></span>
                     <span class="selector-num display_large"></span>
                     <span class="selector-eng bold_small"></span>
                 </div>
-                <button class="select-btn" type="button"><img src="src/assets/icon/arrowright_icon.svg" alt=""></button>
+                <button class="select-btn next-month" type="button"><img src="src/assets/icon/arrowright_icon.svg" alt=""></button>
             </div>
             <nav class="header-taps">
-                <button class="list-btn tap-active"><img src="src/assets/icon/list_icon.svg" alt=""></button>
-                <button class="calendar-btn"><img src="src/assets/icon/calendar_icon.svg" alt=""></button>
-                <button class="chart-btn"><img src="src/assets/icon/chart_icon.svg" alt=""></button>
+                <button class="list-btn tap-active"><img class="tap-btn" src="src/assets/icon/list_icon.svg" alt=""></button>
+                <button class="calendar-btn"><img class="tap-btn" src="src/assets/icon/calendar_icon.svg" alt=""></button>
+                <button class="chart-btn"><img class="tap-btn" src="src/assets/icon/chart_icon.svg" alt=""></button>
             </nav>
         </div>
     </header>
@@ -51,25 +51,79 @@
                 </div>
                 <div class="bar-seperator"></div>
                 <div class="bar-payments">
-                    <label for="payments-input" class="dropbox-title bold_small">결제수단</label>
+                    <label for="payments-input" class="bold_small">결제수단</label>
                     <div class="payments-section">
                         <span class="input-box">선택하세요</span>
                         <img class="dropbox-btn" src="src/assets/icon/dropbox_icon.svg" alt="">
                     </div>
+                    <ul class="payments-dropdown hidden">
+                        <!-- <li class="dropdown-list">
+                            <div class="dropdown-contents">
+                                <span class="body_regular">현금</span>
+                                <button><img src="src/assets/icon/closed_icon.svg" alt=""></button>
+                            </div>
+                        </li>
+                        <li class="dropdown-list">
+                            <div class="dropdown-contents">
+                                <span class="body_regular">신용카드</span>
+                                <button><img src="src/assets/icon/closed_icon.svg" alt=""></button>
+                            </div>
+                        </li> -->
+                        <li class="payments-add">
+                            <span class="body_regular">추가하기</span>
+                        </li>
+                    </ul>
                 </div>
                 <div class="bar-seperator"></div>
                 <div class="bar-category">
                     <div class="category-section">
-                            <label for="category-input" class="dropbox-title bold_small">분류</label>
-                            <div class="dropbox-category">
-                                <span class="input-box">선택하세요</span>
-                                <img class="dropbox-btn" src="src/assets/icon/dropbox_icon.svg" alt="">
-                            </div>
+                        <label for="category-input" class="bold_small">분류</label>
+                        <div class="dropbox-category">
+                            <span class="input-box">선택하세요</span>
+                            <img class="dropbox-btn" src="src/assets/icon/dropbox_icon.svg" alt="">
+                        </div>
                     </div>
-                    <button class="btn" type="button">
-                        <img src="src/assets/icon/check_icon.svg" alt="">
-                    </button>
+                    <div class="category-dropdown hidden">
+                        <div class="category-list">
+                            <div class="category-contents">
+                                <span class="body_regular">생활</span>
+                            </div>
+                        </div>
+                        <div class="category-list">
+                            <div class="category-contents">
+                                <span class="body_regular">식비</span>
+                            </div>
+                        </div>
+                        <div class="category-list">
+                            <div class="category-contents">
+                                <span class="body_regular">교통</span>
+                            </div>
+                        </div>
+                        <div class="category-list">
+                            <div class="category-contents">
+                                <span class="body_regular">쇼핑/뷰티</span>
+                            </div>
+                        </div>
+                        <div class="category-list">
+                            <div class="category-contents">
+                                <span class="body_regular">의료/건강</span>
+                            </div>
+                        </div>
+                        <div class="category-list">
+                            <div class="category-contents">
+                                <span class="body_regular">문화/여가</span>
+                            </div>
+                        </div>
+                        <div class="payments-add">
+                            <div class="category-contents">
+                                <span class="body_regular">미분류</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <button class="btn" type="button">
+                    <img src="src/assets/icon/check_icon.svg" alt="">
+                </button>
             </form>
             <div class="list-contents">
                 <div class="info-title">
@@ -124,8 +178,6 @@
         <section class="chart-tap hidden">
         </section>
     </main>
-    <script src="src/script/inputbar.js"></script>
-    <script src="src/script/checkMaxLengthOfNumber.js"></script>
-    <script src="src/script/selectTap.js"></script>
+    <script src="src/script/app.js"></script>
 </body>
 </html>

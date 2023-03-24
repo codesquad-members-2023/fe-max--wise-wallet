@@ -1,0 +1,76 @@
+.payments-add-modal {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+}
+
+.modal-body {
+    width: 398px;
+    height: 226px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-primary);
+    border-radius: 16px;
+    box-shadow: 0px 2px 2px rgba(82, 77, 144, 0.08), 0px 4px 4px rgba(82, 77, 144, 0.1);
+}
+
+.modal-input {
+    width: 320px;
+    height: 92px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-input label {
+    width: 320px;
+}
+
+#payments-add-input {
+    width: 298px;
+    height: 22px;
+    padding: 10px;
+    border: 1px solid var(--color-primary);
+    border-radius: 8px;
+}
+
+#payments-add-input::placeholder {
+    font-family: var(--font-family-body);
+    font-weight: var(--font-weight-body);
+    font-size: var(--font-size-body-regular);
+    line-height: var(--line-height-body-regular);
+    color: var(--color-primary-alt);
+}
+
+.modal-btn {
+    margin-top: 32px;
+    width: 320px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-btn button {
+    background-color: var(--color-white);
+    border: none;
+    cursor: pointer;
+}
+
+.add-btn {
+    font-family: var(--font-family-bold);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-bold-large);
+    line-height: var(--line-height-bold-large);
+    color: var(--color-secondary-yellow);
+}
