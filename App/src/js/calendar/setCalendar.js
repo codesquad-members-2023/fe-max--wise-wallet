@@ -28,6 +28,7 @@ const getDate = () => {
 };
 
 const setTable = () => {
+  const nowDate = new Date();
   const [year, month, dayOfWeek, lastDay] = getDate();
   const is6Week = dayOfWeek + lastDay >= 36;
   const totalTdLength = is6Week ? 42 : 35;
@@ -37,8 +38,9 @@ const setTable = () => {
   let td = "";
   for (let i = 0; i < totalTdLength; i++) {
     let dayText = "";
-    const day = i - dayOfWeek + 1;
     let [$income, $expenditure, $total] = [];
+    let isToday = false;
+    const day = i - dayOfWeek + 1;
     const date = `${year}${String(month).padStart(2, 0)}${String(day).padStart(
       2,
       0
@@ -48,10 +50,14 @@ const setTable = () => {
       [$income, $expenditure, $total] = setDetails(group[date]);
     }
     if (i >= dayOfWeek && lastDay >= day) {
+      const calendarDate = new Date(year, month - 1, day);
+      isToday =
+        nowDate.toDateString() == calendarDate.toDateString() ? true : false;
+      console.log(nowDate.toDateString() === calendarDate.toDateString());
       dayText = day;
     }
     td += `<td>
-        <div class="info_wrapper">
+        <div class="info_wrapper" data-today="${isToday}">
             <div class="detalis">
                 ${$income ? $income : ""}
                 ${$expenditure ? $expenditure : ""}
