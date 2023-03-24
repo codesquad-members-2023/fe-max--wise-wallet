@@ -1,4 +1,5 @@
 import { common } from "./input_bar_common.js";
+import { resetInputBar } from "./input_price.js";
 
 const setActivate = () => {
   common.checkButton.setAttribute("src", "./src/svg/activate_check.svg");
@@ -43,3 +44,30 @@ common.inputBar.addEventListener("click", () => {
     setDisabled();
   }
 });
+
+common.checkButton.addEventListener("click", function () {
+  const isActivate = isAllActivate() === 5;
+  if (isActivate) {
+    const history = {
+      isExpense: common.changeImage.getAttribute("isExpense"),
+      date: common.date.value,
+      price: common.price.value,
+      memo: common.memo.value,
+      payment: common.payment.value,
+      category: common.category.value,
+    };
+
+    let histories = JSON.parse(localStorage.getItem("histories")) || [];
+
+    histories.push(history);
+    localStorage.setItem("histories", JSON.stringify(histories));
+  }
+
+  resetInputBar();
+});
+
+// const histories = JSON.parse(localStorage.getItem("histories")) || [];
+
+// histories.forEach(function (history) {
+  
+// });
