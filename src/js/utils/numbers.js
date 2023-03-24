@@ -1,6 +1,4 @@
-const getNumberWithPreZeros = (number, digit) => {
-  return String(number).padStart(digit, 0);
-};
+const getNumberWithPreZeros = (number, digit) => String(number).padStart(digit, 0);
 
 const getDateInfo = () => {
   const curr = new Date();

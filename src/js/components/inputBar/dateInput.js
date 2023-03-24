@@ -1,4 +1,4 @@
-import { getNumberWithPreZeros, getDateInfo } from "../../utils/utils.js";
+import { getNumberWithPreZeros, getDateInfo } from "../../utils/numbers.js";
 
 const dateInput = document.querySelector("#input-date");
 

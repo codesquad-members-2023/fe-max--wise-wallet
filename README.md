@@ -142,6 +142,12 @@ querySelector 메서드
 - document 외의 요소에서도 사용할 수 있음
 - 해당 요소에서부터 탐색하기 때문에 전체 DOM 트리에서 탐색하는 것보다 빠름
 
+eslint
+- parseInt() radix(2번째 인자. 몇 진수로 변환할 것인지 결정)는 기본 옵션이 always라 10을 입력하지 않으면 error 발생함. `as needed`로 변경함
+- Unexpected use of file extension "js" : 파일 확장자를 추가해주지 않으면 동작을 하지 않는데, 저런 에러가 나서 눈에 거슬렸음. `import/extension` 옵션을 꺼서 해결함
+- Prettier가 double quote로 자동 변환해주는데 옵션이 single quote로 되어있어 에러가 발생함. `double quote`로 변경해서 해결함
+- 리터럴 객체를 반환하는 부분의 에러는 `{ "requireReturnForObjectLiteral": true }` 으로 해결함
+
 ## 😭🤪삽질한 것들
 
 ### 1주차
