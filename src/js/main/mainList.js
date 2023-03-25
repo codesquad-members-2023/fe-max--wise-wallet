@@ -25,9 +25,23 @@ function addDailyList({ date }) {
 	newUl.classList.add('daily-detail-lists-container');
 	newLi.setAttribute('id', `list-${date}`);
 	newLi.append(newDiv, newUl);
+	const referenceNode = findReferenceNode(date);
+	const parentNode = document.querySelector('ul.daily-lists-container');
+	parentNode.insertBefore(newLi, referenceNode);
+}
 
-	const currentPosition = document.querySelector('ul.daily-lists-container');
-	currentPosition.insertAdjacentElement('afterbegin', newLi);
+function findReferenceNode(date) {
+	const dailyListNodes = document.querySelectorAll('.daily-list');
+	if (dailyListNodes.length !== 0) {
+		const ids = [];
+		dailyListNodes.forEach(el => ids.push(el.id));
+
+		let i = 0;
+		while (i < dailyListNodes.length && date < ids[i].slice(-8)) {
+			i++;
+		}
+		return dailyListNodes[i];
+	}
 }
 
 function addDailyInfo({ date, price, income }) {
@@ -42,7 +56,7 @@ function addDailyInfo({ date, price, income }) {
 
 	const dailyInfoTemplate = `<div><span>${monthInfo}월 ${dateInfo}일</span> <span>${dayInfo}</span></div>
   <div> <span class="${className}">${inOrOut} ${priceInfo}원</span></div>`;
-	const dailyInfo = document.querySelector('.daily-info');
+	const dailyInfo = document.querySelector(`#list-${date} .daily-info`);
 	dailyInfo.insertAdjacentHTML('afterbegin', dailyInfoTemplate);
 }
 
