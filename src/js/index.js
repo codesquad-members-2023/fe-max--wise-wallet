@@ -1,20 +1,11 @@
-import { initInputBarDate } from './inputbar/initInputBarDate.js';
-import { initHeaderMonthYear } from './header/initHeaderMonthYear.js';
-import { initFormEventChecker } from './inputbar/initFormChecker.js';
-import { initMainRender } from './main/initMainRender.js';
-import { initFilterList } from './main/infoFilter.js';
-import './inputbar/dropdown.js';
-import './inputbar/autoComma.js';
-import './inputbar/switchCategory.js';
-import './utils/formValidation.js';
-import './data/storeInputData.js';
+import { initHeader } from './header/initHeader.js';
+import { initInputbar } from './inputbar/initInputbar.js';
+import { initMain } from './main/initMain.js';
 
 const init = () => {
-	initHeaderMonthYear();
-	initInputBarDate();
-	initFormEventChecker();
-	initMainRender();
-	initFilterList();
+	initHeader();
+	initInputbar();
+	initMain();
 };
 
 window.addEventListener('load', init);

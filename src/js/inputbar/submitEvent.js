@@ -1,8 +1,7 @@
 import { renderMainList } from '../main/mainList.js';
 
-const form = document.querySelector('form');
-
-function submitEventHandler() {
+export function checkSubmitEvent() {
+	const form = document.querySelector('form');
 	form.addEventListener('submit', e => {
 		e.preventDefault();
 
@@ -46,5 +45,3 @@ function storeFormDate(monthlyList, yearMonthKey, dailyList, data) {
 
 	localStorage.setItem(yearMonthKey, JSON.stringify(monthlyList));
 }
-
-submitEventHandler();
