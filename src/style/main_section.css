@@ -53,6 +53,10 @@ input[type="checkbox"] + label {
   background-repeat: no-repeat;
 }
 
+input[type="checkbox"] + label {
+  background-image: url(../svg/unchecked.svg);
+}
+
 input[type="checkbox"]:checked + label {
   background-image: url(../svg/checked.svg);
 }
