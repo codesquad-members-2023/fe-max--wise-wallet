@@ -53,7 +53,6 @@ const setTable = () => {
       const calendarDate = new Date(year, month - 1, day);
       isToday =
         nowDate.toDateString() == calendarDate.toDateString() ? true : false;
-      console.log(nowDate.toDateString() === calendarDate.toDateString());
       dayText = day;
     }
     td += `<td>
