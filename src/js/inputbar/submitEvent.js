@@ -1,8 +1,7 @@
 import { renderMainList } from '../main/mainList.js';
 
-const form = document.querySelector('form');
-
-function submitEventHandler() {
+export function checkSubmitEvent() {
+	const form = document.querySelector('form');
 	form.addEventListener('submit', e => {
 		e.preventDefault();
 
@@ -20,17 +19,29 @@ function submitEventHandler() {
 
 function processFormDate(data) {
 	const yearMonthKey = data.date.slice(0, 6);
+	const defaultDailyList = {
+		details: [],
+		count: 0,
+		totalExpenditure: 0,
+		totalIncome: 0,
+	};
 	const monthlyList = JSON.parse(localStorage.getItem(yearMonthKey)) ?? {};
-	const dailyList = monthlyList[data.date] ? monthlyList[data.date] : [];
+	const dailyList = monthlyList[data.date] ? monthlyList[data.date] : defaultDailyList;
 
 	storeFormDate(monthlyList, yearMonthKey, dailyList, data);
 }
 
 function storeFormDate(monthlyList, yearMonthKey, dailyList, data) {
-	dailyList.push(data);
+	const { price } = data;
+	const currentPrice = parseInt(price.replaceAll(',', ''), 10);
+	if (!data.hasOwnProperty('income')) {
+		dailyList.totalExpenditure += currentPrice;
+	} else {
+		dailyList.totalIncome += currentPrice;
+	}
+	dailyList.count++;
+	dailyList.details.push(data);
 	monthlyList[data.date] = dailyList;
 
 	localStorage.setItem(yearMonthKey, JSON.stringify(monthlyList));
 }
-
-submitEventHandler();

@@ -16,3 +16,43 @@ button {
   border: none;
   background-color: transparent;
 }
+
+.bc-navy {
+  background-color: var(--color-category-navy);
+}
+
+.bc-blue {
+  background-color: var(--color-category-blue);
+}
+
+.bc-mint {
+  background-color: var(--color-category-mint);
+}
+
+.bc-cyan {
+  background-color: var(--color-category-cyan);
+}
+
+.bc-sky {
+  background-color: var(--color-category-sky);
+}
+
+.bc-pink {
+  background-color: var(--color-category-pink);
+}
+
+.bc-purple {
+  background-color: var(--color-category-purple);
+}
+
+.bc-green {
+  background-color: var(--color-category-green);
+}
+
+.bc-yellow {
+  background-color: var(--color-category-yellow);
+}
+
+.bc-orange {
+  background-color: var(--color-category-orange);
+}

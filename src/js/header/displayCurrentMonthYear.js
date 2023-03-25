@@ -1,5 +1,5 @@
 import { getToday } from '../utils/getToday.js';
-import { monthNameList } from '../constants/monthNameList.js';
+import { monthNameList } from '../constants/constants.js';
 
 export function displayCurrentMonthYear() {
 	const { year, month } = getToday();
@@ -10,7 +10,7 @@ export function displayCurrentMonthYear() {
 	const currentMonthEl = document.querySelector('div.current-month-year p:nth-of-type(2)');
 	const currentMonthNameEl = document.querySelector('div.current-month-year p:nth-of-type(3)');
 
-	currentYearEl.innerText = currentYear;
-	currentMonthEl.innerText = currentMonth;
-	currentMonthNameEl.innerText = monthNameList[currentMonth];
+	currentYearEl.textContent = currentYear;
+	currentMonthEl.textContent = currentMonth;
+	currentMonthNameEl.textContent = monthNameList[currentMonth];
 }

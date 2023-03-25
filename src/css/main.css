@@ -1,80 +1,119 @@
 .info-filter {
-  width: 848px;
-  position: absolute;
-  top: 286px;
-  left: 50%;
-  transform: translateX(-50%);
+	width: 848px;
+  height: 32px;
+	position: absolute;
+	top: 286px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.info-filter div:first-child {
+  font: var(--font-body-large);
+  height: 24px;
+}
+
+.info-filter div:last-child {
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
+.info-filter .filter-checkbox {
+	width: 24px;
+	height: 24px;
+	cursor: pointer;
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none'%3E%3Crect width='18.5' height='18.5' x='2.75' y='2.75' stroke='%23524D90' stroke-width='1.5' rx='4.25'/%3E%3C/svg%3E");
+	background-repeat: no-repeat;
+}
+
+.info-filter .filter-checkbox:checked {
+	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' fill='none'%3E%3Crect width='20' height='20' x='2' y='2' fill='%23524D90' rx='5'/%3E%3Cpath stroke='%23FCFCFC' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m17 9-6.875 6.667L7 12.637'/%3E%3C/svg%3E");
+}
+
 .main-list {
-  width: 846px;
-  position: absolute;
-  top: 346px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
+	width: 846px;
+	position: absolute;
+	top: 346px;
+	left: 50%;
+	transform: translateX(-50%);
+	display: flex;
+	flex-direction: column;
 }
 
 .daily-info {
-  margin-bottom: 21px;
-  display: flex;
-  justify-content: space-between;
+	margin-bottom: 21px;
+	display: flex;
+	justify-content: space-between;
+	color: var(--color-primary-alt);
+}
+
+.daily-info div:first-child span:first-child {
+	color: var(--color-primary);
+}
+
+.total-income.hide {
+	display: none;
+}
+
+.total-expenditure.hide {
+	display: none;
 }
 
 .daily-detail-lists-container {
-  margin-bottom: 32px;
+	margin-bottom: 32px;
 }
 
 .daily-detail-lists-container li:last-child {
-  border-bottom: 1px solid var(--color-primary-alt);
+	border-bottom: 1px solid var(--color-primary-alt);
 }
 
 .daily-detail-list {
-  padding: 16px 0px;
-  box-sizing: border-box;
-  border-top: 1px solid var(--color-primary-alt);
-  display: flex;
-  justify-content: space-evenly;
+	padding: 16px 0px;
+	box-sizing: border-box;
+	border-top: 1px solid var(--color-primary-alt);
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.daily-detail-list.hide {
+  display: none;
 }
 
 .daily-detail-category {
-  box-sizing: border-box;
-  padding-top: 4px;
-  height: 32px;
-  text-align: center;
-  background-color: var(--color-category-mint);
-  color: var(--color-white);
-  font: var(--font-bold-medium);
-  flex-basis: 92px;
-  border-radius: 25px;
+	box-sizing: border-box;
+	padding-top: 4px;
+	height: 32px;
+	text-align: center;
+	color: var(--color-white);
+	font: var(--font-bold-medium);
+	flex-basis: 92px;
+	border-radius: 25px;
 }
 
 .daily-detail-memo {
-  padding-top: 4px;
-  flex-basis: 320px;
-  color: var(--color-primary);
+	padding-top: 4px;
+	flex-basis: 320px;
+	color: var(--color-primary);
 }
 
 .daily-detail-payment {
-  padding-top: 4px;
-  flex-basis: 120px;
-  color: var(--color-primary-alt);
+	padding-top: 4px;
+	flex-basis: 120px;
+	color: var(--color-primary-alt);
 }
 
 .daily-detail-price {
-  padding-top: 4px;
-  flex-basis: 234px;
-  text-align: right;
+	padding-top: 4px;
+	flex-basis: 234px;
+	text-align: right;
 }
-/* 수입 지출 색상 구분 */
+
 .expenditure .daily-detail-price {
-  color: var(--color-secondary-red);
+	color: var(--color-secondary-red);
 }
 
 .income .daily-detail-price {
-  color: var(--color-secondary-cyan);
+	color: var(--color-secondary-cyan);
 }

@@ -1,17 +1,18 @@
+import { bcColorList } from '../constants/constants.js';
+
 export function renderMainList(data) {
 	if (isNewDate(data)) {
 		addDailyList(data);
 		addDailyInfo(data);
 	}
 	addDailyDetailList(data);
-	// updateDailyInfo();
-	// updateInfoFilter();
+	updateDailyInfo(data);
+	updateInfoFilter(data);
 }
 
 function isNewDate({ date }) {
-	const yearMonthKey = date.slice(0, 6);
-	const monthlyList = JSON.parse(localStorage.getItem(yearMonthKey));
-	return monthlyList[date].length === 1;
+	const targetDateList = document.querySelector(`#list-${date}`);
+	return targetDateList === null;
 }
 
 function addDailyList({ date }) {
@@ -22,11 +23,25 @@ function addDailyList({ date }) {
 	newLi.classList.add('daily-list');
 	newDiv.classList.add('daily-info');
 	newUl.classList.add('daily-detail-lists-container');
-	newUl.setAttribute('id', `list-${date}`);
+	newLi.setAttribute('id', `list-${date}`);
 	newLi.append(newDiv, newUl);
+	const referenceNode = findReferenceNode(date);
+	const parentNode = document.querySelector('ul.daily-lists-container');
+	parentNode.insertBefore(newLi, referenceNode);
+}
 
-	const currentPosition = document.querySelector('ul.daily-lists-container');
-	currentPosition.insertAdjacentElement('afterbegin', newLi);
+function findReferenceNode(date) {
+	const dailyListNodes = document.querySelectorAll('.daily-list');
+	if (dailyListNodes.length !== 0) {
+		const ids = [];
+		dailyListNodes.forEach(el => ids.push(el.id));
+
+		let i = 0;
+		while (i < dailyListNodes.length && date < ids[i].slice(-8)) {
+			i++;
+		}
+		return dailyListNodes[i];
+	}
 }
 
 function addDailyInfo({ date, price, income }) {
@@ -35,18 +50,23 @@ function addDailyInfo({ date, price, income }) {
 	const monthInfo = targetDate.getMonth() + 1;
 	const dateInfo = targetDate.getDate();
 	const dayInfo = days[targetDate.getDay()];
-	const inOrOut = !income ? '지출' : '수입';
+	const inOrOut = income ? '수입' : '지출';
+	const className = income ? 'total-income' : 'total-expenditure';
 	const priceInfo = price;
+
 	const dailyInfoTemplate = `<div><span>${monthInfo}월 ${dateInfo}일</span> <span>${dayInfo}</span></div>
-  <div><span>${inOrOut}</span> <span>${priceInfo}원</span></div>`;
-	const dailyInfo = document.querySelector('.daily-info');
+  <div> <span class="${className}">${inOrOut} ${priceInfo}원</span></div>`;
+	const dailyInfo = document.querySelector(`#list-${date} .daily-info`);
 	dailyInfo.insertAdjacentHTML('afterbegin', dailyInfoTemplate);
 }
 
 function addDailyDetailList(data) {
 	const newList = document.createElement('li');
-	const details = ['category', 'memo', 'payment', 'price'];
-	const detailTemplate = key => `<div class="daily-detail-${key}">${data[key]}</div>`;
+	const bcColor = bcColorList[data.category];
+	const detailTemplate = `<div class="daily-detail-category ${bcColor}">${data.category}</div>
+  <div class="daily-detail-memo">${data.memo}</div>
+  <div class="daily-detail-payment">${data.payment}</div>
+  <div class="daily-detail-price">${!data.hasOwnProperty('income') ? '-' : '+'}${data.price}원</div>`;
 
 	newList.classList.add('daily-detail-list');
 	if (!data.hasOwnProperty('income')) {
@@ -55,29 +75,79 @@ function addDailyDetailList(data) {
 		newList.classList.add('income');
 	}
 
-	details.forEach(el => {
-		newList.insertAdjacentHTML('beforeend', detailTemplate(el));
-	});
-
-	const dailyDetailLists = document.getElementById(`list-${data.date}`);
+	newList.insertAdjacentHTML('beforeend', detailTemplate);
+	const dailyDetailLists = document.querySelector(`#list-${data.date} ul`);
 	dailyDetailLists.insertAdjacentElement('afterbegin', newList);
 }
 
-function updateDailyInfo() {
-	// 날짜별 상단에 수입지출 요약부분 내용 업데이트
+function updateDailyInfo(data) {
+	const dailyInfo = document.querySelector(`#list-${data.date} div`);
+	const monthYearKey = data.date.slice(0, 6);
+	const storage = JSON.parse(localStorage.getItem(monthYearKey))[data.date];
+	if (!data.hasOwnProperty('income')) {
+		updateExpenditureInfo(dailyInfo, storage);
+	} else {
+		updateIncomeInfo(dailyInfo, storage);
+	}
 }
 
-function updateInfoFilter() {
-	// 메인화면 상단 전체내역 요약부분 업데이트
+function updateExpenditureInfo(dailyInfo, storage) {
+	const updatedExpenditure = storage.totalExpenditure.toLocaleString();
+	const dailyTotalPrice = dailyInfo.lastElementChild.lastElementChild;
+
+	if (dailyTotalPrice.textContent.includes('지출')) {
+		dailyTotalPrice.textContent = `지출 ${updatedExpenditure}원`;
+	} else {
+		const expenditureInfoTemplate = ` <span class="total-expenditure">지출 ${updatedExpenditure}원</span>`;
+		dailyInfo.lastElementChild.insertAdjacentHTML('beforeend', expenditureInfoTemplate);
+	}
 }
 
-// 메인영역렌더링함수
-// 로컬스토리지에 해당 날짜 데이터 없으면 데일리 리스트 생성,
-// 있으면 바로 세부사항 리스트 생성
-// 당일내역정보 업데이트
-// 전체내역정보 업데이트
+function updateIncomeInfo(dailyInfo, storage) {
+	const updatedIncome = storage.totalIncome.toLocaleString();
+	const dailyTotalPrice = dailyInfo.lastElementChild.firstElementChild;
 
-// 데일리 리스트 생성함수
-// 세부사항 리스트 생성함수
-// 당일내역정보 업데이트
-// 전체내역정보 업데이트
+	if (dailyTotalPrice.textContent.includes('수입')) {
+		dailyTotalPrice.textContent = `수입 ${updatedIncome}원`;
+	} else {
+		const incomeInfoTemplate = ` <span class="total-income">수입 ${updatedIncome}원</span>`;
+		dailyInfo.lastElementChild.insertAdjacentHTML('afterbegin', incomeInfoTemplate);
+	}
+}
+
+function updateInfoFilter({ date }) {
+	const monthYearKey = date.slice(0, 6);
+	const storage = JSON.parse(localStorage.getItem(monthYearKey));
+	const totalCount = calculateCount(storage);
+	const totalIncome = calculateIncome(storage);
+	const totalExpenditure = calculateExpenditure(storage);
+	const infoFilter = document.querySelector('.info-filter');
+
+	infoFilter.firstElementChild.textContent = `전체 내역 ${totalCount}건`;
+	infoFilter.lastElementChild.children[1].textContent = `수입 ${totalIncome}`;
+	infoFilter.lastElementChild.children[3].textContent = `지출 ${totalExpenditure}`;
+}
+
+function calculateCount(storage) {
+	let totalCount = 0;
+	for (const dailyData of Object.values(storage)) {
+		totalCount += dailyData.count;
+	}
+	return totalCount;
+}
+
+function calculateIncome(storage) {
+	let totalIncome = 0;
+	for (const dailyData of Object.values(storage)) {
+		totalIncome += dailyData.totalIncome;
+	}
+	return totalIncome.toLocaleString();
+}
+
+function calculateExpenditure(storage) {
+	let totalExpenditure = 0;
+	for (const dailyData of Object.values(storage)) {
+		totalExpenditure += dailyData.totalExpenditure;
+	}
+	return totalExpenditure.toLocaleString();
+}
