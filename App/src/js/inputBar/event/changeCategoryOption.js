@@ -52,7 +52,6 @@ export const changeCategoryOption = () => {
   $selected_text.textContent = "선택하세요";
   $selected_value.value = "";
 
-  const changeEvent = new Event("keyup", { bubbles: true });
-  // 직접 이벤트를 발생
-  $price_checkbox.dispatchEvent(changeEvent);
+  const keyupEvent = new Event("keyup", { bubbles: true });
+  $price_checkbox.dispatchEvent(keyupEvent);
 };

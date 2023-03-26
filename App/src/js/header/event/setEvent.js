@@ -5,32 +5,33 @@ import { setDate } from "../../date/setDate.js";
 import { mainInit } from "../../main/index.js";
 
 export const setEvent = () => {
-  const $monthYear = document.getElementById("monthYear");
-  const $tab = document.getElementById("tab");
+  clickArrowBtn();
+  clcikTabMenu();
+};
 
-  $monthYear.addEventListener("click", (e) => {
+const clickArrowBtn = () => {
+  const $monthYear = document.getElementById("monthYear");
+
+  $monthYear.addEventListener("click", ({ target }) => {
     const $main = document.getElementById("main");
-    const $this = e.target;
-    const $arrowBtn = $this.closest(".arrowBtn");
+    const $arrowBtn = target.closest(".arrowBtn");
     const currentPage = $main.getAttribute("data-page");
 
     if ($arrowBtn) {
-      while ($main.firstChild) {
-        $main.removeChild($main.firstChild);
-      }
+      removeChildAll($main);
       handleArrowBtn($arrowBtn.id, currentPage);
     }
   });
+};
 
-  $tab.addEventListener("click", (e) => {
+const clcikTabMenu = () => {
+  const $tab = document.getElementById("tab");
+
+  $tab.addEventListener("click", ({ target }) => {
+    const targetId = target.closest("button").id;
     const $main = document.getElementById("main");
-    const $this = e.target;
-    const targetId = $this.closest("button").id;
 
-    while ($main.firstChild) {
-      $main.removeChild($main.firstChild);
-    }
-
+    removeChildAll($main);
     switch (targetId) {
       case "tab_doc":
         mainInit();
@@ -52,8 +53,8 @@ export const setEvent = () => {
 };
 
 const handleArrowBtn = (targetId, currentPage) => {
-  const $main = document.getElementById("main");
-  editDate(targetId);
+  const monthOffset = targetId === "left-Arrow" ? -2 : 0;
+  editDate(monthOffset);
 
   switch (currentPage) {
     case "doc":
@@ -72,9 +73,15 @@ const handleArrowBtn = (targetId, currentPage) => {
   }
 };
 
-const editDate = (targetId) => {
-  const num = targetId === "left-Arrow" ? 2 : 0;
+const editDate = (monthOffset) => {
   const [year, month, month_en] = getDateElements();
-  const newDate = new Date(year.innerHTML, month.innerHTML - num);
+  const monthIndex = Number(month.textContent) + monthOffset;
+  const newDate = new Date(year.textContent, monthIndex);
   setDate([year, month, month_en], newDate);
+};
+
+const removeChildAll = (element) => {
+  while (element.firstChild) {
+    element.removeChild(element.firstChild);
+  }
 };
