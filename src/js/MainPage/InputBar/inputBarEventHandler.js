@@ -1,29 +1,33 @@
 import { changeHeaderMonthYear } from '../../Components/header.js';
 import { storage } from '../../Storage.js';
-import { EVENT, REGEX, SELECTOR } from '../../constant.js';
+import { REGEX, SELECTOR } from '../../constant.js';
 import { $, $all, getDateFormat, toggleActiveClass } from '../../utils.js';
 import { monthlyHistoryView } from '../History/monthlyHistoryView.js';
 import { changeCategoryList } from './event/changeCategoryList.js';
 import { initDateInput } from './inputBarView.js';
 
 export function inputBarEventHandler() {
-  const $inputBarDropdowns = $all(SELECTOR.inputBarDropdown);
-  const $moneyTypeCheckbox = $(SELECTOR.moneyCheckbox);
-  const $paymentInput = $(SELECTOR.paymentInput);
-  const $categoryInput = $(SELECTOR.categoryInput);
-  const $moneyInput = $(SELECTOR.moneyInput);
-  const $dateInput = $(SELECTOR.dateInput);
   const $inputBarForm = $(SELECTOR.inputBarForm);
-
-  $moneyTypeCheckbox.addEventListener('click', changeCategoryList);
-  $paymentInput.addEventListener('click', toggleDropdown);
-  $categoryInput.addEventListener('click', toggleDropdown);
-  $moneyInput.addEventListener('input', formatMoneyValue);
-  $dateInput.addEventListener('blur', validateDateValue);
   $inputBarForm.addEventListener('change', checkSubmitButtonActivation);
   $inputBarForm.addEventListener('submit', formSubmitHandler);
+  $inputBarForm.addEventListener('click', ({ target }) => {
+    if (target.matches('.dropdown-input')) {
+      toggleDropdown({ target });
+    }
+    if (target.matches('#money-type-checkbox')) {
+      changeCategoryList({ target });
+    }
+  });
+
+  const $moneyInput = $(SELECTOR.moneyInput);
+  $moneyInput.addEventListener('input', formatMoneyValue);
+
+  const $dateInput = $(SELECTOR.dateInput);
+  $dateInput.addEventListener('blur', validateDateValue);
+
+  const $inputBarDropdowns = $all(SELECTOR.inputBarDropdown);
   $inputBarDropdowns.forEach((dropdown) => {
-    dropdown.addEventListener(EVENT.click, ({ target }) => {
+    dropdown.addEventListener('click', ({ target }) => {
       changeSelectedOption({ target });
       toggleActiveClass(dropdown);
       checkSubmitButtonActivation();
@@ -48,26 +52,50 @@ const formSubmitHandler = (event) => {
     fullDate.value.slice(6),
   ];
 
-  const dailyItemData = {
+  const updatedItem = {
     uuid: currentItemKey.value,
     date: new Date(`${year}-${month}-${date}`),
-    isIncomeMoney: moneyType.checked ? true : false,
-    moneyValue: money.value,
-    memoValue: memo.value,
+    money: Number(money.value.replaceAll(',', '')),
+    memo: memo.value,
     payment: payment.value,
     category: category.value,
+    isIncomeMoney: moneyType.checked ? true : false,
   };
 
   if (!currentItemKey.value) {
-    saveDailyItem(dailyItemData);
+    saveDailyItem(updatedItem);
     resetInputBar();
     return;
   }
 
-  const beforeItem = getSelectedItem();
-  if (isModified(dailyItemData, beforeItem)) {
-    storage.modifyDailyItem(dailyItemData, beforeItem);
+  const stoargedItem = getSelectedItem();
+  if (isModified(updatedItem, stoargedItem)) {
+    updateDailyitem(updatedItem, stoargedItem);
     resetInputBar();
+  }
+};
+
+const saveDailyItem = (dailyItemData) => {
+  try {
+    const monthlyHistory = storage.saveDailyItem(dailyItemData);
+    monthlyHistoryView(monthlyHistory);
+
+    const { year, monthNumber, monthChar } = getDateFormat(dailyItemData.date);
+    changeHeaderMonthYear({ year, monthNumber, monthChar });
+  } catch (err) {
+    // 에러 메시지 유저에게 보여주는 UI 추가하기
+  }
+};
+
+const updateDailyitem = (updatedItem, stoargedItem) => {
+  try {
+    const monthlyHistory = storage.modifyDailyItem(updatedItem, stoargedItem);
+    monthlyHistoryView(monthlyHistory);
+
+    const { year, monthNumber, monthChar } = getDateFormat(updatedItem.date);
+    changeHeaderMonthYear({ year, monthNumber, monthChar });
+  } catch (err) {
+    // 에러 메시지 유저에게 보여주는 UI 추가하기
   }
 };
 
@@ -101,7 +129,7 @@ const checkSubmitButtonActivation = () => {
     fullDate.value.slice(4, 6),
     fullDate.value.slice(6),
   ];
-  const afterItem = {
+  const updatedItem = {
     uuid: currentItemKey.value,
     date: new Date(`${year}-${month}-${date}`).toISOString(),
     isIncomeMoney: moneyType.checked ? true : false,
@@ -119,8 +147,8 @@ const checkSubmitButtonActivation = () => {
   }
 
   if (currentItemKey.value) {
-    const beforeItem = getSelectedItem();
-    isModified(beforeItem, afterItem)
+    const storagedItem = getSelectedItem();
+    isModified(updatedItem, storagedItem)
       ? ($submitButton.disabled = false)
       : ($submitButton.disabled = true);
   }
@@ -137,33 +165,20 @@ const isModified = (before, after) => {
 };
 
 const isAllInputFilled = ({ fullDate, money, memo, payment, category }) => {
-  const userInputValues = [
+  const updatedItemValues = [
     fullDate.value,
     money.value,
     memo.value,
     payment.value,
     category.value,
   ];
-  return userInputValues.every((val) => !!val === true);
+  return updatedItemValues.every((val) => !!val === true);
 };
 
 export const resetInputBar = () => {
   $(SELECTOR.inputBarForm).reset();
   $(SELECTOR.submitButton).disabled = true;
   initDateInput(new Date());
-};
-
-const saveDailyItem = (dailyItemData) => {
-  try {
-    const monthlyHistory = storage.saveDailyItem(dailyItemData);
-    monthlyHistoryView(monthlyHistory);
-
-    const { year, monthNumber, monthChar } = getDateFormat(dailyItemData.date);
-    changeHeaderMonthYear({ year, monthNumber, monthChar });
-  } catch (err) {
-    // 에러 메시지 유저에게 보여주는 UI 추가하기
-    console.error(err.message);
-  }
 };
 
 const validateDateValue = ({ target }) => {
