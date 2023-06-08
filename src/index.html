@@ -5,15 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>가계부</title>
-    <link rel="stylesheet" href="./main.css" />
-    <script type="module" src="./main.js"></script>
+    <link rel="stylesheet" href="./style/header.css" />
+    <link rel="stylesheet" href="./style/inputbar.css" />
+    <link rel="stylesheet" href="./style/main.css" />
+    <link rel="stylesheet" href="./style/common.css" />
+    <script type="module" src="./js/main.js"></script>
   </head>
   <body>
     <header>
-      <div class="header-box">
-        <div class="display-small" id="logo"><a href="#">Wise Wallet</a></div>
-        <div class="month-year">
-          <div class="icon">
+      <div class="headerbox">
+        <div class="headerbox__logo display-small">
+          <a href="#">Wise Wallet</a>
+        </div>
+        <div class="headerbox__monthyear">
+          <div class="monthyear__icon">
             <svg
               width="24"
               height="24"
@@ -30,12 +35,12 @@
               />
             </svg>
           </div>
-          <div class="month-year-text">
+          <div class="monthyear__text">
             <div class="bold-regular" id="header-year">2023</div>
             <div class="display-large" id="header-month">2</div>
             <div class="bold-regular" id="header-month-en">Februry</div>
           </div>
-          <div class="icon">
+          <div class="monthyear__icon">
             <svg
               width="24"
               height="24"
@@ -53,8 +58,8 @@
             </svg>
           </div>
         </div>
-        <div class="tap">
-          <div class="tap-icon" id="history">
+        <div class="headerbox__tab">
+          <div class="tap__icon" id="history">
             <svg
               width="24"
               height="24"
@@ -99,7 +104,7 @@
               />
             </svg>
           </div>
-          <div class="tap-icon" id="calendar">
+          <div class="tap__icon" id="calendar">
             <svg
               width="24"
               height="24"
@@ -137,7 +142,7 @@
               />
             </svg>
           </div>
-          <div class="tap-icon" id="chart">
+          <div class="tap__icon" id="chart">
             <svg
               width="24"
               height="24"
@@ -172,23 +177,23 @@
       </div>
     </header>
     <main>
-      <div class="input-bar">
-        <form class="input-bar-form" action="">
-          <div class="input-bar-date">
-            <fieldset class="date-text">
-              <legend class="bold-small" id="date-lable">일자</legend>
+      <div class="inputbar">
+        <form class="inputbar__form" action="">
+          <div class="inputbar__date">
+            <fieldset class="date__text">
+              <legend class="date__label bold-small">일자</legend>
               <input
                 type="number"
-                name="date-input"
-                id="date-input"
+                name="date__input"
+                id="date__input"
                 class="body-regular"
               />
             </fieldset>
           </div>
-          <div class="input-bar-price">
-            <fieldset class="price-text">
-              <legend class="bold-regular" id="price-lable">금액</legend>
-              <button class="price-button">
+          <div class="inputbar__price">
+            <fieldset class="price__text">
+              <legend class="price__label bold-regular">금액</legend>
+              <button class="price__button">
                 <svg
                   width="24"
                   height="24"
@@ -208,78 +213,124 @@
               <input
                 type="text"
                 class="body-regular"
-                id="price-input"
+                id="price__input"
                 placeholder="0"
               />
-              <span class="body-regular" id="price-span">원</span>
+              <span class="body-regular" id="price__span">원</span>
             </fieldset>
           </div>
-          <div class="input-bar-memo">
-            <fieldset class="memo-text">
-              <legend class="bold-regular" id="memo-label">내용</legend>
+          <div class="inputbar__memo">
+            <fieldset class="memo__text">
+              <legend class="memo__label bold-regular">내용</legend>
               <input
                 type="text"
                 placeholder="입력하세요"
                 class="body-regular"
-                id="memo-input"
+                id="memo__input"
               />
             </fieldset>
           </div>
-          <div class="input-bar-payment">
-            <fieldset class="payment-text">
-              <legend class="bold-regular" id="payment-label">결제수단</legend>
-              <div id="payment_select" class="select">
-                <div class="payment-dropdown">
+          <div class="inputbar__payment">
+            <fieldset class="payment__text">
+              <legend class="payment__label bold-regular">결제수단</legend>
+              <div class="select">
+                <div class="payment__dropdown">
                   <input
-                    id="payment_input"
+                    id="payment__input"
                     class="body-regular"
                     type="text"
                     value=""
                     placeholder="선택하세요"
                     onfocus="this.blur()"
                   />
-                  <div class="arrow"></div>
+                  <div class="downarrow"></div>
                 </div>
-                <ul>
+                <ul class="payment__select">
                   <li class="option body-regular">
-                    <span class="option">현금</span>
-                    <button
-                      class="remove_option_btn reset-btn"
-                      type="button"
-                    ></button>
+                    <span>현금</span>
+                    <button class="remove__btn reset-btn" type="button">
+                      <img src="/icon/name=closed.svg" alt="닫기버튼" />
+                    </button>
                   </li>
                   <li class="option body-regular">
-                    <span class="option">신용카드</span>
-                    <button
-                      class="remove_option_btn reset-btn"
-                      type="button"
-                    ></button>
+                    <span>신용카드</span>
+                    <button class="remove__btn reset-btn" type="button">
+                      <img src="/icon/name=closed.svg" alt="닫기버튼" />
+                    </button>
                   </li>
-                  <li class="add-option body-regular">
-                    <span class="">추가하기</span>
+                  <li class="addoption body-regular">
+                    <span>추가하기</span>
                   </li>
                 </ul>
               </div>
             </fieldset>
           </div>
-          <div class="input-bar-category">
-            <fieldset class="input-category-text">
-              <legend class="bold-regular" id="input-category-label">
-                분류
-              </legend>
-              <select class="body-regular" name="" id="input-category-dropdown">
-                <option value="">생활</option>
-                <option value="">식비</option>
-                <option value="">교통</option>
-                <option value="">쇼핑/뷰티</option>
-                <option value="">의료/건강</option>
-                <option value="">문화/여가</option>
-                <option value="">미분류</option>
-              </select>
-              <input type="checkbox" name="" id="category_checkbox" />
+          <div class="inputbar__category">
+            <fieldset class="category__text">
+              <legend class="category__label bold-regular">분류</legend>
+              <div class="category__dropdown">
+                <input
+                  id="category__input"
+                  class="body-regular"
+                  type="text"
+                  value=""
+                  placeholder="선택하세요"
+                  onfocus="this.blur()"
+                />
+                <div class="downarrow"></div>
+              </div>
+              <ul class="category__select">
+                <li class="option"><span>생활</span></li>
+                <li class="option"><span>식비</span></li>
+                <li class="option"><span>교통</span></li>
+                <li class="option"><span>쇼핑/뷰티</span></li>
+                <li class="option"><span>의료/건강</span></li>
+                <li class="option"><span>문화/여가</span></li>
+                <li class="addoption"><span>미분류</span></li>
+              </ul>
             </fieldset>
+            <input type="checkbox" name="checkbox" id="category__checkbox" />
+            <label
+              for="category__checkbox"
+              class="category__checkbox__label"
+            ></label>
           </div>
         </form>
+      </div>
+      <div class="main__infolist">
+        <div class="info__header">
+          <div class="info__righttext">
+            <span class="body-large">전체 내역</span>
+            <span class="body-large">x건</span>
+          </div>
+          <div class="info__lefttext">
+            <div class="main__income">
+              <input type="checkbox" />
+              <span class="body-medium">200,299,111원</span>
+            </div>
+            <div class="main__spending">
+              <input type="checkbox" />
+              <span class="body-medium">222,222,222원</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="main__list">
+        <div class="list__info">
+          <div class="info__date__day">
+            <span class="info__date">x월 xx일</span>
+            <span class="info__day bold-medium">day</span>
+          </div>
+          <span class="info__spending bold-medium">지출 xx,xxx원</span>
+        </div>
+        <div class="list__details">
+          <div class="details__category">
+            <img src="/icon/Property=Living.svg" alt="라벨" />
+          </div>
+          <div class="details__memo bold-medium">지출 내용 들어가는 자리</div>
+          <div class="details__payment">결제수단</div>
+          <div class="details__price body-medium">xx,xxx원</div>
+        </div>
       </div>
     </main>
   </body>
