@@ -14,10 +14,10 @@ header {
   justify-content: space-between;
   align-items: center;
   width: 846px;
-  height: 96px;
+  /* height: 96px; */
   left: 654px;
   top: 235px;
-  padding: 60px 0px 0px 0px;
+  padding: 30px 0px 0px 0px;
   margin: auto;
 }
 .headerbox__logo {
@@ -35,9 +35,6 @@ header {
 .headerbox__logo > a {
   text-decoration: none;
   color: var(--color-white);
-}
-.monthyear__icon {
-  cursor: pointer;
 }
 .headerbox__monthyear {
   display: flex;
@@ -63,6 +60,19 @@ header {
   flex: none;
   flex-grow: 0;
 }
+.monthyear__nexticon,
+.monthyear__previcon {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  width: 32px;
+  height: 32px;
+  border-radius: 10px 0px 0px 10px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  cursor: pointer;
+}
 .headerbox__tab {
   display: flex;
   flex-direction: row;
@@ -73,16 +83,4 @@ header {
   border-radius: 10px;
   flex: none;
   flex-grow: 0;
-}
-.tap__icon {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  width: 44px;
-  height: 44px;
-  border-radius: 10px 0px 0px 10px;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-  cursor: pointer;
 }
