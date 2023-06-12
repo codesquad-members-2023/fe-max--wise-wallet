@@ -109,6 +109,12 @@ input[type='number']::-webkit-inner-spin-button {
   background-color: white;
   cursor: pointer;
 }
+.price__minus__button {
+  background-image: url(/icon/name=minus.svg);
+}
+.price__plus__button {
+  background-image: url(/icon/name=plus.svg);
+}
 #price__input {
   width: 78px;
   height: 24px;

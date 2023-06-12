@@ -3,6 +3,7 @@ export function inputbarInit() {
   addComma();
   toggleDropdown('.payment__dropdown', '.payment__select', 'show');
   toggleDropdown('.category__dropdown', '.category__select', 'show');
+  changePriceButton();
 }
 
 function getCurrentDate() {
@@ -35,5 +36,15 @@ function toggleDropdown(clickClassName, dropdownClassName, addClassName) {
 
   clickTarget.addEventListener('click', () => {
     dropdownContent.classList.toggle(addClassName);
+  });
+}
+
+function changePriceButton() {
+  const priceButton = document.querySelector('.price__button');
+  const buttonImg = document.querySelector('#price__button');
+
+  priceButton.addEventListener('click', (e) => {
+    buttonImg.classList.toggle('price__minus__button');
+    buttonImg.classList.toggle('price__plus__button');
   });
 }
