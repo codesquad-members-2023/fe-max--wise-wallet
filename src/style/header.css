@@ -84,3 +84,14 @@ header {
   flex: none;
   flex-grow: 0;
 }
+.tap__icon {
+  display: flex;
+  width: 44px;
+  height: 44px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.tap__icons path {
+  stroke: var(--color-white);
+}
