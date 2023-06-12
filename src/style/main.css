@@ -1,6 +1,6 @@
 main {
   background-color: var(--color-off-white);
-  height: 100%;
+  height: 100vh;
 }
 .main__infolist {
   display: flex;

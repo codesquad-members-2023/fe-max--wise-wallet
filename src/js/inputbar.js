@@ -1,5 +1,8 @@
 export function inputbarInit() {
   showCurrentDate();
+  addComma();
+  toggleDropdown('.payment__dropdown', '.payment__select', 'show');
+  toggleDropdown('.category__dropdown', '.category__select', 'show');
 }
 
 function getCurrentDate() {
@@ -14,4 +17,23 @@ function getCurrentDate() {
 function showCurrentDate() {
   const input = document.querySelector('#date__input');
   input.value = getCurrentDate();
+}
+
+function addComma() {
+  const input = document.querySelector('#price__input');
+
+  input.addEventListener('input', function () {
+    const inputValue = input.value.replace(/,/g, '');
+    const formattedValue = Number(inputValue).toLocaleString();
+    input.value = formattedValue;
+  });
+}
+
+function toggleDropdown(clickClassName, dropdownClassName, addClassName) {
+  const clickTarget = document.querySelector(clickClassName);
+  const dropdownContent = document.querySelector(dropdownClassName);
+
+  clickTarget.addEventListener('click', () => {
+    dropdownContent.classList.toggle(addClassName);
+  });
 }
