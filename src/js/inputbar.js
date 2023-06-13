@@ -37,6 +37,15 @@ function toggleDropdown(clickClassName, dropdownClassName, addClassName) {
   clickTarget.addEventListener('click', () => {
     dropdownContent.classList.toggle(addClassName);
   });
+  hideDropdown(clickTarget, dropdownContent, addClassName);
+}
+
+function hideDropdown(clickTarget, dropdownContent, addClassName) {
+  document.addEventListener('click', (e) => {
+    if (!clickTarget.contains(e.target)) {
+      dropdownContent.classList.remove(addClassName);
+    }
+  });
 }
 
 function changePriceButton() {
@@ -48,3 +57,5 @@ function changePriceButton() {
     buttonImg.classList.toggle('price__plus__button');
   });
 }
+
+function changeCategoryDropdown() {}
