@@ -3,7 +3,9 @@ export function inputbarInit() {
   addComma();
   toggleDropdown('.payment__dropdown', '.payment__select', 'show');
   toggleDropdown('.category__dropdown', '.category__select', 'show');
-  changePriceButton();
+  changeCategoryDropdown();
+  toggleCategoryDropdown();
+  setInputValue('#payment__input', '.payment__select span');
 }
 
 function getCurrentDate() {
@@ -48,14 +50,74 @@ function hideDropdown(clickTarget, dropdownContent, addClassName) {
   });
 }
 
-function changePriceButton() {
-  const priceButton = document.querySelector('.price__button');
-  const buttonImg = document.querySelector('#price__button');
+function setInputValue(inputId, dropdownClassName) {
+  const input = document.querySelector(inputId);
+  const dropdownEls = document.querySelectorAll(dropdownClassName);
 
-  priceButton.addEventListener('click', (e) => {
-    buttonImg.classList.toggle('price__minus__button');
-    buttonImg.classList.toggle('price__plus__button');
+  dropdownEls.forEach((option) => {
+    option.addEventListener('click', () => {
+      input.value = option.textContent;
+    });
   });
 }
 
-function changeCategoryDropdown() {}
+function toggleCategoryDropdown() {
+  const buttonImg = document.querySelector('#price__button');
+
+  buttonImg.addEventListener('click', () => {
+    buttonImg.classList.toggle('price__minus__button');
+    buttonImg.classList.toggle('price__plus__button');
+    changeCategoryDropdown();
+    setInputValue('#category__input', '.category__select li');
+    initInput();
+    showCurrentDate();
+  });
+}
+
+function changeCategoryDropdown() {
+  const income = [
+    '생활',
+    '식비',
+    '교통',
+    '쇼핑/뷰티',
+    '의료/건강',
+    '문화/여가',
+    '미분류'
+  ];
+  const expenditure = ['월급', '용돈', '기타수입'];
+  const dropdownContent = document.querySelector('.category__select');
+  const buttonImg = document.querySelector('#price__button');
+
+  dropdownContent.innerHTML = '';
+  if (buttonImg.classList.contains('price__minus__button')) {
+    for (let i = 0; i < income.length; i++) {
+      const option = document.createElement('li');
+      option.classList.add('option');
+      option.textContent = income[i];
+      dropdownContent.appendChild(option);
+    }
+  } else if (buttonImg.classList.contains('price__plus__button')) {
+    for (let i = 0; i < expenditure.length; i++) {
+      const option = document.createElement('li');
+      option.classList.add('option');
+      option.textContent = expenditure[i];
+      dropdownContent.appendChild(option);
+    }
+  }
+}
+
+function initInput() {
+  const inputIds = [
+    '#price__input',
+    '#memo__input',
+    '#payment__input',
+    '#category__input'
+  ];
+
+  inputIds.forEach((inputId) => {
+    const input = document.querySelector(inputId);
+    if (input) {
+      input.value = '';
+    }
+  });
+}

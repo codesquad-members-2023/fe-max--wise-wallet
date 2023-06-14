@@ -270,6 +270,10 @@ input[type='number']::-webkit-inner-spin-button {
   border: 1px solid var(--color-primary);
   border-radius: 8px;
 }
+.payment__select span {
+  width: 76px;
+  height: 24px;
+}
 .option {
   display: flex;
   align-items: center;
@@ -283,23 +287,14 @@ input[type='number']::-webkit-inner-spin-button {
   color: var(--color-primary);
   cursor: pointer;
 }
+.option:last-child {
+  border: none;
+}
 .remove__btn {
   border: none;
   background-color: var(--color-white);
   cursor: pointer;
   margin-top: 2px;
-}
-.addoption {
-  display: flex;
-  align-items: center;
-  padding: none;
-  justify-content: flex-start;
-  width: 100px;
-  height: 57px;
-  background: var(--color-white);
-  border-radius: 8px 8px 0px 0px;
-  color: var(--color-primary);
-  cursor: pointer;
 }
 .inputbar__category {
   display: flex;
